@@ -33,7 +33,7 @@ Create a `.env` file in the project root with the following content:
 OPENAI_API_KEY=your-openai-api-key
 FIRECRAWL_API_KEY=your-firecrawl-api-key
 ```
-| ⚠️ Do not commit .env to version control.
+> ⚠️ Do not commit .env to version control.
 
 ## 🚀 Run the Application
 
