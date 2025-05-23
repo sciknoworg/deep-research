@@ -1,0 +1,3 @@
+pip install tiktoken, openai
+pip install python-dotenv
+pip install aiohttp
