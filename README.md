@@ -1,6 +1,8 @@
+![Concept](assets/img/search-browse-research.png)
+
 # Deep Research
 
-This project enables automated scientific research using Large Language Models (LLMs) and search APIs.
+This project enables automated scientific research using Large Language Models (LLMs) and search APIs. I've deliberately kept this readme simple. More discussion on this topic can be found in the linked Medium community science post.
 
 ## 🛠 Setup
 

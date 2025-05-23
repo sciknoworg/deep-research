@@ -1,0 +1,121 @@
+$ python src/main.py
+Enter an OpenAI model to use (press Enter to use default 'o3-mini'):
+Using model: o3-mini
+What would you like to research? Art
+Enter research breadth (recommended 2–10, default 4): 4
+Enter research depth (recommended 1–5, default 2): 3
+Do you want to generate a long report or a specific answer? (report/answer, default report): report
+
+Creating research plan...
+
+To better understand your research needs, please answer these follow-up questions:
+
+Could you clarify which aspect of art you're interested in exploring (e.g., historical movements, digital art, contemporary practices, or a specific medium)?
+Your answer: art history
+
+Are you looking for an analysis of art theory and criticism, or more data-driven insights into the art market and economic trends?
+Your answer: criticism
+
+Would you like to focus on global trends in art or concentrate on a particular region or cultural context?
+Your answer: southeast
+Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\dsouzaj\AppData\Local\miniconda3\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\dsouzaj\AppData\Local\miniconda3\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+Starting research...
+
+Ran Impact of cultural context on art criticism in Southeast Asia, found 10 contents
+Ran History of art criticism in Southeast Asia, found 10 contents
+Ran The role of art criticism in shaping contemporary Southeast Asian art history, found 10 contents
+Ran How have digital platforms and online media ecosystems reshaped the production and dissemination of art criticism in Southeast Asia, and what emerging theoretical frameworks are being used to counter Eurocentric art historical narratives?, found 10 contents
+Ran How do regional art initiatives and collaborative practices, such as those seen in ASEAN cultural policies and Indonesian collective art movements, influence the evolution of art criticism and promote postcolonial critiques in Southeast Asia?, found 10 contents
+Ran How have curatorial decisions at National Gallery Singapore and the emergence of critical exhibitions reshaped the master narrative of Southeast Asian art history?, found 10 contents
+Ran How does the conflation of art writing and art criticism in Malaysia shape local artistic practices and international perceptions of Southeast Asian art?, found 10 contents
+Ran How are digital exhibition platforms and international collaborations reshaping the critical reception and production modalities of Southeast Asian art, particularly through alternative curatorial practices and innovative funding models in state-backed biennials?, found 10 contents
+Ran How does varying state intervention in Southeast Asia influence artistic autonomy and political oversight in contemporary art spaces, and what mechanisms do collaborative practices employ to challenge and reshape established art historical canons in postcolonial contexts globally?, found 10 contents
+Ran How can specialized training and institutional reforms delineate art criticism from art writing in Malaysia to enhance local discourse and adapt curatorial strategies amid international market pressures and digital media influences?, found 10 contents
+Ran How have post-2020 state-backed art initiatives and regional exhibitions in Southeast Asia evolved or contested the NGS master narrative through participatory curatorial practices and archival methodologies that decenter the Western art historical canon?, found 10 contents
+
+
+Learnings:
+
+Indonesian collaborative art practices have been pivotal in negotiating a postcolonial critique of modernity and development. By forming artist collectives and embracing postmodern (pascamodernisme) strategies, these movements not only subvert Western-centric narratives but also articulate a distinct critical marginality that reinterprets traditional art forms and their socio-political contexts.
+State-backed biennials and curated platforms—exemplified by the Singapore Biennale (2019), Biennale Jogja (2019), the Thailand Biennale (2018), and the Asian Art Biennial in Taichung (2019)—play a dual role by both supporting under-funded infrastructures and potentially limiting criticality through political and ideological constraints. This interplay shapes the evolving landscape of art criticism and engaged art practices in the region.
+Critical discourse in the region has evolved from essentialist ethnographic frameworks toward more nuanced approaches that interrogate traditional cultural narratives. Studies challenge the dominant narratives by emphasizing formal and material concerns (e.g., mobility, memory, embodied experience) and integrating theories such as Julia Kristeva’s melancholia, thereby reframing Southeast Asian art beyond simplistic cultural or nationalist markers.
+Collaborative and socially-engaged practices, notably in Singapore and Indonesia, serve as mechanisms to both challenge and redefine established art historical canons; these practices leverage collective agency, trans-local networks, and alternative narratives that counter the dominant Euro-American critical frameworks.
+Regional art initiatives in Southeast Asia, including ASEAN cultural policies and Indonesian collective art movements, have redefined art criticism by foregrounding postcolonial narratives and challenging Euro-American art historical frameworks. Studies spanning from the 1970s to the post-2000 period reveal that these initiatives emphasize site-specific issues—such as mobility, memory, and the materiality of traditional arts—to resist essentialist constructions of 'nation' or 'culture'.
+State-backed art biennials in Southeast Asia, such as the Singapore Biennale (2019), Biennale Jogja (2019), and Thailand Biennale (2018), illustrate a dual role where government funding both supports under-resourced art infrastructures and potentially constrains critical, counter-hegemonic artistic practices through directed agendas.
+State intervention in Southeast Asian art—exemplified by case studies on the Singapore Biennale (2019), Thailand Biennale (2018), and Biennale Jogja (2019)—influences artistic autonomy by both funding art infrastructures and imposing subtle controls that risk narrowing critical, counter-hegemonic practices, as explored in analyses of state-backed biennials.
+The overlapping and multifaceted roles played by artists, curators, art historians, and arts managers contribute to an absence of rigorous, independent art criticism. This conflation dilutes critical discourse in Malaysia, potentially undermining both localized artistic experimentation and the nuanced interpretation required by global art markets.
+Interdisciplinary approaches combining historical, curatorial, and cultural analysis (including frameworks like Hofstede’s Cultural Dimensions) demonstrate how varied regional contexts and state initiatives (e.g., the Singapore Arts Plan and state-backed biennials such as the Singapore Biennale 2019) influence narrative formation and the public reception of art exhibitions in Southeast Asia.
+Global forces, including the surge in cyber technologies and international demand (notably since 2006 when Malaysian artworks began fetching higher prices abroad), underscore the urgency for localized, rigorously trained art critics. This could help align Malaysia’s visual art practices, enabling adaptation of both traditional and digital curatorial strategies to better negotiate a globalized art market.
+Malaysian art criticism is characterized by a notable scarcity of professional art critics and the conflation with art writing, as evidenced by studies like 'The Art Criticism In Visual Art Perspective In Malaysia' and analyses in 'Art Criticism versus Art Writing: The Malaysian Situation', reflecting how such gaps impact critical engagement within the visual art scene.
+Southeast Asian contemporary art is characterized by a dynamic tension between traditional heritage and postmodern innovation. This is evident in projects like the Bangkok Art Biennale 2018 and research into the ‘third avant-garde,’ where artists, across countries like Indonesia, Malaysia, Singapore, and the Philippines, employ collaborative practices to subvert Western art historical narratives and assert locally rooted, postcolonial critiques.
+NGS’s curatorial strategy, exemplified by its exhibitions 'Between Declarations and Dreams: Art of Southeast Asia Since the 19th Century' (2015–2020) and 'Reframing Modernism' (2016), repositions modern Southeast Asian art history by foregrounding its roots in nineteenth‐century colonialism and Western modernism, thereby centralizing Singapore as a regional hub at the expense of more complex national narratives.
+Art criticism in Southeast Asia, particularly in Malaysia, is underdeveloped despite a burgeoning contemporary art scene. Research highlights a reliance on journalistic art writing—often in newspapers, magazines, and digital platforms—to substitute for formal, professional critique, with detailed examinations showing blurred roles among art historians, curators, artists, and managers over the last 50 years.
+The persistent reliance on exhibition catalog essays in Malaysia—as opposed to specialized art criticism—stems from a systemic absence of dedicated professional art critics, with multi-role practices among writers, artists, and historians diluting analytical rigor over art criticism. This issue has been evident in unchanged exhibition strategies in venues such as the national gallery over the past fifty years.
+The emergence of 'critical exhibitions' in Southeast Asia from the 1970s to the 1990s—such as Malaysia’s 'Towards a Mystical Reality' (1974), Indonesia’s New Art Movement (1975), and Thailand’s Bill-Board Cut-Out (1975)—has introduced methodologies that pivot from mere art display to participatory, socially-engaged practice, reshaping traditional curatorial roles and discourses.
+The enduring reliance on exhibition catalogues for art essays in Malaysia, due to a dearth of dedicated research papers and professional art critics, reinforces a conflated practice of art writing and art criticism. This model, unchanged for over 50 years, affects both local exhibition strategies (including practices at the National Gallery and private galleries) and frames international perceptions of Malaysian art.
+Institutional reforms are needed to revamp curatorial practices that currently result in loosely themed and repetitive art displays. Specialized training could distinguish art criticism from art writing, thereby fostering a richer local discourse that competes effectively with international market pressures and digital media influences.
+Alternative curatorial practices are challenging conventional narratives in Southeast Asian art history. Institutions like National Gallery Singapore, with exhibitions such as 'Between Declarations and Dreams' and 'Reframing Modernism', construct dominant narratives that often marginalize regional diversity, while alternative strategies—as seen in the artist-led Bangkok Biennial—offer counter-hegemonic frameworks that resist state or market-imposed aesthetics.
+In parallel, global influences such as cybersecurity, globalization, and market dynamics (e.g., soaring prices since 2006 and commissions from international institutions) interplay with traditional local practices, leading to a tension between conventional aesthetic narratives and emerging, market-responsive art practices in Southeast Asia.
+Alternative critical frameworks are emerging that challenge essentialist, ethnographic models by emphasizing themes like mobility, memory, and the body – a shift highlighted in theses such as 'Images that quiver: the in/visible geographies of 'Southeast Asian' contemporary art' – thus calling for a re-evaluation of the region’s art historical and socio-cultural interpretations.
+Digital platforms and entrepreneurial models are transforming the art market in Southeast Asia. In Indonesia, for example, the shift from traditional media to digital art is part of a broader digital revolution, which, along with technologies like virtual art-viewing and online auctions, is driving international collaborations and innovative funding strategies in art transactions across hubs like Hong Kong, Shanghai, Taipei, and Singapore.
+Multi-institutional and transnational exhibitions like 'Awakenings: Art in Society in Asia 1960s-1990s', involving institutions in Singapore, Japan, and Korea, reveal a nuanced participatory curatorial approach that tailors archival and thematic strategies to local cultural contexts, thereby decentering Euro-American art historical canons.
+The digital revolution, highlighted by transformative movements like Indonesia’s Bandung Creative Movement (2014), is redirecting the regional art market’s focus from traditional media to new media art, while also fostering cross-national collaborations and innovative modeling in art transactions, as seen in the increasing digitalization of galleries and online auctions across Hong Kong, Shanghai, Taipei, and Singapore.
+Digital platforms are redefining art criticism in Southeast Asia by enabling non-traditional production and dissemination channels, exemplified by institutional shifts in events such as the Singapore Biennale (2019) and Biennale Jogja (2019), and the emergence of online, nomadic digital art galleries that challenge established art market structures.
+NGS has been instrumental in constructing a modern Southeast Asian art narrative through key exhibitions (e.g., 'Between Declarations and Dreams', 2015–2020 and 'Reframing Modernism', 2016), which simultaneously reinforce colonial-era origins and challenge the entrenched Western modernism by strategically positioning Singapore as a regional arts center.
+A postcolonial reimagining of the avant-garde in Southeast Asia emerges through a dual approach: one that uses traditional materiality as a celebratory resource and another that radically reinterprets such traditions to resist Western-centric academic disciplines, thereby reshaping the cultural and formal parameters of contemporary art.
+Curatorial practices and exhibitions, notably those by institutions like National Gallery Singapore with shows such as 'Between Declarations and Dreams' (2015–2020) and 'Reframing Modernism' (2016), have been pivotal in constructing dominant art historical narratives that link Southeast Asian art history to nineteenth century colonialism and Western modernism.
+Emerging theoretical frameworks in Southeast Asia are countering Eurocentric narratives by privileging relational critical approaches that emphasize multi-spatial dynamics—mobility, memory, and the body—thereby reconnecting art with its socio-cultural context and challenging essentialist readings rooted in nationality and cultural biography.
+State-backed biennials in East and Southeast Asia—exemplified by the Singapore Biennale (2019), Biennale Jogja (2019), Asian Art Biennial in Taichung (2019), and the Thailand Biennale (2018)—are reshaping exhibition cultures by balancing government funding with the risk of curatorial control, as discussed by scholars such as Chantal Mouffe and Charles Green. This dynamic is redefining critical reception through politically charged and counter-hegemonic practices.
+
+
+Visited URLs (40):
+
+http://handle.unsw.edu.au/1959.4/53389
+https://crawford.anu.edu.au/news-events/podcasts/audio/7626/art-markets-communities-and-cultures-digital-revolution-indonesia
+https://doi.org/10.17645/si.v10i1.4895
+https://glim-re.repo.nii.ac.jp/?action=repository_action_common_download&item_id=3228&item_no=1&attribute_id=22&file_no=1
+http://summit.sfu.ca/item/2440
+https://hdl.handle.net/10356/157109
+www.myjurnal.my/filebank/published_article/21527jk_v19_n2_3.pdf
+https://openlibrary.telkomuniversity.ac.id/pustaka/100772/the-development-of-new-media-art-in-indonesia-proceeding-the-1st-bandung-creative-movement-bcm-2014.html
+http://hdl.handle.net/11343/225000
+https://commons.ln.edu.hk/vs2021conference/p3/1/2
+https://hdl.handle.net/10356/157099
+http://hdl.handle.net/10072/406835
+https://hdl.handle.net/10356/137352
+http://hdl.handle.net/2123/14186
+https://journals.itb.ac.id/index.php/jvad/article/view/407
+http://eprints.usm.my/30927/
+http://hdl.handle.net/1885/9266
+http://carnetcase.hypotheses.org/1315
+http://carnetcase.hypotheses.org/2739
+https://www.neliti.com/publications/338679/the-impossibility-of-art-history-in-indonesia
+http://ir.unimas.my/id/eprint/32613/1/Law%20Yee%20Yu.pdf
+https://opus.govst.edu/syllabi_art/10
+http://eprints.usm.my/28254/
+http://www.open-access.bcu.ac.uk/4930/
+http://creops.hypotheses.org/718
+https://commons.ln.edu.hk/vs2021conference/p5/1/1
+http://hdl.handle.net/10068/955840
+https://hdl.handle.net/10356/157126
+http://eprints.usm.my/31971/
+https://hdl.handle.net/1813/33489
+http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.1038.9723
+http://irhs.ui.ac.id/index.php/journal/article/view/147
+https://doi.org/10.4324/9780367422080
+http://hdl.handle.net/1887/62200
+https://doaj.org/article/e169527986e14df4a81e9cba99c35f1f
+https://espace.library.uq.edu.au/view/UQ:8aecc7d
+https://opus.govst.edu/syllabi_art/11
+http://www.myjurnal.my/filebank/published_article/21527/jk_v19_n2_3.pdf
+http://press.anu.edu.au/wp-content/uploads/2014/10/whole7.pdf
+http://psasir.upm.edu.my/id/eprint/48358/1/FRSB%202013%201R.pdf
+Writing final report...
