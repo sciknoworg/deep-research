@@ -22,7 +22,7 @@ class FirecrawlApp:
         self.api_key = api_key
         self.base_url = base_url.rstrip("/")
 
-    async def search(self, query: str, timeout: int = 15000, limit: int = 10):
+    async def search(self, query: str, timeout: int = 15000, limit: int = 5):
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
@@ -49,34 +49,10 @@ class FirecrawlApp:
 
                 return await resp.json()
 
-
-class ORKGAskApp:
-    def __init__(self, base_url: str = "https://api.ask.orkg.org/index"):
-        self.base_url = base_url.rstrip("/")
-
-    async def search(self, query: str, timeout: int = 15000, limit: int = 10):
-        params = {"query": query, "limit": limit}
-        async with aiohttp.ClientSession() as session:
-            async with session.get(f"{self.base_url}/search", params=params) as resp:
-                if resp.status != 200:
-                    text = await resp.text()
-                    raise Exception(f"{resp.status}, message={repr(text)}, url='{str(resp.url)}'")
-                return await resp.json()
-
-FIRECRAWL = "firecrawl"
-ORKG = "orkg"
-
-def get_search_client(provider: str):
-    if provider == ORKG:
-        return ORKGAskApp()
-    return FirecrawlApp(
-        api_key=os.getenv("FIRECRAWL_KEY", ""),
-        base_url=os.getenv("FIRECRAWL_BASE_URL", "https://api.firecrawl.dev/v1")
-    )
-
-search_client = get_search_client(os.getenv("RESEARCH_PROVIDER", "firecrawl"))
-
-print(f"Search provider in use: {type(search_client).__name__}")
+firecrawl = FirecrawlApp(
+    api_key=os.getenv("FIRECRAWL_KEY", ""),
+    base_url=os.getenv("FIRECRAWL_BASE_URL", "https://api.firecrawl.dev/v1")
+)
 
 async def write_final_report(prompt: str, learnings: list, visited_urls: list) -> str:
     """Generate a final report in markdown format based on learnings."""
@@ -225,24 +201,11 @@ async def process_serp_result(
     num_followups: int = 3
 ):
     # Step 1: Extract and trim content
-    if "data" in result:  # Firecrawl response
-        contents = [
-            trim_prompt(doc.get("markdown", ""), 25000)
-            for doc in result.get("data", [])
-            if doc.get("markdown")
-        ]
-    elif "payload" in result and "items" in result["payload"]:  # ORKG Ask API
-        items = result["payload"]["items"][:10]  # only top 10
-        contents = [
-            trim_prompt(
-                f"{item.get('title', '')}\n{item.get('abstract', '')}\n{item.get('urls', [''])[0]}",
-                25000
-            )
-            for item in items
-            if item.get("title") or item.get("abstract")
-        ]
-    else:
-        contents = []
+    contents = [
+        trim_prompt(doc.get("markdown", ""), 25000)
+        for doc in result.get("data", [])
+        if doc.get("markdown")
+    ]
     print(f"Ran {query}, found {len(contents)} contents")
 
     # Step 2: Build formatted prompt
@@ -328,21 +291,8 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
 
     async def run_query(serp_query):
         try:
-            result = await search_client.search(serp_query["query"])
-            if "data" in result:
-                urls = list({doc.get("url") for doc in result.get("data", []) if doc.get("url")})
-            elif "payload" in result and "items" in result["payload"]:
-                #print(result)
-                items = result["payload"]["items"][:10]  # Only the top 10 used in summarization
-                urls = list({item.get("urls", [None])[0] for item in items if item.get("urls")})
-                #print("============================")
-                #print(urls)
-                #print("============================")
-            else:
-                urls = []
-            #print("============================")
-            #print(serp_query["query"])
-            #print("============================")
+            result = await firecrawl.search(serp_query["query"])
+            urls = list({doc.get("url") for doc in result.get("data", []) if doc.get("url")})
             follow = await process_serp_result(serp_query["query"], result, num_followups=breadth)
             new_learnings = follow["learnings"]
             new_followups = follow["followUpQuestions"]
