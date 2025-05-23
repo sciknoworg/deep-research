@@ -335,9 +335,9 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
                 #print(result)
                 items = result["payload"]["items"][:10]  # Only the top 10 used in summarization
                 urls = list({item.get("urls", [None])[0] for item in items if item.get("urls")})
-                #print("============================")
-                #print(urls)
-                #print("============================")
+                print("============================")
+                print(urls)
+                print("============================")
             else:
                 urls = []
             #print("============================")
