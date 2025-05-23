@@ -1,6 +1,6 @@
 # Deep Research
 
-This project enables automated scientific research using Large Language Models (LLMs), search APIs, and summarization tools.
+This project enables automated scientific research using Large Language Models (LLMs) and search APIs.
 
 ## 🛠 Setup
 
@@ -35,17 +35,22 @@ FIRECRAWL_API_KEY=your-firecrawl-api-key
 ```
 | ⚠️ Do not commit .env to version control.
 
-### 🚀 Run the Application
+## 🚀 Run the Application
 
 To start the research process:
 ```bash
 python src/main.py
 ```
 
-### 📁 Project Structure
+## 📁 Project Structure
 ```bash
 deep-research/
 ├── src/              # Main source code
 ├── requirements.txt  # Python dependencies
 └── README.md         # Setup instructions
 ```
+
+## 🙌 Acknowledgment
+
+This project is a Python reimplementation of the original [deep-research](https://github.com/dzhng/deep-research) repository by [David Zhang](https://github.com/dzhng), developed in TypeScript.
+Credit goes to the original author for the concept and design of the deep-research workflow.
