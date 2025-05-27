@@ -84,4 +84,26 @@ class ModelConfig:
 
 _model_config_instance = ModelConfig()
 
+def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek"):
+    script = f"""#!/bin/bash
+#SBATCH --job-name=llm-query
+#SBATCH --output=logs/output_%j.log
+#SBATCH --error=logs/error_%j.log
+#SBATCH --partition=p_80G
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=4
+
+source ~/.bashrc
+conda activate llm-env
+python run_llm_query.py --model {model_name} --prompt \"{prompt.replace('"', '\\"')}\"
+"""
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".sh") as f:
+        f.write(script.encode("utf-8"))
+        job_file = f.name
+
+    subprocess.run(["sbatch", job_file])
+    print(f"[SLURM] Job submitted: {job_file}")
+    return job_file
+
 
