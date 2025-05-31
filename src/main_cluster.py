@@ -37,28 +37,29 @@ async def main():
     is_report = report_type != "answer"
 
     combined_query = initial_query
+    conversation = ["Initial Query: " + initial_query]
 
     if is_report:
-        print("\nCreating research plan...")
-        write_to_input_file({
-            "type": "followup",
-            "query": initial_query,
-            "model": model_input
-        })
-        call_huggingface_on_cluster(prompt=initial_query, model_name=model_input)
-        followup_result = await wait_for_output_file()
+        for i in range(3):
+            print("\nGenerating follow-up question...")
+            write_to_input_file({
+                "type": "followup",
+                "query": "\n".join(conversation),
+                "model": model_input
+            })
+            call_huggingface_on_cluster(prompt="\n".join(conversation), model_name=model_input)
+            followup_result = await wait_for_output_file()
 
-        follow_up_questions = followup_result.get("questions", [])
-        print("\nTo better understand your research needs, please answer these follow-up questions:")
-        answers = []
-        for q in follow_up_questions:
-            a = input(f"\n{q}\nYour answer: ")
-            answers.append(a)
+            follow_up_questions = followup_result.get("questions", [])
+            if not follow_up_questions:
+                break
+            follow_up_question = follow_up_questions[0]
+            print(f"\n{follow_up_question}")
+            answer = input("Your answer: ")
+            conversation.append(f"Q: {follow_up_question}\nA: {answer}")
 
-        combined_query = """\nInitial Query: {}\nFollow-up Questions and Answers:\n{}""".format(
-            initial_query,
-            "\n".join(["Q: {}\nA: {}".format(q, a) for q, a in zip(follow_up_questions, answers)])
-        )
+        combined_query = "\n".join(conversation)
+        Path("data/conversation_log.json").write_text(json.dumps(conversation, indent=2), encoding="utf-8")
 
     print("\nStarting research...\n")
     result = await deep_research(query=combined_query, breadth=breadth, depth=depth)

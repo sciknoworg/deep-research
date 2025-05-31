@@ -85,6 +85,8 @@ class ModelConfig:
 _model_config_instance = ModelConfig()
 
 def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek"):
+    escaped_prompt = prompt.replace('"', '\\"')
+
     script = f"""#!/bin/bash
 #SBATCH --job-name=llm-query
 #SBATCH --output=logs/output_%j.log
@@ -95,7 +97,7 @@ def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek"):
 
 source ~/.bashrc
 conda activate llm-env
-python run_llm_query.py --model {model_name} --prompt \"{prompt.replace('"', '\\"')}\"
+python run_llm_query.py --model {model_name} --prompt "{escaped_prompt}"
 """
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".sh") as f:
