@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py", line 22, in <module>
+    model_repo = get_model_repo(args.model)
+  File "/nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py", line 14, in get_model_repo
+    raise ValueError(f"Unknown model key '{model_key}'. Choose from: {list(models.keys())}")
+ValueError: Unknown model key 'deepseek-ai/deepseek-llm-7b-chat'. Choose from: ['mistral', 'deepseek', 'zephyr']

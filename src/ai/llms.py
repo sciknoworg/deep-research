@@ -2,6 +2,8 @@ import os
 from typing import Optional, List
 import tiktoken
 from openai import OpenAI
+import tempfile
+import subprocess
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -88,16 +90,18 @@ def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek"):
     escaped_prompt = prompt.replace('"', '\\"')
 
     script = f"""#!/bin/bash
-#SBATCH --job-name=llm-query
-#SBATCH --output=logs/output_%j.log
-#SBATCH --error=logs/error_%j.log
-#SBATCH --partition=p_80G
+#SBATCH --job-name=start-llm
+#SBATCH --output=llm_out.log
+#SBATCH --error=llm_err.log
+#SBATCH --partition=p_48G      
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=16G
 
 source ~/.bashrc
+source ~/miniconda3/etc/profile.d/conda.sh
 conda activate llm-env
-python run_llm_query.py --model {model_name} --prompt "{escaped_prompt}"
+python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py --model {model_name} --prompt "{escaped_prompt}"
 """
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".sh") as f:

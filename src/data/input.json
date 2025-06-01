@@ -1,5 +1,5 @@
 {
   "type": "followup",
-  "query": "Initial Query: AI",
-  "model": "deepseek"
+  "query": "ai",
+  "model": "deepseek-ai/deepseek-llm-7b-chat"
 }
