@@ -93,12 +93,12 @@ def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek", index
         index = uuid.uuid4().int >> 96
 
     escaped_prompt = prompt.replace('"', '\\"')
-    output_path = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
+    output_path = f"/data/output_{index}.json"
 
     script = f"""#!/bin/bash
 #SBATCH --job-name=start-llm
-#SBATCH --output=llm_out_{index}.log
-#SBATCH --error=llm_err_{index}.log
+#SBATCH --output=/nfs/home/sandere/deep-research/src/data/llm_out_{index}.log
+#SBATCH --error=/nfs/home/sandere/deep-research/src/data/llm_err_{index}.log
 #SBATCH --partition=p_48G
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
@@ -119,7 +119,7 @@ python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py --model {
     return index
 
 def wait_for_output_file(index: int, timeout: int = 120, interval: int = 5):
-    output_path = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
+    output_path = f"/tmp/output_{index}.json"
     waited = 0
     while waited < timeout:
         if os.path.exists(output_path):
