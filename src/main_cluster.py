@@ -7,7 +7,7 @@ from ai.prompt_utils import trim_prompt
 from deep_research_cluster import deep_research, write_final_report, write_final_answer
 
 MODEL_MAP = {
-    "deepseek": "deepseek-llm-7b-chat",
+    "deepseek": "deepseek-ai/deepseek-llm-7b-chat",
     "mistral": "mistralai/Mistral-7B-Instruct-v0.2",
     "zephyr": "HuggingFaceH4/zephyr-7b-beta"
 }

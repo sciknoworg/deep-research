@@ -6,7 +6,7 @@ import torch
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--model", type=str, required=True, help="Choose from: mistral, deepseek, zephyr")
+parser.add_argument("--model", type=str, required=True, default="deepseek-ai/deepseek-llm-7b-chat")
 parser.add_argument("--prompt", type=str, default=None)
 parser.add_argument("--output", type=str, default="/nfs/home/sandere/deep-research/src/data/output.json")
 args = parser.parse_args()

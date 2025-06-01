@@ -54,16 +54,23 @@ def get_search_client(provider: str):
 
 search_client = get_search_client(os.getenv("RESEARCH_PROVIDER", "firecrawl"))
 
-async def call_llm_via_cluster(prompt: str, model: str = "deepseek", index: Optional[int] = None) -> str:
-    index = call_huggingface_on_cluster(prompt, model_name=model, index=index)
+INDEX_COUNTER = {"value": 2}
+
+def next_index() -> int:
+    INDEX_COUNTER["value"] += 1
+    return INDEX_COUNTER["value"]
+
+async def call_llm_via_cluster(prompt: str, model: str = "deepseek-ai/deepseek-llm-7b-chat", index: Optional[int] = None) -> str:
+    call_huggingface_on_cluster(prompt, model_name=model, index=index)
     result = await asyncio.to_thread(wait_for_output_file, index=index)
+    index = index or next_index()
     return result.get("response", "")
 
-async def generate_cluster_completion(prompt: str, response_format: dict, model: str = "deepseek") -> dict:
+async def generate_cluster_completion(prompt: str, response_format: dict, model: str = "deepseek-ai/deepseek-llm-7b-chat") -> dict:
     result = await call_llm_via_cluster(prompt, model=model)
     return json.loads(result)
 
-async def write_final_report(prompt: str, learnings: list, visited_urls: list, model: str = "deepseek") -> str:
+async def write_final_report(prompt: str, learnings: list, visited_urls: list, model: str = "deepseek-ai/deepseek-llm-7b-chat") -> str:
     learnings_text = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
     full_prompt = trim_prompt(
         f"""Given the following prompt from the user, write a final report on the topic using the learnings from research. \
@@ -92,7 +99,7 @@ Make it as detailed as possible, aim for 3 or more pages, include ALL the learni
     urls_section = "\n\n## Sources\n\n" + "\n".join(f"- {url}" for url in visited_urls)
     return parsed["reportMarkdown"] + urls_section
 
-async def write_final_answer(prompt: str, learnings: list, model: str = "deepseek") -> str:
+async def write_final_answer(prompt: str, learnings: list, model: str = "deepseek-ai/deepseek-llm-7b-chat") -> str:
     learnings_text = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
     full_prompt = trim_prompt(
         f"""Given the following prompt from the user, write a final answer on the topic using the learnings from research. \
@@ -181,7 +188,7 @@ async def process_serp_result(query: str, result: dict, num_learnings: int = 3, 
     parsed = await generate_cluster_completion(summarization_prompt, schema)
     return parsed
 
-async def deep_research(prompt: str, breadth: int = 3, depth: int = 2, model: str = "deepseek", learnings=None, visited_urls=None) -> Dict:
+async def deep_research(prompt: str, breadth: int = 3, depth: int = 2, model: str = "deepseek-ai/deepseek-llm-7b-chat", learnings=None, visited_urls=None) -> Dict:
     learnings = learnings or []
     visited_urls = visited_urls or []
     queries = await generate_serp_queries(prompt, num_queries=breadth, learnings=learnings)

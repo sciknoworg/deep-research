@@ -6,6 +6,7 @@ import tempfile
 import subprocess
 import json
 import time
+import uuid
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -88,15 +89,15 @@ class ModelConfig:
 
 _model_config_instance = ModelConfig()
 
-def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek", index: Optional[int] = None):
+def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek-ai/deepseek-llm-7b-chat", index: Optional[int] = None):
     if index is None:
         index = uuid.uuid4().int >> 96
 
     escaped_prompt = prompt.replace('"', '\\"')
-    output_path = f"/data/output_{index}.json"
+    output_path = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
 
     script = f"""#!/bin/bash
-#SBATCH --job-name=start-llm
+#SBATCH --job-name=llm_job_{index}
 #SBATCH --output=/nfs/home/sandere/deep-research/src/data/llm_out_{index}.log
 #SBATCH --error=/nfs/home/sandere/deep-research/src/data/llm_err_{index}.log
 #SBATCH --partition=p_48G
@@ -119,7 +120,7 @@ python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py --model {
     return index
 
 def wait_for_output_file(index: int, timeout: int = 120, interval: int = 5):
-    output_path = f"/tmp/output_{index}.json"
+    output_path = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
     waited = 0
     while waited < timeout:
         if os.path.exists(output_path):
