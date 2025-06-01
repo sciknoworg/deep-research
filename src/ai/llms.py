@@ -4,6 +4,8 @@ import tiktoken
 from openai import OpenAI
 import tempfile
 import subprocess
+import json
+import time
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -86,14 +88,18 @@ class ModelConfig:
 
 _model_config_instance = ModelConfig()
 
-def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek"):
+def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek", index: Optional[int] = None):
+    if index is None:
+        index = uuid.uuid4().int >> 96
+
     escaped_prompt = prompt.replace('"', '\\"')
+    output_path = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
 
     script = f"""#!/bin/bash
 #SBATCH --job-name=start-llm
-#SBATCH --output=llm_out.log
-#SBATCH --error=llm_err.log
-#SBATCH --partition=p_48G      
+#SBATCH --output=llm_out_{index}.log
+#SBATCH --error=llm_err_{index}.log
+#SBATCH --partition=p_48G
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
@@ -101,7 +107,7 @@ def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek"):
 source ~/.bashrc
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate llm-env
-python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py --model {model_name} --prompt "{escaped_prompt}"
+python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py --model {model_name} --prompt \"{escaped_prompt}\" --output {output_path}
 """
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".sh") as f:
@@ -109,7 +115,18 @@ python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py --model {
         job_file = f.name
 
     subprocess.run(["sbatch", job_file])
-    print(f"[SLURM] Job submitted: {job_file}")
-    return job_file
+    print(f"[SLURM] Job submitted: {job_file} -> output_{index}.json")
+    return index
+
+def wait_for_output_file(index: int, timeout: int = 120, interval: int = 5):
+    output_path = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
+    waited = 0
+    while waited < timeout:
+        if os.path.exists(output_path):
+            with open(output_path) as f:
+                return json.load(f)
+        time.sleep(interval)
+        waited += interval
+    raise TimeoutError(f"Timeout waiting for output file: {output_path}")
 
 

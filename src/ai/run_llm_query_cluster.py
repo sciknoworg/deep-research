@@ -3,6 +3,7 @@ import json
 import os
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
 import torch
+from pathlib import Path
 
 def get_model_repo(model_key):
     models = {
@@ -17,6 +18,7 @@ def get_model_repo(model_key):
 parser = argparse.ArgumentParser()
 parser.add_argument("--model", type=str, required=True, help="Choose from: mistral, deepseek, zephyr")
 parser.add_argument("--prompt", type=str, default=None)
+parser.add_argument("--output", type=str, default="/nfs/home/sandere/deep-research/src/data/output.json")
 args = parser.parse_args()
 
 model_repo = get_model_repo(args.model)
@@ -38,13 +40,13 @@ except Exception as e:
     print("[ERROR] Failed to load model:", e)
     exit(1)
 
-pipe = pipeline("text-generation", model=model, tokenizer=tokenizer, device=0)
+pipe = pipeline("text-generation", model=model, tokenizer=tokenizer)
 out = pipe(prompt_text, max_new_tokens=300)
 
 response_text = out[0]["generated_text"]
 
-Path("data").mkdir(exist_ok=True)
-with open("data/output.json", "w") as f:
+Path(os.path.dirname(args.output)).mkdir(parents=True, exist_ok=True)
+with open(args.output, "w") as f:  # <-- Verwendung des übergebenen output-Pfads
     json.dump({"response": response_text}, f, indent=2)
 
-print("[LLM] Output written to data/output.json")
+print(f"[LLM] Output written to {args.output}")
