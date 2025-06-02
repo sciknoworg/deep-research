@@ -233,14 +233,12 @@ async def process_serp_result(
         ]
     elif "payload" in result and "items" in result["payload"]:  # ORKG Ask API
         items = result["payload"]["items"][:10]  # only top 10
-        contents = [
-            trim_prompt(
-                f"{item.get('title', '')}\n{item.get('abstract', '')}\n{item.get('urls', [''])[0]}",
-                25000
-            )
-            for item in items
-            if item.get("title") or item.get("abstract")
-        ]
+        contents = []
+        for item in items:
+            urls_list = item.get("urls", [])
+            url = urls_list[0] if isinstance(urls_list, list) and urls_list else ""
+            text = f"{item.get('title', '')}\n{item.get('abstract', '')}\n{url}"
+            contents.append(trim_prompt(text, 25000))
     else:
         contents = []
     print(f"Ran {query}, found {len(contents)} contents")
@@ -355,7 +353,11 @@ async def deep_research(
                 urls = list({doc.get("url") for doc in result.get("data", []) if doc.get("url")})
             elif "payload" in result and "items" in result["payload"]:
                 items = result["payload"]["items"][:10]
-                urls = list({item.get("urls", [None])[0] for item in items if item.get("urls")})
+                urls = []
+                for item in items:
+                    urls_list = item.get("urls", [])
+                    if isinstance(urls_list, list) and urls_list:
+                        urls.append(urls_list[0])
             else:
                 urls = []
 
@@ -367,17 +369,21 @@ async def deep_research(
             updated_urls = visited_urls + urls
 
             if depth - 1 > 0:
+                if not new_followups:
+                    print(f"⚠️ No follow-up questions found for: {serp_query['query']}")
+                    return {"learnings": updated_learnings, "visitedUrls": updated_urls}
+
                 report({"currentDepth": depth - 1, "completedQueries": progress["completedQueries"] + 1})
                 next_query = f"Previous research goal: {serp_query['researchGoal']}\nFollow-up: {'; '.join(new_followups)}"
                 return await deep_research(
                     query=next_query,
-                    breadth=breadth // 2,
+                    breadth=max(1, breadth // 2),  
                     depth=depth - 1,
                     learnings=updated_learnings,
                     visited_urls=updated_urls,
                     on_progress=on_progress,
                     search_engine=search_engine
-                )
+    )
             else:
                 report({"currentDepth": 0, "completedQueries": progress["completedQueries"] + 1})
                 return {"learnings": updated_learnings, "visitedUrls": updated_urls}
