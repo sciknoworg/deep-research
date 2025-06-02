@@ -305,7 +305,27 @@ Return a maximum of {num_followups} follow-up questions, but fewer is okay if th
     #print(f"Created {len(parsed['learnings'])} learnings")
     return parsed
 
-async def deep_research(query: str, breadth: int, depth: int, learnings=None, visited_urls=None, on_progress: Optional[Callable] = None):
+async def deep_research(
+    query: str,
+    breadth: int,
+    depth: int,
+    learnings=None,
+    visited_urls=None,
+    on_progress: Optional[Callable] = None,
+    search_engine: str = "firecrawl"  # "firecrawl" or "orkg"
+):
+    if search_engine == "orkg":
+        client = ORKGAskApp()
+    elif search_engine == "firecrawl":
+        client = FirecrawlApp(
+            api_key=os.getenv("FIRECRAWL_KEY", ""),
+            base_url=os.getenv("FIRECRAWL_BASE_URL", "https://api.firecrawl.dev/v1")
+        )
+    else:
+        raise ValueError(f"Unknown search engine: {search_engine}")
+
+    print(f"[deep_research] Using search engine: {search_engine}")
+
     learnings = learnings or []
     visited_urls = visited_urls or []
     progress = {
@@ -328,21 +348,17 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
 
     async def run_query(serp_query):
         try:
-            result = await search_client.search(serp_query["query"])
+            print(f"→ Running query: {serp_query['query']}")
+            result = await client.search(serp_query["query"])
+
             if "data" in result:
                 urls = list({doc.get("url") for doc in result.get("data", []) if doc.get("url")})
             elif "payload" in result and "items" in result["payload"]:
-                #print(result)
-                items = result["payload"]["items"][:10]  # Only the top 10 used in summarization
+                items = result["payload"]["items"][:10]
                 urls = list({item.get("urls", [None])[0] for item in items if item.get("urls")})
-                print("============================")
-                print(urls)
-                print("============================")
             else:
                 urls = []
-            #print("============================")
-            #print(serp_query["query"])
-            #print("============================")
+
             follow = await process_serp_result(serp_query["query"], result, num_followups=breadth)
             new_learnings = follow["learnings"]
             new_followups = follow["followUpQuestions"]
@@ -353,11 +369,20 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
             if depth - 1 > 0:
                 report({"currentDepth": depth - 1, "completedQueries": progress["completedQueries"] + 1})
                 next_query = f"Previous research goal: {serp_query['researchGoal']}\nFollow-up: {'; '.join(new_followups)}"
-                return await deep_research(next_query, breadth=breadth//2, depth=depth-1, learnings=updated_learnings, visited_urls=updated_urls, on_progress=on_progress)
+                return await deep_research(
+                    query=next_query,
+                    breadth=breadth // 2,
+                    depth=depth - 1,
+                    learnings=updated_learnings,
+                    visited_urls=updated_urls,
+                    on_progress=on_progress,
+                    search_engine=search_engine
+                )
             else:
                 report({"currentDepth": 0, "completedQueries": progress["completedQueries"] + 1})
                 return {"learnings": updated_learnings, "visitedUrls": updated_urls}
         except Exception as e:
+            print(f"⚠️ Query failed: {e}")
             return {"learnings": [], "visitedUrls": []}
 
     results = await asyncio.gather(*(run_query(q) for q in serp_queries))
