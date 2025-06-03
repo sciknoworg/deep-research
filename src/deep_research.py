@@ -17,6 +17,10 @@ load_dotenv()
 
 sys.stdout.reconfigure(encoding='utf-8')
 
+class TokenExpiredError(Exception):
+    """Wird geworfen, wenn Firecrawl einen 402/Token-Fehler zurückgibt."""
+    pass
+
 class FirecrawlApp:
     def __init__(self, api_key: str, base_url: str = "https://api.firecrawl.dev/v1"):
         self.api_key = api_key
@@ -41,11 +45,19 @@ class FirecrawlApp:
             async with session.post(
                 f"{self.base_url}/search", json=body, headers=headers
             ) as resp:
+                
+                if resp.status == 402:
+                    text = await resp.text()
+                    sys.exit(1) 
+                    #raise TokenExpiredError(f"402 Unauthorized von Firecrawl: {text}")
+                               
                 if resp.status != 200:
                     text = await resp.text()
                     raise Exception(
                         f"{resp.status}, message={repr(text)}, url='{str(resp.url)}'"
                     )
+                
+                
 
                 return await resp.json()
 
