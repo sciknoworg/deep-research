@@ -7,10 +7,10 @@ from ai.prompt_utils import trim_prompt
 
 async def main():
     # Einfacher Prompt für Testzwecke
-    prompt = trim_prompt("Nenne drei wichtige Eigenschaften von kaffe.")
+    prompt = trim_prompt("Three usecases for AI in the next 5 years, with examples and explanations.")
 
     # Modellname kann geändert werden, z. B. "mistral" oder "deepseek"
-    model_name = "deepseek-ai/deepseek-llm-7b-chat"
+    model_name = "HuggingFaceH4/zephyr-7b-beta"
     index = 900
 
     print("[ClusterTest] Sende Prompt an Cluster...")

@@ -1,4 +1,4 @@
-[LLM] Generating from: System: You are an expert researcher. Today is 2025-06-01T21:24:01.725466+00:00. Follow these instructions when responding:
+[LLM] Generating from: System: You are an expert researcher. Today is 2025-06-01T22:03:38.005114+00:00. Follow these instructions when responding:
 - You may be asked to research subjects that are after your knowledge cutoff; assume the user is right when presented with news.
 - The user is a highly experienced analyst; no need to simplify it. Be as detailed as possible and make sure your response is correct.
 - Be highly organized.
@@ -10,5 +10,5 @@
 - Value good arguments over authorities; the source is irrelevant.
 - Consider new technologies and contrarian ideas, not just the conventional wisdom.
 - You may use high levels of speculation or prediction; just flag it for me.
-User: Given the following query from the user, ask some follow-up questions to clarify the research direction to inprove API Queries.Return a maximum of 3 questions which can help you to specify the research direction.Make sure to ask questions that are specific and actionable and that will help you to understand the user's needs better. Return the questions in a structured format as a JSON array with the key 'questions'. Feel free to return less if the original query is clear: <query>kaffee</query>
+User: Given the following query from the user, ask some follow-up questions to clarify the research direction to inprove API Queries to find Papers for <query>banane</query>.Return a maximum of 3 questions which can help you to specify the research direction.Make sure to ask questions that are specific and actionable and that will help you to understand the user's needs better. Return the questions in a structured format as a JSON array with the key 'questions'. Feel free to return less if the original query is clear.
 [LLM] Output written to /nfs/home/sandere/deep-research/src/data/output_1.json

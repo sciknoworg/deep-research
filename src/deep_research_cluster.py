@@ -2,10 +2,6 @@ import os
 import sys
 import asyncio
 import json
-import time
-import tempfile
-import subprocess
-import uuid
 from typing import List, Dict, Optional, Callable
 from collections import defaultdict
 import aiohttp
@@ -28,7 +24,10 @@ class FirecrawlApp:
 
     async def search(self, query: str, timeout: int = 15000, limit: int = 10):
         headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
-        body = {"query": query, "limit": limit, "timeout": timeout, "scrapeOptions": {"formats": ["markdown"]}}
+        body = {
+            "query": query, "limit": limit, "timeout": timeout,
+            "scrapeOptions": {"formats": ["markdown"]}
+        }
         async with aiohttp.ClientSession() as session:
             async with session.post(f"{self.base_url}/search", json=body, headers=headers) as resp:
                 if resp.status != 200:
@@ -54,82 +53,54 @@ def get_search_client(provider: str):
 
 search_client = get_search_client(os.getenv("RESEARCH_PROVIDER", "firecrawl"))
 
-INDEX_COUNTER = {"value": 2}
-
-def next_index() -> int:
-    INDEX_COUNTER["value"] += 1
-    return INDEX_COUNTER["value"]
-
-async def call_llm_via_cluster(prompt: str, model: str = "deepseek-ai/deepseek-llm-7b-chat", index: Optional[int] = None) -> str:
+async def call_indexed(prompt: str, schema: dict, model: str, index: int):
     call_huggingface_on_cluster(prompt, model_name=model, index=index)
-    result = await asyncio.to_thread(wait_for_output_file, index=index)
-    index = index or next_index()
-    return result.get("response", "")
+    result = await wait_for_output_file(index=index)
+    return json.loads(result.get("response", "{}"))
 
-async def generate_cluster_completion(prompt: str, response_format: dict, model: str = "deepseek-ai/deepseek-llm-7b-chat") -> dict:
-    result = await call_llm_via_cluster(prompt, model=model)
-    return json.loads(result)
-
-async def write_final_report(prompt: str, learnings: list, visited_urls: list, model: str = "deepseek-ai/deepseek-llm-7b-chat") -> str:
-    learnings_text = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
-    full_prompt = trim_prompt(
-        f"""Given the following prompt from the user, write a final report on the topic using the learnings from research. \
-Make it as detailed as possible, aim for 3 or more pages, include ALL the learnings from research:
-
+async def write_final_report(prompt: str, learnings: list, visited_urls: list, model: str = "deepseek", index: int = 3) -> str:
+    prompt_text = trim_prompt(f"""{system_prompt()}
+Given the following prompt from the user, write a final report using ALL learnings:
 <prompt>{prompt}</prompt>
-
-<learnings>
-{learnings_text}
-</learnings>"""
-    )
+<learnings>{chr(10).join(f'<learning>{l}</learning>' for l in learnings)}</learnings>""")
     schema = {
         "type": "json_schema",
         "json_schema": {
             "name": "final_report",
             "schema": {
                 "type": "object",
-                "properties": {
-                    "reportMarkdown": {"type": "string"}
-                },
+                "properties": {"reportMarkdown": {"type": "string"}},
                 "required": ["reportMarkdown"]
             }
         }
     }
-    parsed = await generate_cluster_completion(full_prompt, schema, model=model)
+    parsed = await call_indexed(prompt_text, schema, model, index)
     urls_section = "\n\n## Sources\n\n" + "\n".join(f"- {url}" for url in visited_urls)
-    return parsed["reportMarkdown"] + urls_section
+    return parsed.get("reportMarkdown", "") + urls_section
 
-async def write_final_answer(prompt: str, learnings: list, model: str = "deepseek-ai/deepseek-llm-7b-chat") -> str:
-    learnings_text = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
-    full_prompt = trim_prompt(
-        f"""Given the following prompt from the user, write a final answer on the topic using the learnings from research. \
-Follow the format specified in the prompt. Be concise and precise.
-
+async def write_final_answer(prompt: str, learnings: list, model: str = "deepseek", index: int = 4) -> str:
+    prompt_text = trim_prompt(f"""{system_prompt()}
+Based on the following prompt and learnings, give a short final answer:
 <prompt>{prompt}</prompt>
-
-<learnings>
-{learnings_text}
-</learnings>"""
-    )
+<learnings>{chr(10).join(f'<learning>{l}</learning>' for l in learnings)}</learnings>""")
     schema = {
         "type": "json_schema",
         "json_schema": {
             "name": "final_answer",
             "schema": {
                 "type": "object",
-                "properties": {
-                    "exactAnswer": {"type": "string"}
-                },
+                "properties": {"exactAnswer": {"type": "string"}},
                 "required": ["exactAnswer"]
             }
         }
     }
-    parsed = await generate_cluster_completion(full_prompt, schema, model=model)
-    return parsed["exactAnswer"]
+    parsed = await call_indexed(prompt_text, schema, model, index)
+    return parsed.get("exactAnswer", "")
 
-async def generate_serp_queries(prompt: str, num_queries: int = 3, learnings: Optional[List[str]] = None) -> List[Dict]:
+async def generate_serp_queries(prompt: str, learnings: Optional[List[str]], num_queries: int, model: str, index: int = 2):
     learnings_text = "\n".join(learnings or [])
-    query_prompt = trim_prompt(f"""Given the user prompt and learnings, generate {num_queries} useful research SERP queries.
+    query_prompt = trim_prompt(f"""{system_prompt()}
+Generate up to {num_queries} research SERP queries for this:
 <prompt>{prompt}</prompt>
 <learnings>{learnings_text}</learnings>""")
     schema = {
@@ -155,10 +126,10 @@ async def generate_serp_queries(prompt: str, num_queries: int = 3, learnings: Op
             }
         }
     }
-    parsed = await generate_cluster_completion(query_prompt, schema)
+    parsed = await call_indexed(query_prompt, schema, model, index)
     return parsed["queries"][:num_queries]
 
-async def process_serp_result(query: str, result: dict, num_learnings: int = 3, num_followups: int = 3):
+async def process_serp_result(query: str, result: Dict, model: str, index: int, num_learnings: int = 3, num_followups: int = 3):
     if "data" in result:
         contents = [trim_prompt(doc.get("markdown", ""), 25000) for doc in result["data"] if doc.get("markdown")]
     elif "payload" in result:
@@ -168,9 +139,9 @@ async def process_serp_result(query: str, result: dict, num_learnings: int = 3, 
         contents = []
 
     contents_block = "\n".join(f"<content>\n{c}\n</content>" for c in contents)
-    summarization_prompt = trim_prompt(f"""Extract {num_learnings} key learnings and {num_followups} follow-up questions from:
-<query>{query}</query>
-<contents>{contents_block}</contents>""")
+    summarization_prompt = trim_prompt(f"""{system_prompt()}
+Summarize {query} from:
+{contents_block}""")
     schema = {
         "type": "json_schema",
         "json_schema": {
@@ -185,35 +156,28 @@ async def process_serp_result(query: str, result: dict, num_learnings: int = 3, 
             }
         }
     }
-    parsed = await generate_cluster_completion(summarization_prompt, schema)
+    parsed = await call_indexed(summarization_prompt, schema, model, index)
     return parsed
 
-async def deep_research(prompt: str, breadth: int = 3, depth: int = 2, model: str = "deepseek-ai/deepseek-llm-7b-chat", learnings=None, visited_urls=None) -> Dict:
+async def deep_research(prompt: str, breadth: int, depth: int, model: str, learnings=None, visited_urls=None, index: int = 2):
     learnings = learnings or []
     visited_urls = visited_urls or []
-    queries = await generate_serp_queries(prompt, num_queries=breadth, learnings=learnings)
-    
-    async def recurse(query: str, depth: int, research_goal: str):
+    queries = await generate_serp_queries(prompt, learnings, breadth, model, index=index)
+
+    async def recurse(query: str, depth: int, goal: str):
         result = await search_client.search(query)
-        if "data" in result:
-            urls = list({d.get("url") for d in result["data"] if d.get("url")})
-        elif "payload" in result:
-            urls = list({i.get("urls", [None])[0] for i in result["payload"].get("items", []) if i.get("urls")})
-        else:
-            urls = []
-        summary = await process_serp_result(query, result, num_learnings=breadth, num_followups=breadth)
+        urls = list({doc.get("url") for doc in result.get("data", []) if doc.get("url")})
+        summary = await process_serp_result(query, result, model, index=index+1)
         new_learnings = summary["learnings"]
-        follow_ups = summary["followUpQuestions"]
+        new_followups = summary["followUpQuestions"]
         updated_learnings = learnings + new_learnings
         updated_urls = visited_urls + urls
         if depth > 1:
-            next_query = f"{research_goal}\nFollow-up: {'; '.join(follow_ups)}"
-            return await deep_research(next_query, breadth=breadth//2, depth=depth-1, model=model, learnings=updated_learnings, visited_urls=updated_urls)
+            next_query = f"{goal}\nFollow-up: {'; '.join(new_followups)}"
+            return await deep_research(next_query, breadth // 2, depth - 1, model, updated_learnings, updated_urls, index=index+2)
         return {"learnings": updated_learnings, "visitedUrls": updated_urls}
 
-    all_results = await asyncio.gather(*(recurse(q["query"], depth, q["researchGoal"]) for q in queries))
-    all_learnings, all_urls = set(), set()
-    for r in all_results:
-        all_learnings.update(r["learnings"])
-        all_urls.update(r["visitedUrls"])
-    return {"learnings": list(all_learnings), "visitedUrls": list(all_urls)}
+    results = await asyncio.gather(*(recurse(q["query"], depth, q["researchGoal"]) for q in queries))
+    final_learnings = set().union(*(r["learnings"] for r in results))
+    final_urls = set().union(*(r["visitedUrls"] for r in results))
+    return {"learnings": list(final_learnings), "visitedUrls": list(final_urls)}

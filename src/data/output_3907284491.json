@@ -1,0 +1,3 @@
+{
+  "response": "Given the user prompt and learnings, generate 4 useful research SERP queries.\n<prompt>Initial Query: banane\nFollow-up Questions and Answers:\nQ: What type of AI are you looking to improve with API queries? (e.g. machine learning, deep learning, natural language processing, computer vision)\nA: \nQ: What specific tasks or functions within the AI system are you looking to optimize with API queries?\nA: \nQ: What industry or domain are you working in, and how do you envision the improved API queries will be used?\nA: </prompt>\n<learnings></learnings>"
+}

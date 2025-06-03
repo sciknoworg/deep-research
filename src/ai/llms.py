@@ -7,6 +7,7 @@ import subprocess
 import json
 import time
 import uuid
+from pathlib import Path
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -90,16 +91,25 @@ class ModelConfig:
 _model_config_instance = ModelConfig()
 
 def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek-ai/deepseek-llm-7b-chat", index: Optional[int] = None):
-    if index is None:
-        index = uuid.uuid4().int >> 96
+    index = index or int(time.time_ns() % 1e10)
 
-    escaped_prompt = prompt.replace('"', '\\"')
-    output_path = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
+        # Clean up any existing files with the same index
+    for f in Path("/nfs/home/sandere/deep-research/src/data").glob(f"*_{index}.json"):
+        try:
+            f.unlink()
+        except Exception as e:
+            print(f"[Cleanup] Failed to delete {f}: {e}")
+
+
+    escaped_prompt = prompt.replace('"', '\"')
+    output_file = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
+    log_out = f"/nfs/home/sandere/deep-research/src/data/llm_out_{index}.log"
+    log_err = f"/nfs/home/sandere/deep-research/src/data/llm_err_{index}.log"
 
     script = f"""#!/bin/bash
 #SBATCH --job-name=llm_job_{index}
-#SBATCH --output=/nfs/home/sandere/deep-research/src/data/llm_out_{index}.log
-#SBATCH --error=/nfs/home/sandere/deep-research/src/data/llm_err_{index}.log
+#SBATCH --output={log_out}
+#SBATCH --error={log_err}
 #SBATCH --partition=p_48G
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
@@ -108,7 +118,11 @@ def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek-ai/deep
 source ~/.bashrc
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate llm-env
-python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py --model {model_name} --prompt \"{escaped_prompt}\" --output {output_path}
+
+python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py \
+    --model {model_name} \
+    --prompt "{escaped_prompt}" \
+    --output {output_file}
 """
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".sh") as f:
@@ -116,16 +130,19 @@ python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py --model {
         job_file = f.name
 
     subprocess.run(["sbatch", job_file])
-    print(f"[SLURM] Job submitted: {job_file} -> output_{index}.json")
+    print(f"[SLURM] Job submitted: {job_file} -> {output_file}")
     return index
 
-def wait_for_output_file(index: int, timeout: int = 120, interval: int = 5):
-    output_path = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
+def wait_for_output_file(index: int, timeout: int = 300, interval: float = 2.0):
+    output_path = Path(f"data/output_{index}.json")
     waited = 0
     while waited < timeout:
-        if os.path.exists(output_path):
-            with open(output_path) as f:
-                return json.load(f)
+        if output_path.exists():
+            try:
+                with open(output_path, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except json.JSONDecodeError:
+                print(f"[Waiting] File found but not yet ready, retrying...")
         time.sleep(interval)
         waited += interval
     raise TimeoutError(f"Timeout waiting for output file: {output_path}")

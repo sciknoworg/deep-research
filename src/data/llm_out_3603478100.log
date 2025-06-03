@@ -1,0 +1,6 @@
+[LLM] Generating from: Given the user prompt and learnings, generate 4 useful research SERP queries.
+<prompt>Initial Query: ai
+Follow-up Questions and Answers:
+</prompt>
+<learnings></learnings>
+[LLM] Output written to /nfs/home/sandere/deep-research/src/data/output_3603478100.json

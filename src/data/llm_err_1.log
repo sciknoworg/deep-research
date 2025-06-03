@@ -1,2 +1,2 @@
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.08s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.37s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.24s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.36s/it]
 Device set to use cuda:0

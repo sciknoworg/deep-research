@@ -14,7 +14,7 @@ MODEL_MAP = {
 
 async def main():
     model_input = input("Enter a model to run on the cluster (default: deepseek): ").strip().lower() or "deepseek"
-    model_key = MODEL_MAP.get(model_input, MODEL_MAP["deepseek"])
+    model_key = MODEL_MAP.get(model_input, "deepseek")
 
     initial_query = input("What would you like to research? ").strip()
     breadth = int(input("Enter research breadth (recommended 2–10, default 4): ") or 4)
@@ -22,7 +22,8 @@ async def main():
     mode = input("Do you want to generate a long report or a specific answer? (report/answer, default report): ").strip().lower() or "report"
 
     print("\nGenerating follow-up questions...")
-    follow_up_questions = await generate_feedback_cluster(initial_query, model_key)
+    follow_up_questions = await generate_feedback_cluster(initial_query, model_key, index=1)
+
     print("\nTo better understand your research needs, please answer these follow-up questions:")
     answers = []
     for q in follow_up_questions:
@@ -33,13 +34,13 @@ async def main():
     combined_query = f"""Initial Query: {initial_query}\nFollow-up Questions and Answers:\n{follow_ups}"""
 
     print("\nStarting research...")
-    result = await deep_research(combined_query, breadth, depth, model=model_key)
+    result = await deep_research(combined_query, breadth, depth, model=model_key, index_start=2)
 
     print("\nResearch complete. Generating final output...")
     if mode == "answer":
-        output = await write_final_answer(initial_query, result["learnings"], model=model_key)
+        output = await write_final_answer(initial_query, result["learnings"], model=model_key, index=result["nextIndex"])
     else:
-        output = await write_final_report(initial_query, result["learnings"], result["visitedUrls"], model=model_key)
+        output = await write_final_report(initial_query, result["learnings"], result["visitedUrls"], model=model_key, index=result["nextIndex"])
 
     print("\n=== FINAL OUTPUT ===\n")
     print(output)
