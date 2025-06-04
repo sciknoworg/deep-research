@@ -10,7 +10,7 @@ if __name__ == "__main__":
     engine = "orkg"              # oder "orkg"
     depth = 1
     breadth = 1
-    output_path = "reports/test_run.md"
+    output_path = "../data/reports/test_run.md"
 
     # Experiment starten
     asyncio.run(run_experiment(
