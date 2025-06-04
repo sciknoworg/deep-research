@@ -7,6 +7,7 @@ from pathlib import Path
 sys.path.append(".")
 
 from main_experiments import main as run_experiment
+from deep_research import TokenExpiredError
 
 df = pd.read_excel("data/55-questions-ecology-clean.xlsx")
 questions = df["Your research question."].tolist()
@@ -37,14 +38,19 @@ def run_batch_experiment(model, engine, depth, breadth, start=1, end=None):
         except Exception as e:
             print(f"❌ Fehler bei Frage {i}: {e}")
 
+        except TokenExpiredError as te:
+            print(f"⚠️ Firecrawl-Token abgelaufen bei Frage {i}: {te}")
+            print("↪ Batch wird hier abgebrochen, damit der Token gewechselt werden kann.")
+            break
+
     print("✅ Batch abgeschlossen.")
 
 if __name__ == "__main__":
     run_batch_experiment(
-        model="o3-mini",             # "o3" or "o3-mini"
-        engine="orkg",     # "firecrawl" or "orkg"
+        model="o3",             # "o3" or "o3-mini"
+        engine="firecrawl",     # "firecrawl" or "orkg"
         depth=4,
         breadth=1,
-        start=1,
+        start=6,
         end=50
     )
