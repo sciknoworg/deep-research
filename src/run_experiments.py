@@ -46,10 +46,10 @@ def run_batch_experiment(model, engine, depth, breadth, start=1, end=None):
 
 if __name__ == "__main__":
     run_batch_experiment(
-        model="o3",             # "o3" or "o3-mini"
+        model="o3-mini",             # "o3" or "o3-mini"
         engine="firecrawl",     # "firecrawl" or "orkg"
         depth=4,
         breadth=1,
-        start=6,
-        end=50
+        start=40, #firecrawl 6 taking more then one key?
+        end=43
     )

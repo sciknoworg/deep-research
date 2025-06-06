@@ -48,8 +48,8 @@ class FirecrawlApp:
                 
                 if resp.status == 402:
                     text = await resp.text()
-                    sys.exit(1) 
-                    #raise TokenExpiredError(f"402 Unauthorized von Firecrawl: {text}")
+                    #sys.exit(1) 
+                    raise TokenExpiredError(f"402 Unauthorized von Firecrawl: {text}")
                                
                 if resp.status != 200:
                     text = await resp.text()
