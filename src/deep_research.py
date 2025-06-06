@@ -41,6 +41,8 @@ class FirecrawlApp:
             async with session.post(
                 f"{self.base_url}/search", json=body, headers=headers
             ) as resp:
+                print("resp.status")
+                print(resp.status)                
                 if resp.status != 200:
                     text = await resp.text()
                     raise Exception(
@@ -58,6 +60,8 @@ class ORKGAskApp:
         params = {"query": query, "limit": limit}
         async with aiohttp.ClientSession() as session:
             async with session.get(f"{self.base_url}/search", params=params) as resp:
+                print("resp.status")
+                print(resp.status)
                 if resp.status != 200:
                     text = await resp.text()
                     raise Exception(f"{resp.status}, message={repr(text)}, url='{str(resp.url)}'")
@@ -82,6 +86,11 @@ async def write_final_report(prompt: str, learnings: list, visited_urls: list) -
     """Generate a final report in markdown format based on learnings."""
 
     learnings_string = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
+
+    #print("=====================")
+    #print("learnings_string")
+    #print(learnings_string)
+    #print("=====================")
 
     full_prompt = trim_prompt(
         f"""Given the following prompt from the user, write a final report on the topic using the learnings from research. 
@@ -327,17 +336,24 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
     report({"totalQueries": len(serp_queries), "currentQuery": serp_queries[0]["query"]})
 
     async def run_query(serp_query):
+        #print("serp_query")
+        #print(serp_query)
         try:
             result = await search_client.search(serp_query["query"])
+            #print("============================")
+            #print("result")
+            #print("payload" in result)
+            #print(result)
+            #print("============================")
             if "data" in result:
                 urls = list({doc.get("url") for doc in result.get("data", []) if doc.get("url")})
             elif "payload" in result and "items" in result["payload"]:
                 #print(result)
                 items = result["payload"]["items"][:10]  # Only the top 10 used in summarization
                 urls = list({item.get("urls", [None])[0] for item in items if item.get("urls")})
-                print("============================")
-                print(urls)
-                print("============================")
+                #print("============================")
+                #print(urls)
+                #print("============================")
             else:
                 urls = []
             #print("============================")
