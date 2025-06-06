@@ -207,13 +207,6 @@ def wer_text_pair(text_A, text_B):
     """
     return wer(text_B, text_A)
 
-
-def wmd_text_pair_factory(w2v_model):
-    """
-    Returns a function f(A,B) that computes Word Mover’s Distance between A and B
-    using the provided gensim KeyedVectors model. Internally, uses gensim's WmdSimilarity
-    to get a cosine‐similarity score, then does 1 - sim to produce a “distance.”
-    """
     
 def wmd_text_pair_factory(w2v_model):
     """
