@@ -1,3 +1,0 @@
-{
-  "response": "Given the user prompt and learnings, generate 4 useful research SERP queries.\n<prompt>Initial Query: ai\nFollow-up Questions and Answers:\n</prompt>\n<learnings></learnings>\n\n<code>\ndef generate_queries(prompt, learnings):\n    initial_query = prompt.lower().split(' ')[0]\n    initial_query = ''.join(c for c in initial_query if c.isalnum() or c.isspace())\n\n    queries = [\n        f'what is artificial intelligence? ',\n        f'how does ai work? ',\n        f'what are the applications of ai? ',\n        f'what are the advantages and disadvantages of ai? '\n    ]\n\n    if initial_query in queries:\n        selected_query = queries.index(f'{initial_query} ')\n        return queries[selected_query + 1]\n    else:\n        return learnings"
-}

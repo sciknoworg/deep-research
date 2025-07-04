@@ -1,79 +1,62 @@
 import asyncio
 import os
 from pathlib import Path
-
-from deep_research import deep_research, write_final_report, write_final_answer
 from feedback import generate_feedback
-from ai.llms import ModelConfig
+from deep_research import deep_research, write_final_report, write_final_answer
+from ai.llms import ModelConfig, MODEL_ALIASES
 
 async def main():
-    # Prompt user for model choice
-    model_input = input("Enter an OpenAI model to use (press Enter to use default 'o3-mini'): ").strip()
-    if model_input:
-        os.environ["CUSTOM_MODEL"] = model_input
-
-    # Initialize model (ensures OpenAI client setup)
+    # Initialize and select model
     config = ModelConfig()
     model_config = config.get_model_config()
-
+    print("Available model aliases:", ", ".join(MODEL_ALIASES.keys()))
+    alias = input(f"Choose alias (default '{os.getenv('DEFAULT_MODEL_ALIAS', 'zephyr')}'): ").strip()
+    if alias:
+        os.environ['DEFAULT_MODEL_ALIAS'] = alias
+        config = ModelConfig()
+        model_config = config.get_model_config()
     print("Using model:", model_config['model'])
 
-    # Prompt for research input
-    initial_query = input("What would you like to research? ").strip()
+    # Research inputs
+    topic = input("What would you like to research? ").strip()
+    breadth = int(input("Enter breadth (2–10, default 4): ") or 4)
+    depth = int(input("Enter depth (1–5, default 2): ") or 2)
+    is_report = input("Report or answer? (report/answer, default report): ").strip().lower() != "answer"
 
-    # Prompt for breadth
-    try:
-        breadth = int(input("Enter research breadth (recommended 2–10, default 4): ") or 4)
-    except ValueError:
-        breadth = 4
-
-    # Prompt for depth
-    try:
-        depth = int(input("Enter research depth (recommended 1–5, default 2): ") or 2)
-    except ValueError:
-        depth = 2
-
-    # Prompt for report or answer
-    report_type = input("Do you want to generate a long report or a specific answer? (report/answer, default report): ").strip().lower()
-    is_report = report_type != "answer"
-
-    combined_query = initial_query
-
+    # Feedback stage
+    combined_query = topic
     if is_report:
-        print("\nCreating research plan...")
-        follow_up_questions = generate_feedback(query=initial_query, client=model_config['client'], model_name=model_config['model'])
-
-        print("\nTo better understand your research needs, please answer these follow-up questions:")
+        print("Generating feedback questions...")
+        questions = await generate_feedback(topic)
         answers = []
-        for q in follow_up_questions:
-            a = input(f"\n{q}\nYour answer: ")
-            answers.append(a)
+        for q in questions:
+            ans = input(f"{q}Answer: ")
+            answers.append(ans)
+        follow_ups = "".join([f"Q: {q}A: {a}" for q, a in zip(questions, answers)])
+        combined_query = f"Initial: {topic}{follow_ups}"
 
-        follow_ups = '\n'.join([f"Q: {q}\nA: {a}" for q, a in zip(follow_up_questions, answers)])
-        combined_query = f"""Initial Query: {initial_query}\nFollow-up Questions and Answers:\n{follow_ups}"""
-
-
-    print("\nStarting research...\n")
+    # Deep research stage
+    print("Running deep research...")
     result = await deep_research(query=combined_query, breadth=breadth, depth=depth)
-    learnings = result["learnings"]
-    visited_urls = result["visitedUrls"]
+    learnings = result.get('learnings', [])
+    visited_urls = result.get('visitedUrls', [])
 
-    print("\n\nLearnings:\n\n" + "\n".join(learnings))
-    print(f"\n\nVisited URLs ({len(visited_urls)}):\n\n" + "\n".join(visited_urls))
+    print("Learnings:" + "".join(learnings))
 
+    # Save outputs
+    data_dir = Path(os.getenv('DATA_DIR_PATH', Path(__file__).parent.parent / 'data'))
+    data_dir.mkdir(parents=True, exist_ok=True)
+    filename = topic.replace(' ', '_')
     if is_report:
-        print("Writing final report...")
         report = await write_final_report(prompt=combined_query, learnings=learnings, visited_urls=visited_urls)
-        Path("report.md").write_text(report, encoding="utf-8")
-        print("\n\nFinal Report:\n\n" + report)
-        print("\nReport has been saved to report.md")
+        path = data_dir / f"{filename}_report.md"
+        path.write_text(report, encoding='utf-8')
+        print(f"Report saved to {path}")
     else:
-        print("Generating final answer...")
         answer = await write_final_answer(prompt=combined_query, learnings=learnings)
-        Path("answer.md").write_text(answer, encoding="utf-8")
-        print("\n\nFinal Answer:\n\n" + answer)
-        print("\nAnswer has been saved to answer.md")
-
+        path = data_dir / f"{filename}_answer.md"
+        path.write_text(answer, encoding='utf-8')
+        print(f"Answer saved to {path}")
 
 if __name__ == "__main__":
     asyncio.run(main())

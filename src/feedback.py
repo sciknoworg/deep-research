@@ -1,73 +1,49 @@
 import json
+import asyncio
 import re
-from typing import List
-from pydantic import BaseModel, Field, ValidationError
-from prompt import system_prompt
 
-class FeedbackSchema(BaseModel):
-    questions: List[str] = Field(...)
+async def generate_feedback(query: str) -> list:
+    """
+    Generates follow-up feedback questions using the LLM.
+    """
+    prompt = (
+        f"Given the initial research query: '{query}', generate 3 concise follow-up questions to clarify the research intent. "
+        "Ensure the output is either a JSON array of strings or a numbered list."
+    )
+    # Import the cluster LLM client
+    from ai.llms import query_llm
 
-def extract_questions_fallback(content: str, max_n: int = 3) -> List[str]:
-    lines = content.strip().splitlines()
-    questions = [
-        re.sub(r"^[\-\*\d\.\)\s]+", "", line).strip()
-        for line in lines if "?" in line
-    ]
-    return questions[:max_n]
-
-def generate_feedback(query: str, client, model_name: str, num_questions: int = 3) -> List[str]:
-    system = system_prompt()
-    prompt_text = (
-        f"Given the following query from the user, ask some follow-up questions "
-        f"to clarify the research direction. Return a maximum of {num_questions} questions, "
-        f"but feel free to return less if the original query is clear: <query>{query}</query>"
+    # Execute LLM call for feedback questions
+    response_text = await asyncio.get_event_loop().run_in_executor(
+        None,
+        query_llm,
+        prompt,
     )
 
-    response_format = {
-        "type": "json_schema",
-        "json_schema": {
-            "name": "feedback_response",
-            "schema": {
-                "type": "object",
-                "properties": {
-                    "questions": {
-                        "type": "array",
-                        "items": {"type": "string"}
-                    }
-                },
-                "required": ["questions"],
-                "additionalProperties": False
-            }
-        }
-    }
-
+    questions = []
+    # Attempt JSON parse
     try:
-        response = client.chat.completions.create(
-            model=model_name,
-            messages=[
-                {"role": "system", "content": system},
-                {"role": "user", "content": prompt_text}
-            ],
-            response_format=response_format,
-            max_completion_tokens=1000
-        )
+        data = json.loads(response_text)
+        if isinstance(data, list):
+            questions = [str(q).strip() for q in data]
+    except json.JSONDecodeError:
+        pass
 
-        content = response.choices[0].message.content
+    # Fallback: parse numbered or bulleted lists
+    if not questions:
+        for line in response_text.splitlines():
+            match = re.match(r"^\s*(?:\d+|[-*])\W*(.*)$", line)
+            if match:
+                text = match.group(1).strip().strip('"')
+                if text:
+                    questions.append(text)
 
-        if isinstance(content, dict):
-            validated = FeedbackSchema(**content)
-            return validated.questions[:num_questions]
+    # Final fallback: semicolon-separated
+    if not questions and ';' in response_text:
+        questions = [p.strip() for p in response_text.split(';') if p.strip()]
 
-        try:
-            parsed = json.loads(content)
-            validated = FeedbackSchema(**parsed)
-            return validated.questions[:num_questions]
-        except (ValidationError, json.JSONDecodeError) as e:
-            print("Structured parsing failed:", e)
+    return questions
 
-        print("Falling back to text extraction...")
-        return extract_questions_fallback(content, num_questions)
-
-    except Exception as e:
-        print(f"API error: {e}")
-        return []
+# Synchronous wrapper for legacy usage
+def generate_feedback_sync(query: str) -> list:
+    return asyncio.get_event_loop().run_until_complete(generate_feedback(query))

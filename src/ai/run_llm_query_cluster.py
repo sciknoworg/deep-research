@@ -1,40 +1,43 @@
+# File: src/ai/run_llm_query_cluster.py
 import argparse
 import json
-import os
-from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
-import torch
 from pathlib import Path
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+import torch
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--model", type=str, required=True, default="deepseek-ai/deepseek-llm-7b-chat")
-parser.add_argument("--prompt", type=str, default=None)
-parser.add_argument("--output", type=str, default="/nfs/home/sandere/deep-research/src/data/output.json")
-args = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--model', required=True)
+    # Accept everything after --prompt as the prompt text
+    parser.add_argument('--prompt', required=True, nargs=argparse.REMAINDER)
+    parser.add_argument('--output', required=True)
+    args = parser.parse_args()
 
-if args.prompt:
-    prompt_text = args.prompt
-else:
-    with open("data/input.json") as f:
-        messages = json.load(f)
-    prompt_text = "\n".join([f"{m['role'].capitalize()}: {m['content']}" for m in messages])
+    # `nargs=REMAINDER` captures all tokens after --prompt
+    prompt = ' '.join(args.prompt).strip()
 
-print("[LLM] Generating from:", prompt_text)
+    # Reconstruct full prompt
+    prompt = ' '.join(args.prompt)
 
-# Modell laden
-try:
-    tokenizer = AutoTokenizer.from_pretrained(args.model)
-    model = AutoModelForCausalLM.from_pretrained(args.model, torch_dtype=torch.float16, device_map="auto")
-except Exception as e:
-    print("[ERROR] Failed to load model:", e)
-    exit(1)
+    # Load model and tokenizer from local cache
+    tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        args.model,
+        torch_dtype=torch.float16,
+        device_map='auto',
+        local_files_only=True
+    )
+    gen = pipeline('text-generation', model=model, tokenizer=tokenizer, max_new_tokens=256)
 
-pipe = pipeline("text-generation", model=model, tokenizer=tokenizer)
-out = pipe(prompt_text, max_new_tokens=300)
+    # Generate text
+    out = gen(prompt)
+    text = out[0]['generated_text']
 
-response_text = out[0]["generated_text"]
+    # Write output JSON in expected format
+    out_file = Path(args.output)
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_file, 'w', encoding='utf-8') as f:
+        json.dump({'choices': [{'text': text}]}, f, ensure_ascii=False, indent=2)
 
-Path(os.path.dirname(args.output)).mkdir(parents=True, exist_ok=True)
-with open(args.output, "w") as f:  # <-- Verwendung des übergebenen output-Pfads
-    json.dump({"response": response_text}, f, indent=2)
-
-print(f"[LLM] Output written to {args.output}")
+if __name__ == '__main__':
+    main()

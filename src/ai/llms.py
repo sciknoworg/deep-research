@@ -1,150 +1,74 @@
 import os
-from typing import Optional, List
-import tiktoken
-from openai import OpenAI
-import tempfile
 import subprocess
-import json
 import time
+import json
 import uuid
 from pathlib import Path
-
 from dotenv import load_dotenv
+
 load_dotenv()
 
-class ModelConfig:
-    """Configuration class for OpenAI models with structured output support."""
-    
-    MIN_CHUNK_SIZE = 140
-    
-    def __init__(self):
-        self.openai_client = None
-        self.encoder = None
-        self._initialize_clients()
-    
-    def _initialize_clients(self):
-        """Initialize OpenAI client and tokenizer."""
-        openai_key = os.getenv('OPENAI_KEY')
-        openai_endpoint = os.getenv('OPENAI_ENDPOINT', 'https://api.openai.com/v1')
-        
-        if openai_key:
-            self.openai_client = OpenAI(
-                api_key=openai_key,
-                base_url=openai_endpoint
-            )
-        
-        # Initialize tokenizer
-        try:
-            self.encoder = tiktoken.get_encoding('o200k_base')
-        except Exception:
-            # Fallback to cl100k_base if o200k_base is not available
-            self.encoder = tiktoken.get_encoding('cl100k_base')
-    
-    def get_model_config(self) -> dict:
-        """Get the appropriate model configuration."""
-        if not self.openai_client:
-            raise Exception('No OpenAI client available - check OPENAI_KEY environment variable')
-        
-        custom_model = os.getenv('CUSTOM_MODEL')
-        
-        if custom_model:
-            return {
-                'client': self.openai_client,
-                'model': custom_model,
-                'structured_outputs': True,
-                'reasoning_effort': None
-            }
-        
-        # Default to o3-mini with reasoning effort
-        return {
-            'client': self.openai_client,
-            'model': 'o3-mini',
-            'structured_outputs': True,
-            'reasoning_effort': 'medium'
-        }
-    
-    def generate_completion(self, 
-                          messages: List[dict], 
-                          response_format: Optional[dict] = None,
-                          **kwargs) -> dict:
-        """Generate a completion using the configured model."""
-        config = self.get_model_config()
-        
-        # Prepare parameters
-        params = {
-            'model': config['model'],
-            'messages': messages,
-            **kwargs
-        }
-        
-        # Add structured output if provided
-        if response_format and config['structured_outputs']:
-            params['response_format'] = response_format
-        
-        # Add reasoning effort for o3 models
-        if config['reasoning_effort'] and 'o3' in config['model']:
-            params['reasoning_effort'] = config['reasoning_effort']
-        
-        return config['client'].chat.completions.create(**params)
-    
+env = os.environ
+PARTITION = env.get('CLUSTER_PARTITION', 'p_48G')
+GPUS = env.get('CLUSTER_GPUS', '1')
+CPUS = env.get('CLUSTER_CPUS_PER_TASK', '8')
+MEM = env.get('CLUSTER_MEM', '16G')
+BASHRC = env.get('BASHRC_PATH', '~/.bashrc')
+CONDA_INIT = env.get('CONDA_INIT', '~/miniconda3/etc/profile.d/conda.sh')
+CONDA_ENV = env.get('CLUSTER_CONDA_ENV', 'llm-env')
+AI_DIR = Path(__file__).parent
+DATA_DIR = Path(env.get('DATA_DIR_PATH', AI_DIR.parent / 'data'))
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-_model_config_instance = ModelConfig()
+MODEL_ALIASES = {
+    'mistral': 'mistralai/Mistral-7B-Instruct-v0.2',
+    'deepseek': 'deepseek-ai/deepseek-llm-7b-chat',
+    'zephyr': 'HuggingFaceH4/zephyr-7b-beta',
+}
 
-def call_huggingface_on_cluster(prompt: str, model_name: str = "deepseek-ai/deepseek-llm-7b-chat", index: Optional[int] = None):
-    index = index or int(time.time_ns() % 1e10)
-
-        # Clean up any existing files with the same index
-    for f in Path("/nfs/home/sandere/deep-research/src/data").glob(f"*_{index}.json"):
-        try:
-            f.unlink()
-        except Exception as e:
-            print(f"[Cleanup] Failed to delete {f}: {e}")
+def resolve_model(key: str) -> str:
+    return MODEL_ALIASES.get(key, key)
 
 
-    escaped_prompt = prompt.replace('"', '\"')
-    output_file = f"/nfs/home/sandere/deep-research/src/data/output_{index}.json"
-    log_out = f"/nfs/home/sandere/deep-research/src/data/llm_out_{index}.log"
-    log_err = f"/nfs/home/sandere/deep-research/src/data/llm_err_{index}.log"
+def query_llm(prompt: str, model_key: str = None) -> str:
+    model = resolve_model(os.getenv('DEFAULT_MODEL_ALIAS', model_key or 'zephyr'))
+    uid = uuid.uuid4().hex[:8]
+    out_json = DATA_DIR / f"llm_{uid}.json"
+    script_sh = DATA_DIR / f"llm_job_{uid}.sh"
+
+    safe_prompt = prompt.replace('"', '\\"')
 
     script = f"""#!/bin/bash
-#SBATCH --job-name=llm_job_{index}
-#SBATCH --output={log_out}
-#SBATCH --error={log_err}
-#SBATCH --partition=p_48G
-#SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=16G
+#SBATCH --job-name=llm_{uid}
+#SBATCH --output={DATA_DIR}/llm_{uid}.out
+#SBATCH --error={DATA_DIR}/llm_{uid}.err
+#SBATCH --partition={PARTITION}
+#SBATCH --gres=gpu:{GPUS}
+#SBATCH --cpus-per-task={CPUS}
+#SBATCH --mem={MEM}
 
-source ~/.bashrc
-source ~/miniconda3/etc/profile.d/conda.sh
-conda activate llm-env
+source {BASHRC}
+source {CONDA_INIT}
+conda activate {CONDA_ENV}
 
-python /nfs/home/sandere/deep-research/src/ai/run_llm_query_cluster.py \
-    --model {model_name} \
-    --prompt "{escaped_prompt}" \
-    --output {output_file}
-"""
+python {AI_DIR}/run_llm_query_cluster.py --model \"{model}\" --output \"{out_json}\" --prompt \"{safe_prompt}\""""
+    script_sh.write_text(script)
 
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".sh") as f:
-        f.write(script.encode("utf-8"))
-        job_file = f.name
+    job_id = subprocess.check_output(['sbatch', str(script_sh)]).decode().strip().split()[-1]
+    while job_id in subprocess.check_output(['squeue', '-j', job_id]).decode():
+        time.sleep(5)
 
-    subprocess.run(["sbatch", job_file])
-    print(f"[SLURM] Job submitted: {job_file} -> {output_file}")
-    return index
+    if not out_json.exists():
+        raise FileNotFoundError(f"Output file missing: {out_json}")
 
-def wait_for_output_file(index: int, timeout: int = 300, interval: float = 2.0):
-    output_path = Path(f"data/output_{index}.json")
-    waited = 0
-    while waited < timeout:
-        if output_path.exists():
-            try:
-                with open(output_path, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except json.JSONDecodeError:
-                print(f"[Waiting] File found but not yet ready, retrying...")
-        time.sleep(interval)
-        waited += interval
-    raise TimeoutError(f"Timeout waiting for output file: {output_path}")
+    resp = json.loads(out_json.read_text())
+    return resp.get('choices', [{}])[0].get('text', '')
 
 
+class ModelConfig:
+    def __init__(self):
+        self.model = resolve_model(os.getenv('DEFAULT_MODEL_ALIAS', 'zephyr'))
+        self.client = query_llm
+
+    def get_model_config(self):
+        return {'model': self.model, 'client': self.client}
