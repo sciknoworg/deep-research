@@ -7,7 +7,7 @@ async def generate_feedback(query: str) -> list:
     Generates follow-up feedback questions using the LLM.
     """
     prompt = (
-        f"Given the initial research query: '{query}', generate 3 concise follow-up questions to clarify the research intent. "
+        f"Given the initial research query: '{query}', generate EXACTLY 3 concise follow-up questions to clarify the research intent. "
         "Ensure the output is either a JSON array of strings or a numbered list."
     )
     # Import the cluster LLM client

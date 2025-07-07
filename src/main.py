@@ -1,3 +1,4 @@
+# File: src/main.py
 import asyncio
 import os
 from pathlib import Path
@@ -25,35 +26,37 @@ async def main():
 
     # Feedback stage
     combined_query = topic
+    questions = []
+    answers = []
     if is_report:
         print("Generating feedback questions...")
         questions = await generate_feedback(topic)
-        answers = []
         for q in questions:
-            ans = input(f"{q}Answer: ")
+            ans = input(f"{q}\nAnswer: ")
             answers.append(ans)
-        follow_ups = "".join([f"Q: {q}A: {a}" for q, a in zip(questions, answers)])
+        follow_ups = "".join([f"Q: {q} A: {a}" for q, a in zip(questions, answers)])
         combined_query = f"Initial: {topic}{follow_ups}"
 
     # Deep research stage
     print("Running deep research...")
-    result = await deep_research(query=combined_query, breadth=breadth, depth=depth)
+    # Corrected call without named parameter
+    result = await deep_research(combined_query, breadth, depth, questions, answers)
     learnings = result.get('learnings', [])
-    visited_urls = result.get('visitedUrls', [])
+    visited_urls = result.get('visited', [])
 
-    print("Learnings:" + "".join(learnings))
+    print("Learnings: " + "\n".join(learnings))
 
     # Save outputs
     data_dir = Path(os.getenv('DATA_DIR_PATH', Path(__file__).parent.parent / 'data'))
     data_dir.mkdir(parents=True, exist_ok=True)
     filename = topic.replace(' ', '_')
     if is_report:
-        report = await write_final_report(prompt=combined_query, learnings=learnings, visited_urls=visited_urls)
+        report = await write_final_report(topic, questions, answers, learnings, visited_urls)
         path = data_dir / f"{filename}_report.md"
         path.write_text(report, encoding='utf-8')
         print(f"Report saved to {path}")
     else:
-        answer = await write_final_answer(prompt=combined_query, learnings=learnings)
+        answer = await write_final_answer(topic, questions, answers, learnings)
         path = data_dir / f"{filename}_answer.md"
         path.write_text(answer, encoding='utf-8')
         print(f"Answer saved to {path}")
