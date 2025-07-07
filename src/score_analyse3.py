@@ -1,155 +1,169 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os
-# CPU only
-os.environ["CUDA_VISIBLE_DEVICES"] = ""
-
-import glob
+import os, glob, csv
 import numpy as np
-import csv
 import matplotlib.pyplot as plt
-import torch
 import nltk
+
+import torch
 from transformers import AutoTokenizer, AutoModel
+from rouge_score import rouge_scorer
+from nltk.tokenize import sent_tokenize
 from gensim.models import KeyedVectors
 from gensim.similarities import WmdSimilarity
 
-nltk.download('wordnet', quiet=True)
+nltk.download('punkt_tab')
 
-# ── SETTINGS ───────────────────────────────────────────────────────────────────
-REPORT_DIR    = "../data/reports"
-OUTPUT_DIR    = "../data/paper_results"
-SCIBERT_MODEL = "allenai/scibert_scivocab_uncased"
-EXCLUDE_KEYS  = []  # alle Engines zulassen
+# ── EINSTELLUNGEN ────────────────────────────────────────────────────────────────
+REPORT_DIR = "../data/reports"
+OUTPUT_DIR = "../data/paper_results"
+EXCLUDE    = ["firecrawl"]               # FireCrawl-Gruppen ignorieren
+SCIBERT    = "allenai/scibert_scivocab_uncased"
 # ────────────────────────────────────────────────────────────────────────────────
 
-def load_and_group_reports(report_dir, exclude_keywords=None):
-    if exclude_keywords is None:
-        exclude_keywords=[]
-    grouped={}
-    for path in sorted(glob.glob(os.path.join(report_dir,"*.md"))):
-        fname=os.path.basename(path)
-        parts=fname[:-3].split("_")
-        if len(parts)>=5:
-            key=f"{parts[1]}_{parts[2]}_{parts[3]}_{parts[4]}"
-        else:
-            key="misc"
-        if any(ex.lower() in key.lower() for ex in exclude_keywords): continue
-        with open(path,encoding="utf-8") as f:
-            txt=f.read()
-        grouped.setdefault(key,[]).append((fname,txt))
-    return grouped
+def load_reports(report_dir, exclude):
+    groups = {}
+    for path in glob.glob(os.path.join(report_dir, "*.md")):
+        fn = os.path.basename(path)
+        parts = fn[:-3].split("_")
+        if len(parts) < 5: continue
+        idx, model, engine, depth, breadth = parts[:5]
+        key = f"{model}_{engine}_{depth}_{breadth}"
+        if any(ex in key for ex in exclude): continue
+        text = open(path, encoding="utf-8").read()
+        groups.setdefault(key, {})[int(idx)] = text
+    return groups
 
-def build_index_map(docs):
-    m={}
-    for fname,txt in docs:
-        try:
-            idx=int(fname.split("_")[0])
-            m[idx]=txt
-        except: pass
-    return m
+def build_scibert_model(name):
+    tok = AutoTokenizer.from_pretrained(name)
+    mdl = AutoModel.from_pretrained(name).eval().to("cpu")
+    return tok, mdl
 
-def average_wmd(mapA,mapB,w2v):
-    ids=sorted(set(mapA)&set(mapB))
-    if not ids: return np.nan,0
-    scores=[]
-    for i in ids:
-        A=[t for t in mapA[i].lower().split() if t.isalpha()]
-        B=[t for t in mapB[i].lower().split() if t.isalpha()]
-        sim=WmdSimilarity([B],w2v,num_best=1)
-        cos=sim[A][0][1] if sim[A] else 0.0
-        scores.append(1.0-cos)
-    return float(np.mean(scores)),len(ids)
+def embed_text(text, tokenizer, model):
+    # Sentence-split und mean-pooling über Token-Embeddings
+    sents = sent_tokenize(text)
+    all_emb = []
+    for s in sents:
+        tokens = tokenizer(s, return_tensors="pt", truncation=True, max_length=512)
+        with torch.no_grad():
+            out = model(**tokens)
+        # mean over token embeddings (exclude padding)
+        emb = out.last_hidden_state.mean(dim=1).squeeze(0).cpu().numpy()
+        all_emb.append(emb)
+    return np.stack(all_emb)  # shape (n_sents, dim)
 
-def build_scibert_kv(model_name):
-    tok=AutoTokenizer.from_pretrained(model_name)
-    mdl=AutoModel.from_pretrained(model_name).eval()
-    emb=mdl.get_input_embeddings().weight.detach().cpu().numpy()
-    kv=KeyedVectors(vector_size=emb.shape[1])
-    inv_vocab=[w for w,i in sorted(tok.vocab.items(),key=lambda x:x[1])]
-    kv.add_vectors(inv_vocab,emb)
-    return kv
+def avg_bert_sim(a, b, tokenizer, model):
+    eA = embed_text(a, tokenizer, model)
+    eB = embed_text(b, tokenizer, model)
+    # cos sim matrix
+    sim = (eA @ eB.T) / (np.linalg.norm(eA, axis=1)[:,None] * np.linalg.norm(eB, axis=1)[None,:] + 1e-8)
+    # average of diagonal of min(n,n)
+    n = min(sim.shape)
+    return float(np.mean(np.diag(sim[:n,:n])))
 
-def save_csv(mat,cnt,keys,base):
-    os.makedirs(os.path.dirname(base),exist_ok=True)
-    with open(base+"_matrix.csv","w",newline="",encoding="utf-8") as f:
-        w=csv.writer(f);w.writerow([""]+keys)
+def rouge_pair(a, b, scorer):
+    sc = scorer.score(b, a)
+    return sc["rouge1"].fmeasure, sc["rougeL"].fmeasure
+
+def build_wmd(kv):
+    def f(a, b):
+        toksA = [w for w in a.lower().split() if w in kv]
+        toksB = [w for w in b.lower().split() if w in kv]
+        index = WmdSimilarity([toksB], kv, num_best=1)
+        sims = index[toksA]
+        return 1.0 - sims[0][1] if sims else 1.0
+    return f
+
+def compute_matrix(keys, data, tokenizer, model, kv):
+    N = len(keys)
+    M_bert = np.zeros((N,N))
+    M_r1   = np.zeros((N,N))
+    M_rL   = np.zeros((N,N))
+    M_wmd  = np.zeros((N,N))
+    rouge  = rouge_scorer.RougeScorer(["rouge1","rougeL"], use_stemmer=True)
+    wmd_fn = build_wmd(kv)
+
+    for i,ka in enumerate(keys):
+        for j,kb in enumerate(keys):
+            idxs = set(data[ka]) & set(data[kb])
+            b, r1, rL, w = [], [], [], []
+            for idx in idxs:
+                A, B = data[ka][idx], data[kb][idx]
+                b.append(avg_bert_sim(A, B, tokenizer, model))
+                x1, xL = rouge_pair(A, B, rouge)
+                r1.append(x1); rL.append(xL)
+                w.append(wmd_fn(A, B))
+            M_bert[i,j] = np.mean(b)
+            M_r1[i,j]   = np.mean(r1)
+            M_rL[i,j]   = np.mean(rL)
+            M_wmd[i,j]  = np.mean(w)
+        print(f"Row {i+1}/{N} done")
+    return M_bert, M_r1, M_rL, M_wmd
+
+def plot_save(mat, keys, title, fname, vmin=0, vmax=1):
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    # CSV
+    with open(f"{OUTPUT_DIR}/{fname}.csv","w",newline="",encoding="utf-8") as f:
+        w=csv.writer(f); w.writerow([""]+keys)
         for i,k in enumerate(keys):
-            w.writerow([k]+[("" if np.isnan(mat[i,j]) else f"{mat[i,j]:.6f}") for j in range(len(keys))])
-    with open(base+"_counts.csv","w",newline="",encoding="utf-8") as f:
-        w=csv.writer(f);w.writerow([""]+keys)
-        for i,k in enumerate(keys):
-            w.writerow([k]+[(""+str(cnt[i,j]) if cnt[i,j]>0 else "") for j in range(len(keys))])
-
-def plot_heatmap(mat,keys,title,out,vmin=0,vmax=1):
-    N=len(keys)
-    fig,ax=plt.subplots(figsize=(max(6,N*0.3),max(5,N*0.3)))
-    c=ax.imshow(mat,cmap="viridis_r",vmin=vmin,vmax=vmax,interpolation="nearest")
-    fig.colorbar(c,ax=ax)
-    ax.set_xticks(np.arange(N));ax.set_yticks(np.arange(N))
-    ax.set_xticklabels(keys,rotation=90,fontsize=6)
-    ax.set_yticklabels(keys,fontsize=6)
+            w.writerow([k]+[f"{mat[i,j]:.4f}" for j in range(len(keys))])
+    # Heatmap
+    fig,ax=plt.subplots(figsize=(6,6))
+    cax=ax.imshow(mat,cmap="viridis_r",vmin=vmin,vmax=vmax)
+    fig.colorbar(cax,ax=ax)
+    ax.set_xticks(range(len(keys))); ax.set_xticklabels(keys,rotation=90,fontsize=6)
+    ax.set_yticks(range(len(keys))); ax.set_yticklabels(keys,fontsize=6)
     ax.set_title(title)
-    plt.tight_layout();plt.savefig(out,dpi=300);plt.close()
-
-def sort_by_model(keys):
-    return sorted(keys,key=lambda k:(k.split("_")[0],k))
-def sort_by_depth(keys):
-    order={"d1_b1":0,"d1_b4":1,"d4_b1":2,"d4_b4":3}
-    def fn(k):
-        suf="_".join(k.split("_")[2:4])
-        return (order.get(suf,99),k)
-    return sorted(keys,key=fn)
-def sort_by_engine(keys):
-    return sorted(keys,key=lambda k:(0 if "_firecrawl_" in k else 1,k))
+    plt.tight_layout()
+    plt.savefig(f"{OUTPUT_DIR}/{fname}.png",dpi=300)
+    plt.close()
 
 def main():
-    grouped=load_and_group_reports(REPORT_DIR,EXCLUDE_KEYS)
-    idx_map={k:build_index_map(v) for k,v in grouped.items()}
-    keys=sorted(idx_map)
-    orkg=[k for k in keys if "_orkg_" in k]
-    fire=[k for k in keys if "_firecrawl_" in k]
+    data = load_reports(REPORT_DIR, EXCLUDE)
+    keys = sorted(data.keys())
+    print("Groups:", keys)
 
+    # SciBERT laden
     print("Loading SciBERT…")
-    kv=build_scibert_kv(SCIBERT_MODEL)
+    tok, mdl = build_scibert_model(SCIBERT)
 
-    # RQ1: ORKG, sortiert nach Model
-    for label, sorter in [("by_model",sort_by_model(orkg)),
-                          ("by_depth",sort_by_depth(orkg)),
-                          ("by_engine",sort_by_engine(orkg))]:
-        ks=sorter
-        N=len(ks)
-        M=np.full((N,N),np.nan);C=np.zeros((N,N),int)
-        for i,a in enumerate(ks):
-            for j,b in enumerate(ks):
-                m,c=average_wmd(idx_map[a],idx_map[b],kv)
-                if c>0: M[i,j]=m; C[i,j]=c
-        base=os.path.join(OUTPUT_DIR,f"rq1_orkg_wmd_{label}")
-        save_csv(M,C,ks,base)
-        plot_heatmap(M,ks,f"RQ1 ORKG WMD ({label})",base+"_heatmap.png")
+    # SciBERT-Vektoren für WMD
+    print("Building KeyedVectors from SciBERT embeddings…")
+    emb = mdl.get_input_embeddings().weight.detach().cpu().numpy()
+    kv = KeyedVectors(vector_size=emb.shape[1])
+    inv = [w for w,i in sorted(tok.vocab.items(), key=lambda x:x[1])]
+    kv.add_vectors(inv, emb)
 
-    # RQ3: ORKG vs FireCrawl
-    pairs=[]
-    for a in orkg:
-        mdl,_,d,b=a.split("_")
-        fc=f"{mdl}_firecrawl_{d}_{b}"
-        if fc in fire: pairs+=[a,fc]
-    if pairs:
-        ks=[]
-        for x in pairs:
-            if x not in ks: ks.append(x)
-        N=len(ks)
-        M=np.full((N,N),np.nan);C=np.zeros((N,N),int)
-        for i,a in enumerate(ks):
-            for j,b in enumerate(ks):
-                m,c=average_wmd(idx_map[a],idx_map[b],kv)
-                if c>0: M[i,j]=m; C[i,j]=c
-        base=os.path.join(OUTPUT_DIR,"rq3_orkg_vs_fc_wmd")
-        save_csv(M,C,ks,base)
-        plot_heatmap(M,ks,"RQ3 ORKG vs FireCrawl WMD",base+"_heatmap.png")
+    # Matrix berechnen
+    B, R1, RL, W = compute_matrix(keys, data, tok, mdl, kv)
 
-    print("Fertig. Ergebnisse in",OUTPUT_DIR)
+    # RQ1: sort by model prefix
+    s1 = sorted(keys, key=lambda k: k.split("_")[0])
+    idx1 = [keys.index(k) for k in s1]
+    for mat,name,ttl in [
+      (B,  "rq1_bert_by_model",   "RQ1: SciBERT‐Sim by model"),
+      (R1, "rq1_rouge1_by_model", "RQ1: ROUGE‐1 by model"),
+      (RL, "rq1_rougel_by_model", "RQ1: ROUGE‐L by model"),
+      (W,  "rq1_wmd_by_model",    "RQ1: WMD by model")
+    ]:
+        m = mat[np.ix_(idx1,idx1)]
+        plot_save(m, s1, ttl, name)
+
+    # RQ2: sort by depth–breadth
+    order = {"d1_b1":0,"d1_b4":1,"d4_b1":2,"d4_b4":3}
+    s2 = sorted(keys, key=lambda k:(order["_".join(k.split("_")[2:4])],k))
+    idx2 = [keys.index(k) for k in s2]
+    for mat,name,ttl in [
+      (B,  "rq2_bert_by_depth",   "RQ2: SciBERT‐Sim by depth"),
+      (R1, "rq2_rouge1_by_depth", "RQ2: ROUGE‐1 by depth"),
+      (RL, "rq2_rougel_by_depth", "RQ2: ROUGE‐L by depth"),
+      (W,  "rq2_wmd_by_depth",    "RQ2: WMD by depth")
+    ]:
+        m = mat[np.ix_(idx2,idx2)]
+        plot_save(m, s2, ttl, name)
+
+    print("Done — outputs in", OUTPUT_DIR)
 
 if __name__=="__main__":
     main()
