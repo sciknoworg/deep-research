@@ -1,4 +1,3 @@
-# File: src/feedback.py
 import json
 import re
 import time
@@ -12,48 +11,14 @@ class FeedbackSchema(BaseModel):
     questions: List[str] = Field(...)
 
 def extract_questions_fallback(content: str, max_n: int = 3) -> List[str]:
-    lines = content.strip().splitlines()
-    questions = [
-        re.sub(r"^[\-\*\d\.\)\s]+", "", line).strip()
-        for line in lines
-        if "?" in line
-    ]
-    return questions[:max_n]
+    return [re.sub(r"^[\-\*\d\.\)\s]+", "", l).strip() for l in content.splitlines() if "?" in l][:max_n]
 
-def generate_feedback(
-    query: str,
-    model_name: str,
-    save_models: int = 0,
-    num_questions: int = 3,
-    timeout: Optional[int] = 300
-) -> List[str]:
-    system = system_prompt()
-    prompt_text = (
-        f"{system}\n"
-        f"Given the user's research topic, propose up to {num_questions} follow-up questions to clarify the direction: {query}"
-    )
-    # Submit the prompt as a cluster job
-    idx = query_llm(prompt_text, model_name, save_models)
-
-    # Wait for the SLURM output file
-    data_dir = Path(__file__).parents[1] / 'data'
-    out_file = data_dir / f'output_{idx}.json'
-    elapsed = 0
-    while not out_file.exists() and elapsed < timeout:
-        time.sleep(1)
-        elapsed += 1
-    if not out_file.exists():
-        raise TimeoutError(f"Feedback generation timed out after {timeout} seconds.")
-
-    # Read the generated result
-    with open(out_file, 'r', encoding='utf-8') as f:
-        payload = json.load(f)
-    text = payload.get('choices', [{}])[0].get('text', '')
-
-    # Try JSON parsing, otherwise fallback
+def generate_feedback(query: str, model_name: str, save_models: int=0, num_questions: int=3, timeout: int=300) -> List[str]:
+    sys=sys_prompt = system_prompt()
+    prompt = f"{sys}\nPropose up to {num_questions} follow-up questions: {query}"
+    txt = query_llm(prompt, model_name, save_models)
     try:
-        parsed = json.loads(text)
-        validated = FeedbackSchema(**parsed)
-        return validated.questions[:num_questions]
-    except (ValidationError, json.JSONDecodeError):
-        return extract_questions_fallback(text, num_questions)
+        data=json.loads(txt)
+        return FeedbackSchema(**data).questions[:num_questions]
+    except:
+        return extract_questions_fallback(txt, num_questions)

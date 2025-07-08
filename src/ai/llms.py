@@ -1,66 +1,67 @@
 import os
-import tempfile
 import subprocess
 import time
+import json
+import uuid
 from pathlib import Path
-from typing import Optional
+from dotenv import load_dotenv
 
-# Shared cache directory for models
-MODEL_CACHE = os.getenv('MODEL_CACHE_DIR', '/nfs/home/user/deep-research/models')
+load_dotenv()
 
-def call_huggingface_on_cluster(
-    prompt: str,
-    model_name: str,
-    save_models: int = 0,
-    index: Optional[int] = None
-) -> int:
-    # Lazy-load transformers to avoid startup delay
-    from transformers import AutoModel, AutoTokenizer
+env = os.environ
+PARTITION = env.get('CLUSTER_PARTITION', 'p_48G')
+GPUS      = env.get('CLUSTER_GPUS', '1')
+CPUS      = env.get('CLUSTER_CPUS_PER_TASK', '8')
+MEM       = env.get('CLUSTER_MEM', '16G')
+BASHRC    = env.get('BASHRC_PATH', '~/.bashrc')
+CONDA_INIT= env.get('CONDA_INIT_PATH', '~/miniconda3/etc/profile.d/conda.sh')
+CONDA_ENV = env.get('CLUSTER_CONDA_ENV', 'llm-env')
+AI_DIR    = Path(__file__).parent
+DATA_DIR  = Path(env.get('DATA_DIR_PATH', AI_DIR.parent / 'data'))
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    if index is None:
-        index = int(time.time() * 1000) % 1000000000
-    data_dir = Path(__file__).parents[1] / 'data'
-    data_dir.mkdir(parents=True, exist_ok=True)
-    output_file = data_dir / f'output_{index}.json'
-    output_path = output_file.as_posix()
-    # remove existing output
-    if output_file.exists():
-        output_file.unlink()
-    log_out = data_dir / f'llm_out_{index}.log'
-    log_err = data_dir / f'llm_err_{index}.log'
-    script_path = (Path(__file__).parent / 'run_llm_query_cluster.py').as_posix()
-    escaped_prompt = prompt.replace('"', '\"')
+MODEL_ALIASES = {
+    'mistral': 'mistralai/Mistral-7B-Instruct-v0.2',
+    'deepseek': 'deepseek-ai/deepseek-llm-7b-chat',
+    'zephyr': 'HuggingFaceH4/zephyr-7b-beta',
+}
 
-    # Create SLURM script content
-    script = f'''#!/bin/bash
-#SBATCH --job-name=llm_job_{index}
-#SBATCH --output={log_out.as_posix()}
-#SBATCH --error={log_err.as_posix()}
-#SBATCH --partition=p_48G
-#SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=16G
+def resolve_model(key: str) -> str:
+    return MODEL_ALIASES.get(key, key)
 
-source ~/.bashrc
-source ~/miniconda3/etc/profile.d/conda.sh
-conda activate llm-env
+def query_llm(prompt: str, model_key: str, save_models: int = 0) -> str:
+    model = resolve_model(model_key)
+    uid   = uuid.uuid4().hex[:8]
+    out_json= DATA_DIR / f"llm_{uid}.json"
+    script_sh= DATA_DIR / f"llm_job_{uid}.sh"
+    safe_prompt = prompt.replace('"', '\\"')
 
-# Execute the LLM query script
-python {script_path} \
-  --model "{model_name}" \
-  --prompt "{escaped_prompt}" \
-  --output "{output_path}" \
-  --cache_dir "{MODEL_CACHE}" \
-  --save-models {int(save_models)} \
-  --token ${{HF_TOKEN}}
-'''
-    # Write and submit the SLURM job
-    p = tempfile.NamedTemporaryFile(delete=False, suffix='.sh')
-    p.write(script.encode())
-    p.flush()
-    subprocess.run(['sbatch', p.name], check=True)
-    print(f"[SLURM] Job submitted: {p.name} -> {output_path}")
-    return index
+    script = f"""#!/bin/bash
+#SBATCH --job-name=llm_{uid}
+#SBATCH --output={DATA_DIR}/llm_{uid}.out
+#SBATCH --error={DATA_DIR}/llm_{uid}.err
+#SBATCH --partition={PARTITION}
+#SBATCH --gres=gpu:{GPUS}
+#SBATCH --cpus-per-task={CPUS}
+#SBATCH --mem={MEM}
 
-# Alias for LLM queries
-query_llm = call_huggingface_on_cluster
+source {BASHRC}
+source {CONDA_INIT}
+conda activate {CONDA_ENV}
+
+python {AI_DIR}/run_llm_query_cluster.py \
+  --model "{model}" \
+  --output "{out_json}" \
+  --prompt "{safe_prompt}" \
+  --cache_dir "{env.get('MODEL_CACHE_DIR', AI_DIR.parent / 'models')}" \
+  --save-models {save_models} \
+  --token "$HF_TOKEN"\n"""
+
+    script_sh.write_text(script)
+    job_id = subprocess.check_output(['sbatch', str(script_sh)]).decode().strip().split()[-1]
+    while job_id in subprocess.check_output(['squeue', '-j', job_id]).decode():
+        time.sleep(5)
+    if not out_json.exists():
+        raise FileNotFoundError(f"Output missing: {out_json}")
+    resp = json.loads(out_json.read_text())
+    return resp.get('choices', [{}])[0].get('text', '')
