@@ -1,49 +1,59 @@
+# File: src/feedback.py
 import json
-import asyncio
 import re
+import time
+from pathlib import Path
+from typing import List, Optional
+from pydantic import BaseModel, Field, ValidationError
+from prompt import system_prompt
+from ai.llms import query_llm
 
-async def generate_feedback(query: str) -> list:
-    """
-    Generates follow-up feedback questions using the LLM.
-    """
-    prompt = (
-        f"Given the initial research query: '{query}', generate EXACTLY 3 concise follow-up questions to clarify the research intent. "
-        "Ensure the output is either a JSON array of strings or a numbered list."
+class FeedbackSchema(BaseModel):
+    questions: List[str] = Field(...)
+
+def extract_questions_fallback(content: str, max_n: int = 3) -> List[str]:
+    lines = content.strip().splitlines()
+    questions = [
+        re.sub(r"^[\-\*\d\.\)\s]+", "", line).strip()
+        for line in lines
+        if "?" in line
+    ]
+    return questions[:max_n]
+
+def generate_feedback(
+    query: str,
+    model_name: str,
+    save_models: int = 0,
+    num_questions: int = 3,
+    timeout: Optional[int] = 300
+) -> List[str]:
+    system = system_prompt()
+    prompt_text = (
+        f"{system}\n"
+        f"Given the user's research topic, propose up to {num_questions} follow-up questions to clarify the direction: {query}"
     )
-    # Import the cluster LLM client
-    from ai.llms import query_llm
+    # Submit the prompt as a cluster job
+    idx = query_llm(prompt_text, model_name, save_models)
 
-    # Execute LLM call for feedback questions
-    response_text = await asyncio.get_event_loop().run_in_executor(
-        None,
-        query_llm,
-        prompt,
-    )
+    # Wait for the SLURM output file
+    data_dir = Path(__file__).parents[1] / 'data'
+    out_file = data_dir / f'output_{idx}.json'
+    elapsed = 0
+    while not out_file.exists() and elapsed < timeout:
+        time.sleep(1)
+        elapsed += 1
+    if not out_file.exists():
+        raise TimeoutError(f"Feedback generation timed out after {timeout} seconds.")
 
-    questions = []
-    # Attempt JSON parse
+    # Read the generated result
+    with open(out_file, 'r', encoding='utf-8') as f:
+        payload = json.load(f)
+    text = payload.get('choices', [{}])[0].get('text', '')
+
+    # Try JSON parsing, otherwise fallback
     try:
-        data = json.loads(response_text)
-        if isinstance(data, list):
-            questions = [str(q).strip() for q in data]
-    except json.JSONDecodeError:
-        pass
-
-    # Fallback: parse numbered or bulleted lists
-    if not questions:
-        for line in response_text.splitlines():
-            match = re.match(r"^\s*(?:\d+|[-*])\W*(.*)$", line)
-            if match:
-                text = match.group(1).strip().strip('"')
-                if text:
-                    questions.append(text)
-
-    # Final fallback: semicolon-separated
-    if not questions and ';' in response_text:
-        questions = [p.strip() for p in response_text.split(';') if p.strip()]
-
-    return questions
-
-# Synchronous wrapper for legacy usage
-def generate_feedback_sync(query: str) -> list:
-    return asyncio.get_event_loop().run_until_complete(generate_feedback(query))
+        parsed = json.loads(text)
+        validated = FeedbackSchema(**parsed)
+        return validated.questions[:num_questions]
+    except (ValidationError, json.JSONDecodeError):
+        return extract_questions_fallback(text, num_questions)
