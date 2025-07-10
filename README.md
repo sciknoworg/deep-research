@@ -48,9 +48,28 @@ python src/main.py
 ```bash
 deep-research/
 ├── src/              # Main source code
+├── scripts/          # Research evaluation pipeline
+├── data/             # Research data and reports
 ├── requirements.txt  # Python dependencies
 └── README.md         # Setup instructions
 ```
+
+## 📊 Research Evaluation Pipeline
+
+After generating research reports, you can evaluate their quality using the qualitative analysis pipeline:
+
+```bash
+cd scripts
+python qualitative_analysis_pipeline.py
+```
+
+The pipeline provides comprehensive quality assessment across different depth-breadth configurations, generating:
+- Multi-dimensional quality metrics
+- Publication-ready visualizations
+- Comparative analysis reports
+- Statistical evaluation of research effectiveness
+
+For detailed documentation on the evaluation pipeline, see [`scripts/README.md`](scripts/README.md).
 
 ## 🙌 Acknowledgment
 

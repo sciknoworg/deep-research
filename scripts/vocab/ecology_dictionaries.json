@@ -1,0 +1,67 @@
+{
+  "regions": [
+      "Europe", "North America", "South America", "Asia", "Africa", "Australia",
+      "Mediterranean", "Alpine", "Tropical", "Arctic", "Boreal", "Temperate",
+      "Subtropical", "Arid", "Wetland", "Coastal", "Marine", "Freshwater",
+      "Terrestrial", "Montane", "Savanna", "Tundra", "Desert", "Grassland", "Rainforest"
+  ],
+  "interventions": [
+      "fertilizer", "stocking", "mowing", "grazing", "irrigation", "organic",
+      "controlled burn", "restoration", "reforestation", "afforestation",
+      "rewilding", "habitat creation", "invasive species control", "predator control",
+      "captive breeding", "protected area", "translocation"
+  ],
+  "mechanistic_terms": [
+      "mechanism", "pathway", "feedback", "trophic", "nutrient cycling",
+      "energy flow", "predation", "competition", "mutualism", "succession",
+      "disturbance", "resilience", "adaptation", "selection pressure", "gene flow",
+      "decomposition", "mineralization", "nitrification", "photosynthesis",
+      "respiration", "herbivory", "facilitation", "inhibition"
+  ],
+  "diversity_dimensions": [
+      "taxonomic", "functional", "phylogenetic", "alpha", "beta", "gamma",
+      "species richness", "evenness", "dominance",
+      "endemism", "rarity", "abundance", "biomass", "density", "coverage",
+      "trait diversity", "genetic diversity", "structural diversity"
+  ],
+  "ecosystem_services": [
+      "provisioning", "regulating", "carbon sequestration",
+      "pollination", "pest control", "water purification", "soil formation",
+      "climate regulation", "flood control", "erosion control", "recreation",
+      "aesthetic value", "food production", "timber",
+      "fiber", "fuel", "genetic resources", "biochemicals", "fresh water"
+  ],
+  "conservation_terms": [
+      "conservation", "biodiversity", "endangered", "threatened", "vulnerable",
+      "extinction", "habitat loss", "fragmentation", "degradation", "restoration",
+      "sustainability", "ecosystem health", "ecological integrity", "resilience",
+      "adaptive management", "landscape connectivity", "corridor", "buffer zone"
+  ],
+  "climate_terms": [
+      "climate change", "global warming", "temperature", "precipitation",
+      "drought", "extreme weather", "phenology", "range shift", "migration",
+      "adaptation", "mitigation", "carbon dioxide", "greenhouse gas",
+      "sea level rise", "ocean acidification", "thermal stress"
+  ],
+  "causal_terms": [
+      "because", "due to", "caused by", "results in", "leads to", "triggers", "induces",
+      "therefore", "consequently", "as a result", "hence", "thus",
+      "accordingly", "owing to", "through", "via", "by means of"
+  ],
+  "innovation_terms": [
+      "novel", "innovative", "breakthrough", "pioneering", "cutting-edge", "emerging",
+      "frontier", "state-of-the-art", "advanced", "experimental",
+      "proof-of-concept", "first", "unprecedented"
+  ],
+  "complexity_terms": [
+      "complex", "multifaceted", "interconnected", "nonlinear", "emergent", "synergistic"
+  ],
+  "scale_terms": [
+      "local", "regional", "global", "landscape", "patch", "individual", "population", "community", "ecosystem"
+  ],
+  "stats_terms": [
+      "significant", "correlation", "regression", "p-value", "confidence interval", "standard deviation",
+      "ANOVA", "effect size", "meta-analysis", "variance", "mean",
+      "median", "t-test", "chi-square", "standard error", "R-squared"
+  ]
+}
