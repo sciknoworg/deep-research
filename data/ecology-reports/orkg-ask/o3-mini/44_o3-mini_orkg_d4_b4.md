@@ -1,394 +1,243 @@
-# Final Report on Integrated Research Methodologies, Ethical Frameworks, and Technological Innovations
+# Final Report: Factors Determining the Success of Reintroducing Lynx to the Austrian Northern Limestone Alps
 
-This report synthesizes a broad array of findings from recent research initiatives across diverse domains including ethical oversight in AI-driven research, smart grid management and digital infrastructure, dynamic spatio-temporal modeling, uncertainty quantification, and cross-disciplinary integration. The objective is to provide an in-depth review that enhances understanding of both the technical and ethical dimensions of contemporary research methods in digital and hybrid environments. Throughout, we highlight emerging trends, methodologies, and practical applications while examining both traditional frameworks and novel paradigms. 
+## Abstract
+This report presents a comprehensive synthesis of the ecological, socio-economic, and political factors that determine the success of reintroducing Eurasian lynx (Lynx lynx) in the Austrian Northern Limestone Alps. Building on a breadth of interdisciplinary research and case studies spanning Alpine regions, northern Europe, and global reintroduction efforts, this analysis discusses the importance of habitat suitability, genetic health, stakeholder engagement, conflict mitigation, and adaptive management. The report also integrates lessons learned from ethnoecological, genomic, and connectivity studies, thereby offering strategic recommendations for future reintroduction initiatives. 
 
----
+## Introduction
+Reintroducing large carnivores such as the lynx to fragmented landscapes demands a multifaceted strategic approach. The Austrian Northern Limestone Alps, with its distinctive geological, ecological, and socio-political context, presents a unique case study for exploring the dual challenge of fostering both species recovery and maintaining ecosystem and community stability. Historically, attempts to reintroduce lynx in Alpine regions have faced challenges related to limited founder populations, fragmented habitats, political discord, and socio-economic conflicts. This report collates insights from ethnographic studies, stakeholder analyses, technological innovations in genetic monitoring, and dynamic connectivity models to propose an integrated framework for successful lynx reintroduction. 
 
-## 1. Introduction
+## 1. Defining Success in Lynx Reintroduction
+### 1.1 Ecological Success Metrics
+Success in species reintroduction must be defined multidimensionally. Key ecological metrics include:
 
-Recent years have seen a dramatic evolution in research methodologies, driven by the convergence of digital data, cloud-based infrastructures, and advanced machine learning techniques. Researchers have increasingly recognized that integrating data-driven approaches with rigorous ethical oversight is not only desirable, but essential. This report consolidates multi-sector learnings ranging from smart grids and satellite imaging to participatory ethics and advanced spatio-temporal models. We present findings structured around five major themes:
+- **Survival and Reproduction Rates:** Monitoring lynx survival from post-release phases through to sustained reproduction is paramount. The integration of veterinary health protocols, standardized genomic assessments (using microsatellites and SNP panels), and long-term health surveillance (as applied in Swiss projects) will help evaluate viability.
+- **Habitat Utilization and Connectivity:** Effective reintroduction requires the assessment of suitable habitats based on prey availability (e.g., roe deer populations) and refuge options that mitigate human disturbances. Studies from southern Norway, Scandinavia, and the Alps emphasize the need to employ telemetric and connectivity modeling (e.g., using probability of connectivity metrics and circuit theory) to map and design dispersal corridors.
+- **Genetic Diversity and Inbreeding Avoidance:** Regular genetic monitoring is critical. Swiss protocols and Iberian lynx studies demonstrate that robust genomic analyses help in tracking genetic erosion and informing subsequent translocations or management interventions to avoid inbreeding depression.
+- **Ecosystem Functioning and Biodiversity Restoration:** The broader ecological impact is judged by indicators such as trophic cascades, restoration of prey dynamics, and maintenance of a historically congruent species range—principles central to the IUCN Green List framework.
 
-- **Ethical and Governance Frameworks**
-- **Dynamic and Distributed Data Systems**
-- **Spatio-Temporal and Causal Modeling Advances**
-- **Simulation, Uncertainty Quantification and Mixed Methods**
-- **Convergence of Digital Epistemology and Participatory Research**
+### 1.2 Socio-Economic and Political Success Metrics
+Reintroduction is not merely an ecological endeavor; it is also deeply embedded in socio-economic realities:
 
-Each section delves into the methodologies, technological integrations, and ethical considerations that are catalyzing new research landscapes globally.
+- **Local Community Acceptance and Cultural Integration:** Ethnographic studies from Portugal and Scotland reveal that community perceptions are complex. While some stakeholders link carnivore reintroduction to ecosystem restoration and nature tourism, others are wary due to historical top-down conservation approaches. Approaches grounded in participatory, cross-sectoral dialog are required to reconcile these differences.
+- **Compensation and Conflict Mitigation Strategies:** Effective programs need a shift from reactive, monetary compensation schemes to integrative, preventive strategies. Analyses indicate that a combination of preventive husbandry practices, clear compensation protocols, and proactive public education (exemplified in Norway’s cost-benefit studies for carnivores) can enhance rural tolerance for lynx presence.
+- **Governance and Policy Alignment:** The success of reintroduction efforts is partly dependent on robust legal frameworks and transboundary coordination. The experiences in the German and Swiss Alps highlight how fragmented political and institutional policies can undermine conservation efforts. Harmonized Austrian and cross-border (EU) policies that incorporate stakeholder feedback are necessary to ensure long-run support and adaptability.
 
----
+## 2. Ecological and Environmental Considerations
+### 2.1 Habitat Suitability and Prey Dynamics
+Habitat assessments must integrate both fine-scale field data and large-scale spatial modeling. Key considerations include:
 
-## 2. Ethical and Governance Frameworks
+- **Prey Density and Refuges:** Telemetry-based resource selection functions (RSFs) have shown that lynx favor areas with a high density of prey, particularly roe deer, in combination with terrain that offers refuge from human disturbances. Ground-truthing habitat models with field surveys—as seen in swift fox studies that improved habitat estimates by 16%—should be standard practice.
+- **Connectivity Modeling:** In addressing fragmentation, studies in the Iberian lynx have demonstrated that dynamic corridor modeling (employing metrics such as the Probability of Connectivity (dPC) and network centrality) is critical. Integrating real-time data—such as road mortality statistics and telemetry from GPS collaring—enables continuous adjustment to corridor design.
 
-### 2.1 Multi-Tiered Ethical Reviews and Participatory Oversight
+### 2.2 Genetic and Health Monitoring
+Integrating genetic monitoring with health surveillance protocols enables early detection of inbreeding and disease:
 
-A recurrent theme in recent studies is the development of multi-tiered ethical review models. Traditional Institutional Review Boards (IRBs) have been complemented by innovative community-based governance mechanisms. For example:
+- **Standardized Genomic Assessments:** Swiss projects utilizing genome-wide SNP panels and archived biological samples provide a template for long-term genetic health management. These methods also support dynamic adaptive management—integrating statistical models (e.g., agent-based models) to predict population trends under variable conditions.
+- **Veterinary Health Protocols:** Lessons from Swiss lynx translocations demonstrate that consistent health monitoring can detect silent pathogen circulation and early signs of genetic erosion, paving the way for timely interventions.
 
-- **Dual-Layer Review Processes:** In AI-driven population health research, a two-layer review integrating national open-science repositories with sector-specific validation committees has gained prominence. This mechanism balances institutional oversight with participatory ethics.
-- **Participatory Dialogue:** Empirical work using Delphi surveys and models such as Eckenwiler’s framework (2001) shows that involving community participants, stakeholder groups, and disciplinary experts can ameliorate biases inherent in traditional oversight.
-- **Meta-Governance and Digital Ethics:** Contemporary proposals underscore integrating value-sensitive and conscientious design approaches. Projects like ETAIROS advocate for responsible digital ethics ontologies to ensure accountability, fairness, and autonomy in digital research.
+### 2.3 Landscape and Climate Considerations
+While habitat fragmentation is a persistent issue, climate change poses additional uncertainties. Adaptive management frameworks need to incorporate long-term climate projections to ensure that reintroduced populations are resilient to changes in habitat quality and prey availability.
 
-### 2.2 Meta-Ethical Constructs in Distributed Environments
+## 3. Socio-Economic and Institutional Dynamics
+### 3.1 Stakeholder Engagement and Participatory Management
+Evidence emphasizes that building trust through participatory multi-stakeholder approaches is central to successful reintroductions:
 
-The complex interplay between AI, digital ecosystems, and varied stakeholder groups necessitates multi-layered meta-governance frameworks. Recent literature suggests:
+- **Inclusive Dialogue:** Ethnographic and stakeholder analyses from Scotland, Portugal, and the German Alps highlight the importance of involving local communities, livestock sectors, hunters, and conservationists from the outset. Tools such as Q-methodology have identified distinct stakeholder groups and provided insights for tailored mitigation strategies.
+- **Public Education and Transparent Communication:** Many reintroduction challenges are rooted in historical mistrust. Proactive public education efforts that combine scientifically robust data with TEK (Traditional Ecological Knowledge) can bridge the gap between informed decision-making and community acceptance.
+- **Conflict Resolution Mechanisms:** Several case studies note that compensation strategies often focus on immediate reimbursement, which can exacerbate tensions. Instead, integrating preventive measures such as enhanced livestock husbandry, real-time damage monitoring, and participatory conflict resolution frameworks (as evidenced in Norwegian studies) can foster long-term coexistence.
 
-- **Dual Review Mechanisms:** Decoupling scientific review from ethical review, as seen in multi-centre studies, can streamline approval processes while maintaining rigorous oversight. However, case studies (e.g., NSW experiments) indicate that median governance times remain lengthy, prompting an urgent need for concurrently designed and streamlined review systems.
-- **Adaptive e-Research Governance:** With increasing reliance on digital repositories and long-term data stewardship, novel frameworks must address issues like intellectual property, digital asset control, and dynamic risk management.
+### 3.2 Economic Trade-Offs and Compensation Schemes
+Economic analyses of lynx reintroduction must factor both direct and indirect cost-benefit outcomes:
 
----
+- **Cost Efficiency and Adaptive Compensation:** Research across Europe indicates that while streamlined monetary compensation schemes (accounting for significant annual payouts) are necessary, they must be supplemented with prevention-focused strategies. Integrative programs that emphasize both recovery-oriented interventions and economic incentives tailored to local realities have the potential to both reduce conflict and enhance public perception.
+- **Integration with Rural Development:** Aligning reintroduction strategies with broader rural development goals — for instance through nature tourism and ecosystem service payments—could open avenues for co-financing and reinforce economic resilience in affected communities.
 
-## 3. Dynamic and Distributed Data Systems
+### 3.3 Institutional and Policy Coordination
+Multi-layer governance and cross-border collaboration are essential for long-term success:
 
-### 3.1 Cloud-Based Smart Grid Management
+- **Harmonized Legal Frameworks:** The complex interplay between national, regional, and EU regulations requires a harmonized approach. The Mercantour National Park serves as a prime example of how structured legal and institutional frameworks facilitate coordinated species management across political borders.
+- **Enhanced Funding Models:** Current European conservation funding is often too discipline-specific. A restructuring towards multi-stakeholder, transdisciplinary funding models—lowering co-financing barriers and encouraging community-of-practice frameworks—would likely produce better integrated conservation outcomes.
 
-Cloud computing has revolutionized smart grid management and digital infrastructure. Initiatives like the USC campus microgrid serve as exemplary models:
+## 4. Lessons Learned from Comparative Case Studies
+### 4.1 Historical Lynx Reintroductions in Austria and Beyond
+Past reintroduction efforts in Austria during the late 1970s, while ambitious, suffered from inadequate post-release monitoring and fragmented stakeholder cooperation. Similarly, historical efforts in the German Alps were impeded by institutional competition and the absence of formal compensation structures. In contrast, more recent, comprehensive initiatives in Switzerland and Spain demonstrate the efficacy of integrating robust genetic monitoring, participatory engagement, and adaptive management frameworks. 
 
-- **Hybrid Cloud Infrastructures:** Integrating IaaS and PaaS in public and private clouds enables real-time analytics, managing millions of data streams with minimal latency. These infrastructures support adaptive information integration and dynamic demand response.
-- **Digital Twin Technology:** The convergence of digital twin applications with cloud and edge computing optimizes network security and DSM strategies. Innovations such as containerized decision trees and smart meter digital twins have proven effective in tracking and forecasting power use in distributed systems.
+### 4.2 Innovative Monitoring and Adaptive Management
+Contemporary projects have embraced advanced technologies:
 
-### 3.2 Distributed Algorithms and Serverless Paradigms
+- **Dynamic Connectivity and Telemetry:** Integrating telemetry data with circuit theory and least-cost path analyses has led to the development of adaptive, real-time corridor optimization strategies.
+- **Ensemble Ecosystem Modeling:** Approaches that blend empirical field data with scenario-based projections (e.g., using Monte Carlo simulations and agent-based models) provide decision-makers with predictive tools that explicitly incorporate uncertainty and variable species interactions.
+- **Holistic Indicator Frameworks:** Frameworks like the Achieved Restoration (AR) index and the Holistic Indicator Selection Protocol (HISP) balance ecological, socio-economic, and governance metrics. These indices help prevent the overestimation of reintroduction success by juxtaposing what has been restored against well-defined, cross-taxa benchmarks.
 
-Recent developments focus on addressing the challenges inherent in distributed systems:
+### 4.3 Transdisciplinary and Community-Centered Approaches
+Studies across Europe demonstrate that overcoming entrenched opposition requires a paradigm shift toward participatory, co-managed strategies:
 
-- **Federated Learning with Privacy Enhancements:** Techniques like DP-SCAFFOLD and stochastic coded federated learning (SCFL) ensure robust privacy while managing heterogeneous datasets over edge, cloud, and HPC resources. These strategies are critical for compliance with GDPR, HIPAA, and CCPA while optimizing resource allocation.
-- **Scalable Data Curation:** Domain-tailored distributed algorithms have been designed to support massive datasets. Cloud-based platforms for energy data management and smart grids now incorporate FAIR principles to reduce decision latency and enhance asset selection in sectors ranging from petroleum repurposing to sustainable energy initiatives.
+- **Integrated Traditional and Scientific Knowledge:** Incorporating TEK with quantitative data not only enhances habitat suitability modeling but also legitimizes local voices. Community-based monitoring experiments (such as those involving citizen science and structured workshops) are central to building sustained trust.
+- **Conflict Mitigation Through Adaptive Preventive Measures:** Shifting from a reactive compensation model to one focused on proactive prevention—as illustrated by improved livestock husbandry and educational outreach—can produce better long-term outcomes.
 
----
+## 5. Recommendations and Future Directions
+Based on the comprehensive synthesis of the literature and case studies, the following recommendations are proposed for the successful reintroduction of lynx in the Austrian Northern Limestone Alps:
 
-## 4. Advances in Spatio-Temporal and Causal Modeling
+1. **Develop Integrated Monitoring Programs:** Establish long-term, multi-metric monitoring systems that combine genomic assessments, telemetry data, and on-ground habitat surveys. Ensure the data feed into adaptive models that dynamically adjust corridor and habitat management plans.
 
-### 4.1 Dynamic and Graph-Based Models
+2. **Implement Participatory Management Strategies:** Engage local communities and stakeholders from initial planning through to execution. Utilize tools like Q-methodology and MCDA to identify and address the concerns of diverse groups, ensuring that compensation schemes are both preventive and adaptive.
 
-Advancements in spatio-temporal forecasting have employed dynamic architectures such as DST-GCN and dynamic Laplacian matrix estimators combined with tensor decomposition. Key observations include:
+3. **Strengthen Cross-Border Coordination:** Harmonize Austrian conservation policies with neighboring regions (Germany, Switzerland, and Italy) to facilitate coordinated reintroductions. Establish transnational advisory boards that include scientific experts, local government representatives, and community leaders.
 
-- **Improved Predictive Accuracy:** These architectures have yielded improvements of up to 25% in predictive performance for tasks such as traffic and epidemic modeling by capturing evolving spatial dependencies and managing dynamic graph structures. 
-- **Graph Neural Networks (GNNs):** Models like CausalGNN and hybrid frameworks that merge mechanistic epidemiological modules with dynamic GNNs have demonstrated significant improvements in forecasting parameters with reduced model complexity. They effectively integrate ordinary differential equations to embed epidemiological context and spatio-temporal embeddings.
+4. **Restructure Conservation Funding:** Advocate for transdisciplinary funding models that lower co-financing barriers and incentivize multi-stakeholder, integrative projects. Align funding priorities with both ecological restoration and the socio-economic well-being of local communities.
 
-### 4.2 Integration with Traditional Time-Series Methods
+5. **Enhance Public Education and Communication:** Launch comprehensive public education campaigns that transparently share monitoring results and adaptive management interventions. Emphasize the dual benefits of ecosystem restoration and potential long-term economic improvements, including increased nature tourism.
 
-Hybrid frameworks combine classical statistical models (ARIMA) with graph-based deep learning. Such integrations have been shown to:
+6. **Utilize Advanced Predictive Modeling:** Incorporate dynamic modeling approaches (e.g., Agent Based Models, Mixed Observability Markov Decision Processes) to simulate various reintroduction scenarios under changing ecological and socio-economic conditions. Such models should integrate real-time data on prey density, road mortality, and landscape changes.
 
-- **Enhance Forecasting Reliability:** Reduced RMSE by approximately 10-12% in pandemic monitoring frameworks, providing robust solutions for short-term predictions in unpredictable, data-sparse environments.
-- **Support Decision-Making:** The employment of dual frameworks, as seen in DeepCOVID and joint forecasting models, handles heterogeneous data inputs like mobility, testing metrics, and temporal signals, ensuring dynamic responsiveness and accurate real-time decision support.
+7. **Integrate TEK and Scientific Data:** Establish frameworks for the systematic inclusion of Traditional Ecological Knowledge alongside empirical scientific data, ensuring that local cultural insights inform adaptive management plans.
 
----
+## 6. Conclusion
+The reintroduction of lynx to the Austrian Northern Limestone Alps is a complex, multifaceted endeavor that requires an integrated approach. Success depends not only on ecological feasibility—survival, breeding, habitat connectivity, and genetic diversity—but also on socio-economic viability, stakeholder engagement, and robust, adaptive institutional frameworks. The lessons learned from past European initiatives and cutting-edge methodological advancements provide a roadmap for navigating the challenges inherent in large carnivore conservation. By combining advanced genomic tools, dynamic ecological modeling, and inclusive participatory processes, future reintroduction efforts can achieve sustainable population recovery while enhancing ecosystem functioning and preserving local socio-political harmony.
 
-## 5. Simulation, Uncertainty Quantification, and Mixed Methods
-
-### 5.1 Simulation-Based Design and Uncertainty Propagation
-
-A significant body of research has focused on integrating simulation-based methods with uncertainty quantification techniques. Key innovations include:
-
-- **Advanced Monte Carlo Techniques:** Extensions such as Multilevel and Multi-Index Monte Carlo allow for robust propagation of uncertainties in high-dimensional simulation models, particularly within pharmaceutical trials and clinical research. 
-- **Patient-Level Simulation Models:** Integrative models (e.g., UK Prospective Diabetes Study Outcomes Model v2 applied in the AFORRD trial) that merge parameter and sampling uncertainty have demonstrated that confidence intervals can widen by up to 6.3-fold while achieving near-perfect coverage.
-
-### 5.2 Qualitative and Quantitative Hybrid Methods
-
-Hybrid methodologies combine both qualitative and quantitative techniques to mitigate risks such as inferred bias (IBE) and internal versus external validity trade-offs. This includes:
-
-- **Mixed Methods Toolkit:** The Methods-Strands Matrix, typological frameworks for monomethod and mixed-method designs, facilitate the flexible design of research studies by aligning epistemological assumptions with operational variables.
-- **Digital and Visual Tools:** Platforms like Digital Change Laboratories and AM-Smart integrate bespoke computational tools with distributed expertise, rapid formative feedback, and visual reasoning to operationalize complex evaluative metrics across various disciplines.
-
----
-
-## 6. Convergence of Digital Epistemology and Participatory Research
-
-### 6.1 Emerging Paradigms in Digital Epistemology
-
-Recent debates around digital epistemology underscore the transformation of knowledge production in the era of big data and AI. Influential texts, including "Knowledge Machines" by Meyer and Schroeder, highlight that:
-
-- **New Knowledge Production:** Digital, distributed, and AI-driven methods are reshaping our understanding of evidence and analysis. This paradigm shift requires a reevaluation of traditional methods, moving towards an integrated, networked approach to data collection and analysis.
-- **Interdisciplinary Integration:** The fusion of digital humanities, arts-based research, and traditional social sciences is driving innovations that address contemporary phenomena from globalization to socio-cultural dynamics.
-
-### 6.2 Participatory e-Research and Stakeholder Integration
-
-Participatory dialogue is instrumental in bridging the gap between technological capabilities and community needs. Recent case studies demonstrate:
-
-- **Empowering Stakeholders:** Multi-stakeholder collaborations are key to managing intellectual property, data ownership, and long-term preservation. Initiatives such as consensus methods, Delphi surveys, and participatory frameworks have facilitated equitable integration of diverse voices in research design.
-- **Responsive Research Governance:** Adaptive multi-layered governance models not only accommodate evolving research teams but also integrate digital assets, cross-boundary collaborations, and ethical oversight in digitally driven investigations, especially in conflict zones such as Sudan.
+With the continued evolution of multi-disciplinary research and policy innovation, the Austrian case stands to benefit from a reimagined, adaptive management framework that is both scientifically rigorous and socially responsive.
 
 ---
 
-## 7. Applications in Real-World Scenarios
-
-### 7.1 Smart Grids and Energy Data Management
-
-The evolution of digital and big data management systems in smart grid applications serves as a successful application of these integrated approaches:
-
-- **USC Microgrid Case Study:** This project exemplifies the integration of cloud infrastructures, real-time data ingestion, and advanced machine learning for dynamic demand response and energy theft detection.
-- **Scalability and Reliability:** Evaluations reveal that ensuring algorithmic sophistication and data visualization clarity is critical while concurrently addressing ethical considerations like data security and regulatory compliance.
-
-### 7.2 Socio-Economic Monitoring in Conflict Zones
-
-The integration of satellite remote sensing data with socio-economic datasets has shown promise in conflict detection and economic monitoring:
-
-- **Sudan Conflict Analysis:** Studies detailing the SAF-RSF conflict since April 15, 2023, highlight how disruptions in utilities and markets can be correlated with socio-economic indicators. SAM-based economic models have simulated potential impacts such as a near 50% contraction of the economy, substantial drops in household incomes, and significant increases in poverty levels.
-- **Real-Time Policy Interventions:** Integrative frameworks allowing near-real-time monitoring facilitate timely policy responses, optimizing disaster preparedness and humanitarian interventions in affected regions.
-
----
-
-## 8. Concluding Remarks and Future Directions
-
-This report underscores the critical importance of integrating advanced computational methods, ethical oversight, and participatory research in addressing modern challenges across various domains. The learnings consolidated here contribute to a comprehensive framework for interdisciplinary research, which is essential for:
-
-- **Bridging Methodological Gaps:** Integrating digital and traditional research techniques to enhance both internal and external validity while managing diverse uncertainty sources.
-- **Optimizing Resource Allocation:** Advanced machine learning, distributed algorithms, and simulation-based uncertainty methods are paving the way for scalable, efficient, and secure data-driven environments.
-- **Strengthening Ethical Governance:** Multi-tiered ethical frameworks that combine institutional oversight with community engagement are crucial in ensuring that technological advances are balanced with societal needs.
-
-Looking ahead, emerging strategies—such as serverless computing in federated learning, digital twin integration, and qualitative-quantitative hybrid frameworks—offer promising avenues for further research. As rapid technology evolution continues to challenge and redefine traditional boundaries, the emphasis on combining rigorous ethical oversight with innovative methodologies will remain paramount.
-
----
-
-## 9. Recommendations for Future Research
-
-Given the current landscape and our consolidated learnings, the following recommendations emerge:
-
-1. **Develop Adaptive Governance Models:** Future research should focus on refining multi-layered review systems that integrate community-based frameworks with rapid, real-time ethical oversight tools.
-2. **Enhance Distributed Learning Architectures:** Experimental work on serverless and federated learning models must continue, with attention paid to differential privacy techniques and robust participation across heterogeneous devices.
-3. **Integrate Advanced Simulation Techniques:** Emphasize the use of multi-level Monte Carlo simulations and extreme condition-based design strategies to improve uncertainty propagation in high-dimensional models.
-4. **Foster Interdisciplinary Collaborations:** Enhance partnerships between physical scientists, social researchers, and digital humanities experts to build comprehensive approaches addressing both technical and societal challenges.
-5. **Expand Real-Time Monitoring Systems:** Invest in integrating digital twin technologies and satellite-based remote sensing data to further refine real-time decision support systems, particularly in dynamically changing environments such as smart grids and conflict zones.
-
-
----
-
-## 10. Final Thoughts
-
-The intersection of ethics, advanced analytics, and participatory methodologies represents a transformative mandate for future research. By continuing to innovate in both technological and ethical domains, researchers can develop systems that are not only efficient and scalable but also aligned with broader societal values and needs. This integrated approach is instrumental in moving from isolated technical experiments to comprehensive, adaptive frameworks capable of addressing complex, real-world challenges.
-
-This report, spanning diverse methodologies and applications, underscores the urgent need for continued innovation, ethical stewardship, and collaborative inquiry in the evolving landscape of digital and interdisciplinary research.
-
----
-
-*End of Report*
+*This report synthesizes a broad array of empirical research, stakeholder analysis, and policy evaluations. It is intended as a comprehensive resource for conservation practitioners, policymakers, and academic researchers engaged in large carnivore reintroduction and ecosystem restoration initiatives.*
 
 ## Sources
 
-- https://researchonline.jcu.edu.au/53720/1/53720_Skinner%20and%20Engelberg_2018_front%20material.pdf
-- https://hdl.handle.net/1721.1/121701
-- https://figshare.com/articles/_Confusion_matrix_for_the_decision_tree_based_on_distance_and_turning_angle_for_the_four_dominant_types_of_behaviour_in_the_12_second_interval_open_field_/1462501
-- http://hdl.handle.net/20.500.11850/489154
-- https://zenodo.org/record/3384127
-- https://hdl.handle.net/1721.1/144864
-- https://eprints.lancs.ac.uk/id/eprint/183676/
-- https://zenodo.org/record/5529427
-- https://www.ifpri.org/publication/sudans-agrifood-system-structure-and-drivers-transformation
-- http://orbi.ulg.ac.be/bitstream/2268/183863/1/C18_Computational%20modeling_future_2015_03_v24_FINAL.pdf
-- http://arxiv.org/abs/2203.03885
-- http://hdl.handle.net/10779/uos.23474612.v1
-- https://lirias.kuleuven.be/bitstream/123456789/623098/1//slides.pdf
-- https://escholarship.org/uc/item/05m2r4rd
-- https://openresearch.surrey.ac.uk/view/delivery/44SUR_INST/12138449490002346/13140268610002346
-- https://philpapers.org/rec/FRIGAH
-- https://eprints.lancs.ac.uk/id/eprint/161071/1/EAD_Design_Research_and_Ambiguity_UPDATED_FINAL_August.pdf
-- http://hdl.handle.net/10.6084/m9.figshare.7719407.v1
-- https://zenodo.org/record/5638582
-- https://e-space.mmu.ac.uk/view/creators/Rowley=3AJennifer=3A=3A.html
-- http://dx.doi.org/10.17877/DE290R-20490
-- http://hdl.handle.net/11386/4761837
-- https://commons.und.edu/theses/5236
-- http://hdl.handle.net/10.1023/A:1012218321453
-- https://doaj.org/article/b585d7d42a734683b3b104abd3e7c0cc
-- http://ebrary.ifpri.org/cdm/ref/collection/p15738coll2/id/136724
-- http://mpra.ub.uni-muenchen.de/22041/
-- https://hdl.handle.net/10356/166064
-- https://hal.archives-ouvertes.fr/hal-03406994
-- http://hdl.handle.net/1808/25317
-- http://hdl.handle.net/11565/3893718
-- http://ebrary.ifpri.org/cdm/ref/collection/p15738coll2/id/127849
-- https://digitalcommons.lasalle.edu/bsa_faculty/164
-- https://hdl.handle.net/1721.1/135127
-- https://ktisis.cut.ac.cy/handle/10488/24309
-- http://hdl.handle.net/2060/20050080704
-- http://hdl.handle.net/2123/18323
-- https://dx.doi.org/10.3390/e18030069
-- http://www.armyconference.org/ACAS00-02/ACAS01/BookerJane/BookerJane.paper.pdf
-- https://doi.org/10.14361/9783839469132
-- https://hdl.handle.net/11311/1249362
-- http://hdl.handle.net/11588/829404
-- https://hdl.handle.net/10356/156418
-- https://ieeexplore.ieee.org/document/9234698
-- http://orbi.ulg.ac.be/bitstream/2268/19188/1/Life%20and%20motion%20configuration%20-%20Hallot%20and%20Billen.pdf
-- https://research.edgehill.ac.uk/en/publications/76ef92ba-0da1-4d46-b777-3e09fa38ae24
-- http://psasir.upm.edu.my/id/eprint/35233/1/Research%20design.pdf
-- https://research.utwente.nl/en/publications/demand-side-management-for-multiple-devices(d1b7d529-1482-4739-9764-1e95a2d1ba30).html
-- http://kd2u.org/NGDM11/Papers2011/rasmus.pdf
-- http://hdl.handle.net/1773/26242
-- http://fmwww.bc.edu/cef00/papers/paper101.pdf
-- https://doaj.org/article/d8a36ba4b6574a67988eed071d0f1800
-- https://www.ifpri.org/ar/publication/economy-wide-impact-sudans-ongoing-conflict-implications-economic-activity-agrifood
-- https://doaj.org/article/57502e08a6074484aa7f981bb2c53983
-- https://doi.org/10.1038/s41597-019-0184-5
-- https://research.monash.edu/en/publications/e2aaff46-398c-401b-9e52-7549ce2af02c
-- http://www.scopus.com/home.url)
-- https://figshare.com/articles/_Confusion_matrix_for_the_decision_tree_based_on_distance_and_turning_angle_for_the_four_dominant_types_of_behaviour_in_the_12_second_interval_forest_/1462504
-- http://hdl.handle.net/1853/66565
-- https://aaltodoc.aalto.fi/handle/123456789/102860
-- https://doaj.org/article/bad62e33eba346259a531650ff0e5363
-- https://researchrepository.murdoch.edu.au/view/author/Israel,
-- https://hdl.handle.net/10292/3172
-- https://doaj.org/article/88e49e073b0e47c386ddfb5e2eb4414b
-- http://nectar.northampton.ac.uk/id/document/29533
-- https://hdl.handle.net/1721.1/144580
-- https://ojs.aaai.org/index.php/AAAI/article/view/21479
-- https://ro.uow.edu.au/buspapers/1344
-- https://zenodo.org/record/3903279
-- https://doaj.org/article/8819e20941fe4764af988312221e92a8
-- http://arxiv.org/abs/2205.11109
-- https://doi.org/10.1109/JIOT.2020.3007662
-- https://research.vu.nl/en/publications/fea365c1-e6da-4918-a335-500d0233bea1
-- https://zenodo.org/record/7339834
-- http://hdl.handle.net/1773/43266
-- https://hdl.handle.net/1721.1/143634
-- http://hdl.handle.net/2142/110813
-- https://escholarship.org/uc/item/4543j2pf
-- https://figshare.com/articles/_Confusion_matrix_for_the_decision_tree_based_on_distance_and_turning_angle_for_the_four_dominant_types_of_behaviour_open_field_1_min_interval_/1462498
-- https://openjournals.uwaterloo.ca/index.php/JoCI/article/view/2542
-- http://hdl.handle.net/10261/250456
-- https://zenodo.org/record/8078719
-- https://doaj.org/article/1957e3a754ed472b943468000fa25e61
-- https://digitalcommons.osgoode.yorku.ca/phd/30
-- https://doaj.org/article/f2f31a222fe645919969e59b7679bf64
-- https://scholarship.law.tamu.edu/facscholar/1494
-- https://researchrepository.murdoch.edu.au/id/eprint/48755/
-- http://www.rgi-otb.nl/geoinfoned/documents/RGI-232-01.pdf
-- https://zenodo.org/record/1209898
-- https://zenodo.org/record/7160310
-- https://hdl.handle.net/11250/2758433
-- https://www.repository.cam.ac.uk/handle/1810/293629
-- http://www.climatemodeling.org/%7Eforrest/presentations/Hoffman_AGU-Data-Integration_20141218.pdf
-- http://mdm.sagepub.com/content/20/3/314.full.pdf
-- https://elib.dlr.de/108650/
-- https://hal.archives-ouvertes.fr/hal-02075149
-- http://arxiv.org/abs/2205.11044
-- http://hdl.handle.net/20.500.11937/68926
-- http://www.nusl.cz/ntk/nusl-201645
-- http://ceur-ws.org/Vol-2505/paper03.pdf
-- http://www.msera.org/Rits_131/Teddlie_Tashakkori_131.pdf
-- http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.60.5006
-- https://digitalcommons.usu.edu/smallsat/2017/all2017/61
-- https://eprints.ncrm.ac.uk/id/eprint/3752/
-- http://www.aaai.org/Papers/AAAI/2002/AAAI02-158.pdf
-- https://www.tandfonline.com/doi/full/10.1080/17421772.2021.1876911?tab=permissions&amp;scroll=top
-- https://hdl.handle.net/1959.7/uws:56412
-- http://repository.tue.nl/880197
-- https://digitalcommons.usf.edu/cgi/viewcontent.cgi?article=1013&amp;context=usf_fcrc_all
-- http://ebrary.ifpri.org/cdm/ref/collection/p15738coll2/id/136843
-- https://escholarship.org/uc/item/0ps8469q
-- http://advancedscience.org/2014/9/139-143.pdf
-- http://cds.cern.ch/record/1372073
-- https://hdl.handle.net/1959.7/uws:55799
-- http://digitallibrary.usc.edu/cdm/ref/collection/p15799coll89/id/102258
-- http://cse.ucdenver.edu/%7Ebdlab/papers/31.pdf
-- http://dspace.stir.ac.uk/bitstream/1893/2795/1/Managing%20Data.pdf
-- http://hdl.handle.net/10150/662180
-- https://hal.inria.fr/hal-01518664
-- https://oa.upm.es/75899/
-- https://research.tilburguniversity.edu/en/publications/3e6d025f-c14d-46a2-b3c9-5e2a2603c6f0
-- http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.57.2129
-- http://emj.bmj.com/content/19/6/546.full.pdf
-- http://nrl.northumbria.ac.uk/id/eprint/30473/1/CaseStudies%20%282%29%20%28Autosaved%29%20LATEST1%20%28Recovered%29.xlsx
-- http://hdl.handle.net/11089/22100
-- http://ccsenet.org/journal/index.php/mas/article/download/2647/2450/
-- https://zenodo.org/record/3699531
-- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-196655
-- http://ai.stanford.edu/%7Eronnyk/tables.pdf
-- https://hal.inria.fr/hal-03498158
-- https://zenodo.org/record/3776949
-- https://figshare.com/articles/_Confusion_matrix_for_decision_trees_constructed_from_attributes_obtained_by_a_wavelet_transform_of_level_5_/211829
-- http://www.infosun.fim.uni-passau.de/cl/publications/docs/SiSiAp15.pdf
-- https://doaj.org/article/cbcf3cfccf0944d2af538b02b554713a
-- https://scholarlycommons.pacific.edu/soecs-facarticles/129
-- http://ceng.usc.edu/%7Esimmhan/pubs/simmhan-usctr-2011.pdf
-- https://doaj.org/toc/2194-9034
-- https://figshare.com/articles/Different_designs_and_their_information_content_according_to_different_optimality_criteria_for_the_benchmark_approach_and_the_MSS_approach_/3802794
-- http://hdl.handle.net/1853/39786
-- https://eprints.soas.ac.uk/32038/1/Ethical%20reflexivity_OA%20FINAL.pdf
-- http://eprints.ioe.ac.uk/18749/
-- https://research.utwente.nl/en/publications/f64d1480-ac04-4e67-9115-a25d3562f25b
-- https://zenodo.org/record/7333878
-- https://philpapers.org/rec/ANNTEW
-- https://zenodo.org/record/7391589
-- https://doaj.org/toc/2095-8099
-- https://zenodo.org/record/7275666
-- https://doaj.org/article/891ae7052f0d4de5a69bf460644127dc
-- http://orm.sagepub.com/content/11/4/659.full.pdf
-- https://zenodo.org/record/7980182
-- http://tud.qucosa.de/api/qucosa%3A30630/attachment/ATT-1/
-- https://zenodo.org/record/8089390
-- http://dro.dur.ac.uk/37021/
-- http://hdl.handle.net/10054/1377
-- http://informs-sim.org/wsc13papers/includes/files/043.pdf
-- http://hdl.handle.net/11858/00-001M-0000-0013-B8D6-8
-- http://repository.ust.hk/ir/bitstream/1783.1-2507/1/papadias2.pdf
-- https://doaj.org/article/5dacc7ef1dd349d7991128feadd59a96
-- https://www.scipedia.com/public/Pons_Prats_Bugeda_2019a
-- http://halcyon.usc.edu/~pk/prasannawebsite/papers/2013/simmhan-cise-2013.pdf
-- https://digitalrepository.unm.edu/cs_etds/86
-- https://eprints.lancs.ac.uk/id/eprint/150006/
-- http://hdl.handle.net/10195/35682
-- http://www.palgrave.com/page/detail/digital-methods-for-social-science-helene-snee/?isb=9781137453655
-- https://zenodo.org/record/897411
-- http://cds.cern.ch/record/2034297
-- http://www.harmo.org/conferences/Proceedings/_Sofia/publishedSections/Pages434to438.pdf
-- http://hdl.handle.net/1853/58729
-- https://espace.library.uq.edu.au/view/UQ:69882
-- http://dx.doi.org/10.18452/21637
-- https://biblio.ugent.be/publication/4181473/file/4181481
-- http://arxiv.org/abs/2201.10092
-- http://ageconsearch.umn.edu/record/319439
-- https://zenodo.org/record/3677581
-- https://espace.library.uq.edu.au/view/UQ:137055
-- https://doaj.org/article/28e354fb47f04b87b5d8702b7703b8b2
-- http://hdl.handle.net/10454/18608
-- https://doi.org/10.48573/p9qr-4b12
-- http://arxiv.org/abs/2206.12179
-- https://ieeexplore.ieee.org/document/9437738/
-- https://doi.org/10.4324/9780429056413
-- http://hdl.handle.net/1773/43659
-- http://creativecommons.org/licenses/by-nc-sa/2.0/uk/
-- https://hal.archives-ouvertes.fr/hal-02119841/document
-- http://files.eric.ed.gov/fulltext/ED443834.pdf
-- https://bibliotekanauki.pl/articles/1193826
-- https://discovery.ucl.ac.uk/id/eprint/1520173/
-- https://research.rug.nl/en/publications/what-about-confidence-intervals(39da7357-6dc5-4bfc-bd84-ca41c92e2e2e).html
-- https://zenodo.org/record/4727091
-- https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2095809916309468/MAIN/application/pdf/bf5aea5cbf8ffd3bf5b9bea1612c6910/main.pdf
-- http://eprints.rclis.org/42914/
-- http://cds.cern.ch/record/1951408
-- https://hal.science/hal-00519611
-- https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1048&amp;context=ecis2022_rip
-- http://www.springerlink.com/content/q05026674v544tr0/
-- http://ebrary.ifpri.org/cdm/ref/collection/p15738coll2/id/136701
-- http://link.springer.de/link/service/journals/00168/papers/2036003/20360497.pdf
-- https://scholarsmine.mst.edu/mec_aereng_facwork/2557
-- https://doi.org/10.1109/ISGTEurope.2013.6695406
-- https://espace.library.uq.edu.au/view/UQ:351125
-- http://hdl.handle.net/1807/103710
-- https://doi.org/10.1177/0272989X20916442.
-- https://ojs.aaai.org/index.php/AAAI/article/view/17808
-- http://www.scopus.com/inward/record.url?scp=84978446322&partnerID=8YFLogxK
-- https://ojs.aaai.org/index.php/AAAI/article/view/3877
-- https://doi.org/10.16997/book14
-- https://doi.org/10.1007/s11673-017-9771-3
-- https://doaj.org/article/0f418e023d0c44da906f28ad1419fcfd
-- https://zenodo.org/record/5765861
-- https://dialnet.unirioja.es/servlet/oaiart?codigo=3309812
-- https://figshare.com/articles/_Confusion_matrix_for_the_decision_tree_based_on_distance_and_turning_angle_for_the_three_types_of_dominant_behaviour_open_field_1_minute_interval_where_Lying_and_Standing_are_taken_together_as_Resting_/1462499
-- http://dx.doi.org/10.1525/jer.2011.6.2.13
-- https://doi.org/10.2499/p15738coll2.136730
-- https://doaj.org/article/3122be121df44231810f12b145f73004
-- http://nbn-resolving.de/urn:nbn:de:bsz:352-0-403447
-- https://doaj.org/article/67655fe0d4e941debd913295e3ed8df6
-- https://doi.org/10.1051/shsconf/20185001082
-- https://orbilu.uni.lu/bitstream/10993/44915/1/Lewenfus-TSPIN-2020.pdf
-- https://doi.org/10.1093/jac/dkw150
-- https://hal.inria.fr/hal-03878254/document
-- http://machinelearning.wustl.edu/mlpapers/paper_files/icml2003_LingY03.pdf
-- http://hdl.handle.net/11568/1112672
-- https://doaj.org/article/d0bfab89707643959ef6a0fd2bc66bd0
-- https://zenodo.org/record/3669450
-- http://stefancojocaru.ro/wordpress/wp-content/uploads/2010/12/Challenges-in-Using-Mix-Methods-in-Evaluation.pdf
-- https://researchbank.rmit.edu.au/view/rmit:53066
-- http://hdl.handle.net/11582/329886
-- https://edoc.unibas.ch/92572/1/Thesis%20Favaretto%2C%20Big%20Data%2C%20bigger%20challenges%20-%20copiright%20version.pdf
+- https://stud.epsilon.slu.se/11050/
+- https://zenodo.org/record/4270408
+- https://hal.inrae.fr/hal-03482583
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0169204616301141/MAIN/application/pdf/ec8ee4a9e2b581deb88dd4b17293c3e4/main.pdf
+- http://hdl.handle.net/10261/259477
+- https://doaj.org/article/8cd3e7b80cda4fad97a93ce23b1eb0cc
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-69507
+- http://urn.fi/
+- https://arc.lib.montana.edu/ojs/index.php/IJS/article/view/591
+- http://doc.rero.ch/record/300410/files/S0030605309991013.pdf
+- https://doaj.org/toc/2167-8359
+- http://dx.doi.org/10.1553/eco.mont1s45
+- http://hw.oeaw.ac.at/6672-6
+- http://hdl.handle.net/2072/403105
+- http://biocenosi.dipbsf.uninsubria.it/atit/PDF/Volume12(2)/12(2)_6.pdf
+- http://hdl.handle.net/10451/51931
+- http://www.aecom.com/uk/wp-content/uploads/2015/09/Cost-benefit-analysis-for-the-reintroduction-of-lynx-to-the-UK-Main-report.pdf
+- http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/32144.pdf
+- https://pureadmin.qub.ac.uk/ws/files/623029520/J_Hanson_Nuffield_Presentation_2024_v2.pdf
+- http://www2.zoo.cam.ac.uk/manica/ms/2009_Kapos_et_al_Oryx.pdf
+- https://researchonline.jcu.edu.au/70078/1/70078.pdf
+- https://doaj.org/article/031c91c9050143c4b473840b0dd1e7fb
+- http://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-468631
+- https://figshare.com/articles/Dispersal_Ecology_Informs_Design_of_Large-Scale_Wildlife_Corridors/3854295
+- https://doaj.org/article/9a489caa33d547219edfc097650e437e
+- https://pure.qub.ac.uk/en/publications/3dfbdf92-dbbd-4da4-a24f-c26ebe488256
+- https://figshare.com/articles/Goals_ecosystem_metrics_and_performance_criteria_/3152788
+- http://hdl.handle.net/10871/128040
+- http://www.italian-journal-of-mammalogy.it/article/viewFile/4173/4109/
+- http://www.nusl.cz/ntk/nusl-136696
+- http://dspace.stir.ac.uk/bitstream/1893/29669/4/The%20potential%20for%20lynx%20reintroduction%20to%20Scotland.pdf
+- https://zenodo.org/record/5889154
+- http://www.ebd.csic.es/carnivoros/personal/eloy/publications/KramerSchadt_Biol_Cons_2005.pdf
+- https://orbi.uliege.be/handle/2268/128571
+- http://hdl.handle.net/11573/1281522
+- http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/63399
+- https://research.rug.nl/en/publications/9be5f335-eda8-49e3-a5a3-25baf3f9ecb6
+- https://hal-enpc.archives-ouvertes.fr/hal-01239781
+- https://doaj.org/toc/1932-6203
+- http://hw.oeaw.ac.at/0xc1aa500e_0x00220569.pdf
+- https://doi.org/10.3897/natureconservation.49.81469
+- https://insight.cumbria.ac.uk/id/eprint/3188/1/lynxinterimsurvey.pdf
+- https://doaj.org/article/80974ccff2864ec3bfaa456022ee692c
+- http://fauna.dipbsf.uninsubria.it/atit/PDF/Volume10(1)/10(1)_5.pdf
+- https://oa.upm.es/41048/
+- http://hdl.handle.net/10.1371/journal.pone.0216549.t002
+- http://hdl.handle.net/10261/282968
+- http://hdl.handle.net/10023/24285
+- http://hdl.handle.net/11573/624585
+- https://hdl.handle.net/11250/2648632
+- http://hw.oeaw.ac.at/7019-8
+- https://hdl.handle.net/11250/2755741
+- https://doaj.org/article/d98a4d8e88614b71a80c48288a627ba2
+- https://hdl.handle.net/11250/3003876
+- https://orbi.uliege.be/handle/2268/176592
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:93939
+- https://doi.org/10.1002/pan3.10465
+- https://doaj.org/article/8eeecae9082946b188aa35f9ded4d361
+- https://zenodo.org/record/6789818
+- http://www.scopus.com/inward/record.url?scp=85040322338&partnerID=8YFLogxK
+- https://www.db-thueringen.de/receive/dbt_mods_00051681
+- https://github.com/DrIanPhilips/LynxABM.
+- https://digitalcommons.fiu.edu/fce_lter_journal_articles/77
+- http://hdl.handle.net/11577/3199606
+- https://doaj.org/article/dc2fc0d4496740b8818ab09774c6b5f8
+- http://archive-ouverte.unige.ch/files/downloads/48260/unige_48260_attachment01.pdf
+- https://serval.unil.ch/resource/serval:BIB_14285249F1D0.P001/REF.pdf
+- https://doaj.org/article/821354d009784f9c89731516d266675d
+- https://eprints.ucm.es/id/eprint/73043/
+- https://hal.science/hal-03119373/document
+- http://dx.doi.org/10.1111/cobi.13112
+- http://www.kora.ch/malme/05_library/5_1_publications/B/Breitenmoser_et_al_2006_Guidelines_Monitoring_Lynx_Workshop_Balkan_Lynx.pdf
+- https://pub.epsilon.slu.se/31705/1/oeser-j-et-al-20230913.pdf
+- http://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-8095
+- https://figshare.com/articles/guinotghestem-gimenezsfe2016marseilleweb-161022125305_pdf/4832624
+- http://datacite.org/schema/kernel-4
+- http://dx.doi.org/10.1017/S0030605309991013
+- https://hal.inrae.fr/hal-03156227
+- https://doi.org/10.1016/j.biocon.2021.109442
+- http://chapmanresearch.mcgill.ca/Pdf/377_ConservationStories.pdf
+- http://www.bio.uib.no/modelling/papers/Schadt_2002_Assessing_the_suitability.pdf
+- http://dspace.stir.ac.uk/bitstream/1893/29181/1/Improving%20reintroduction%20success%20in%20large%20carnivores%20through%20individual-based%20modelling-%20how%20to%20reintroduce%20Eurasian%20lynx%20%28Lynx%20lynx%29%20to%20Scotland.pdf
+- https://hal.umontpellier.fr/hal-03410888/document
+- https://doaj.org/article/58ea0994a62647a0812edd872577a839
+- http://purl.umn.edu/57031
+- https://doaj.org/article/01daf18426a24d9dae29995943a42618
+- https://doaj.org/article/1aa9c2176910438585007725a024d2b3
+- https://hal.archives-ouvertes.fr/hal-01328677
+- http://hdl.handle.net/1893/29669
+- https://www.zora.uzh.ch/206926
+- https://hdl.handle.net/2027.42/106549
+- https://doaj.org/article/5380818c76d54544affc15dc71a0545d
+- http://www.springer.com/life+sciences/ecology/book/978-3-319-03742-4
+- http://hdl.handle.net/10447/509462
+- https://hal.science/hal-04247264
+- http://www.ebd.csic.es/carnivoros/publica/pdf/Kramer-Schadt_J_App_Ecol_04.pdf
+- http://eprints.atree.org/646/
+- https://doi.org/10.2139/ssrn.4779122
+- http://nora.nerc.ac.uk/id/eprint/530999/
+- https://shs.hal.science/halshs-03552741
+- https://orbi.uliege.be/handle/2268/186003
+- https://archimer.ifremer.fr/doc/00603/71465/
+- https://doi.org/10.1016/j.landusepol.2017.04.019
+- http://hdl.handle.net/10261/279470
+- http://dx.doi.org/10.1111/acv.12146
+- https://doi.org/10.1126/sciadv.1602516
+- http://hdl.handle.net/11390/865217
+- https://hal.science/hal-04182393
+- http://doi.org/10.1371/journal.pone.0080065
+- http://www.italian-journal-of-mammalogy.it/article/viewFile/4120/4056/
+- https://ojs.aaai.org/index.php/AAAI/article/view/11175
+- http://ageconsearch.umn.edu/record/310728
+- http://www.iaia.org/iaia09ghana/documents/cs/cs8-4_somevi_the_application_of_ecological_footprint.pdf?AspxAutoDetectCookieSupport=1
+- https://research-repository.st-andrews.ac.uk/bitstream/10023/24285/1/Paraskevopoulou_2021_Oryx_Field_surveys_predictions_of_habitat_CC.pdf
+- https://research.tilburguniversity.edu/en/publications/b7bc76ec-1dbb-4caf-bd80-beb6994c2939
+- http://www.nusl.cz/ntk/nusl-453417
+- https://pub.epsilon.slu.se/26303/
+- http://doc.rero.ch/record/301995/files/S0030605307002128.pdf
+- http://dx.doi.org/10.2981/wlb.00065
+- https://doaj.org/article/b1d085286c3e4099a13a05ca0471ee35
+- http://scandlynx.nina.no/Portals/Scandlynx/Publikasjoner/Basillie_2009_lynx_distribution_Ecography.pdf
+- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-145893
+- https://hal-univ-rennes1.archives-ouvertes.fr/hal-01346116
+- https://insight.cumbria.ac.uk/id/eprint/5627/1/lynx%20paper%20for%20RestEcol_Hawkins%20et%20al_submitted%20version%20%28not%20AAM%29.pdf
+- https://doaj.org/article/d71f56d7863d41f2b86fe791b8908beb
+- https://zenodo.org/record/834104
+- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-198668
+- http://hdl.handle.net/10449/19362
+- http://www.italian-journal-of-mammalogy.it/article/viewFile/4174/4110/
+- http://ageconsearch.umn.edu/record/292321
+- https://www.mdpi.com/2071-1050/9/6/1078
+- https://zenodo.org/record/4997535
+- http://www.uq.edu.au/spatialecology/docs/Publications/1998_Parma_NCEAS_adaptive_management.pdf
+- https://hal.archives-ouvertes.fr/hal-02066004
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0006320714001682/MAIN/application/pdf/2cc47fdd19c65bde619d87a1d72eff30/main.pdf
+- https://zslpublications.onlinelibrary.wiley.com/doi/full/10.1111/acv.12464
+- http://hdl.handle.net/11573/624591
+- http://dx.doi.org/10.1016/j.biocon.2013.11.017

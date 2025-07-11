@@ -1,287 +1,368 @@
-# Re-establishing Eurasian Lynx in the Austrian Northern Limestone Alps – A Comprehensive Success-Factor Analysis  
-*Author: [Your name], 3 June 2025*
+# Mechanisms by Which Fish Become Invasive in Mountain Lakes – A Global, Multi-Scale Synthesis
+
+*Compiled 3 June 2025*
 
 ---
 
-## Executive Summary
-The Northern Limestone Alps (NLA) are one of the last major Alpine blocks still lacking a self-sustaining Eurasian lynx (Lynx lynx) population. Four decades of intermittent, largely unco-ordinated releases (nine Carpathian founders in Styria, 1977–1979) have failed to create a viable nucleus; verified individuals today derive almost exclusively from Slovenian immigration into Carinthia. Drawing on >70 peer-reviewed studies, EU technical reports and grey literature (see Appendix A), this report synthesises **all currently known ecological, genetic, infrastructural, socio-economic, legal and governance variables that determine reintroduction success**.  
+## 1.  Scope and Framing
+Mountain lakes (≥ 1 000 m a.s.l.; often cold, ultra-oligotrophic, hydrologically isolated) were historically fish-less over much of the world.  Since ~1850 they have undergone one of the fastest faunal turnovers documented for inland waters.  Here I review **all known mechanisms** through which fishes (freshwater and diadromous) reach, establish, and transform mountain‐lake ecosystems, drawing on >70 primary studies, surveillance datasets and modelling tools (full citation key available upon request).  The discussion is deliberately *global* and *taxonomically broad* (salmonids, cyprinids, percids, tilapiines, coregonines, etc.), and parses three stages:
 
-Success is defined as the simultaneous achievement of five measurable pillars:  
-1. **Demographic viability** – ≥25 reproducing females (≈100–120 total lynx) in the NLA within 20 years.  
-2. **Genetic functionality** – effective population size *N*e ≥ 50 in situ and ≥150 when including exchange with the Bohemian–Bavarian–Austrian and Western Carpathian units; mean inbreeding coefficient *F* < 0.05.  
-3. **Ecological effectiveness** – demonstrable, stable top-down regulation of the roe-deer guild (λ ≤ 1.0) without collapse of hunting bags, and <10 lynx road-kills decade⁻¹.  
-4. **Socio-political licence** – ≥70 % public acceptance across stakeholder strata (hunters, foresters, livestock owners, peri-urban residents) plus an operative, statutory compensation/prevention scheme.  
-5. **Institutional permanence** – a transboundary governance framework that guarantees standardised monitoring, adaptive management and secured long-term funding (>25 years).  
+1. **Vectors/Pathways** – how propagules cross barriers and arrive.  
+2. **Abiotic & Genetic Filters** – why some introductions stick.  
+3. **Ecological Mechanisms & Feedbacks** – what enables spread and impact after arrival.
 
-Meeting all five pillars will require 
-• **Simultaneous founder releases from at least two genetic lineages (Carpathian × Bohemian–Bavarian–Austrian) totalling ≥20 individuals**;  
-• **Retrofit of ≥5 highway/railway bottlenecks with VSS-2004-compliant crossing structures** along the main east–west corridors (A10 Tauern, A2 Süd, ÖBB Tauern-Gisel lines);  
-• **A cross-border compensation & prevention fund modelled on the Saxony “Fachstelle Wolf” and Sweden’s performance payment system**;  
-• **A unified camera-trap SECR monitoring design covering ≥760 km²** augmented with eDNA and pellet-group surveys for prey, plus a public data portal based on Wolf Alpine Group templates;  
-• **Proactive trust-building** through co-designed “lynx-friendly meat/milk” certification and integrative land-use incentive schemes under the 2023-27 CAP eco-schemes.  
+For each stage I examine conventional wisdom **and** contrarian or emerging ideas (e.g., avian zoochory, genomic offset, climate-mediated “thermal corridors”).  I also integrate management levers and surveillance innovations that follow logically from the mechanistic evidence.
 
 ---
 
-## 1  Defining “Success”
-Previous Central-European reintroductions stumbled because success was equated with mere *presence* rather than multi-dimensional viability. This report adopts the five-pillar definition summarised above. Each pillar is traceable to empirical failures:  
-• The Styrian release collapsed demographically.  
-• Western Carpathian lynx today exhibit extreme inbreeding (67 first-degree kin in 68 genotyped individuals).  
-• Palatinate Forest saw no measurable top-down prey effect in four years, implying ecological irrelevance.  
-• German Alps lack compensation laws and therefore stakeholder licence.  
-• The Alpine meta-population stalled at 120–150 individuals in six isolated units because no permanent transboundary governance was forged.
+## 2.  Arrival Vectors – From Humans to Birds to Melting Glaciers
+
+### 2.1  Human-Mediated Deliberate Stocking
+
+• **Recreational trout programmes** are the dominant historical driver in most temperate mountain regions:  
+  – Pyrenees: trout culture reached ~25 % of >520 lakes pre-1950; modern stocking expanded fish presence to 35–85 % (valley specific).  
+  – Sierra Nevada (Spain), Alps, Rockies, Andes and New Zealand all show analogous timelines.  
+• **Genomic evidence** shows stocking pressure dictates outcomes: from no admixture (marble trout refugia) to complete native genomic loss (Lake Garda *Salmo carpio*).  Drainage-specific clusters in Swiss *Salmo trutta* persist despite >100 yrs of stocking, but two Mediterranean drainages are now dominated by hatchery alleles.  
+• **Agent-based models** in Ontario reveal steep attrition of non-target baitfish species from harvest to angler release, yet low-frequency, long-distance angler trips still seed remote lakes – underscoring the role of *propagule pressure* over sheer volume.
+
+### 2.2  Bait-Bucket & Aquarium/Wet-Pet Escapes
+
+• Pyrenean minnows (*Phoxinus*) invaded 27 % of lakes **only after** trout angling created demand for live bait; trout presence alone explains 27 % of deviance in minnow occurrence.  
+• In the Laurentian Great Lakes every fish introduced via the *water-garden* trade established; trait screens rank this pathway higher risk than aquarium or food trades.  
+• δ15N/δ13C forensic assays around Chiloé Island (Chile) show 94 % of juvenile salmonids at sea pens are farm escapees, providing a tool to litigate aquaculture leakage.
+
+### 2.3  Unauthorized Clandestine Transfers
+
+• Otolith 87Sr/86Sr geochemistry traced illegal walleye moved 309 km into a Montana mountain lake, pinpointing the previous growing season – demonstrating enforceable provenance tools.
+
+### 2.4  Natural Dispersal Re-examined
+
+Contrary to the idea that headwater lakes are isolated, at least **three natural vectors** merit attention:
+
+1. **Avian Zoochory** – Sticky egg-strands of *Perca fluviatilis* survived gut passage or adhered externally to waterfowl; >80 % of fenced gravel-pit lakes in France and >80 % of unstocked Bavarian pits were colonised without record of stocking.  SNP-based gene-flow distances (≤20 km) match daily bird flights.  
+2. **Post-Glacial or Glacier-Retreat Corridors** – *Cottus gobio* populations on opposite sides of the Rhine–Rhône divide share microsatellite signatures indicative of a glacier-enabled ~20 ka watershed crossing.  Modelling to 2100 projects glacial retreat lengthening alpine river networks by ~1 % upslope per decade, likely reopening such corridors.  
+3. **Extreme Flood/Connectivity Pulses** – Newly created Norwegian reservoirs connect to downstream source populations; connectivity and proximity to roads out-rank temperature in 50-yr invasion risk models.
+
+### 2.5  Infrastructure Leakage and Hydropower
+
+• Only 1 825 of ~76 000 U.S. dams have mandatory fish passage; turbine redesigns (DOE/EPRI Alden, ARL/NREC) now achieve >98 % smolt survival, but where *passage exists* it can also act as a **conduit for non-natives**.  
+• Reservoir drawdowns can reduce smolt residence time 18-fold but heighten entrainment risk, a trade-off that can similarly affect non-native juveniles.
 
 ---
 
-## 2  Ecological & Biological Determinants
-### 2.1  Habitat Suitability and Prey Base
-• Pellet-group distance sampling across the Alps/Apeninnes shows **roe-deer density varies >4-fold and method choice alters precision six-fold** (CV 8 %–58 %). For the NLA, contemporary pellet surveys suggest 12–22 roe deer km⁻²—well within the 2–4 deer day⁻¹ kill rate required per lynx.  
-• A Bavaria-wide DSM (2020) places highest roe-deer abundance in agri-forest mosaics, which are expanding north of the NLA under climate change—favourable for lynx.  
-• Scandinavian telemetry indicates lynx can depress ungulate λ by 0.14; this benchmarks the top-down “ecological effectiveness” pillar.  
+## 3.  Abiotic and Genetic Filters Governing Establishment
 
-### 2.2  Landscape Connectivity
-• Maxent + Effective Mesh Size forecasts show three new motorways (SK D1, PL S19, CZ D48) will halve cross-Carpathian connectivity by 2030 absent crossing structures.  
-• Circuit-theory modelling of the Carpathian green belt identifies a Beskydy–Malá Fatra–Low Tatra spine; LUIGI’s 20 m corridor raster for Salzburg and adjacent Slovenia is ready for direct lynx parameterisation.  
-• Swiss national defragmentation (51 mapped bottlenecks; 5 retrofitted) offers engineering standards: ≥50 m vegetated overpasses, 2.5 m fencing; Croatian data demonstrate >100 m bridges outperform 10–50 m underpasses by 3–6×.  
-• Empirical dispersal records >200 km (Swiss male B132) confirm that lynx can traverse the Alps if not lethally filtered by roads.  
+### 3.1  Climate Match, Oxygen & DOC
 
-### 2.3  Genetic Considerations
-• Bohemian–Bavarian–Austrian population doubled in density (0.69→1.33 ind. 100 km⁻²) but exhibits low heterozygosity and poor recruitment (♀ 12 %).  
-• Western Carpathian lineage is paradoxically demographically stable yet genetically collapsing (inbreeding *F* ↑, two incest lineages).  
-• A mixed-lineage founder set (10 Carpathian, 10 Bohemian / Swiss) coupled with **assisted gene-flow every 10–15 years** is recommended.  
+• In trait-based classification trees, a single *climate-match* variable predicted establishment with 75–81 % accuracy.  
+• **Thermal habitat squeezes** (Cultus Lake, BC; Wisconsin cisco lakes) show that warming can *both* enable warm-water invaders (cyprinids, percids) and eradicate cold-water natives even without invasion.  
+• Temperature interacts with **DOC thresholds**:  across 21 Sierra Nevada lakes, salmonid growth increased 0.06 g g⁻¹ yr⁻¹ °C⁻¹ up to ≈12 °C, but gains vanished once DOC > 7 mg L⁻¹; similar 10 mg L⁻¹ DOC threshold suppresses lake-trout recruitment in Québec.
 
-### 2.4  Demography & Release Strategy
-• Swiss data: high density alone does not stimulate dispersal; multiple source nuclei are needed.  
-• Simulations show that releasing ≥20 individuals in ≥3 spatially separated clusters (<50 km spacing) yields 0.86 probability of demographic persistence by year 25, vs 0.37 for a single cluster of 10.  
+### 3.2  Propagule Pressure & Genetic Diversity
+
+• Rainbow-trout farms around Lake Llanquihue deliver continual propagule pressure that both homogenises structure and elevates effective population size (*Nᵇ*), contrasting with isolated natural populations where genetic drift is stronger.  
+• *Oncorhynchus mykiss → O. c. lewisi* hybrid zones in the Rockies show **genome-wide purging** of rainbow alleles despite ongoing stocking, illustrating that **selection** can resist introgression when native niches remain.
+
+### 3.3  Genomic Offset & Adaptation
+
+• Gradient-Forest genomic-offset models for *Molgula manhattensis* (a marine ascidian) illustrate that *adaptive* rather than purely climatic suitability can flip invasion‐risk priorities.  Though marine, the method is now applied to alpine salmonids and *Coregonus artedi*, showing deleterious-load accumulation toward lower latitudes.  A similar framework could forecast which stocked strains will fail in warming alpine lakes.
 
 ---
 
-## 3  Monitoring & Knowledge Infrastructure
-### 3.1  Method Precision vs Cost
-| Metric | CV | Effort | Comment |
-|------|----|--------|---------|
-| Pellet DS (red deer) | 8 % | High | Robust at densities >0.01 pellets m⁻¹ |
-| Pellet DS (roe deer) | 19–26 % | High | Adequate with >300 groups |
-| Camera trap SECR | 10–26 % (lynx) | Moderate | Requires ≥760 km² to avoid density drift |
-| Drive counts | 58 % | Very high | Poor precision |
-| Snow tracks | 20–30 % | Low | Cheap where volunteers available |
+## 4.  Post-Establishment Ecological Mechanisms
 
-### 3.2  Standardisation & Transboundary Data
-• Wolf Alpine Group proves seven-country harmonisation is feasible (1→243 wolf packs in 27 years).  
-• Germany still lacks a national lynx monitoring network; Austria’s verification group (hunters) exists but is not integrated.  
-**Recommendation**: Create a “Lynx Alpine Group” with open data portal, mirroring WAG protocols (genetics, SECR, kill-site verification, corridor status).  
+### 4.1  Trophic Cascades & Predation
 
----
+• **Size-Selective Predation** – In Gran Paradiso NP (Alps) stocked brook trout removed large crustaceans and non-burrower benthic invertebrates, yet total zooplankton biomass stayed level as rotifers/small copepods compensated.  Functional redundancy hides strong impacts.  
+• **Pelagic vs. Benthic Shift with Elevation** – In Californian lakes trout amplify pelagic consumer:producer ratios at low elevation but alter benthos at high elevation.  A +1–2 °C warming is expected to shift cascades upward into pelagic zones.  
+• **Galaxiid Collapse** – Patagonian lakes: as rainbow + brown trout CPUE rises, *Galaxias platei* δ15N drops by ~1 trophic level; reciprocal shifts in trout δ15N when galaxiids scarce imply prey-base exhaustion, justifying trout culls.  
+• **Amphibian & Invertebrate Loss** – Pyrenean littoral zones show amphibian and macro-invertebrate collapse wherever trout are present and fishing is allowed.
 
-## 4  Socio-Political, Legal & Economic Determinants
-### 4.1  Stakeholder Attitudes
-• Český Šumava: students/residents positive; gamekeepers negative despite stable lynx.  
-• Scottish Q-method study isolated five narratives converging on *trust deficit*; identical pattern in Bavarian/Austrian debates.  
-• Verena Schröder’s wolf work shows predator behaviour adapts to peri-urban human routines, implying human × lynx co-adaptation is bidirectional.  
+### 4.2  Competition & Niche Compression
 
-### 4.2  Compensation & Prevention Economics
-• Across 27 European states, 68 % of carnivore-conflict spending is compensation; prevention under-funded.  
-• South Tyrol since 2018 funds prevention first, compensation second—model for Austria.  
-• Sweden’s performance payment to Sami (per carnivore offspring) solved incentive misalignment; usable for Alpine summer pastures.  
-• Germany’s EAFRD M14 “animal welfare” measure absorbs <1 % of envelope; Bavaria’s own pasture premiums could be tied to “lynx coexistence” metrics.  
+• Long-term (1991–2020) data from 11 high-latitude lakes show cool-water perch have displaced cold-water charr/whitefish via faster juvenile growth under warming.  
+• Brook-trout stocking in the Alps caused no community-level loss of zooplankton diversity but compressed size structure, hinting at *hidden* energy-flow changes.
 
-### 4.3  Institutional Architecture
-• Saxony’s *Fachstelle Wolf* bundles monitoring, compensation, outreach—single contact point; missing in Austrian Länder.  
-• Legal vacuum in German Alps (no compensation) repeatedly blocks cooperation.  
-**Solution**: A bi-national (AT-DE) **Lynx Coexistence Fund** financed 50 % by LIFE, 25 % by Länder/cantons, 25 % by private foundations; one-stop service analogous to Saxony.  
+### 4.3  Hybridisation & Genetic Swamping
 
-### 4.4  Market & Incentive Innovations (Speculative)
-• Certification: “Lynx-friendly beef/milk” premiums, similar to MSC/FSC; pilot with Styrian alpine dairies.  
-• Biodiversity credits: pairing corridor restoration with carbon or biodiversity offset markets (EU Nature Restoration Law, 2024).  
+• Southern Alpine endemic lineages (grayling, carpione) range from unadmixed to extinct depending on stocking intensity.  Lakes with >100 yrs of intense stocking show near-complete native genomic loss.  
+• *Coregonus artedi* lake populations: genome‐wide diversity scales with lake area, but deleterious load rises toward lower latitudes – invaders from hatcheries could both alleviate (via heterosis) or exacerbate (via maladaptive gene flow) local loads.
+
+### 4.4  Disease, Pathogens & Parasites
+
+• VHS (viral hemorrhagic septicaemia) risk drives Michigan anglers to pay a 15–29 % premium for certified bait, indicating market readiness to internalise biosecurity costs.
+
+### 4.5  Biogeochemical Feedbacks
+
+• Trout-driven top-down control elevates pelagic vs. benthic nutrient cycling, which—combined with warming—can intensify hypolimnetic oxygen loss and favour cyanobacterial blooms even in oligotrophic basins.  In the IntechOpen review, nutrient thresholds must be tightened ≥30 % to compensate for fish-induced cascading effects under +2 °C warming.
 
 ---
 
-## 5  Lessons from Comparative Reintroductions
-| Region | Outcome | Key Take-aways |
-|--------|---------|---------------|
-| Styria 1977–79 | Failed | 9 founders, no monitoring, no compensation, low connectivity |
-| Swiss Jura 1971–76 | Success | 14 founders, rigorous monitoring, source for Alps |
-| Palatinate Forest 2016–21 | Mixed | 20 founders; demographic OK, limited ecological impact so far |
-| Italian Alps | Declining | Connectivity collapse, <15 lynx, reliant on Slovenia/Switzerland |
-| Iberian lynx corridors | Success | dPC-based corridor prioritisation accelerated range expansion |
+## 5.  Climate Change as Amplifier and Vector
+
+1. **Expanding Thermal Envelope** – Models for the Jinsha River plateau show non-native fishes gain habitat under extreme 21st-century climate scenarios, increasing native–non-native overlap.  
+2. **Earlier Ice-Off & Longer Growing Seasons** – Promote spawning success and juvenile survival of cyprinids/percids.  
+3. **Hydrological Rewiring** – Glacier retreat extends upstream fishable reaches; proglacial lakes undergo discontinuous mixing, facilitating colonisation by eurythermal, planktonic feeders.  
+4. **Temperature–Oxygen Squeeze** – Cultus Lake: optimal salmonid habitat projected to shrink 41–58 % by 2100, advantaging warm-water fishes.
 
 ---
 
-## 6  Risk Matrix & Scenario Outlook to 2045
-| Risk | Likelihood | Impact | Mitigation |
-|------|------------|--------|-----------|
-| New highways (A10 3rd tube, A2 upgrade) without crossings | High | Critical | Mandate 100 m green bridges every 5 km; integrate into TEN-T funding |
-| Genetic drift / inbreeding | Medium | High | Two-lineage founder mix; periodic translocations |
-| Stakeholder backlash (hunters) | High | High | Co-governance boards; transparent prey monitoring; compensation on time |
-| Livestock depredation surge | Medium | Medium | Prevention-first funding (electric fences, guardian dogs) |
-| Climate-driven prey shift | Medium | Medium | Adaptive harvest quotas, dynamic habitat models |
+## 6.  Surveillance, Prevention & Control – Tools Derived from Mechanistic Insights
+
+| Management Stage | Tool / Strategy | Mechanistic Rationale |
+|---|---|---|
+| **Vector interception** | AS-ISK screening, trait-based classifiers, climate-match filters | 75–81 % accuracy in predicting establishment; scalable to ornamental, bait, aquaculture trades. |
+|  | Certified bait schemes (anglers pay 15–29 % premium) | Market incentives align with disease avoidance & propagule reduction. |
+|  | Enforcement economics (Lake Victoria seine & bait models) | Raising *detection probability* often cheaper than raising fines. |
+| **Early detection** | eDNA metabarcoding (Teleostei+Vertebrate primers) | Detects trout at 0.18–0.99 probability from 1–3 fish km⁻¹, cost-effective for remote lakes. |
+|  | Otolith/isotope forensics | Assigns origin, dates releases, supports prosecution. |
+| **Eradication / Control** | Full mechanical removal (Lake Dres) feasible where natural recolonisation pressure is negligible. | Demonstrates lack of effective natural vectors; success hinges on barrier integrity. |
+|  | Density-triggered trout culls (Patagonia) | δ15N shifts reveal prey depletion thresholds. |
+|  | Functional redundancy analysis | Guides which invertebrate guilds need refuge to recover post-fish removal. |
+| **Barrier & Passage Engineering** | Fish-friendly turbines (Alden, ARL/NREC) | Minimise mortality but require invasive exclusion grates or timing to avoid non-native passage. |
+| **Risk Under Climate Change** | Genomic-offset coupled SDMs | Identify stocks likely to adapt vs. fail under warming, aiding ‘climate-smart’ ban lists. |
 
 ---
 
-## 7  Actionable Recommendations
-1. **Launch LIFE “NLA-Lynx” (2026-2036):** €15 m budget, 60 % EU financed. Work-packages: (i) founders & vet, (ii) corridor retrofits, (iii) monitoring, (iv) coexistence fund, (v) outreach/certification.  
-2. **Founders:** 10 Carpathian (Slovakia) + 10 Bohemian/Swiss released in 3 clusters (Totes Gebirge, Gesäuse, Hochschwab) within 24 months.  
-3. **Corridor engineering:** Retrofit Tauern (A10 km 63), Pyhrn (A9 km 42) and two ÖBB sites with ≥50 m overpasses by 2030; adopt Swiss VSS-2004 specs, Croatian length benchmarks.  
-4. **Monitoring:** 300 camera stations, SECR design, 760 km² grid; integrate eDNA from water and scat; public dashboard modelled on WAG.  
-5. **Compensation/Prevention:** Pre-funded €3 m trust, performance-based (Sweden model) + CAP eco-scheme top-up €40 ha⁻¹ for “predator-compatible grazing”.  
-6. **Governance:** Establish *Lynx Alpine Working Group* (LAWG) under the Alpine Convention; harmonise protocols, central DNA lab.  
-7. **Research add-ons (speculative):** AI camera-trap image triage, drone-mounted thermal surveys, gene-editing feasibility study for immune-gene diversity (flagged speculative).  
+## 7.  Emerging & Contrarian Ideas Worth Testing
+
+1. **Deliberate Rewilding with Native Predators** – Re-establishing extirpated *Esox lucius* (pike) or *Salvelinus namaycush* could suppress small invasive cyprinids where mechanical means fail; needs robust food-web modelling to avoid collateral damage.  
+2. **Biocontrol via Sterile-Male Aquaculture Escapes** – If egg predation rather than adult competition drives impacts, releasing triploid males could decouple predation from recruitment; regulatory hurdles high.  
+3. **Endogenous Carbon Shielding** – Some high-DOC headwater lakes (>12 mg L⁻¹) naturally deter visual piscivores; creating or conserving *DOC refugia* could buffer amphibian populations.  
+4. **Targeted eDNA ‘Sniffers’ on Autonomous Surface Vehicles** – Could screen dozens of lakes per week in remote catchments.
 
 ---
 
-## 8  Conclusion
-Ecologically, the Northern Limestone Alps could support a robust lynx nucleus; biologically, dispersal capacity and prey base are adequate. The true bottlenecks are **anthropogenic**—infrastructure barriers, fragmented governance, inadequate monitoring and a persistent trust deficit among hunters and breeders. By integrating lessons from Swiss success, Styrian failure, Scandinavian incentive design and pan-Alpine wolf governance, Austria and Bavaria can, within two decades, meet the five-pillar success criteria. The window, however, is closing: three motorway corridors and accelerating genetic erosion in source populations demand immediate, coordinated action.
+## 8.  Synthesis & Priority Recommendations
+
+1. **Human vectors remain dominant** even where natural zoochory can occur; hence regulations on stocking, bait and aquaculture leakage yield the highest leverage.  
+2. **Climate change is a threat-multiplier** – by widening thermal envelopes and rewiring hydrology it both facilitates new invasions and exacerbates impacts.  
+3. **Propagule pressure, not temperature, best predicts establishment** across most risk models; focus on *reducing releases* rather than solely hardening habitats.  
+4. **Genomic tools** (Rapture, RAD, Gradient-Forest) now allow *pre-screening of hatchery stocks* for maladaptation and potential hybridisation risk, enabling precision management.  
+5. **Surveillance is cheap relative to eradication** – eDNA and isotopic forensics should become standard pre- and post-stocking audits.  
+6. **Socio-economic levers** (detection probability increases, certified-bait premiums) can partly self-finance prevention – under-used outside North America.  
+7. **Multi-trophic monitoring** (δ15N trophic height, functional diversity indices) is essential because conventional biomass/abundance metrics can mask ecological shifts.
+
+*Flagged speculation:*  The cumulative evidence suggests that by 2050 mountain-lake fish assemblages will diversify taxonomically but homogenise functionally (smaller, omnivorous, warm-tolerant) unless both propagule pressure and nutrient loading are curtailed.  Modelling indicates that without such measures, DOC-poor, high-clarity lakes above treeline are the last refugia likely to remain fishless and biogeochemically “pristine.”
 
 ---
 
-## Appendix A – Source & Learning Integration Matrix (Abbreviated)
-Each numbered learning from the supplied corpus has been mapped to the report sections as follows:
-1 → §4.1; 2 → §2.1; 3 → §4.2; 4 → §4.1; 5 → Intro, §4; 6 → §2.2; 7 → §3; 8 → §2.2; 9 → §3.1; 10 → §4.2; … [full 60-row table available on request].
+**Prepared for advanced aquatic‐invasion analysts.**
 
 
 ## Sources
 
 - https://doaj.org/toc/1932-6203
-- http://www.cbd.int/financial/pes/switzerland-pes.pdf
-- https://zenodo.org/record/6602481
-- http://www.nusl.cz/ntk/nusl-315968
-- https://figshare.com/articles/_Long_Range_Gene_Flow_and_the_Effects_of_Climatic_and_Ecological_Factors_on_Genetic_Structuring_in_a_Large_Solitary_Carnivore_The_Eurasian_Lynx_/1282920
-- https://orbi.uliege.be/handle/2268/114197
-- http://www.nusl.cz/ntk/nusl-54913
-- https://doi.org/10.17161/eurojecol.v7i2.15426
-- https://orbi.uliege.be/handle/2268/186003
-- http://www.nusl.cz/ntk/nusl-180284
-- http://hdl.handle.net/10068/204720
-- http://ageconsearch.umn.edu/record/57031
-- https://bibliotekanauki.pl/articles/1374921
-- https://serval.unil.ch/notice/serval:BIB_22244
-- https://pub.uni-bielefeld.de/record/2950303
-- https://research.rug.nl/en/publications/ecological-impact-and-costeffectiveness-of-wildlife-crossings-in-a-highly-fragmented-landscape(6c684c0f-d575-4529-bb00-28fd7b039610).html
-- http://archivalia.hypotheses.org/102396
-- https://doi.org/10.1111/2041-210X.13517
-- https://hdl.handle.net/11250/2983423
-- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0960982202008503/MAIN/application/pdf/741a8969cc62535590674084e61e637c/main.pdf
-- https://resolver.obvsg.at/urn:nbn:at:at-ubbw:1-9071
-- http://hdl.handle.net/11250/2599530
-- http://hdl.handle.net/11567/460918
-- http://www.wifo.ac.at/wwa/pubid/29623
-- https://pub.uni-bielefeld.de/record/2958590
-- http://www.nusl.cz/ntk/nusl-136696
-- https://insight.cumbria.ac.uk/id/eprint/3188/1/lynxinterimsurvey.pdf
-- https://zenodo.org/record/7614657
-- http://www.nusl.cz/ntk/nusl-340034
-- https://doaj.org/toc/1847-2206
-- https://figshare.com/articles/Present_and_predicted_connectivity_for_lynx_/6055358
-- https://www.zora.uzh.ch/id/eprint/231143/
-- https://slub.qucosa.de/api/qucosa%3A80588/attachment/ATT-0/
-- http://hdl.handle.net/10068/925628
-- https://www.ssoar.info/ssoar/handle/document/79337
-- https://doaj.org/article/f7c34ea120da477295d07bbdd5db9c6b
-- https://repository.publisso.de/resource/frl:6407249
-- http://www.mtnforum.org/content/continuum-project-catalogue-possible-measures-improve-ecological-connectivity-alps
-- https://doaj.org/article/01daf18426a24d9dae29995943a42618
-- http://www.nusl.cz/ntk/nusl-405616
-- http://ageconsearch.umn.edu/bitstream/44808/2/2.3.4_Kilian.pdf
-- https://doi.org/10.1007/s10344-016-1030-0
-- http://urn.kb.se/resolve?urn=urn:nbn:se:his:diva-921
-- http://ageconsearch.umn.edu/record/292321
-- http://www.mtnforum.org/content/alpine-network-protected-areas-transboundary-ecological-network-alps
-- http://hdl.handle.net/11573/331968
-- http://dx.doi.org/10.13039/501100010198
-- https://opus.bibliothek.uni-wuerzburg.de/frontdoor/index/index/docId/28820
-- http://ageconsearch.umn.edu/record/99370
-- https://escholarship.org/uc/item/8w66w88s
-- https://doaj.org/article/dc0f47c8dd674b17bbd6c6fe1033e3b6
-- http://hdl.handle.net/10449/20854
-- https://zenodo.org/record/13846
-- http://hdl.handle.net/11390/859222
-- https://doaj.org/article/e90c939325c942158bc1184df041ef4a
-- https://doi.org/10.1002/pan3.10465
-- http://www.ebd.csic.es/carnivoros/publica/pdf/Kramer-Schadt_J_App_Ecol_04.pdf
-- http://hdl.handle.net/11392/2473880
-- https://htwk-leipzig.qucosa.de/id/qucosa%3A71481
-- https://doaj.org/article/17c88e2ae6ce486eac17919e17ce3ddd
-- https://zenodo.org/record/7859137
-- http://www.nusl.cz/ntk/nusl-368032
+- http://hdl.handle.net/10261/160112
+- https://repository.uchastings.edu/ca_ballot_props/1156
+- https://figshare.com/articles/_Summary_of_regional_estimates_of_illegal_fishing_averaged_over_2000_8211_2003_/577696
+- https://digitalcommons.fiu.edu/srhreports/iuufishing/iuufishing/94
+- https://hal.science/hal-00913592
+- http://books.openedition.org/irdeditions/23421
+- https://hal.sorbonne-universite.fr/hal-01757517
+- https://zenodo.org/record/6139004
+- https://hdl.handle.net/10289/7703
+- https://figshare.com/articles/Anglers_responses_to_bait_certification_regulations_the_case_of_virus_free_bait_demand/1257754
+- https://archiv.ub.uni-heidelberg.de/volltextserver/volltextserver/31340/7/Diekert_Eymess_Goeschl_2022_dp711.pdf
+- https://hal.archives-ouvertes.fr/hal-00694971
+- http://hdl.handle.net/1807/87338
+- https://doi.org/10.1002/aqc.3270050306
+- http://hdl.handle.net/1807/29706
+- http://digital.library.unt.edu/ark:/67531/metadc711725/
+- https://doaj.org/toc/1422-0067
+- https://digitalcommons.usu.edu/wats_facpub/211
+- http://ageconsearch.umn.edu/record/117152
+- https://scholarworks.umass.edu/fishpassage_journal_articles/1356
+- https://bearworks.missouristate.edu/articles-cnas/877
+- https://figshare.com/articles/SNP_dataset/6200951
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0075951104800318/MAIN/application/pdf/f3abd90f4a53be3ec799a9b238a0358f/main.pdf
+- http://wfcb.ucdavis.edu/www/Faculty/Peter/petermoyle/publications/FishInvasion02.pdf
+- http://dx.doi.org/10.1111/j.1365-2427.2011.02688.x
+- https://www.epj-conferences.org/10.1051/epjconf/201921302078/pdf
+- https://scholarworks.umass.edu/fishpassage_conference/2015/June22/29
+- http://digital.library.unt.edu/ark:/67531/metadc683579/
+- http://arodes.hes-so.ch/record/10851
+- http://hdl.handle.net/11336/11989
+- https://zenodo.org/record/8239455
+- https://figshare.com/articles/_SNP_identified_in_the_five_breeds_or_breed_pool_and_in_ESTs_/908459
+- https://figshare.com/articles/Local_analisis_of_the_SNPs_covering_the_critical_region_/5963785
+- https://zenodo.org/record/4603288
+- http://www.waterboards.ca.gov/northcoast/water_issues/programs/tmdls/shasta_river/060707/29appendixbetheeffectsofdissolvedoxygenonsteelheadtroutcohosalmonandchinooksalmonbiologyandfunction.pdf
+- https://eprints.bournemouth.ac.uk/37645/1/Ecological%20impacts%20of%20invasive%20freshwater%20fish_accepted%20version.pdf
+- http://hdl.handle.net/10255/dryad.14811
+- http://eprints.gla.ac.uk/view/journal_volume/Evolution_and_Development.html
+- https://scholarworks.umass.edu/fishpassage_journal_articles/2057
+- https://scholarworks.umass.edu/fishpassage_reports/407
+- http://nora.nerc.ac.uk/12917/1/N012917PP.pdf
+- http://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-3764
+- http://www-heb.pac.dfo-mpo.gc.ca/congress/2002/Hypoxia/EvansD.pdf
+- http://hdl.handle.net/2429/83464
+- https://ir.library.louisville.edu/faculty/127
+- http://hdl.handle.net/10449/21668
+- https://hal.archives-ouvertes.fr/hal-00691372
+- https://scholarworks.umass.edu/fishpassage_reports/413
+- http://hdl.handle.net/10.1371/journal.pone.0279099.t001
+- https://ueaeprints.uea.ac.uk/id/eprint/68689/
+- http://hdl.handle.net/10255/dryad.193379
+- http://hdl.handle.net/10138/563245
+- http://digital.library.unt.edu/ark:/67531/metadc686792/
+- http://warnercnr.colostate.edu/~brett/lab/coldwater/documents/2000johnsonandmartinez.pdf
+- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2015-0340
+- http://hdl.handle.net/1807/95406
+- http://pqdtopen.proquest.com/#viewpdf?dispub=3708793
+- http://hdl.handle.net/2429/75789
+- http://www.caryinstitute.org/sites/default/files/public/reprints/Sobek_et_al_L_and_O_2007.pdf
+- http://infoscience.epfl.ch/record/230846
+- http://hdl.handle.net/1957/60252
+- http://hdl.handle.net/10255/dryad.89635
+- https://researchonline.jcu.edu.au/56516/1/56516_Munday_2015.pdf
+- https://zenodo.org/record/7145847
+- https://escholarship.org/uc/item/98k985q0
+- https://hdl.handle.net/11250/2979446
+- https://figshare.com/articles/Temporal_Genetic_Variance_and_Propagule_Driven_Genetic_Structure_Characterize_Naturalized_Rainbow_Trout_Oncorhynchus_mykiss_from_a_Patagonian_Lake_Impacted_by_Trout_Farming/1596957
+- http://www.seksko.se/images/stories/seksko/research/researchers/personal_pages/hjalmar_laudon/serranotransamfish2008.pdf
+- https://zenodo.org/record/5771330
+- https://research-portal.st-andrews.ac.uk/en/researchoutput/assessing-bait-use-by-static-gear-fishers-of-the-scottish-inshore-fisheries(b5d1269f-8023-484b-89c6-dbd48a7fb64d).html
+- http://hdl.handle.net/11336/117163
+- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2012-0409#.Ubf9ENg0V8E
+- https://scholarworks.umass.edu/nrc_faculty_pubs/240
+- https://scholarworks.umass.edu/fishpassage_conference_proceedings/478
+- http://hdl.handle.net/11714/6038
+- http://www.loc.gov/mods/v3
+- https://www.ajol.info/index.php/ajthf/article/view/152220
+- http://hdl.handle.net/11571/757660
+- http://eprints.bournemouth.ac.uk/23723/1/Britton.%20srep26316.pdf
+- http://hdl.rutgers.edu/1782.1/rucore10002600001.ETD.000066575
+- https://zenodo.org/record/50125
+- https://eprints.lancs.ac.uk/id/eprint/85860/
+- http://hdl.handle.net/10.1371/journal.pone.0279099.g008
+- https://doi.pangaea.de/10.1594/PANGAEA.900929
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:311554
+- http://hdl.handle.net/10852/96430
+- http://hdl.handle.net/11336/12135
+- http://hdl.handle.net/1957/57568
+- https://escholarship.org/uc/item/4km875j6
+- http://eprints.cmfri.org.in/15451/
+- https://zenodo.org/record/7470234
+- http://www.documentation.ird.fr/hor/fdi:010049474
+- http://creativecommons.org/licenses/by-nd/3.0/us/
+- http://ir.ihb.ac.cn/handle/342005/35158
+- http://hdl.handle.net/10255/dryad.14810
+- https://works.bepress.com/yvonne-vadeboncoeur/24
+- https://hdl.handle.net/10037/14937
+- https://figshare.com/articles/_Number_of_SNPs_significant_at_P_lt_0_001_by_trait_and_false_discovery_rates_in_Holstein_Friesian_discovery_data_/557856
+- https://doaj.org/article/e09d09fed9d24e2692ad3d41071032d8
+- https://www.intechopen.com/books/7912
 - http://urn.fi/
-- http://hdl.handle.net/10449/20862
-- http://www.italian-journal-of-mammalogy.it/article/viewFile/4172/4108/
-- http://www.bio.uib.no/modelling/papers/Schadt_2002_Assessing_the_suitability.pdf
-- https://urn.nsk.hr/urn:nbn:hr:128:091744
-- http://www.scopus.com/inward/record.url?scp=85040322338&partnerID=8YFLogxK
-- http://www.nusl.cz/ntk/nusl-453417
-- https://slub.qucosa.de/api/qucosa%3A75590/attachment/ATT-0/
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:92777
-- https://hdl.handle.net/11250/2755741
-- https://www.db-thueringen.de/receive/dbt_mods_00054054
-- https://zenodo.org/record/6387203
-- https://hal.archives-ouvertes.fr/hal-03499359/document
-- http://purl.umn.edu/99370
-- https://figshare.com/articles/_Migration_routes_and_rates_of_Eurasian_lynx_across_north_eastern_Europe_/1282902
-- http://hdl.handle.net/11858/00-001M-0000-000E-DBC7-8
-- http://www.italian-journal-of-mammalogy.it/article/viewFile/4117/4053/
-- https://stars.library.ucf.edu/scopus2015/1352
-- http://ageconsearch.umn.edu/record/288285
-- https://doaj.org/article/dc2fc0d4496740b8818ab09774c6b5f8
-- http://dx.doi.org/10.1017/S0030605309991013
-- http://link.springer.com/journal/volumesAndIssues/13364
-- https://zslpublications.onlinelibrary.wiley.com/doi/full/10.1111/acv.12464
-- http://ageconsearch.umn.edu/record/134429
-- https://doi.org/10.1111/1365-2664.14113
-- https://orbi.uliege.be/handle/2268/128571
-- https://zir.nsk.hr/islandora/object/sumfak:1248
-- https://www.wellbeingintlstudiesrepository.org/cgi/viewcontent.cgi?article=1007&amp;context=wbn
-- http://biocenosi.dipbsf.uninsubria.it/atit/PDF/Volume12(2)/12(2)_6.pdf
-- https://research.wur.nl/en/publications/the-elusive-turkestan-lynx-at-the-northwestern-edge-of-geographic
-- http://publica.fraunhofer.de/documents/N-19071.html
-- https://orbi.uliege.be/handle/2268/185992
-- http://fauna.dipbsf.uninsubria.it/atit/PDF/Volume10(1)/10(1)_5.pdf
-- http://www.kora.ch/malme/05_library/5_1_publications/K/KORA_Bericht_33_e_Monitoring_Guidelines_English.pdf
-- https://www.intechopen.com/books/10813
-- https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1451&amp;context=nrc_faculty_pubs
-- https://research.wur.nl/en/publications/ecological-impact-and-cost-effectiveness-of-wildlife-crossings-in
-- https://escholarship.org/uc/item/67f406zv
-- http://dx.doi.org/10.1111/1749-4877.12017
-- https://edoc.ku.de/id/eprint/22658/
-- http://ageconsearch.umn.edu/record/25920
-- http://hdl.handle.net/20.500.11850/556169
-- http://hdl.handle.net/10261/144183
-- https://doaj.org/article/fa3b83e815d749f79bbe5880cd7819cf
-- http://archivalia.hypotheses.org/130089
-- https://www.zora.uzh.ch/206926
-- https://figshare.com/articles/_Overview_of_the_geographical_distribution_and_relationships_between_FeLV_infected_lynxes_/577027
-- https://figshare.com/articles/_Connectivity_corridors_and_buffer_zones_for_jaguar_movement_and_dispersal_among_the_Priority_Jaguar_Conservation_Units_PJCUs_in_the_Caatinga_biome_/989912
-- https://ageconsearch.umn.edu/record/99370/files/calabresemack.pdf
-- http://hdl.handle.net/11390/865217
-- https://repozitorij.uni-lj.si/Dokument.php?id=106205&dn=
-- http://rcin.org.pl/ibs/Content/13011/BI002_2613_Cz-40-2_Acta-T44-nr25-243-252_o.pdf
-- http://www.consevol.org/pdf/Hellborg_2002_ConsGenet.pdf
-- https://orbi.uliege.be/handle/2268/176592
-- http://hdl.handle.net/11573/1281522
-- http://ageconsearch.umn.edu/record/165978
-- https://research-repository.st-andrews.ac.uk/bitstream/10023/23281/1/Pal_2021_Oryx_Cameratraps_CC.pdf
-- http://www.aecom.com/uk/wp-content/uploads/2015/09/Cost-benefit-analysis-for-the-reintroduction-of-lynx-to-the-UK-Main-report.pdf
-- http://www.edc.uri.edu/nrs/classes/nrs534/nrs_534_readings/mooney_connectivity.pdf
-- https://pub.uni-bielefeld.de/record/2966295
-- https://bibliotekanauki.pl/articles/952978
-- https://zenodo.org/record/575484
-- http://doc.rero.ch/record/301995/files/S0030605307002128.pdf
-- http://urn.kb.se/resolve?urn=urn:nbn:se:hh:diva-16111
-- http://www.wifo.ac.at/wwa/pubid/22884
-- http://hdl.handle.net/10255/dryad.197701
-- https://repository.publisso.de/resource/frl:6434297
-- https://doaj.org/article/1aa9c2176910438585007725a024d2b3
-- https://resolver.obvsg.at/urn:nbn:at:at-ubi:1-34408
-- https://doaj.org/article/9c9bb8e30ff3498e9d2fcb3f9435787a
-- https://hdl.handle.net/11250/3003876
-- http://www.italian-journal-of-mammalogy.it/article/viewFile/4120/4056/
-- http://hdl.handle.net/10068/76911
-- https://orbi.uliege.be/handle/2268/128371
-- https://ruj.uj.edu.pl/xmlui/handle/item/77890
-- https://doi.org/10.1080/17445647.2015.1095133
-- http://doc.rero.ch/record/300410/files/S0030605309991013.pdf
-- https://slub.qucosa.de/id/qucosa%3A80589
-- http://hdl.handle.net/10255/dryad.191743
-- https://stud.epsilon.slu.se/11050/
-- https://www.db-thueringen.de/receive/dbt_mods_00051681
-- https://doaj.org/toc/1314-3301
-- http://hdl.handle.net/20.500.11956/171118
+- http://hdl.handle.net/11858/00-001M-0000-0010-0E70-8
+- http://hdl.handle.net/10255/dryad.118163
+- https://digitalcommons.uri.edu/dissertations/AAI3206256
+- http://hdl.handle.net/10.1371/journal.pone.0279099.g007
+- https://doaj.org/article/becbbf0c836347eeb8bb1694c353f79a
+- https://doi.org/10.1111/ddi.12391
+- http://hdl.handle.net/10255/dryad.159611
+- http://hdl.handle.net/11250/2572890
+- http://hdl.handle.net/11336/213654
+- http://dx.doi.org/10.1098/rspb.2010.0925
+- https://hdl.handle.net/11511/88504
+- https://doi.org/10.1111/mec.15644.
+- http://ci.nii.ac.jp/naid/110002395038/
+- https://figshare.com/articles/_Final_relative_invasion_risk_estimated_for_nonindigenous_zooplankton_upper_panels_and_phytoplankton_lower_panels_species_estimated_under_current_dark_gray_and_future_light_gray_management_scenarios_/1334015
+- http://digital.library.unt.edu/ark:/67531/metadc676663/
+- https://hal.inrae.fr/hal-02763456
+- https://figshare.com/articles/GSD_RAD_SNPs/4193970
+- http://ir.ihb.ac.cn/handle/342005/35095
+- https://escholarship.org/uc/item/57c0z12f
+- https://hal.archives-ouvertes.fr/hal-01063932
+- https://scholarworks.umass.edu/fishpassage_conference/2015/June22/57
+- http://eprints.bice.rm.cnr.it/15380/1/Havel_2015_Hydrobiologia_AIS.pdf
+- http://hdl.handle.net/10.6084/m9.figshare.7302260.v3
+- http://hdl.handle.net/11336/61881
+- https://scholarworks.umass.edu/fishpassage_journal_articles/1317
+- http://hdl.handle.net/11336/51483
+- http://hdl.handle.net/11392/2490677
+- https://scholarworks.umass.edu/fishpassage_conference/2012/June6/10
+- https://library.wur.nl/WebQuery/wurpubs/523864
+- https://figshare.com/articles/AlpsSparrowdata/4063623
+- https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1872497314000039/MAIN/application/pdf/c0341f397857da8749d9325cb301d032/main.pdf
+- http://biblioteca.clacso.edu.ar/gsdl/cgi-bin/library.cgi?a=d&c=fr/fr-001&d=010066943oai
+- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-184306
+- https://ageconsearch.umn.edu/record/21216/files/sp06ji01.pdf
+- https://hal.inrae.fr/hal-03790769/file/Debelgarric2022NowpasComOrale.pdf
+- https://serval.unil.ch/notice/serval:BIB_1A8A5BC8CFC3
+- http://edepot.wur.nl/191239
+- https://play.google.com/books/publish/a/14935057684283403269#details/ISBN:9783038973881
+- http://hdl.handle.net/2142/50598
+- http://datacite.org/schema/kernel-4
+- https://hal.inrae.fr/hal-02975946/document
+- http://ir.ihb.ac.cn/handle/342005/35096
+- http://hdl.handle.net/10.1371/journal.pone.0279099.g006
+- https://doi.org/10.1111/j.1365-2427.2009.02276.x
+- http://digitool.Library.McGill.CA:80/R/?func=dbin-jump-full&object_id=130688
+- http://www.scopus.com/inward/record.url?scp=85092078595&partnerID=8YFLogxK
+- http://ceerac.org/WP/Akpalu_Dynamic_model_JARE.pdf
+- http://dx.doi.org/10.1111/j.1365-294X.2011.05067.x
+- http://metacat.lternet.edu/knb/metacat/knb-lter-mcm.0060.4/xml
+- http://hdl.handle.net/20.500.11850/564874
+- http://www.idrolab.ise.cnr.it/images/doc/rogora_2008.pdf
+- https://doi.pangaea.de/10.1594/PANGAEA.891194
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:95767
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0006320715302020/MAIN/application/pdf/1f60806f41e4644d77d5d9379f4b8ef5/main.pdf
+- http://redpath-staff.mcgill.ca/hendry/Correa2012FWBiol57%2C1769.pdf
+- https://hdl.handle.net/11250/2981355
+- https://hal.sorbonne-universite.fr/hal-01334129
+- https://figshare.com/articles/PhenotypeData/4784629
+- http://hdl.handle.net/1807/24382
+- http://dx.doi.org/10.1007/s00442-012-2461-2
+- http://www.cgarciadeleaniz.yolasite.com/resources/20256_Schr%C3%B6der%20%26%20Garcia%20de%20Leaniz_2011.pdf
+- https://figshare.com/articles/SNP_dataset_for_M_truncatula_HapMap_collection/5519038
+- https://digitalcommons.usu.edu/etd/3570
+- https://zenodo.org/record/4279807
+- https://digitalcommons.library.umaine.edu/sms_facpub/98
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:119602
+- https://scholarworks.umt.edu/context/clarkforksymposium/article/1018/type/native/viewcontent
+- https://ageconsearch.umn.edu/record/117995/files/j.1467-8489.2004.00264.x.pdf
+- https://doaj.org/article/b094e98b5447406c989050bd8c6c2789
+- https://mi.gov/documents/Non-indigenous-species8-23-05_137217_7.pdf
+- https://doi.org/10.1007/s10750-014-2150-8
+- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2018-0082
+- https://zenodo.org/record/4599993
+- https://resolver.obvsg.at/urn:nbn:at:at-ubi:1-33168
+- https://doaj.org/article/74c9e49d96c84bca8c82dc20281a43e2
+- https://hal-brgm.archives-ouvertes.fr/hal-00713992
+- https://hal.inrae.fr/hal-03639786
+- http://digital.library.unt.edu/ark:/67531/metadc827524/
+- https://escholarship.org/uc/item/4kk6d7jr
+- http://hdl.handle.net/11336/95615
+- http://hdl.handle.net/20.500.11850/109378
+- http://hdl.handle.net/10255/dryad.108047
+- http://cdm21063.contentdm.oclc.org/cdm/ref/collection/masters2/id/60093
+- http://hdl.handle.net/11336/94736
+- http://web.uvic.ca/water/publications/Mazumder
+- http://hdl.handle.net/10803/384835
+- https://escholarship.org/uc/item/9qw527sr
+- https://zenodo.org/record/3998131
+- http://hdl.handle.net/10.1371/journal.pone.0207944.t001
+- https://figshare.com/articles/_The_source_and_method_of_disposal_of_live_bait_by_anglers_/993240
+- https://hdl.handle.net/2027.42/77587
+- https://zenodo.org/record/4992214
+- http://cemadoc.irstea.fr/cemoa/PUB00000905
+- https://stars.library.ucf.edu/scopus2010/3981
+- http://hdl.handle.net/11336/60337
+- https://doi.org/10.1051/kmae/2019029
+- http://creativecommons.org/licenses/by/3.0/us/
+- http://hdl.handle.net/11336/100002
+- http://hdl.handle.net/11336/95330
+- https://hal.science/hal-03181067/document
+- https://zenodo.org/record/7696678
+- http://hdl.handle.net/10255/dryad.33567
+- http://hdl.handle.net/1957/57087
+- http://hdl.handle.net/2376/12923
+- https://hal.science/hal-03193646
+- http://www.aslo.org/lo/toc/vol_49/issue_4_part_2/1229.pdf
+- http://library.wur.nl/WebQuery/wurpubs/490131
+- https://thekeep.eiu.edu/bio_fac/945
+- http://nbn-resolving.de/urn:nbn:de:bsz:352-opus-37737
+- http://hdl.handle.net/1885/103181
+- https://eprints.whiterose.ac.uk/198271/1/AAM%20Wilkes_etal_Main%20text_final%2Bfigs.docx
+- http://ir.ihb.ac.cn/handle/342005/30546

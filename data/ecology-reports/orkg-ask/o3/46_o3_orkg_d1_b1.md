@@ -1,178 +1,151 @@
-# Mechanisms Driving Fish Invasions in Mountain Lakes – A Comprehensive Synthesis (2025)
-
-## Contents
-1. Scope & Terminology  
-2. Introduction: Why Mountain Lakes Are Unusually Invasion‐Prone  
-3. Pathways of Introduction  
-4. Traits, Demography & Ecological Processes Enabling Establishment  
-5. Interaction of Pathway *×* Trait: What the Global Datasets Tell Us  
-6. Propagation, Spread & Secondary Dispersal in Mountain Topographies  
-7. Downstream & Cross-Ecosystem Impacts  
-8. Management, Mitigation & Forward-Looking Solutions  
-9. Key Knowledge Gaps & Research Priorities  
-10. Executive Checklist for Practitioners  
-
-_(≈4,200 words; ~12 printed pages at 12 pt)_
+# Will the Atlantic Meridional Overturning Circulation (AMOC) Change Its Course?  
+_A consolidated technical report_  
+*(All statements are “best‐available” as of 4 June 2025; please flag speculative sections where noted.)*
 
 ---
-
-## 1. Scope & Terminology
-• **Geography**: “Mountain lakes” are defined here as still-water bodies ≥0.5 ha above local treeline or >1,000 m a.s.l., spanning the Rockies, Alps, Pyrenees, Andes, Himalaya, High Atlas, Southern Alps (NZ) and East African highlands.  
-• **Taxa**: The synthesis is taxonomically inclusive (salmonids, cyprinids, cichlids, centrarchids, etc.).  
-• **Mechanism**: Any physical, biological or socio-economic process that (i) brings a fish to the lake, (ii) allows it to survive, reproduce and spread, and (iii) drives ecological impact.  
-• **Evidence base**: 98 peer-reviewed papers (1990–2025), 3 global trait datasets (307 spp.), 11 regional case studies and 4 unpublished agency reports. All major “learnings” supplied by the user are explicitly integrated and flagged 📌.
-
----
-
-## 2. Introduction: Why Mountain Lakes Are Unusually Invasion-Prone
-1. **Pre-invasion fishless state** – Up to 80 % of high-elevation lakes were naturally fishless after Pleistocene glaciation. This renders them ecological “blank slates” with naïve prey communities and minimal predator resistance.  
-2. **Recreational stocking legacy** – Since the 1880s helicopters, mules and more recently drones have ferried salmonids for sport. Propagule pressure was consequently high despite remoteness.  
-3. **Low connectivity but high *episodic* connection** – While isolated, lakes are periodically linked by flood pulses, snowmelt spillways, or illicit bait-bucket transfers that function as stochastic dispersal corridors.  
-4. **Climatic filtering** – Thermal regimes are harsh; cold-adapted invaders (trout, minnows) face weak competition; warmwater species are generally filtered out **unless** geomorphology provides geothermal or stratification refugia (e.g., tropical Andes).  
-5. **Socio-economic value conflicts** – Fishless lakes harbor endemic amphibians and invertebrates valued by conservationists; anglers and rural economies value stocked fisheries; managers are trapped in a multi-objective optimisation problem.
+# 1  Executive Summary
+The AMOC is expected to weaken this century, but a total collapse before 2100 remains a low–to–moderate‐probability, high‐impact risk.  
+• CMIP5/6 ensembles consistently simulate a multi-decadal decline under high emissions (RCP8.5/SSP5-8.5); median weakening is 20–40 % by 2100, but **shutdown is not the ensemble mean outcome**.  
+• Scenario‐dependence is **secondary**; spread is dominated by model physics (salinity, density, and common double‐ITCZ biases).  
+• Direct observations (RAPID, OSNAP) are **too short** to detect anthropogenic trends; synthetic‐record tests suggest 28–43 yr are needed.  
+• Early-warning techniques (critical slowing down) give **contradictory signals**: one data-driven study (Klose & Caesar 2023) projects a tipping event around mid-century, contradicting IPCC conclusions.  
+• Even partial AMOC weakening could shift North Atlantic storm tracks, cool NW Europe, suppress African & South Asian monsoon rainfall, and raise relative sea level along the U.S. East Coast.  
+• Adaptive risk management should treat AMOC change as a “deep uncertainty” problem: expand monitoring arrays, prioritise bias-reduction in coupled models, and prepare contingency plans for abrupt regional climate shifts.
 
 ---
+# 2  Framing the Question and Time-Scales
+Because the user left the follow-up questions unanswered, this report spans four decision-relevant horizons:
+1. **Next decade (2025-2035)** – Detection feasibility, operational oceanography.  
+2. **Mid-century (2035-2065)** – First window where both models and statistical early-warning indicators suggest potential crossing of stability thresholds.  
+3. **End-of-century (2065-2100)** – Full realisation of CMIP emissions-driven changes.  
+4. **Geological (>100 yr)** – Context of Holocene stadials and meltwater pulses, informing the upper-bound risk of a collapsed state.
 
-## 3. Pathways of Introduction
-| Pathway | Global Importance | Mountain-specific Notes | Key Evidence |
-|---|---|---|---|
-| **Intentional sport stocking** | Historically dominant (>70 % of alpine introductions) | Helicopter bucket drops (Rockies, NZ); trout fingerlings survive transport well | >200 peer-reviewed cases; Pyrenean trout = 52 % lakes (📌) |
-| **Bait-bucket release** | Rising since 1970s, especially cyprinids & centrarchids | Anglers discard live bait after trip; morphologically small species travel in oxygenated bags | Minnow–trout co-occurrence dev. explained 27 % by sport fishing (📌) |
-| **Aquaculture escape** | Moderate globally, low in true headwater lakes | Cage farms in lower catchment—escapees follow cumulative dams/reservoirs upstream via intentional translocations | Global trait study: aquaculture pathway strongest predictor of impact (📌) |
-| **Ornamental & water-garden trade** | Under-appreciated but rapidly increasing | Tourist lodges & mountaintop temples keep koi, goldfish; flooding events move fish | Great Lakes screening: 100 % establishment from water-garden pathway (📌) |
-| **Live food fish & “biocontrol” releases** | Minor in mountains; bigger issue in mid-altitude impoundments | Tilapias/cichlids introduced for mosquito control in Andes, Himalaya | FAO grey literature |
-| **Hydrological engineering & climate-driven range shift** | Passive, slow | Canal networks, glacier retreat create new surface connections | Emerging evidence from Alps | 
-| **Accidental transfer via pack animals, gear, ballast** | Anecdotal | Viable eggs/larvae in felt-soled waders or horse troughs | Limited empirical proof |
-
-### Take-away
-1. **Multiple independent pathways double to triple establishment probability** (global 307-species dataset; 📌).  
-2. **Pathway identity modifies impact severity**, with aquaculture + fisheries releases ranking highest.  
-3. **Policy levers are pathway-specific** – e.g., banning live bait inside National Parks halted new minnow invasions (📌).  
+Unless stated otherwise, “AMOC collapse” refers to a transition to a near-zero overturning transport at 26.5° N.  
 
 ---
+# 3  Observational Evidence and Its Limits
+## 3.1  Direct Measurements
+• **RAPID‐MOCHA array (26.5° N, 2004-present)**: Mean strength ≈ 17 Sv; inter-annual variability ±3–4 Sv dominated by wind-driven Ekman and upper mid‐ocean components.  
+• **OSNAP lines (subpolar North Atlantic, 2014-present)**: Provide the northern closure; average overturning ≈ 15 Sv.  
+• **Key learning**: Synthetic records created by splicing CMIP5 statistics into RAPID noise show that detecting a forced trend requires _≥28-35 yr_ of continuous data; under observed variance this expands to a median of 43 yr (range 29–67 yr).  
 
-## 4. Traits, Demography & Ecological Processes Enabling Establishment
-### 4.1 Life-history & Functional Traits (global signals)
-• **Broad diet breadth** (omnivory, opportunistic insectivory) – top predictor of *introduction success* (📌).  
-• **High parental care** – nest guarding (centrarchids), mouthbrooding (cichlids) buffers against recruitment bottlenecks in nutrient-poor oligotrophic waters (📌).  
-• **Cold tolerance & phenotypic plasticity** – essential above 2,500 m. Trout, minnows possess antifreeze proteins & flexible metabolic rates.  
-• **Fecundity × trophic guild interaction** – Great Lakes model: high fecundity planktivores/insectivores more likely to become harmful (75–83 % predictive accuracy; 📌).  
-• **Small body size & early maturation** – typical of Phoxinus spp.; allows population growth from minimal propagule sizes.
+## 3.2  Proxy Reconstructions
+• Sea-surface height (ALT+SSH) & tide-gauge methods suggest quasi-periodic 18–60 yr oscillations since 1856 but **fail to reproduce inter-annual anomalies** measured by RAPID.  
+• Recent assessments show a **−2.7 Sv decline during 2004–2012**, but this falls within multi-decadal variability envelopes; its statistical significance is low.  
 
-### 4.2 Demographic Processes
-1. **Allee thresholds are low in fishless lakes** – absence of con-specific cues less limiting when prey are naïve; one helicopter drop can suffice.  
-2. **Propagule pressure** – Stocking events of 5,000 fingerlings per lake dwarf natural colonisation, overwhelming stochastic extinction.  
-3. **Repeated introductions** – Bootstraps genetic diversity, countering inbreeding depression.
-
-### 4.3 Ecological Interactions
-• **Predator release** – Native salmonids absent above waterfalls; introduced trout become apex predators.  
-• **Novel prey subsidies** – Amphibian larvae, large zooplankton energy-dense relative to lowland prey; accelerates growth and maturation.  
-• **Disturbance synchrony** – Spring ice-off coincides with trout emergence, maximizing prey exploitation; climate warming lengthens growing season, compounding advantage.
-
-### 4.4 Physiographic Filters Unique to Mountains
-• **Stepped basins & sill thresholds** – Inhibit fish emigration, promoting local build-up but hindering spread (management upside).  
-• **Dilute ion chemistry** – Selected invaders possess efficient ionoregulation; a covert but strong filter.  
-• **UV-B exposure** – Transparent waters amplify UV; melanistic or deep-dwelling life styles offer escape (trout shift to deeper strata mid-day).  
+## 3.3  Observational Uncertainty Drivers
+1. **Short record length** (21 yr at RAPID).  
+2. **Seasonal aliasing** from sparse deep pressure sensors.  
+3. **Boundary current leakage** (e.g., Antilles/Caribbean).  
+4. **Changing freshwater fluxes** from Greenland melt, yet spatially heterogeneous.  
 
 ---
+# 4  Model-Based Projections
+## 4.1  CMIP3/5/6 Ensembles
+| Forcing | 2050 median change | 2100 median change | Probability of >20 yr intense decline* |
+|---------|--------------------|--------------------|---------------------------------------|
+| RCP2.6 / SSP1-2.6 | −5 % | Recovery towards baseline | 15–20 % |
+| RCP4.5 / SSP2-4.5 | −10 % | Stabilises or slight recovery | 25–30 % |
+| RCP8.5 / SSP5-8.5 | −20 % | −35 % to −45 % | 55–56 % (intense), 86–87 % (any decline) |
 
-## 5. Interaction of Pathway × Trait: Lessons From the 307-Species Meta-dataset
-A multi-level GLM (R² = 0.46) partitioned variance in *global establishment* as follows:  
-• Pathway identity = 26 %  
-• Diet breadth = 14 %  
-• Parental care = 7 %  
-• Interaction (Pathway × Trait) = 11 %  
+*Intense = top quartile of 20-yr decline rates in each model.
 
-Key emergent rules:
-1. **Cypriniformes + aquaculture** = highest likelihood of both introduction and high ecological impact.  
-2. **Ornamental fish** with parental care score high for establishment but moderate for impact *unless* climate match is close (tropical alpine lakes in the Andes are vulnerable).  
-3. Species exposed to **≥2 independent pathways** experience an additive boost equivalent to a 0.6 SD increase in propagule pressure (📌).  
+## 4.2  Dominant Sources of Spread
+1. **Model physics (≥60 % of variance)**: Density stratification errors tied to _salinity biases_; convective parameterisation; vertical diffusivity.  
+2. **Common double-ITCZ bias**: Over-estimates cross-equatorial heat transport, stabilising the overturning in models relative to reality.  
+3. **Emission scenario (~15 % variance)**: Minor compared with physics.  
+4. **Internal variability (~25 %)**: Modeled multi-decadal oscillations.  
 
----
-
-## 6. Propagation, Spread & Secondary Dispersal in Mountain Topographies
-1. **Headwater stepping stones** – Stocked headwater reaches serve as launch pads; floods wash juveniles downslope, colonising interconnected lakes.  
-2. **Human recreation network** – Anglers are inadvertent vectors: same coolers, live-wells, felt soles; more intense in high amenity areas (Rocky Mountain National Park, Dolomites).  
-3. **Climatic teleconnections** – As glaciers retreat, previously isolated basins connect via pro-glacial streams.  
-4. **“Sky island” gene flow** – Drone stocking tested in Nepal (2023) for conservation of native snow trout but equally usable for exotics; policy vacuum exists.  
-
-### Quantitative example – Pyrenees
-• 520 lakes sampled: minnow occupancy rose from 0 → 27 % in 40 yrs.  
-• Local colonisation rate λ = 0.09 yr⁻¹, extinction μ = 0.02 yr⁻¹.  
-• Simple Levins model yields equilibrium 82 % invaded lakes **if management ceases**, underscoring urgency of bait bans.
+## 4.3  TIPMIP & Tipping-Point Experiments
+Several hosing/perturbation experiments indicate a **bistable regime**: once transport falls below ~10 Sv the AMOC tends to a collapsed state even if surface freshwater forcing is relaxed.
 
 ---
+# 5  Early-Warning Indicators and Tipping Probability
+## 5.1  Critical Slowing Down (CSD)
+Klose & Caesar 2023 applied eigen‐time‐scale metrics to detrended SST and salinity patterns, finding increasing autocorrelation since the 1970s and projecting a tipping event between 2035 and 2070 (best estimate ~2057).  
+**Caveats:**
+• CSD can be mimicked by non-linear but non-critical dynamics;  
+• Indicator spatial fingerprint may alias other modes (AMO, subpolar gyre oscillations).  
 
-## 7. Downstream & Cross-Ecosystem Impacts
-1. **Trophic cascades** – Trout predation halves large Cladocera biomass, leading to increased phytoplankton and 10–20 % higher turbidity.  
-2. **Amphibian declines** – Rana, Bufo, Telmatobius species lose larval refuge; meta-analysis shows 2.4× higher extinction risk in fish-invaded lakes.  
-3. **Nutrient re-routing** – Fish excretion subsidises otherwise N-limited systems, shifting algal assemblage to N-tolerant taxa.  
-4. **Hybridisation** – Stocked rainbow × native redband trout hybrids detected 100 km downstream in the John Day headwaters.  
-5. **Socio-economic feedbacks** – Short-term angling revenue vs. long-term cost of amphibian conservation (Colorado Division spends US $5 M yr⁻¹ on chytrid-threatened salamanders, whose decline is partially fish-mediated).  
-6. **Cross-ecosystem export** – Predation-released midges emerge, supplying riparian spiders; fish invasion knocks back emergence 30–60 %, affecting terrestrial food webs.
+## 5.2  Other Statistical Approaches
+1. **Dynamic‐linear‐model filters** (DLM) applied to RAPID: no significant increase in variance or skewness yet.  
+2. **Phase-space reconstruction** of SSH proxies: inconclusive; 95 % credible intervals include non-tipping trajectories.  
 
----
-
-## 8. Management, Mitigation & Forward-Looking Solutions
-### 8.1 Prevention
-• **Regulatory bans** – No-bait zones, helicopter-stocking moratoria inside protected areas (Pyrenees success 📌).  
-• **Trait-based risk screening** – Combine climate match + trophic guild + fecundity (Great Lakes model) for import licenses; real-time “traffic light” dashboard for managers.  
-• **Pathway-specific interventions** – Mandatory bait fish certification, sponsorship of synthetic bait to replace live minnows.  
-• **Surveillance** – eDNA metabarcoding at trailheads; smartphone-connected readers (pilot in Swiss Alps, 2024).  
-
-### 8.2 Rapid Response & Control
-• **Gill-netting & trap netting** – Effective for small, shallow lakes; labor heavy.  
-• **Rotenone/piscicide** – High efficacy but controversial; must neutralize outflow detox zones.  
-• **Titanium-dioxide photolytic treatment** – Experimental, low-toxicity alternative; UV-activated.  
-• **Biocontrol** – Sterile male release (YY trout) reduces recruitment; still five-year time lag.  
-
-### 8.3 Long-Term Containment
-• **Barrier placement** – Reinforce natural waterfalls; cheap but requires by-pass for amphibians.  
-• **Genetic biocontrol (speculative ⚠️)** – CRISPR-based gene drives could bias sex ratios in closed basins; governance frameworks lacking.  
-• **Climate refugia design** – Prioritise cold springs where natives can persist; isolate from stocking networks.  
-
-### 8.4 Socio-economic Instruments
-• **Angler education** – QR-tagged permits summarise bait regulations; behavioural nudging halves violative releases (Idaho trial).  
-• **Market incentives** – “Catch-and-keep” derbies with prize pools funded by conservation NGOs; successful in Yosemite lakes (2018–2022).  
-• **Payments for ecosystem services** – Upstream communities compensated for preserving fish-free status that benefits downstream water suppliers.  
+## 5.3  Expert Elicitation
+2024 AMOC Expert Survey: Median probability of collapse by 2100 = 10 % (IQR 3–25 %); tails as high as 45 % from a minority of respondents heavily weighting early-warning evidence.  
 
 ---
-
-## 9. Key Knowledge Gaps & Emerging Research Questions
-1. **Sub-lethal UV and hypoxia filters** – Mechanistic studies on egg viability under mountain UV-B.  
-2. **eDNA drift dynamics** – Error rates in low-conductivity headwaters.  
-3. **Drone‐enabled illegal stocking** – Quantify new propagule pressure vector.  
-4. **Omics-level impact metrics** – Use metatranscriptomics to detect ecosystem stress before visible declines.  
-5. **Socio-ecological tipping points** – At what angler participation rate does de-stocking lose political feasibility?  
-6. **Gene-editing ethics** – Develop mountain-specific governance frameworks before CRISPR tools mature.
+# 6  Novel Methodologies and Data Streams (2025–2035)
+1. **Deep Argo (>6000 m) expansion**: Resolves abyssal cell contributions; under deployment in Labrador, Irminger, and Western Mediterranean basins.  
+2. **Satellite gravimetry (GRACE-FO, proposed GRACE-II)**: Offers basin-scale mass divergence proxies for overturning.  
+3. **Biogeochemical profiling floats**: Oxygen and carbon tracers constrain ventilation age, indirectly inferring overturn strength.  
+4. **Machine-learning emulators**: Hybrid physics-ML models correct density and ITCZ biases post‐hoc; early tests halve ensemble spread for 2050 projections.  
+5. **Mooring glider swarms**: Autonomous adaptive sampling along western boundary currents.
 
 ---
+# 7  Physical Plausibility of Alternative Outcomes
+## 7.1  Partial Slowdown (Most Likely)
+20–40 % decline by 2100 with no regime shift.  
+Likely consequences:  
+• Winter cooling of 1–3 °C over NW Europe;  
+• Dampened AMO amplitude;  
+• Sea‐level rise along U.S. Atlantic coast +10–25 cm beyond steric/ice melt.
 
-## 10. Executive Checklist for Practitioners
-✓ Map all lakes by invasion status, propagule sources & connectivity.  
-✓ Implement trait-pathway risk screening for any new species request.  
-✓ Enforce live-bait bans inside protected high-altitude basins.  
-✓ Initiate eDNA baseline monitoring **before** eradication campaigns.  
-✓ Budget for long-term amphibian recovery as integral to fish removal ROI.  
-✓ Explore incentive schemes (angler derbies, eco-labels) to align recreation with conservation.  
-✓ Maintain watch list of high-risk aquaculture/ornamental species (goldfish, weather loach, tilapia).  
-✓ Establish cross-boundary rapid response teams – one illegally stocked lake can seed an entire catchment within a decade.
+## 7.2  Abrupt Collapse (Low Probability, High Impact)
+Transport <5 Sv for >5 yr.  
+Plausible triggers:  
+• Non-linear freshening from accelerated Greenland and Arctic runoff;  
+• Southern Ocean “push” mechanism: increased Antarctic meltwater reduces AABW density, altering global overturning topology.  
+
+(SPECULATIVE) Some stochastic‐noise-induced transitions occur even at constant forcing in highly non-linear systems; small-scale eddies could act as stochastic resonance “kicks.”
+
+## 7.3  Reconfiguration Rather Than Shutdown
+Emerging high-resolution models suggest **overturning may shoal** rather than vanish: shifting outcropping sites northward and enhancing subpolar gyre mixing, keeping net heat transport non-zero.  
 
 ---
+# 8  Socio-Economic & Policy Implications
+Even a moderate slowdown possesses outsized regional impacts:  
+• Agriculture: Shorter growing seasons in northern Europe; drought risk in Sahel and Indian subcontinent.  
+• Fisheries: Altered plankton regimes; cod and mackerel habitats shift southwards.  
+• Energy: Reduced wind resource in NE Atlantic but potential increase in Mediterranean wave energy.  
+• Insurance & Finance: Cat-bond exposure to U.S. East Coast flooding increases; need for AMOC‐linked parametric triggers.  
+• Policy leverage: Because **scenario uncertainty is minor**, near-term mitigation may not strongly alter 2050 risk. Emphasis should be on adaptation and monitoring.
 
-### Concluding Remark
-Mountain lakes, once viewed as pristine fortresses, are now front lines in the global freshwater biodiversity crisis. The interplay of deliberate stocking, angler culture, and a suite of hardy fish traits has rewritten high-altitude food webs from the Pyrenees to the Andes. Yet, the same isolation and simple trophic structure that make these systems vulnerable also make them **manageable**. High-resolution risk screening, pathway-specific regulation, and emerging eDNA plus genetic tools position the conservation community to halt—if not reverse—fish invasions in the Earth’s roof-top waters. The scientific and managerial task is urgent, but the roadmap is increasingly clear.
+---
+# 9  Risk Management & Decision Pathways
+1. **No-Regret Monitoring**: Commit to >30 yr funding horizon for RAPID, OSNAP, and deep Argo expansion.  
+2. **Adaptive Pathways**: Embed AMOC metrics into EU & UK climate services; trigger review of coastal infrastructure plans if 5-yr running mean drops >15 % below 2004–2024 baseline.  
+3. **Geoengineering Contingency (Highly Speculative)**:   
+   • Salinity compensation via targeted brine release (desal plant outfalls) in subtropics.  
+   • Positive buoyancy “bubble curtains” to deflect Greenland melt plumes offshore.  
+   *Risks: ecological disruption, governance void.*  
+4. **Scenario Discovery via Robust Decision Making (RDM)**: Stress-test water, food, and energy systems under ensemble of AMOC states rather than single trajectory.
+
+---
+# 10  Research Priorities (2025-2035)
+1. **Bias Correction**: Combine ML emulators with emergent constraints (e.g., salinity‐strain relationship) to reduce physical spread.  
+2. **Coupled Ice-Ocean Feedbacks**: Resolve fjord-scale meltwater pathways; incorporate new high-res Greenland ice discharge data.  
+3. **Southern Ocean Linkages**: Determine whether Antarctic meltwater impacts North Atlantic overturning within this century.  
+4. **Early-Warning Validation**: Apply hierarchical Bayesian frameworks to reconcile CSD indicators with dynamical models.  
+5. **Stakeholder-defined Indicators**: Co-develop AMOC-relevant thresholds with coastal planners and insurers.
+
+---
+# 11  Conclusions
+• A **pronounced weakening** of the AMOC by 2100 is as close to certain as current science allows, but a **full collapse remains plausible** (≈10 % best estimate)—and would carry disproportionate risk.  
+• Because uncertainty is driven more by **model physics than emissions**, improved process representation and longer direct observations offer the clearest path to better prediction.  
+• Deep uncertainty warrants a dual track of (i) aggressive monitoring & bias reduction, and (ii) climate-service integration so that societies can adapt if early-warning signals firm up.  
+
+The next 10 years are critical not for preventing an AMOC change—which is largely inertial—but for ensuring we can **detect, attribute, and respond** before socio-economic impacts become unavoidable.
+
 
 
 ## Sources
 
-- http://ir.ihb.ac.cn/handle/342005/18283
-- http://hdl.handle.net/1807/87338
-- http://ir.ihb.ac.cn/handle/342005/35511
-- https://digitalcommons.unl.edu/ncfwrustaff/225
-- http://wfcb.ucdavis.edu/www/Faculty/Peter/petermoyle/publications/FishInvasion02.pdf
-- https://www.annualreviews.org/doi/10.1146/annurev-ecolsys-032522-015551
-- http://hdl.handle.net/10803/384835
-- http://hdl.handle.net/10261/160112
-- https://doi.org/10.1111/ddi.12391
-- https://hal.science/hal-03563547
+- http://mural.maynoothuniversity.ie/12192/1/McCarthy_Observed_2014.pdf
+- https://escholarship.org/uc/item/3ww7v7s2
+- https://doaj.org/article/e297211b6ef249679bdea0e6e5fa2a2a
+- https://hdl.handle.net/1956/16295
+- https://dspace.library.uu.nl/handle/1874/409300
+- http://hdl.handle.net/20.500.11897/208219
+- https://doaj.org/article/6dec35c165e1429aae39c947289b369e
+- https://archimer.ifremer.fr/doc/00746/85806/90953.jpg

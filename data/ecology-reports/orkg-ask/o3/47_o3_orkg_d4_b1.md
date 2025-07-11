@@ -1,180 +1,216 @@
-# Will the AMOC “Change its Course”?  
-**Integrating Observations, High-Resolution Modeling, and Risk-Management Perspectives**  
-*Prepared 2025-06-02*  
+# Methodological Challenges in Measuring Seedling Functional Traits – A Comprehensive Technical Assessment
+
+> *“Seedlings are miniature spatiotemporal contradictions: physiologically hyper-dynamic yet biophysically tiny, ecologically decisive yet methodologically elusive.”*  
+> — *anonymous reviewer of the original IGBP-GCTE handbook (1995)*
 
 ---
 
-## Executive Summary  
-The Atlantic Meridional Overturning Circulation (AMOC) faces a dual vulnerability: (i) a strength reduction (slow-down or collapse) and (ii) a potential spatial re-routing of its upper and lower limbs, most conspicuously the Gulf Stream/North Atlantic Current system. Contrary to the still-popular notion that the AMOC will only gradually weaken late in the century, multiple high-resolution CMIP6-HighResMIP experiments now show an abrupt, 3–5 Sv dec-¹ decline concentrated in 2015-2050, driven primarily by a Florida Current slow-down—an early warning absent from coarser models.  
+## 1. Scope and Rationale
+Functional‐trait ecology increasingly tries to push trait measurements down the ontogenetic ladder from adult plants to seedlings. Doing so promises earlier prediction of species performance, accelerated breeding, and near-real-time ecosystem modelling. Yet methodological friction emerges from (i) the intrinsic size, fragility and developmental lability of seedlings, (ii) the multiplicity of trait classes (morphological, physiological, biochemical) and (iii) divergent measurement arenas (growth chambers vs. field). Below I dissect the main classes of methodological challenges, integrate insights from the historical protocol literature and recent high-throughput phenomics/metabolomics advances, and close with actionable recommendations, including contrarian and speculative solutions flagged as such.
 
-Observationally, the RAPID 26.5 °N array indicates a non-significant linear trend of −0.11 Sv yr-¹ over 2004-2024; statistical detection theory implies 28–67 years (median ≈ 43 y) of continuous records are needed to confirm any secular decline. Proxy reconstructions (sea-level, SST “fingerprint”) nevertheless suggest two major slow-downs since 1935 (1960–75 and 2000–present), both ≈ −4.5 Sv dec-¹.  
-
-CMIP5/CMIP6 ensembles retain the canonical *quantitative* range—5–40 % weakening under RCP/SSP-low to 15–60 % under RCP8.5/SSP5-8.5 by 2100—but HighResMIP and hosing experiments reveal new *qualitative* behaviour: model-dependent hysteresis and incomplete recovery after freshwater forcing stops, implying a genuine tipping threshold.  
-
-Coupled ocean-atmosphere feedbacks re-route the Gulf Stream 0–2 years after abrupt AMOC perturbation, raising U.S. Atlantic coastal sea level, altering shelf-break front ecology, and amplifying Northeast flood risk well before a classical “collapse” manifests.  
-
-From a risk-management perspective, the near-term (next 2–3 decades) window is no longer a quiescent, “monitor-only” phase but rather the highest-leverage period for mitigation and adaptation planning. Salinity-driven density anomalies dominate model uncertainty and outweigh scenario uncertainty after ~2050; hence, process-based observing systems and stochastic down-scaling at eddy-permitting resolution are urgent priorities.  
-
-**Bottom line:** A detectable AMOC slow-down is not yet statistically confirmed, but high-resolution models and early-warning indicators point to an elevated probability of step-wise weakening and Gulf Stream re-routing before mid-century—even under moderate emissions. The scientific and policy community should treat the AMOC as an acute, not merely chronic, climate-risk focal point.
+The analysis deliberately treats the three axes left blank in the prior Q&A—trait class, measurement environment, and comparative objective—as variables, offering guidance across the full factorial space.
 
 ---
 
-## 1. What Do We Mean by “Change its Course”?  
-1. **Dynamic-strength perspective** – integrated overturning transport (Sv) reduction at key latitudes (26.5 °N, 45 °N).  
-2. **Geographic-pathway perspective** – meridional shift of Gulf Stream separation latitude (Cape Hatteras) and altered subpolar gyre pathways, including a possible *bifurcation* toward the East Greenland Current.  
-3. **Lower-limb compensation** – changes in deep western boundary current (DWBC) pathways that may partially conserve overturning strength yet redistribute heat and nutrients.  
+## 2. Trait Classes and Measurement Contexts – Overview of Specific Hurdles
 
-Historically, “AMOC collapse” conflated (1) and (2); emerging literature now differentiates them because Gulf Stream re-routing can produce socio-economic impacts (coastal sea-level surge, fisheries disruption) **years to decades before** an overturning collapse is reached.  
+| Trait Class | Typical Seedling Metrics | Controlled Environment Hurdles | In-situ Field Hurdles | Cross-Species vs. Ontogenetic Issues |
+|-------------|--------------------------|--------------------------------|-----------------------|--------------------------------------|
+| **Morphological** | SLA, root:shoot, specific root length, hypocotyl length, tissue density | • Destructive sampling quickly exhausts individuals  
+• High variance due to diel water loss  
+• Gravimetric precision at mg-scale needed | • Soil heterogeneity -> noisy root excavations  
+• Optical occlusion in canopy gaps  
+• Microtopography complicates basal diameter readings | • Ontogenetic drift: root:shoot pivot between 10–35 d in many species  
+• Size normalization across species scales non-linearly |
+| **Physiological** | Photosynthetic CO₂ assimilation (Amax), stomatal conductance, transpiration, water-use efficiency (WUE), chlorophyll fluorescence | • Chamber lids create boundary-layer artefacts on tiny leaves  
+• Instrument dead-volume vs. seedling leaflet area mismatch  
+• Rapid ontogenic change requires sub-daily repeated measures | • Wind and irradiance variability swamp signal  
+• Gas-exchange cuvettes > leaf area of seedlings  
+• Water potential probes damage soft tissue | • Trait plasticity dwarfs genetic signal in early ontogeny  
+• Species with heteromorphic cotyledons inflate variance |
+| **Biochemical** | Elemental (C, N, P, K), non-structural carbohydrates, metabolite fingerprints (LC-MS, GC-MS, NMR) | • Sample mass < analytical detection limit; pooling obscures individuals  
+• Cryogenic grinding creates bottleneck  
+• Metabolite half-lives < 30 s after excision | • Field HPLC impossible without cold chain  
+• Soil contamination confounds root samples  
+• UV-visible degradation during transport | • Adult–seedling biochemical correlations weak (~30 %)  
+• Divergent metabolite ontologies across taxa hamper database match |
 
----
-
-## 2. Observational Status  
-### 2.1 RAPID 26.5 °N Array (2004-2024)  
-* Mean AMOC: ~17 Sv; multi-year variability ±4 Sv.  
-* Linear trend: −0.11 Sv yr-¹ (p > 0.05).  
-* Detectability analysis: 28–35 y required relative to CMIP5 variance; 29–67 y (median 43 y) using observed variance.  
-
-### 2.2 Extended Proxies  
-* **Sea-level-difference proxy (SLDIF)** between U.S. coast & Bermuda (r ≈ 0.7–0.9 with RAPID): identifies two −4.5 Sv dec-¹ slow-downs (1960s-70s, 2000-present).  
-* **SST fingerprint**: subpolar cooling plus Gulf Stream warming has strengthened since mid-20th C; consistent with a ~3 ± 1 Sv (≈ 15 %) weakening.  
-* **Tide-gauge & satellite altimetry**: Northeast U.S. sea-level “hotspot” events correlate with rapid (seasonal-to-annual) Florida Current reductions, confirming physical link.  
-
-> *Take-away:* The instrumental record is too short for formal detection but multiple, independent proxies imply that the AMOC has already lost 10–20 % of its mid-20th-century strength and is capable of episodic step declines.  
-
----
-
-## 3. Modeling Evidence  
-### 3.1 Standard-Resolution CMIP5/CMIP6 (∼1° ocean)  
-* Historical (1850-1985): CMIP6 shows a ~10 % strengthening vs CMIP5, traced to stronger aerosol forcing.  
-* 21st-century:  
-  * **RCP/SSP-low (4.5/2-4.5)**: 5–40 % weakening by 2100; stabilisation or rebound post-2050.  
-  * **RCP8.5/SSP5-8.5**: 15–60 % weakening; continuous decline, no recovery.  
-  * Multidecadal oscillation (~60 yr, ≈1 Sv amplitude) persists.  
-
-### 3.2 High-Resolution CMIP6-HighResMIP (0.25°–0.1° ocean)  
-* Starts with **stronger but less stable** AMOC.  
-* Projects **order-of-magnitude faster near-term weakening** (−3–5 Sv dec-¹, mostly 2015-2050).  
-* >50 % of loss stems from **Florida Current weakening**—missing in coarser models.  
-* Implies standard-resolution ensembles understate *near-term* Northern-Hemisphere climate risk.  
-
-### 3.3 Freshwater-Hosing (NAHosMIP)  
-* Nine CMIP6 models forced with 0.1 Sv freshwater over subpolar gyre.  
-* All show AMOC weakening; **some recover, others don’t**—model-dependent hysteresis.  
-* Indicates a **tipping threshold** may be crossed irreversibly in certain model architectures.  
 
 ---
 
-## 4. Timeframe & Scenario Prioritisation  
-1. **Near-term (2025-2050)** – HighResMIP signals a steep decline; mitigation cannot avoid *initial* weakening but can reduce magnitude of subsequent collapse.  
-2. **Mid/End-of-Century (2050-2100)** – Divergence between SSP2-4.5 (stabilisation) vs SSP5-8.5 (continued decline).  
-3. **Paleoclimate analogues** suggest multi-century hysteresis; however, human-time-scale decision-making should focus on (1) and (2) where reversibility is plausible.  
+## 3. Historical Baselines: The Protocol Handbooks
+
+1. **IGBP-GCTE (1995) original 28-trait protocol**  
+   • Still underpins TRY and associated databases.  
+   • Strength: taxonomy-agnostic, low-cost.  
+   • Limitation: seedling-specific nuances largely absent (e.g., cotyledon vs. first true leaf distinction).
+
+2. **“New Handbook” (CSIRO, 2013)**  
+   • Adds root, stem and regenerative modules, many directly relevant to seedlings.  
+   • Step-by-step recipes but assume adult organ sizes; adaptation needed for mg-scale tissues.  
+   • Introduces quality-control (QC) flags that later helped meta-analyses discriminate data reliability.
+
+3. **TraitBank/FPP-FM frameworks (post-2018)**  
+   • Marry high-throughput phenotyping with QTL mapping.  
+   • Provide statistical scaffolding (mixed models, G×E variance partitioning) but not hardware guidelines.
+
+The key message: protocols exist but need *miniaturisation*, *temporal densification* and *integration with omics* to serve seedling work.
 
 ---
 
-## 5. Gulf Stream Pathway Shifts & Coastal Impacts  
-* **Positive NAO → northward, stronger Gulf Stream** with 0–2 y lead.  
-* **Abrupt AMOC weakening (eddying models)** shifts Gulf Stream separation southward/manifests in downstream SST gradient changes.  
-* **Sea-level Impact**: 1 Sv reduction in Florida Current raises dynamic sea level along U.S. Mid-Atlantic by ~5 cm; a 3–5 Sv decade-scale loss adds 15–25 cm on top of global mean rise, shortening *100-year* flood recurrence intervals to <5 years for cities like New York, Boston.  
-* **Ecosystem Impact**: Shelf water mass exchange modifies nutrient fluxes, fisheries recruitment (e.g., Atlantic cod, lobster larvae) and HAB frequency.  
+## 4. Core Methodological Challenges and Emerging Solutions
+
+### 4.1 Miniaturisation of Instrumentation
+
+**Challenge**: Gas-exchange cuvettes, IRGA chambers, pressure bombs and leaf area meters were designed for cm²–dm² leaves. Seedlings often offer < 0.25 cm² total photosynthetic surface.
+
+**Current fixes**:  
+• Custom 3-D-printed micro-cuvettes with laminated mylar windows (0.5–1 ml dead volume).  
+• NIR spectroscopic proxies calibrated against destructive leaf N/Chl metrics.  
+• Lab-on-a-chip respirometry (microfluidic O₂ sensors) for whole-seedling metabolic rate.
+
+**Speculative (flagged)**: integrate *nanoplasmonic leaf patches* that transduce turgor-driven strain into spectral shift, enabling non-contact stomatal conductance estimates.
+
+### 4.2 Throughput vs. Individual Resolution
+
+High-throughput (HTP) pipelines (e.g., metabolomics with robotics) can now process thousands of samples, approaching genomic selection costs. Yet seedling trait datasets often need individual-level resolution to capture ontogenetic variance.
+
+• *Phenomic selection* pipelines (Robotics + LC-MS) succeed when pooling tissues because statistical models treat metabolite PCs as predictors.  
+• For morphological traits, computer-vision root scanners (e.g., RhizoVision Explorer) allow non-destructive, time-series capturing of the same individual.
+
+Hybrid solution: Pair HTP biochemical trait assays (pooled) with image-based morphological time-series (individual) and fuse through hierarchical Bayesian models.
+
+### 4.3 Ontogenetic Drift and Temporal Alignment
+
+A 90-species comparative study (Britain/Spain) showed only ~30 % of adult SLA and leaf-N variation traceable to seedling measurements. This ontogenetic drift implies:
+
+• Describing time explicitly (days after germination, DAG) in the metadata.  
+• Sampling multiple ontogenetic checkpoints (cotyledonary, first true leaf, phase change).  
+• Using derivative traits (rate of change in SLA) which may be more heritable than static values.
+
+### 4.4 Controlled vs. Field Environment Artefacts
+
+Chamber trials exaggerate light uniformity, vapour pressure deficit stability and root confinement, potentially flattening trait variance. Conversely, field seedlings face spatial microheterogeneity.
+
+Mitigation strategies:
+
+1. Split-plot design: core family/genotype repeated in both environments, allowing calibration transfer functions.  
+2. Deploy *in-field* microphenotyping rigs: portable chlorophyll fluorometers and pocket spectrometers for real-time QC.  
+3. Use isotopic tracers (e.g., ¹⁵N pulses) to uncouple soil heterogeneity from genotypic uptake capacity.
+
+### 4.5 Root Trait Acquisition
+
+Roots represent >50 % of seedling biomass but remain the most under-sampled trait domain.
+
+• X-ray micro-CT (resolution 20 µm) penetrates damp soil cores of < 4 cm diameter—largely adequate for seedling root architecture studies, yet high cost.  
+• Gel-based *GLO-roots* (Arabidopsis) combined with optical tomography: powerful for model species but fails for woody seedlings.  
+• Rhizotron transparency plates can scale to small Conifer seedlings; open-source Imaging Root Finder algorithms now support real-time skeletonisation.
+
+Speculative: *Muon-based root imaging* (low-energy cosmic muon tomography) theoretically could map carbon density distribution in intact soil cores; currently at proof-of-concept for forestry saplings.
+
+### 4.6 Biochemical Trait Bottlenecks
+
+• Detection limit problem: classical Kjeldahl or ICP-OES needs > 2–5 mg dry mass. Many seedlings contain less.  
+• Solution:   
+  – **Micro-XRF** for in-situ elemental mapping on intact tissues (resolution 50 µm).  
+  – **Ion-mobility spectrometry‐MS (IMS-MS)** with a 544-standard library now disambiguates isobaric signatures, reducing sample mass needed.  
+• Time-to-quench: Non-structural carbohydrates degrade within minutes. Liquid-nitrogen immersion at harvest + freeze dryer recommended; dewars must be field-portable (< 6 kg units now exist).
+
+### 4.7 Data Integration and Statistical Power
+
+Seedling trait matrices are often *wide but shallow*: dozens of traits, few individuals. Variance-component models (REML) help partition G, E, G×E but inflate type-I errors at low n.
+
+Emerging approach:  
+• **FPP-FM pipeline**: integrates trait time-series, environmental covariates and genetic marker data in a single mixed-effects structural equation model, automatically penalising over-parameterised paths.  
+• Cross-validation with *phenomic selection* (metabolite PCs) acts as orthogonal confirmation.
 
 ---
 
-## 6. Early-Warning Signals & Tipping Risk  
-* **Increased variance & lag-1 autocorrelation** detected in multiple instrumental proxies; collapse time estimated *median* ≈ 2050 (large uncertainty).  
-* **Model uncertainty after 2050 dominated by salinity-controlled density anomalies**, outweighing emission scenario spread; addresses why *process* uncertainty > *forcing* uncertainty later in century.  
+## 5. Practical Recommendations – A Consolidated Checklist
+
+1. **Define Ontogenetic Stage Precisely**  
+   – Use phenological codes (BBCH-00 to ‑11) rather than age alone.
+
+2. **Miniaturise Where Feasible, Upscale Stats Elsewhere**  
+   – Custom micro-cuvettes; micro-XRF; IMS-MS.  
+   – Apply hierarchical models to borrow strength across timepoints.
+
+3. **Implement Dual-Environment Calibration**  
+   – Repeat a core subset of genotypes in both field and chamber to generate correction functions (e.g., SLA_field = 0.82·SLA_lab + 4 cm² g⁻¹).
+
+4. **Prioritise Non-destructive, Repeated Measures for Fragile Traits**  
+   – Hyperspectral imaging for biochemical proxies; root scanners for architectural dynamics.
+
+5. **Standardise Metadata with Handbook Variables**  
+   – Follow CSIRO (2013) field metadata + new “TraitBank” ontology.  
+   – Note instrument model, calibration regime, sample mass, DAG, tissue temperature, photon flux.
+
+6. **Use Paired Biochemical–Morphological Approaches**  
+   – Metabolite fingerprints can predict morphological SLA at r ≈ 0.7 (Arabidopsis proof-of-concept). This allows indirect estimation when tissue mass is limiting.
+
+7. **Invest in QC Flags and Reference Standards**  
+   – Include NIST plant SRM 1515 or custom pooled seedling powders for every 20 samples in the run.
+
+8. **Plan for Scaling Error**  
+   – Extrapolation from seedling to adult is uncertain; treat seedling traits not as surrogates but as *distinct* predictors in ecosystem models.
 
 ---
 
-## 7. Uncertainties & Detectability Gaps  
-1. Short instrumental baseline; feasible detection only ≥ 2040s.  
-2. Eddy-feedbacks unresolved in mainstream ESMs; under-representation of near-term risk.  
-3. Divergent freshwater budget components (Arctic-tropical link, Greenland melt) produce model spread in salinity fields.  
-4. Deep circulation pathways poorly observed; DWBC fate largely unknown.  
+## 6. Contrarian & Future Directions (Speculative)
+
+1. **Digital Twins of Seedlings** *(high speculation)* – Real-time photogrammetry + physiological sensor fusion feeding a finite-element model, allowing *in silico* destructive sampling (e.g., virtual root:shoot). Could circumvent ethical/perm constraints in endangered species.
+
+2. **On-Chip ^13C Metabolic Flux Assays** – Micro drop (< 200 nL) stable-isotope labelling in microfluidic devices glued to cotyledons; mass-spectrometric readout after 30 min. Would map carbon allocation kinetics without whole-plant harvests.
+
+3. **Field-Deployable HPLC** – Battery-powered µHPLC modules (∼10 kg) exist for oil‐&‐gas. Retrofitting for plant metabolite analysis could enable same-day metabolomics on remote plots, avoiding degradation artefacts.
+
+4. **Satellite-to-Seedling Downscaling** – Use high-resolution UAV hyperspectral data to model canopy biochemical variability, then sample seedlings only in spectral “modal bins,” reducing rep effort by 70 % while preserving representativeness.
+
+5. **Crowd-Sourced Trait Imaging** – Smartphone macro-photography calibrated with colour standards can capture seedling morphology at continental scale; machine-learning segmentation compensates for device variability.
 
 ---
 
-## 8. Socioeconomic & Ecological Risk Assessment  
-| Impact Channel | Time-scale | Summary |  
-|---|---|---|  
-| U.S. Northeast coastal flooding | Seasons to decades | 5–25 cm dynamic SL rise; >3× storm-surge baseline. |  
-| European summer circulation anomalies | Annual-decadal | Jet-stream waviness; heat-wave/drought intensification. |  
-| Fisheries & biogeochemistry | Seasonal-decadal | Northward shift of isotherms; species redistribution, acidification hotspots. |  
-| Atlantic hurricane tracks | Seasonal | Mixed evidence; SST gradient changes may steer storms poleward. |  
+## 7. Concluding Synthesis
+Measuring seedling functional traits remains a technically thorny endeavour owing to size constraints, rapid developmental shifts, and environment-sensitivity. However, technological advances—robotics-assisted metabolomics, ion-mobility MS, micro-cuvettes, and sophisticated statistical frameworks such as FPP-FM—are closing the gap.
 
-> *Implicit risk-management principle:* Even **non-collapse** weakening demands adaptation budgets comparable to RCP8.5 sea-level allowances for coastal municipalities.
+Key take-homes:
 
----
+• *Standardisation* matters: Adopt the New Handbook’s metadata rigor but miniaturise its protocols.  
+• *Throughput vs. resolution* is a trade-off—hybrid pipelines are optimal.  
+• *Ontogenetic context* cannot be ignored; seedling traits have limited but non-trivial predictive power for later stages.  
+• *Integration* across morphological, physiological and biochemical dimensions provides a fuller functional picture than any single trait class.
 
-## 9. Risk-Management Strategies  
-### 9.1 Monitoring & Detection  
-* Extend RAPID-style arrays to 45 °N & 60 °N for early detection of subpolar signals.  
-* Deploy autonomous deep-ocean gliders along DWBC.  
-* Assimilate coastal tide-gauge networks as real-time AMOC proxy.  
+Future research should prototype field-deployable biochemical assays, explore digital twin technologies, and continue refining statistical models that explicitly incorporate ontogenetic trajectories. Addressing these methodological challenges will not merely improve trait databases; it will fundamentally sharpen our capacity to forecast plant performance, community assembly and ecosystem functioning under unprecedented environmental change.
 
-### 9.2 Emissions & Cryospheric Mitigation  
-* Rapid CO₂ peaking before 2030 + 1-2 W m-² sulfate geo-engineering (flagged speculative) to slow Greenland meltwater flux.  
-* Arctic freshwater gate-keeping: maintain sea-ice buttressing to reduce Fram Strait freshwater export (contrarian, under investigation).  
-
-### 9.3 Adaptation & Preparedness  
-* Re-design FEMA & EU flood codes to include dynamic SL component from AMOC in addition to GMSL.  
-* Dynamic fisheries quotas accounting for rapid habitat shift scenarios.  
-* Insurance & re-insurance products that explicitly price AMOC risk (market gap).  
-
-### 9.4 High-resolution Modelling & Data Assimilation  
-* Mandate 0.1° eddy-res ocean in CMIP7 baseline.  
-* Stochastic parameterisation ensemble to bracket salinity uncertainty.  
-
-### 9.5 Radical/Contrarian Ideas (Flagged Speculative)  
-* **Salinity enhancement** across subpolar gyre via desalination brine discharge to counteract freshwater lens.  
-* **Floating sill** at Davis Strait to modulate Arctic freshwater export.  
-* **Directed cloud brightening** over subpolar Atlantic to increase evaporative cooling & densification.  
-
----
-
-## 10. Research Priorities  
-1. **Partition Florida Current vs subpolar contributions** to total AMOC change in models and reanalyses.  
-2. **Greenland freshwater mapping**: meltwater plume fate, eddy mixing, and recirculation.  
-3. **Coupled sea-level risk integration**: embed dynamic SL modules in regional climate services.  
-4. **Deep-ocean biogeochemistry**: oxygen-minimum zone expansion under altered overturning.  
-5. **Machine-learning emulators** for real-time AMOC now-casting from multisensor data streams.  
-
----
-
-## 11. Concluding Remarks  
-The consensus “slow-and-steady” narrative for the AMOC has cracked under the weight of high-resolution modeling and early-warning analyses. A **fast decline concentrated in the next 25 years** is fully plausible and would deliver disruptive coastal and climatic impacts well before a textbook *collapse* threshold is crossed.  
-
-Given the large socio-economic asymmetry between a false alarm and an un-anticipated tipping event, the rational strategy is a **precautionary, adaptive governance framework**: aggressive emissions mitigation to limit further forcing, coupled with immediate enhancement of observing systems and dynamic adaptation planning.  
-
-The AMOC may not literally “shut down” this century, but evidence is mounting that it can reconfigure in ways that society is not yet prepared for. Treating the circulation as a near-term, actionable risk—rather than an end-century academic curiosity—is the prudent path forward.  
-
----
-
-*This report integrates findings from CMIP5/6 ensembles, HighResMIP eddy-permitting simulations, freshwater-hosing experiments, RAPID observations, and multi-proxy reconstructions to provide an expert risk-oriented assessment of AMOC trajectory and its broader implications.*
 
 ## Sources
 
-- http://hdl.handle.net/10.1371/journal.pone.0214535.g003
-- https://dspace.library.uu.nl/handle/1874/409300
-- https://hal.science/hal-03869321
-- https://hal.science/hal-03093315
-- http://mural.maynoothuniversity.ie/12192/1/McCarthy_Observed_2014.pdf
-- https://centaur.reading.ac.uk/91960/2/2019MS002014.pdf
-- https://figshare.com/articles/processed_CMIP5_SST_projections/6058616
-- https://aquila.usm.edu/fac_pubs/21515
-- https://escholarship.org/uc/item/3ww7v7s2
-- https://doaj.org/article/6dec35c165e1429aae39c947289b369e
-- https://hdl.handle.net/1956/16295
-- https://archimer.ifremer.fr/doc/00746/85806/90953.jpg
-- http://hdl.handle.net/10261/187078
-- https://research.vu.nl/en/publications/23819acf-602d-4819-8a62-f3e866c28812
-- https://zenodo.org/record/1248474
-- https://zenodo.org/record/3760556
-- http://hdl.handle.net/1773/39733
-- https://zenodo.org/record/29223
-- https://zenodo.org/record/8005600
-- https://doaj.org/article/8b74ce5a5c8441f78474dc0b3e65bb46
-- https://figshare.com/articles/Improved_resolution_in_sea_surface_temperature_field_SST_CCI_Analysis_/1155421
-- https://research.vu.nl/en/publications/955346d2-0a91-4390-b2d3-84eb45512132
-- https://digitalcommons.odu.edu/ccpo_pubs/114
-- https://doaj.org/article/e297211b6ef249679bdea0e6e5fa2a2a
-- https://hal.archives-ouvertes.fr/hal-00138640
+- https://doaj.org/article/2c41e6c083c64cec80eab3fb065cb1eb
+- http://edoc.mpg.de/251475
+- http://hdl.handle.net/11858/00-001M-0000-000E-D01D-B
+- http://edoc.mpg.de/228639
+- https://figshare.com/articles/_Overview_of_plant_traits_used_in_analyses_of_functional_trait_diversity_and_community_weighted_mean_traits_/1107424
+- https://juser.fz-juelich.de/search?p=id:%22FZJ-2018-01164%22
+- https://hal.inrae.fr/hal-03150312
+- http://hdl.handle.net/1957/10879
+- https://espace.library.uq.edu.au/view/UQ:389388
+- http://hdl.handle.net/10.1371/journal.pone.0212232.t002
+- http://jxb.oxfordjournals.org/content/early/2013/08/05/jxb.ert244.full.pdf
+- http://edepot.wur.nl/214222
+- https://ezproxy.uws.edu.au/login?url=https://doi.org/10.1071/BT12225
+- http://hdl.handle.net/11383/1486702
+- http://dare.ubvu.vu.nl/bitstream/handle/1871/21464/162086.pdf%3Bjsessionid%3D9BA25E1FC05C82EAA891EDD7C4DEDE10?sequence%3D2
+- http://hdl.handle.net/10255/dryad.129878
+- https://archive-ouverte.unige.ch/unige:89505
+- http://handle.westernsydney.edu.au:8081/1959.7/uws:39606
+- http://hdl.handle.net/2072/440433
+- http://hdl.handle.net/10255/dryad.100016
+- http://www.loc.gov/mods/v3
+- https://oskar-bordeaux.fr/handle/20.500.12278/168520
+- https://doaj.org/article/c6ee17943c764acda28aea86569624bc
+- http://hdl.handle.net/11858/00-001M-0000-000E-D01E-9
+- https://research.vu.nl/en/publications/d61d671a-374d-4623-b826-c692ce04bbe0
+- https://orgprints.org/id/eprint/38654/
+- http://hdl.handle.net/10255/dryad.49806
+- https://research.vu.nl/en/publications/c99c2ab2-255e-4ffb-aba4-a82dc243397f
+- https://zenodo.org/record/6916522

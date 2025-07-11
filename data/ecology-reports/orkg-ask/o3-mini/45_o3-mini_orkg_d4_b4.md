@@ -1,243 +1,341 @@
-# Final Report: Factors Determining the Success of Reintroducing Lynx to the Austrian Northern Limestone Alps
+# Mechanisms Underlying Fish Invasiveness in Mountain Lakes
 
-## Abstract
-This report presents a comprehensive synthesis of the ecological, socio-economic, and political factors that determine the success of reintroducing Eurasian lynx (Lynx lynx) in the Austrian Northern Limestone Alps. Building on a breadth of interdisciplinary research and case studies spanning Alpine regions, northern Europe, and global reintroduction efforts, this analysis discusses the importance of habitat suitability, genetic health, stakeholder engagement, conflict mitigation, and adaptive management. The report also integrates lessons learned from ethnoecological, genomic, and connectivity studies, thereby offering strategic recommendations for future reintroduction initiatives. 
-
-## Introduction
-Reintroducing large carnivores such as the lynx to fragmented landscapes demands a multifaceted strategic approach. The Austrian Northern Limestone Alps, with its distinctive geological, ecological, and socio-political context, presents a unique case study for exploring the dual challenge of fostering both species recovery and maintaining ecosystem and community stability. Historically, attempts to reintroduce lynx in Alpine regions have faced challenges related to limited founder populations, fragmented habitats, political discord, and socio-economic conflicts. This report collates insights from ethnographic studies, stakeholder analyses, technological innovations in genetic monitoring, and dynamic connectivity models to propose an integrated framework for successful lynx reintroduction. 
-
-## 1. Defining Success in Lynx Reintroduction
-### 1.1 Ecological Success Metrics
-Success in species reintroduction must be defined multidimensionally. Key ecological metrics include:
-
-- **Survival and Reproduction Rates:** Monitoring lynx survival from post-release phases through to sustained reproduction is paramount. The integration of veterinary health protocols, standardized genomic assessments (using microsatellites and SNP panels), and long-term health surveillance (as applied in Swiss projects) will help evaluate viability.
-- **Habitat Utilization and Connectivity:** Effective reintroduction requires the assessment of suitable habitats based on prey availability (e.g., roe deer populations) and refuge options that mitigate human disturbances. Studies from southern Norway, Scandinavia, and the Alps emphasize the need to employ telemetric and connectivity modeling (e.g., using probability of connectivity metrics and circuit theory) to map and design dispersal corridors.
-- **Genetic Diversity and Inbreeding Avoidance:** Regular genetic monitoring is critical. Swiss protocols and Iberian lynx studies demonstrate that robust genomic analyses help in tracking genetic erosion and informing subsequent translocations or management interventions to avoid inbreeding depression.
-- **Ecosystem Functioning and Biodiversity Restoration:** The broader ecological impact is judged by indicators such as trophic cascades, restoration of prey dynamics, and maintenance of a historically congruent species range—principles central to the IUCN Green List framework.
-
-### 1.2 Socio-Economic and Political Success Metrics
-Reintroduction is not merely an ecological endeavor; it is also deeply embedded in socio-economic realities:
-
-- **Local Community Acceptance and Cultural Integration:** Ethnographic studies from Portugal and Scotland reveal that community perceptions are complex. While some stakeholders link carnivore reintroduction to ecosystem restoration and nature tourism, others are wary due to historical top-down conservation approaches. Approaches grounded in participatory, cross-sectoral dialog are required to reconcile these differences.
-- **Compensation and Conflict Mitigation Strategies:** Effective programs need a shift from reactive, monetary compensation schemes to integrative, preventive strategies. Analyses indicate that a combination of preventive husbandry practices, clear compensation protocols, and proactive public education (exemplified in Norway’s cost-benefit studies for carnivores) can enhance rural tolerance for lynx presence.
-- **Governance and Policy Alignment:** The success of reintroduction efforts is partly dependent on robust legal frameworks and transboundary coordination. The experiences in the German and Swiss Alps highlight how fragmented political and institutional policies can undermine conservation efforts. Harmonized Austrian and cross-border (EU) policies that incorporate stakeholder feedback are necessary to ensure long-run support and adaptability.
-
-## 2. Ecological and Environmental Considerations
-### 2.1 Habitat Suitability and Prey Dynamics
-Habitat assessments must integrate both fine-scale field data and large-scale spatial modeling. Key considerations include:
-
-- **Prey Density and Refuges:** Telemetry-based resource selection functions (RSFs) have shown that lynx favor areas with a high density of prey, particularly roe deer, in combination with terrain that offers refuge from human disturbances. Ground-truthing habitat models with field surveys—as seen in swift fox studies that improved habitat estimates by 16%—should be standard practice.
-- **Connectivity Modeling:** In addressing fragmentation, studies in the Iberian lynx have demonstrated that dynamic corridor modeling (employing metrics such as the Probability of Connectivity (dPC) and network centrality) is critical. Integrating real-time data—such as road mortality statistics and telemetry from GPS collaring—enables continuous adjustment to corridor design.
-
-### 2.2 Genetic and Health Monitoring
-Integrating genetic monitoring with health surveillance protocols enables early detection of inbreeding and disease:
-
-- **Standardized Genomic Assessments:** Swiss projects utilizing genome-wide SNP panels and archived biological samples provide a template for long-term genetic health management. These methods also support dynamic adaptive management—integrating statistical models (e.g., agent-based models) to predict population trends under variable conditions.
-- **Veterinary Health Protocols:** Lessons from Swiss lynx translocations demonstrate that consistent health monitoring can detect silent pathogen circulation and early signs of genetic erosion, paving the way for timely interventions.
-
-### 2.3 Landscape and Climate Considerations
-While habitat fragmentation is a persistent issue, climate change poses additional uncertainties. Adaptive management frameworks need to incorporate long-term climate projections to ensure that reintroduced populations are resilient to changes in habitat quality and prey availability.
-
-## 3. Socio-Economic and Institutional Dynamics
-### 3.1 Stakeholder Engagement and Participatory Management
-Evidence emphasizes that building trust through participatory multi-stakeholder approaches is central to successful reintroductions:
-
-- **Inclusive Dialogue:** Ethnographic and stakeholder analyses from Scotland, Portugal, and the German Alps highlight the importance of involving local communities, livestock sectors, hunters, and conservationists from the outset. Tools such as Q-methodology have identified distinct stakeholder groups and provided insights for tailored mitigation strategies.
-- **Public Education and Transparent Communication:** Many reintroduction challenges are rooted in historical mistrust. Proactive public education efforts that combine scientifically robust data with TEK (Traditional Ecological Knowledge) can bridge the gap between informed decision-making and community acceptance.
-- **Conflict Resolution Mechanisms:** Several case studies note that compensation strategies often focus on immediate reimbursement, which can exacerbate tensions. Instead, integrating preventive measures such as enhanced livestock husbandry, real-time damage monitoring, and participatory conflict resolution frameworks (as evidenced in Norwegian studies) can foster long-term coexistence.
-
-### 3.2 Economic Trade-Offs and Compensation Schemes
-Economic analyses of lynx reintroduction must factor both direct and indirect cost-benefit outcomes:
-
-- **Cost Efficiency and Adaptive Compensation:** Research across Europe indicates that while streamlined monetary compensation schemes (accounting for significant annual payouts) are necessary, they must be supplemented with prevention-focused strategies. Integrative programs that emphasize both recovery-oriented interventions and economic incentives tailored to local realities have the potential to both reduce conflict and enhance public perception.
-- **Integration with Rural Development:** Aligning reintroduction strategies with broader rural development goals — for instance through nature tourism and ecosystem service payments—could open avenues for co-financing and reinforce economic resilience in affected communities.
-
-### 3.3 Institutional and Policy Coordination
-Multi-layer governance and cross-border collaboration are essential for long-term success:
-
-- **Harmonized Legal Frameworks:** The complex interplay between national, regional, and EU regulations requires a harmonized approach. The Mercantour National Park serves as a prime example of how structured legal and institutional frameworks facilitate coordinated species management across political borders.
-- **Enhanced Funding Models:** Current European conservation funding is often too discipline-specific. A restructuring towards multi-stakeholder, transdisciplinary funding models—lowering co-financing barriers and encouraging community-of-practice frameworks—would likely produce better integrated conservation outcomes.
-
-## 4. Lessons Learned from Comparative Case Studies
-### 4.1 Historical Lynx Reintroductions in Austria and Beyond
-Past reintroduction efforts in Austria during the late 1970s, while ambitious, suffered from inadequate post-release monitoring and fragmented stakeholder cooperation. Similarly, historical efforts in the German Alps were impeded by institutional competition and the absence of formal compensation structures. In contrast, more recent, comprehensive initiatives in Switzerland and Spain demonstrate the efficacy of integrating robust genetic monitoring, participatory engagement, and adaptive management frameworks. 
-
-### 4.2 Innovative Monitoring and Adaptive Management
-Contemporary projects have embraced advanced technologies:
-
-- **Dynamic Connectivity and Telemetry:** Integrating telemetry data with circuit theory and least-cost path analyses has led to the development of adaptive, real-time corridor optimization strategies.
-- **Ensemble Ecosystem Modeling:** Approaches that blend empirical field data with scenario-based projections (e.g., using Monte Carlo simulations and agent-based models) provide decision-makers with predictive tools that explicitly incorporate uncertainty and variable species interactions.
-- **Holistic Indicator Frameworks:** Frameworks like the Achieved Restoration (AR) index and the Holistic Indicator Selection Protocol (HISP) balance ecological, socio-economic, and governance metrics. These indices help prevent the overestimation of reintroduction success by juxtaposing what has been restored against well-defined, cross-taxa benchmarks.
-
-### 4.3 Transdisciplinary and Community-Centered Approaches
-Studies across Europe demonstrate that overcoming entrenched opposition requires a paradigm shift toward participatory, co-managed strategies:
-
-- **Integrated Traditional and Scientific Knowledge:** Incorporating TEK with quantitative data not only enhances habitat suitability modeling but also legitimizes local voices. Community-based monitoring experiments (such as those involving citizen science and structured workshops) are central to building sustained trust.
-- **Conflict Mitigation Through Adaptive Preventive Measures:** Shifting from a reactive compensation model to one focused on proactive prevention—as illustrated by improved livestock husbandry and educational outreach—can produce better long-term outcomes.
-
-## 5. Recommendations and Future Directions
-Based on the comprehensive synthesis of the literature and case studies, the following recommendations are proposed for the successful reintroduction of lynx in the Austrian Northern Limestone Alps:
-
-1. **Develop Integrated Monitoring Programs:** Establish long-term, multi-metric monitoring systems that combine genomic assessments, telemetry data, and on-ground habitat surveys. Ensure the data feed into adaptive models that dynamically adjust corridor and habitat management plans.
-
-2. **Implement Participatory Management Strategies:** Engage local communities and stakeholders from initial planning through to execution. Utilize tools like Q-methodology and MCDA to identify and address the concerns of diverse groups, ensuring that compensation schemes are both preventive and adaptive.
-
-3. **Strengthen Cross-Border Coordination:** Harmonize Austrian conservation policies with neighboring regions (Germany, Switzerland, and Italy) to facilitate coordinated reintroductions. Establish transnational advisory boards that include scientific experts, local government representatives, and community leaders.
-
-4. **Restructure Conservation Funding:** Advocate for transdisciplinary funding models that lower co-financing barriers and incentivize multi-stakeholder, integrative projects. Align funding priorities with both ecological restoration and the socio-economic well-being of local communities.
-
-5. **Enhance Public Education and Communication:** Launch comprehensive public education campaigns that transparently share monitoring results and adaptive management interventions. Emphasize the dual benefits of ecosystem restoration and potential long-term economic improvements, including increased nature tourism.
-
-6. **Utilize Advanced Predictive Modeling:** Incorporate dynamic modeling approaches (e.g., Agent Based Models, Mixed Observability Markov Decision Processes) to simulate various reintroduction scenarios under changing ecological and socio-economic conditions. Such models should integrate real-time data on prey density, road mortality, and landscape changes.
-
-7. **Integrate TEK and Scientific Data:** Establish frameworks for the systematic inclusion of Traditional Ecological Knowledge alongside empirical scientific data, ensuring that local cultural insights inform adaptive management plans.
-
-## 6. Conclusion
-The reintroduction of lynx to the Austrian Northern Limestone Alps is a complex, multifaceted endeavor that requires an integrated approach. Success depends not only on ecological feasibility—survival, breeding, habitat connectivity, and genetic diversity—but also on socio-economic viability, stakeholder engagement, and robust, adaptive institutional frameworks. The lessons learned from past European initiatives and cutting-edge methodological advancements provide a roadmap for navigating the challenges inherent in large carnivore conservation. By combining advanced genomic tools, dynamic ecological modeling, and inclusive participatory processes, future reintroduction efforts can achieve sustainable population recovery while enhancing ecosystem functioning and preserving local socio-political harmony.
-
-With the continued evolution of multi-disciplinary research and policy innovation, the Austrian case stands to benefit from a reimagined, adaptive management framework that is both scientifically rigorous and socially responsive.
+This report synthesizes a broad range of research findings to elucidate how fish become invasive in mountain lakes. It integrates insights from biological, ecological, genetic, epigenetic, and anthropogenic perspectives, as well as findings from numerous case studies and advanced modeling approaches. The discussion spans direct biotic interactions, the modulation of ecosystem subsidies, and the role of human-mediated environmental alterations. The goal is to provide an in‐depth, multi-page exploration suitable for expert analysis.
 
 ---
 
-*This report synthesizes a broad array of empirical research, stakeholder analysis, and policy evaluations. It is intended as a comprehensive resource for conservation practitioners, policymakers, and academic researchers engaged in large carnivore reintroduction and ecosystem restoration initiatives.*
+## 1. Overview and Introduction
+
+Mountain lake ecosystems are unique due to their isolated geography, extreme environmental conditions, and steep elevational gradients, which create distinct regimes in nutrient cycling, food web dynamics, and evolutionary pressures. Invasion by non-native fish species in these systems is not solely a product of the fish’s inherent biological traits but is driven by a confluence of processes, including:
+
+- **Biological and ecological mechanisms**: traits such as reproductive strategies, competitive capabilities, and trophic interactions.
+- **Genetic and epigenetic modifications**: rapid adaptive changes via DNA methylation, histone modifications, and hybridization dynamics.
+- **Anthropogenic factors**: historical and modern human interventions (e.g., stocking practices, facilitated introductions, habitat modifications) that disrupt native balances.
+
+This report reviews empirical evidence and advances in modeling techniques that capture the complexity of invasion dynamics in mountain lake environments.
+
+---
+
+## 2. Biological and Ecological Mechanisms
+
+### 2.1 Reproductive Strategies and Life‐History Traits
+
+One of the critical determinants of invasion success lies in the intrinsic reproductive traits and life‐history strategies of invasive fish such as brook trout (Salvelinus fontinalis), lake trout, and various trout species. For example:
+
+- **Sheltered Spawning Strategies**: Species such as common carp have been shown to spawn in shallow, hypoxic waters (areas that experience winterkill) to avoid native egg predators. This strategy underscores how niche utilization can permit reproduction in otherwise hostile environments.
+- **Competitive Superiority**: In cases like vendace (Coregonus albula) displacing native whitefish, successful zooplanktivory in the pelagic zone has been observed. This competitive advantage is linked directly to feeding efficiency, foraging behavior, and exploitation of available trophic resources.
+
+### 2.2 Trophic Cascades and Cross-Ecosystem Subsidies
+
+Invasive fish have been documented to cause cascading effects through food webs in mountain lakes:
+
+- **Terrestrial-Aquatic Linkages**: Studies have demonstrated that introduced brook trout can consume terrestrial arthropods at rates several-fold higher than the natural sinking flux, creating an imbalance in cross-ecosystem nutrient subsidies. The ingestion and subsequent excretion of these inputs can modify the nutrient cycling dynamics significantly, influencing primary productivity and altering in-lake subsidy regimes.
+- **Predation and Indirect Effects**: In ecosystems such as Yellowstone National Park, lake trout not only directly reduce populations of native cutthroat trout but also modify the reproductive strategies and population dynamics of native species, as evidenced by bioenergetics and cohort modeling. This disruption often has downstream effects on both invertebrate communities and even terrestrial predators that rely on emergent aquatic insects.
+
+### 2.3 Seasonal Lake Physical Parameters
+
+Seasonal variations in lake conditions (e.g., ice-cover duration, temperature regimes, dissolved organic carbon, and nutrient concentrations) critically interact with fish biology:
+
+- For instance, temperature thresholds (e.g., water temperatures sustaining >15 °C in sub-alpine environments like Castle Lake, CA) can enhance growth rates and alter foraging behavior. Additionally, the winter increase in total dissolved nitrogen (up to 78%) suggests that abiotic seasonal shifts create episodic windows where invasive species may capitalize on transient resource surpluses.
+
+---
+
+## 3. Genetic and Epigenetic Mechanisms
+
+### 3.1 Epigenetic Modifications and Inheritance
+
+Recent studies have highlighted the role of epigenetic mechanisms in facilitating rapid adaptation. Notable examples include:
+
+- **DNA Methylation Dynamics**: In species such as Poecilia mexicana, differential DNA methylation patterns have been shown to be stably inherited over multiple generations. Studies report an >80% overlap in differentially methylated regions from the parental to the F2 generation, even after removal of environmental stressors (e.g., hydrogen sulfide exposure). Similar epigenetic stability is noted in cichlid fishes from Lake Malawi, where chromatin states (involving marks such as H3K4me3 and H3K27ac) mediate phenotypic plasticity in response to short-term nutritional changes.
+
+### 3.2 Hybridization Dynamics and Introgression
+
+Hybridization plays a dual role in invasion dynamics by increasing genetic variability and unlocking transgressive phenotypes:
+
+- **Enhanced Variance in Gene Expression**: Invasive sculpins and documented sunflowers (as seen in Rieseberg et al.'s work) provide evidence for heightened gene expression variability following hybridization. Such variance enables hybrids to exploit novel ecological niches.
+- **Overcoming Founder Effects**: Cases such as the lake trout invasion in Swan Lake (MT) reveal that even minimal founding populations (e.g., descendants of only two individuals) may trigger rapid adaptation through genetic drift and strong selective pressures, often mediated by recurrent genetic admixture from multiple source populations.
+
+### 3.3 Considerations of Ontogenetic Variation
+
+The ontogenetic stage is crucial in understanding gene expression divergence among hybrids. For example, while embryonic stages of lake whitefish hybrids show minimal misexpression, juveniles display extensive transcriptional misregulation—a factor that can drive rapid phenotypic divergence post-hybridization and modulate invasive capacity.
+
+---
+
+## 4. Anthropogenic Drivers and Landscape-Level Influences
+
+### 4.1 Human-Mediated Introductions and Stocking Histories
+
+Human activities have a profound impact on fish invasions in mountain lakes:
+
+- **Historical and Modern Stocking**: Regions such as the Pyrenees and North American mountain ranges have experienced extensive histories of fish stocking. Historical trout cultivation and modern recreational introductions have altered native assemblages, with studies noting that between 25% and up to 85% of lakes in certain valleys have been affected.
+- **Assisted Colonization**: Programs aimed at enhancing native species—for instance, the assisted colonization of westslope cutthroat trout in the Canadian Rockies—have led to noticeable shifts in benthic invertebrate communities (e.g., reductions in free-swimming ameletid mayflies and increases in burrowing taxa). This suggests that even regionally native introductions exert pressures comparable to invasive species due to altered trophic cascades.
+
+### 4.2 Anthropogenic Habitat Modifications
+
+In addition to direct introductions, land-use changes and infrastructural modifications have created favorable conditions for invasive fish:
+
+- **Habitat Connectivity Changes**: Developments that enhance connectivity among water bodies can enable fish dispersal, which is strongly linked to establishment risks over multidecadal scales. Modeling studies consistently identify lake connectivity and anthropogenic covariates as robust predictors of establishment.
+- **Recreational Fishing and Live Bait Use**: The phenomenon of live bait transfer and recreational fisheries operations have expanded the range of non-native minnows and trout, significantly altering the local ecological balance and frequently correlating with declines in amphibian and invertebrate populations.
+
+### 4.3 Case Studies Across Geographic Regions
+
+The invasion dynamics in mountain lakes are context-dependent:
+
+- **Yellowstone and Swan Lake**: In Yellowstone, the introduction of lake trout has had quantifiable impacts on native cutthroat trout populations. Meanwhile, in Swan Lake (MT), even very low founding numbers led to rapid adaptation, demonstrating that genetic admixture and subsequent hybridization processes are potent invasion facilitators.
+- **European Alps and Pyrenees**: Detailed regional studies in the Pyrenees have traced shifts in fish community structure linked to centuries-old stocking combined with modern anthropogenic pressures. Similarly, experiments in the European Alps have documented trophic cascades and alterations in the zooplankton community, a reflection of both natural and anthropogenically induced drivers.
+- **Canadian Rockies**: The introduction of native westslope cutthroat trout into fishless lakes has shown trophic cascade risks similar to those observed with invasive brook trout, highlighting that even assisted colonization can substantially reconfigure ecosystem dynamics.
+
+---
+
+## 5. Ecosystem and Modeling Insights
+
+### 5.1 Predictive Models and Simulation Approaches
+
+Advanced modeling has been critical for forecasting invasion risks and understanding long-term ecosystem trajectories. Key methodologies include:
+
+- **Trait-Based Classification and Ensemble Species Distribution Models**: Techniques such as random forests, general additive models, and hybrid machine learning workflows have frequently achieved 75–83% accuracy in predicting invasion outcomes. These multivariate models incorporate both anthropogenic and natural variables, offering a quantitative framework for risk assessments.
+- **Age-Structured and Bioenergetics Models**: Simulations that account for age-structured populations have underscored the importance of high-resolution genetic markers and robust field sampling. Coupled bioenergetics models (e.g., those applied to Lake Constance’s whitefish) also demonstrate the role of nutrient dynamics—such as phosphorus levels—in modulating growth and ecosystem stability.
+- **Integrated Ecosystem Models**: Tools like PCLake and its successors (FABM-PCLake) comprehensively simulate physical, chemical, and biological interactions. Sensitivity analyses in these models reveal that parameters like temperature, nutrient cycling, and lake morphometry can act as leverage points for managing invasions.
+
+### 5.2 Statistical and Genomic Innovations
+
+Beyond ecological modeling, advances in genomic techniques and statistical methodologies have refined our understanding of invasion dynamics:
+
+- **Genomic and Transcriptomic Assays**: Studies employing RNA-seq, FISH thermodynamic modeling, and high-throughput sequencing have identified candidate genes under positive selection (e.g., HIF pathway members in high-altitude fish) and documented rapid selective shifts in invading populations.
+- **Bayesian and Hybrid Modeling Approaches**: Methods such as Bayesian networks and ancestral recombination graph analyses (augmented by particle filters) capture nuanced details of non-equilibrium dynamics, highlighting the interplay between selection, drift, and admixture.
+
+---
+
+## 6. Impacts on Nutrient Cycling and Ecosystem Subsidies
+
+### 6.1 Trophic Cascades and Nutrient Redistribution
+
+The introduction of invasive fish in mountain lakes has profound implications for nutrient cycling. Notable findings include:
+
+- **Altered Terrestrial Subsidies**: In fishless lakes, natural inputs of terrestrial organic matter occur primarily via passive sinking. In contrast, invasive species like brook trout actively transfer terrestrial arthropods—a process that can multiply nutrient influx several-fold. This vectoring effect disrupts finely tuned nutrient budgets and may influence productivity at multiple trophic levels.
+- **Ecosystem Subsidies and Cross-Boundary Dynamics**: The interlinkage between aquatic and terrestrial ecosystems is underscored in studies documenting shifts in predator-prey dynamics and reciprocal subsidies. For example, introduced piscivores can decrease amphibian or emergent insect populations, indirectly affecting nutrient flows into the terrestrial realm.
+
+### 6.2 Seasonal and Elevational Variability
+
+Lake ecosystems across varying elevations display distinct nutrient and energy subsidy regimes:
+
+- **Lower vs. Higher Elevations**: Lower elevation lakes benefit from high organic input due to dense terrestrial vegetation; higher elevations, however, receive relatively higher inorganic nutrient inputs (e.g., up to 78% greater dissolved nitrogen in winter). Invasive fish modify these regimes further by acting as both predators and nutrient vectors.
+- **Seasonal Shifts in Productivity**: The marked seasonal changes—such as a 44% reduction in productivity during winter—further interact with fish-driven alterations to yield complex, temporally dynamic food web responses.
+
+---
+
+## 7. Synthesis, Management Implications, and Future Directions
+
+### 7.1 Synthesis of Key Mechanisms
+
+Integrating the multiple lines of evidence leads to several core conclusions:
+
+- **Multifactorial Origins of Invasiveness**: The invasive capacity of fish in mountain lakes arises from a synergistic interplay between intrinsic biological traits (e.g., reproductive strategies, competitive foraging), rapid genetic and epigenetic adaptations, and extrinsic human-mediated drivers. In many cases, even low founder populations, through subsequent hybridization and epigenetic stabilization, adapt quickly to the fluctuating demands and stressors in mountain lakes.
+- **Ecosystem-Level Ramifications**: The ensuing trophic cascades and nutrient cycling perturbations reverberate beyond the immediate aquatic community, impacting both terrestrial subsidies and cross-ecosystem dynamics. This misshaping of natural inputs—combined with anthropogenic alterations—complicates restoration efforts.
+- **Modeling as a Decision-Support Tool**: Advanced simulation and integrated ecosystem models provide critical insights into threshold dynamics (e.g., the onset of clear-to-turbid state shifts) and offer a predictive scaffold for managing invasive populations.
+
+### 7.2 Management and Mitigation Strategies
+
+Given these insights, several management directions emerge:
+
+- **Integrated Risk Assessments**: Deploy ensemble modeling techniques that integrate anthropogenic and natural variables. Marrying trait-based classification systems with advanced genomic diagnostics can enhance early detection and intervention capabilities.
+- **Adaptive Stocking Policies**: Reassess fish stocking practices in light of ecological legacy effects. Adaptive management should consider not only the direct impacts of invasive species but also their influence on nutrient subsidies and trophic cascades.
+- **Targeted Removals and Ecosystem Restorations**: Whole-lake removal experiments have demonstrated rapid recovery of native communities (e.g., amphibian rebounds post-trout removal). Coupling these efforts with precise field monitoring and high-resolution genomic tracking can help recalibrate native trophic dynamics.
+- **Landscape-Level Interventions**: Modifying habitat connectivity, managing recreational fishing pressures, and reconciling infrastructure development with conservation goals are key to reducing anthropogenic contributions to invasive success.
+
+### 7.3 Anticipated Directions and Novel Approaches
+
+Future research should dedicate enhanced focus to:
+
+- **Long-read Genomic Sequencing**: Use of long-read platforms to resolve fine-scale recombination and migration patterns, thereby refining non-equilibrium population genetic models.
+- **Epigenetic Editing and Manipulation**: Exploring interventions that target maladaptive epigenetic modifications to potentially reverse invasive phenotypes.
+- **Climate Change Interactions**: Further integration of climate model outputs (e.g., predicted ice-breakup advances) into invasive species risk frameworks may further elucidate climate-driven invasion dynamics.
+
+---
+
+## 8. Conclusion
+
+In summary, fish invasiveness in mountain lakes is a phenomenon born of complex interplay among natural biological traits, rapid genetic and epigenetic adaptations, and pervasive anthropogenic influences. The evidence reviewed herein underscores the need for an integrative, multi-dimensional management approach that leverages cutting-edge modeling and genomic tools. Such an approach will be essential for restoring native biotic integrity in these delicate ecosystems and for mitigating the far-reaching impacts of invasive species. Future research and adaptive management must operate synergistically to address ongoing challenges and ensure the resilience of mountain lake ecosystems in a rapidly changing world.
+
+*This report provides a detailed account of the mechanisms by which fish become invasive in mountain lakes, integrating learning across multiple scales—from molecular to ecosystem—and offers pathways for future research and management intervention.*
 
 ## Sources
 
-- https://stud.epsilon.slu.se/11050/
-- https://zenodo.org/record/4270408
-- https://hal.inrae.fr/hal-03482583
-- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0169204616301141/MAIN/application/pdf/ec8ee4a9e2b581deb88dd4b17293c3e4/main.pdf
-- http://hdl.handle.net/10261/259477
-- https://doaj.org/article/8cd3e7b80cda4fad97a93ce23b1eb0cc
-- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-69507
+- http://hdl.handle.net/10068/997695
+- http://hdl.handle.net/10278/3714405
+- https://scholarcommons.sc.edu/etd/483
+- http://library.wur.nl/WebQuery/wurpubs/483512
+- http://hdl.handle.net/10.1021/acs.est.8b07250.s002
+- http://elib.bsu.by/handle/123456789/163593
+- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2015-0549
+- https://biblio.ugent.be/publication/8641302
+- http://hdl.handle.net/11392/2490677
+- https://library.wur.nl/WebQuery/wurpubs/506286
+- https://hdl.handle.net/11511/38282
+- https://zenodo.org/record/8134076
+- http://hdl.handle.net/10255/dryad.128224
+- http://www.ecolab.ups-tlse.fr/IMG/pdf/2008_Leprieur
+- https://doaj.org/article/9ce836acc8fb4175a2d7ec78d702eb33
+- https://hal.inrae.fr/hal-03790661
+- https://www.ajol.info/index.php/sfjfs/article/view/43827
+- http://hdl.handle.net/10261/160112
 - http://urn.fi/
-- https://arc.lib.montana.edu/ojs/index.php/IJS/article/view/591
-- http://doc.rero.ch/record/300410/files/S0030605309991013.pdf
-- https://doaj.org/toc/2167-8359
-- http://dx.doi.org/10.1553/eco.mont1s45
-- http://hw.oeaw.ac.at/6672-6
-- http://hdl.handle.net/2072/403105
-- http://biocenosi.dipbsf.uninsubria.it/atit/PDF/Volume12(2)/12(2)_6.pdf
-- http://hdl.handle.net/10451/51931
-- http://www.aecom.com/uk/wp-content/uploads/2015/09/Cost-benefit-analysis-for-the-reintroduction-of-lynx-to-the-UK-Main-report.pdf
-- http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/32144.pdf
-- https://pureadmin.qub.ac.uk/ws/files/623029520/J_Hanson_Nuffield_Presentation_2024_v2.pdf
-- http://www2.zoo.cam.ac.uk/manica/ms/2009_Kapos_et_al_Oryx.pdf
-- https://researchonline.jcu.edu.au/70078/1/70078.pdf
-- https://doaj.org/article/031c91c9050143c4b473840b0dd1e7fb
-- http://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-468631
-- https://figshare.com/articles/Dispersal_Ecology_Informs_Design_of_Large-Scale_Wildlife_Corridors/3854295
-- https://doaj.org/article/9a489caa33d547219edfc097650e437e
-- https://pure.qub.ac.uk/en/publications/3dfbdf92-dbbd-4da4-a24f-c26ebe488256
-- https://figshare.com/articles/Goals_ecosystem_metrics_and_performance_criteria_/3152788
-- http://hdl.handle.net/10871/128040
-- http://www.italian-journal-of-mammalogy.it/article/viewFile/4173/4109/
-- http://www.nusl.cz/ntk/nusl-136696
-- http://dspace.stir.ac.uk/bitstream/1893/29669/4/The%20potential%20for%20lynx%20reintroduction%20to%20Scotland.pdf
-- https://zenodo.org/record/5889154
-- http://www.ebd.csic.es/carnivoros/personal/eloy/publications/KramerSchadt_Biol_Cons_2005.pdf
-- https://orbi.uliege.be/handle/2268/128571
-- http://hdl.handle.net/11573/1281522
-- http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/63399
-- https://research.rug.nl/en/publications/9be5f335-eda8-49e3-a5a3-25baf3f9ecb6
-- https://hal-enpc.archives-ouvertes.fr/hal-01239781
+- http://hdl.handle.net/11858/00-001M-0000-000E-7F2A-F
+- http://nbn-resolving.de/urn:nbn:de:bsz:352-2-1n5eggpsh0pvl4
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:80505
+- https://escholarship.org/uc/item/90c25815
+- http://hdl.handle.net/11714/6038
+- https://repository.uwyo.edu/zoology_facpub/10
+- http://nbn-resolving.de/urn:nbn:de:bsz:352-2-somwldmvtlyz3
+- http://publications.jrc.ec.europa.eu/repository/handle/JRC60622
+- https://pure.knaw.nl/portal/en/publications/5ce46824-1672-4633-a08a-ffe7ccc7e383
+- http://file.scirp.org/pdf/OJGen_2012123121350270.pdf
+- http://www.nusl.cz/ntk/nusl-461943
+- https://escholarship.org/uc/item/6rk0982f
+- https://escholarship.org/uc/item/3qg532m2
+- http://hdl.handle.net/1807/87338
+- http://hdl.handle.net/11858/00-001M-0000-000F-D412-5
+- http://publications.jrc.ec.europa.eu/repository/handle/JRC36125
+- http://arodes.hes-so.ch/record/10851
+- https://zenodo.org/record/4299336
+- https://hdl.handle.net/11250/3021741
+- https://escholarship.org/uc/item/3362g3jb
+- https://digitalcommons.georgiasouthern.edu/cosm-cour-symposium/2021/2021/18
+- https://oak.novartis.com/978/
+- http://library.wur.nl/WebQuery/wurpubs/410484
+- https://zenodo.org/record/5771330
+- http://depot.knaw.nl/6260/
+- https://eprints.bournemouth.ac.uk/37645/1/Ecological%20impacts%20of%20invasive%20freshwater%20fish_accepted%20version.pdf
+- http://hdl.handle.net/10393/28286
+- http://www.documentation.ird.fr/hor/fdi:010044297
+- https://lirias.kuleuven.be/bitstream/123456789/645097/2/Jiang%20et%20al%2019%20J%20Insect%20Physiol.pdf
+- http://hdl.handle.net/11858/00-001M-0000-000F-D3A0-B
+- http://www.infish.com.pl/wydawnictwo/Archives/Fasc/work_pdf/Vol9Fasc2/Vol9Fasc2
+- http://www.glerl.noaa.gov/pubs/fulltext/2005/20050014.pdf
+- https://hal.archives-ouvertes.fr/hal-00453856
+- https://library.wur.nl/WebQuery/wurpubs/501349
+- https://escholarship.org/uc/item/7r0423xg
+- http://www.mtcfru.org/wp-content/uploads/2014/12/Kalinowski_etal_2010_conservation_genetics.pdf
+- http://glei.nrri.umn.edu/default/documents/Bhagat
+- http://hdl.handle.net/10255/dryad.102137
 - https://doaj.org/toc/1932-6203
-- http://hw.oeaw.ac.at/0xc1aa500e_0x00220569.pdf
-- https://doi.org/10.3897/natureconservation.49.81469
-- https://insight.cumbria.ac.uk/id/eprint/3188/1/lynxinterimsurvey.pdf
-- https://doaj.org/article/80974ccff2864ec3bfaa456022ee692c
-- http://fauna.dipbsf.uninsubria.it/atit/PDF/Volume10(1)/10(1)_5.pdf
-- https://oa.upm.es/41048/
-- http://hdl.handle.net/10.1371/journal.pone.0216549.t002
-- http://hdl.handle.net/10261/282968
-- http://hdl.handle.net/10023/24285
-- http://hdl.handle.net/11573/624585
-- https://hdl.handle.net/11250/2648632
-- http://hw.oeaw.ac.at/7019-8
-- https://hdl.handle.net/11250/2755741
-- https://doaj.org/article/d98a4d8e88614b71a80c48288a627ba2
-- https://hdl.handle.net/11250/3003876
-- https://orbi.uliege.be/handle/2268/176592
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:93939
-- https://doi.org/10.1002/pan3.10465
-- https://doaj.org/article/8eeecae9082946b188aa35f9ded4d361
-- https://zenodo.org/record/6789818
-- http://www.scopus.com/inward/record.url?scp=85040322338&partnerID=8YFLogxK
-- https://www.db-thueringen.de/receive/dbt_mods_00051681
-- https://github.com/DrIanPhilips/LynxABM.
-- https://digitalcommons.fiu.edu/fce_lter_journal_articles/77
-- http://hdl.handle.net/11577/3199606
-- https://doaj.org/article/dc2fc0d4496740b8818ab09774c6b5f8
-- http://archive-ouverte.unige.ch/files/downloads/48260/unige_48260_attachment01.pdf
-- https://serval.unil.ch/resource/serval:BIB_14285249F1D0.P001/REF.pdf
-- https://doaj.org/article/821354d009784f9c89731516d266675d
-- https://eprints.ucm.es/id/eprint/73043/
-- https://hal.science/hal-03119373/document
-- http://dx.doi.org/10.1111/cobi.13112
-- http://www.kora.ch/malme/05_library/5_1_publications/B/Breitenmoser_et_al_2006_Guidelines_Monitoring_Lynx_Workshop_Balkan_Lynx.pdf
-- https://pub.epsilon.slu.se/31705/1/oeser-j-et-al-20230913.pdf
-- http://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-8095
-- https://figshare.com/articles/guinotghestem-gimenezsfe2016marseilleweb-161022125305_pdf/4832624
+- http://hdl.handle.net/10255/dryad.115478
+- https://doi.org/10.17863/CAM.101706
+- https://zenodo.org/record/4963397
+- http://ir.ihb.ac.cn/handle/342005/18283
+- https://hdl.handle.net/1969.1/191696
+- http://hdl.handle.net/10150/630352
+- https://doi.org/10.1111/j.1095-8649.2007.01685.x
+- https://doaj.org/article/c100e138add14d7686a3a584f438c409
+- https://hdl.handle.net/1871.1/2a684d54-8a03-4ee1-8edb-ecdadc9d258b
+- http://hdl.handle.net/11858/00-001M-0000-000F-D5CC-0
+- https://doi.org/10.1111/ddi.12391
+- http://hdl.handle.net/10722/198818
+- http://hdl.handle.net/11311/1000299
+- https://doi.org/10.1051/kmae/2019029
+- http://www.aslo.org/lo/toc/vol_52/issue_6/index.html
+- https://figshare.com/articles/_Hybridization_between_Yellowstone_Cutthroat_Trout_and_Rainbow_Trout_Alters_the_Expression_of_Muscle_Growth_Related_Genes_and_Their_Relationships_with_Growth_Patterns_/1580097
+- http://ir.ihb.ac.cn/handle/342005/36551
+- http://nora.nerc.ac.uk/id/eprint/5359/
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0075951104800318/MAIN/application/pdf/f3abd90f4a53be3ec799a9b238a0358f/main.pdf
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:87423
+- http://hdl.handle.net/11343/256876
+- https://espace.library.uq.edu.au/view/UQ:398781
+- https://researchonline.jcu.edu.au/64218/1/64218.pdf
+- http://hdl.handle.net/11250/2629630
+- http://ir.ihb.ac.cn/handle/342005/30188
+- http://er.uwpress.org/content/32/1/59.full.pdf
+- http://www-heb.pac.dfo-mpo.gc.ca/congress/2000/evolution/evolution.pdf
+- http://www.documentation.ird.fr/hor/fdi:010079389
+- https://opensiuc.lib.siu.edu/dissertations/1497
+- http://ir.ihb.ac.cn/handle/342005/35095
+- http://ageconsearch.umn.edu/record/36673
+- https://pure.knaw.nl/portal/en/publications/2035db26-15bc-4417-9ca0-12f027226739
+- http://hdl.handle.net/11571/757660
+- https://eprints.whiterose.ac.uk/97707/1/2014_JEZ_Epigenetics.pdf
+- https://doaj.org/article/7f16f08f733348b2801ad0e555583cdc
+- https://hdl.handle.net/11250/2981355
+- http://hdl.handle.net/1957/11210
+- http://pqdtopen.proquest.com/#viewpdf?dispub=13424864
+- https://doi.org/10.1051/limn/2000016
+- http://hdl.handle.net/1807/70966
+- https://hal.science/hal-03563547
+- https://escholarship.org/uc/item/0wf2q0pk
+- https://serval.unil.ch/notice/serval:BIB_6E2E2D36EADD
+- https://repository.uwyo.edu/ugrd/2012_UGRD/Presentations/37
+- http://hdl.handle.net/11714/4896
+- https://escholarship.org/uc/item/4kk6d7jr
+- http://hdl.handle.net/10255/dryad.61339
+- https://digitalcommons.unl.edu/ncfwrustaff/225
+- https://hal.science/hal-03128511/document
+- https://escholarship.org/uc/item/2820k3vs
+- http://hdl.handle.net/10803/384835
+- https://figshare.com/articles/Ambiguous_influences_of_omnivorous_fish_on_trophic_cascade_and_alternative_states_Implications_for_biomanipulation_from_an_ecological_model/1276464
+- https://doaj.org/article/1d5dcba46b554a12a06a3fa12dace201
 - http://datacite.org/schema/kernel-4
-- http://dx.doi.org/10.1017/S0030605309991013
-- https://hal.inrae.fr/hal-03156227
-- https://doi.org/10.1016/j.biocon.2021.109442
-- http://chapmanresearch.mcgill.ca/Pdf/377_ConservationStories.pdf
-- http://www.bio.uib.no/modelling/papers/Schadt_2002_Assessing_the_suitability.pdf
-- http://dspace.stir.ac.uk/bitstream/1893/29181/1/Improving%20reintroduction%20success%20in%20large%20carnivores%20through%20individual-based%20modelling-%20how%20to%20reintroduce%20Eurasian%20lynx%20%28Lynx%20lynx%29%20to%20Scotland.pdf
-- https://hal.umontpellier.fr/hal-03410888/document
-- https://doaj.org/article/58ea0994a62647a0812edd872577a839
-- http://purl.umn.edu/57031
-- https://doaj.org/article/01daf18426a24d9dae29995943a42618
-- https://doaj.org/article/1aa9c2176910438585007725a024d2b3
-- https://hal.archives-ouvertes.fr/hal-01328677
-- http://hdl.handle.net/1893/29669
-- https://www.zora.uzh.ch/206926
-- https://hdl.handle.net/2027.42/106549
-- https://doaj.org/article/5380818c76d54544affc15dc71a0545d
-- http://www.springer.com/life+sciences/ecology/book/978-3-319-03742-4
-- http://hdl.handle.net/10447/509462
-- https://hal.science/hal-04247264
-- http://www.ebd.csic.es/carnivoros/publica/pdf/Kramer-Schadt_J_App_Ecol_04.pdf
-- http://eprints.atree.org/646/
-- https://doi.org/10.2139/ssrn.4779122
-- http://nora.nerc.ac.uk/id/eprint/530999/
-- https://shs.hal.science/halshs-03552741
-- https://orbi.uliege.be/handle/2268/186003
-- https://archimer.ifremer.fr/doc/00603/71465/
-- https://doi.org/10.1016/j.landusepol.2017.04.019
-- http://hdl.handle.net/10261/279470
-- http://dx.doi.org/10.1111/acv.12146
-- https://doi.org/10.1126/sciadv.1602516
-- http://hdl.handle.net/11390/865217
-- https://hal.science/hal-04182393
-- http://doi.org/10.1371/journal.pone.0080065
-- http://www.italian-journal-of-mammalogy.it/article/viewFile/4120/4056/
-- https://ojs.aaai.org/index.php/AAAI/article/view/11175
-- http://ageconsearch.umn.edu/record/310728
-- http://www.iaia.org/iaia09ghana/documents/cs/cs8-4_somevi_the_application_of_ecological_footprint.pdf?AspxAutoDetectCookieSupport=1
-- https://research-repository.st-andrews.ac.uk/bitstream/10023/24285/1/Paraskevopoulou_2021_Oryx_Field_surveys_predictions_of_habitat_CC.pdf
-- https://research.tilburguniversity.edu/en/publications/b7bc76ec-1dbb-4caf-bd80-beb6994c2939
-- http://www.nusl.cz/ntk/nusl-453417
-- https://pub.epsilon.slu.se/26303/
-- http://doc.rero.ch/record/301995/files/S0030605307002128.pdf
-- http://dx.doi.org/10.2981/wlb.00065
-- https://doaj.org/article/b1d085286c3e4099a13a05ca0471ee35
-- http://scandlynx.nina.no/Portals/Scandlynx/Publikasjoner/Basillie_2009_lynx_distribution_Ecography.pdf
-- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-145893
-- https://hal-univ-rennes1.archives-ouvertes.fr/hal-01346116
-- https://insight.cumbria.ac.uk/id/eprint/5627/1/lynx%20paper%20for%20RestEcol_Hawkins%20et%20al_submitted%20version%20%28not%20AAM%29.pdf
-- https://doaj.org/article/d71f56d7863d41f2b86fe791b8908beb
-- https://zenodo.org/record/834104
-- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-198668
-- http://hdl.handle.net/10449/19362
-- http://www.italian-journal-of-mammalogy.it/article/viewFile/4174/4110/
-- http://ageconsearch.umn.edu/record/292321
-- https://www.mdpi.com/2071-1050/9/6/1078
-- https://zenodo.org/record/4997535
-- http://www.uq.edu.au/spatialecology/docs/Publications/1998_Parma_NCEAS_adaptive_management.pdf
-- https://hal.archives-ouvertes.fr/hal-02066004
-- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0006320714001682/MAIN/application/pdf/2cc47fdd19c65bde619d87a1d72eff30/main.pdf
-- https://zslpublications.onlinelibrary.wiley.com/doi/full/10.1111/acv.12464
-- http://hdl.handle.net/11573/624591
-- http://dx.doi.org/10.1016/j.biocon.2013.11.017
+- https://doaj.org/article/683934d8a570432ba65388d41aa1ad4c
+- http://journals.plos.org/plosone/article/asset?id%3D10.1371/journal.pone.0141373.PDF
+- https://zenodo.org/record/6676480
+- https://works.bepress.com/yvonne-vadeboncoeur/5
+- http://nbn-resolving.de/urn:nbn:de:bsz:352-281207
+- https://hal.inrae.fr/hal-02647929
+- https://digitalcommons.unl.edu/biosciforbes/55
+- https://digitalcommons.wayne.edu/biosci_frp/14
+- https://univ-tlse2.hal.science/hal-01660680
+- https://escholarship.org/uc/item/08q4v4xj
+- http://hdl.handle.net/10393/34263
+- https://escholarship.org/uc/item/9xh1383v
+- http://hdl.handle.net/10255/dryad.107156
+- https://research.wur.nl/en/datasets/genome-wide-association-analysis-of-adaptation-to-oxygen-stress-i-2
+- http://hdl.handle.net/11858/00-001M-0000-000F-DECB-4
+- https://works.bepress.com/yvonne-vadeboncoeur/25
+- http://ir.ihb.ac.cn/handle/342005/30187
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:95767
+- https://doaj.org/article/32942c9a70fc45eeb1d36812162e200b
+- http://dx.doi.org/10.1111/j.1095-8649.2007.01668.x
+- https://escholarship.org/uc/item/4km875j6
+- https://doi.org/10.1007/s00442-019-04574-y
+- https://research.vu.nl/en/publications/ebb3f73f-4f58-4db1-a132-4b33a4ff295a
+- https://eprints.whiterose.ac.uk/86296/1/J%20%20Exp%20%20Bot%20-2015-Meyer-jxb_eru502.pdf
+- https://doaj.org/toc/1545-7885
+- http://www.nrcresearchpress.com/doi/abs/10.1139/bcb-2015-0111
+- https://hal.inrae.fr/hal-04026895/document
+- https://aquila.usm.edu/fac_pubs/8771
+- https://escholarship.org/uc/item/19q4h61t
+- http://www.aslo.org/lo/toc/vol_52/issue_6/2718.pdf
+- https://hal.archives-ouvertes.fr/hal-02009264
+- https://zenodo.org/record/5799722
+- http://eprints.bice.rm.cnr.it/15380/1/Havel_2015_Hydrobiologia_AIS.pdf
+- http://eprints.cmfri.org.in/10679/1/18.%20Sakthivel.pdf
+- https://escholarship.org/uc/item/4ww3x92z
+- https://hal.science/hal-00913592
+- http://hdl.handle.net/10.6084/m9.figshare.7987085.v1
+- http://hdl.handle.net/2376/13006
+- http://wfcb.ucdavis.edu/www/Faculty/Peter/petermoyle/publications/FishInvasion02.pdf
+- https://hdl.handle.net/10037/14937
+- http://hdl.handle.net/2160/11979
+- https://zenodo.org/record/4544066
+- http://hdl.handle.net/1807/93058
+- http://ir.ihb.ac.cn/handle/342005/35158
+- http://hdl.handle.net/11579/43652
+- https://globalhub.org/resources/1068/download/yilmaz.pdf
+- https://zenodo.org/record/7825729
+- http://urn.kb.se/resolve?urn=urn:nbn:se:su:diva-204219
+- http://stopstocking.cowyafs.org/documents/Ruzyckietal2003EFFECTSOFINTRODUCEDLAKETROUTONNATIVECUTTHROATtroutinYellowstonelake.pdf
+- https://doaj.org/article/90cbb3f33e534e78817bf2f7cd9c85b6
+- https://hal.inrae.fr/hal-02631603
+- https://doaj.org/toc/2079-7737
+- https://doi.org/10.1051/proc/201444019
+- http://ir.ihb.ac.cn/handle/342005/23989
+- https://eprints.whiterose.ac.uk/106644/1/Goussen2016_srep36004.pdf
+- https://escholarship.org/uc/item/4329x9nw
+- https://opensiuc.lib.siu.edu/fiaq_data/1
+- http://dx.doi.org/10.1007/s10709-010-9540-2
+- https://digitalcommons.unl.edu/ncfwrustaff/181
+- https://digitalcommons.unl.edu/ncfwrustaff/9
+- https://digitalcommons.usu.edu/wats_facpub/796
+- https://lirias.kuleuven.be/bitstream/123456789/60751/1/Van%20de%20Meutter%20et%20al.%202004%20Oikos.pdf
+- https://zenodo.org/record/4998608
+- http://edepot.wur.nl/330297
+- https://pdxscholar.library.pdx.edu/geology_fac/187
+- http://hdl.handle.net/11562/429241

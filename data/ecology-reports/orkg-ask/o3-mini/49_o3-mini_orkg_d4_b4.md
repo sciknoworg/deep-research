@@ -1,290 +1,280 @@
-# Final Report: When Could Mowing Be More Efficient than Grazing in Restoring Plant Diversity, and Why?
+# Final Report on the Causes of Insect Decline in Europe
 
-This report summarizes decades of interdisciplinary research on grassland management under different disturbance regimes, consolidating findings from long-term experiments, modeling efforts, and socio-economic studies. The focus is on the conditions under which mowing—both machine and manual—can be more efficient at restoring or maintaining plant diversity relative to grazing. We review ecosystem-specific factors, management intensity, and economic and biogeochemical impacts, drawing on over 60 distinct learning points from global studies.
+This report synthesizes extensive research findings on the causes of insect decline in Europe. The comprehensive review draws on decades of monitoring data, innovative sensor technologies, and integrative modeling frameworks. We examine the multifactorial pressures, methodological challenges, and emerging solutions that define this complex issue. The following report is structured into distinct sections covering background, drivers, methodologies, technological innovations, integrated modeling frameworks, and policy implications.
 
 ---
 
 ## 1. Introduction
 
-Restoration of plant diversity in grassland ecosystems is a multi-faceted challenge driven by the interplay between aboveground and belowground biomass, soil processes, and disturbance regimes. Both mowing and grazing are common management practices, each with distinct mechanisms influencing diversity outcomes. Mowing functions primarily as a seasonal biomass removal method that minimizes soil compaction and avoids selective herbivory, whereas grazing introduces complexities related to selective defoliation, trampling effects, and manure deposition.
-
-This analysis examines scenarios where mowing may be preferred over grazing to achieve restoration of plant diversity. We further discuss the ecological, physiological, and economic factors that modulate management outcomes across various ecosystems—ranging from semi-arid grasslands and temperate meadows to Mediterranean and alpine systems.
+Insect declines in Europe are well documented, with numerous studies unequivocally linking these trends to a set of interwoven anthropogenic and environmental stressors. Research spanning from long-term historical records to state-of-the-art sensor networks has provided evidence that declines in biomass, abundance, diversity, and geographic range are driven by multiple, interacting factors including agricultural intensification, habitat loss, climate change, pesticide use, urbanization, and chemical pollution. Despite unequivocal trends in Central and Western Europe—where studies report declines in key taxa such as Carabidae (ground beetles), Lepidoptera (butterflies and moths), and Chrysomelidae (leaf beetles)—complex methodological challenges remain. These include baseline establishment, detection bias, representativeness in site selection, and reconciling spatial with temporal effects.
 
 ---
 
-## 2. Conceptual Framework and Underlying Mechanisms
+## 2. Multifactorial Drivers of Insect Decline
 
-### 2.1 Ecosystem Dynamics and Biomass Coupling
+### 2.1 Anthropogenic Pressures
 
-Research consistently shows that optimal ecosystem resilience is achieved at intermediate coupling between aboveground and belowground biomass. Although maximal productivity is associated with strong coupling, moderate coupling has been linked to enhanced resilience against disturbances such as heavy grazing, fire, and mowing. In scenarios where correct coupling is absent, mowing often avoids exacerbating negative belowground effects seen in grazing, such as soil compaction and nutrient imbalances.
+A recurring theme across studies is the role of **agricultural intensification**. Over the past 50 years, agricultural landscapes have experienced intensive management regimes characterized by increased pesticide and fertilizer use, reduced landscape heterogeneity, and habitat fragmentation. Studies utilizing the DPSIR (Driver-Pressure-State-Impact-Response) framework consistently reveal that:
 
-### 2.2 Physical Disturbance Impacts: Mowing versus Grazing
+- **Agricultural practices**—especially the adoption of practices driven by the Common Agricultural Policy (CAP)—have created source‐sink dynamics that erode insect diversity and functional biodiversity across trophic levels.
+- **Urbanization** and the expansion of built environments further reduce available natural habitats, with quantitative data showing significant drops in biomass and threatened species richness (e.g., a reported 42% decline in biomass comparing urban with semi‐natural environments).
+- **Synthetic pesticide regimes**, particularly those involving neonicotinoids, have established pesticide lock-in effects that are now recognized as a component of the so-called 'pesticide treadmill'. This cycle not only enhances insecticide resistance but also displaces specialist species with more resilient generalists.
 
-- **Mowing:** Although long-term machine mowing (e.g., in sandy–organic soils) can induce soil compaction, properly timed mowing—especially at moderate frequencies—tends to preserve soil structure and sustain good management indicators. Mowing, by standardizing biomass removal, minimizes selective pressure on plant species which may be exaggerated under grazing. Studies indicate that early-season hand and machine mowing can markedly increase species richness at the microscale through enhanced stochastic allocation of biomass and modified microclimatic conditions (e.g., improved soil moisture and temperature profiles).
+### 2.2 Climate Change and Microclimatic Shifts
 
-- **Grazing:** Grazing introduces several variables such as selective feeding, trampling, dung deposition, and uneven intensity spatially. Adaptive multi-paddock grazing regimes have demonstrated potential benefits for soil carbon storage and water-holding capacity. However, grazing often increases soil compaction, fosters invasive species (e.g., Salsola tragus, Bromus tectorum), and can lead to excess nitrogen accumulation, particularly at lower intensities without sufficient recovery time. These changes may inadvertently reduce long-term plant diversity in some contexts.
+**Climate change** is altering the very fabric of insect ecology. Rising average temperatures, increased frequency of extreme events, and altered daily thermal ranges directly affect insect physiology and behavior. For instance:
 
-### 2.3 Socio-Economic and Biogeochemical Considerations
+- **Phenological shifts**: Rising temperatures have accelerated pest life cycles; for example, the codling moth in Belgium has shifted from two to three generations within observed intervals, with projections indicating continued acceleration.
+- **Microclimatic reconfiguration**: In regions like Brittany, complex landscapes showed that insects exhibit enhanced cold tolerance compared to those from simpler, warmer habitats. This indicates that local habitat structure can mediate physiological responses to climate change.
 
-Economic analyses underscore a critical trade-off between land use productivity gains and ecosystem service losses. Intensified grazing practices yield high monetary returns. Nonetheless, the exponential relationship between farming intensification and biodiversity loss makes mowing a potentially more sustainable choice when conservation of ecosystem services (including nutrient cycling and soil organic matter accumulation) is prioritized over rapid production.
+### 2.3 Pesticide Use and Physiological Interactions
 
----
+Chemical pollution interacts synergistically with other stressors such as thermal stress, influencing detoxification pathways and metabolic responses:
 
-## 3. Empirical Evidence Comparing Mowing and Grazing
-
-### 3.1 Long-Term Field Experiments and Meta-Analyses
-
-Multiple studies have shown that mowing can often maintain or enhance conservation value more reliably than low-intensity grazing. For instance, long-term studies in southern Sweden indicate that annual mowing leads to higher coverage of native indicator species and lower signs of nitrogen excess compared to areas managed by low-intensity grazing. Similarly, meta-analyses have found that while grazing can enhance biodiversity under certain conditions, mowing frequently produces higher species evenness and diversity by limiting nutrient inputs that favor dominant species.
-
-Further, comparative studies in Eurasian steppe grasslands involving 317 sites have revealed that a proper mowing regime preserves the positive biogeochemical correlation between aboveground and belowground functions—something that is often disrupted by grazing, especially in systems sensitive to nutrient perturbations.
-
-### 3.2 Mechanistic Insights from Experimental Manipulations
-
-- **Soil Compaction and Belowground Traits:** In experiments comparing hand mowing and machine mowing over 38 years, mowing on organic soils resulted in shifts toward superficially rooting species, highlighting some negative physical impacts. However, these impacts can be mitigated with appropriate frequency. In contrast, grazing has been shown to reduce soil aggregate stability and soil moisture, factors that are critical for plant establishment and root development.
-
-- **Species-Specific Functional Traits:** Grazing in Tibetan alpine meadows has been linked to increases in traits associated with fast-growth strategies (e.g., higher specific leaf area), often at the expense of soil carbon storage. Mowing avoids such selective pressures, allowing a broader array of species to establish and persist, which is crucial for functional diversity.
-
-- **Combined Practices and Adaptive Management:** Some studies suggest that mixed grazing–mowing regimes might optimize outcomes by harnessing the benefits of both approaches. However, separate and well-managed mowing, without the confounding impacts of selective grazing, has been demonstrated to maintain or even enhance species diversity, particularly in systems where nutrient cycling integrity is delicate.
-
-### 3.3 Spatial Heterogeneity and Event-Driven Responses
-
-Recent modeling efforts incorporating spatial heterogeneity and event-driven dynamics have shown that mechanical disturbances—such as mowing—are less likely to induce abrupt transitions in vegetation states compared to continuous grazing regimes. These models argue for spatially explicit interventions (for example, temporary small-scale exclosures) to stabilize ecosystems. Mowing, by being spatially uniform, often bypasses early threshold effects that could lead to rapid declines in diversity when the system is already under stress from grazing.
+- **Pesticide exposure** combined with thermal stress has been shown to induce stronger negative impacts on species-specific detoxification enzyme activities in damselflies and beetles.
+- **Mechanistic insights**: Differential physiological responses suggest that even within similar chemical regimes, sensitivities vary between generalist and specialist species, thereby altering community structure and function.
 
 ---
 
-## 4. Ecosystem Specific Considerations
+## 3. Methodological Complexities and Monitoring Challenges
 
-### 4.1 Semi-Arid Grasslands and Steppe Ecosystems
+### 3.1 Data Heterogeneity and Baseline Issues
 
-In semiarid regions, grazing has been linked with increased levels of surface soil organic matter (SOM), but at the cost of soil compaction and increased invasive species. Here, mowing offers a more controlled disturbance that can foster rapid species establishment without the deleterious effects on soil structure. Studies from the Inner Mongolian steppe and Eurasian semi-natural grasslands underline mowing’s superiority in maintaining the natural mosaic of plant species across patches.
+Multiple studies indicate a significant degree of methodological complexity due to heterogeneity in monitoring protocols. Key issues include:
 
-### 4.2 Temperate and Alpine Grasslands
+- **Variability in metrics**: With analyses focused on biomass, abundance, diversity and range reduction, drawing baseline comparisons is inherently challenging due to differences in historical and spatial data consistency.
+- **Detection bias and extrapolation**: Differences in sampling techniques (e.g., Malaise traps, light traps, and eDNA datasets) create biases that affect trend estimates—forcing reliance on advanced computational normalization and space-for-time substitution methods.
 
-Temperate systems such as southern Sweden and alpine systems in Norway show that mowing—especially when timed with the early growing season—enhances indicator species and maintains soil structure and nutrient cycling. While adaptive grazing still provides benefits (e.g., increased soil carbon under rotational schemes), the risk of nitrogen build-up and soil compaction remains higher under even low to moderate grazing intensities in fragile alpine soils.
+### 3.2 Integration of Datasets
 
-### 4.3 Mediterranean and Other Biodiverse Systems
+The integration of retrospective monitoring data (spanning as far back as 1850 in some cases) with modern sensor data presents additional challenges:
 
-In Mediterranean research sites (e.g., Spain, Italy, Greece), mowing has proven effective at reducing litter accumulation and promoting species that are typically suppressed by nutrient-dense conditions induced by selective grazing. In such systems, mowing helps maintain the balance between species that require disturbance for germination and those that are adversely affected by high nutrient levels.
-
----
-
-## 5. Integrating Economic and Policy Dimensions
-
-Economic models indicate that while intensified grazing leads to higher immediate financial returns, these gains often come at the expense of long-term ecological sustainability. Mowing, although less variable in short-term production benefits, secures ecosystem services such as soil carbon sequestration, nutrient cycling, and long-term biodiversity. Policy frameworks that incorporate ecosystem service valuations (e.g., internalizing biodiversity externalities with land taxes or targeted subsidies) increasingly favor management practices that align economic incentives with conservation goals.
-
-Adaptive management frameworks that integrate economic data, real-time ecological monitoring (via remote sensing technologies such as Landsat NDVI, airborne LiDAR, and UAV imaging), and bio-economic modeling (like the GRASP or MPMAS-LUCIA-LIVSIM frameworks) are recommended to tailor interventions to specific ecosystems. This integrated approach helps optimize management strategies not just for productivity, but also for the restoration and maintenance of plant diversity.
+- **Spatial vs. temporal mismatches**: While spatial data is often more robust due to higher replication, temporal datasets are shorter and frequently biased. Advanced statistical approaches like principal component analysis with co-kriging and spatio-temporal occupancy models are increasingly utilized to reconcile these mismatches.
+- **Molecular vs. morphological data**: Recent advances in DNA metabarcoding, when combined with traditional trapping methods, have provided higher taxonomic resolution. However, standardizing these methods across studies remains an ongoing challenge.
 
 ---
 
-## 6. Synthesis and Recommendations
+## 4. Technological Innovations in Insect Monitoring
 
-### 6.1 When is Mowing More Efficient? 
+### 4.1 Sensor Technologies and Real-Time Integration
 
-The evidence indicates that mowing can be more efficient than grazing in restoring plant diversity under the following conditions:
+The application of emerging sensor technologies is revolutionizing the capacity for real-time insect monitoring:
 
-1. **Nutrient-Sensitive Ecosystems:** Where increased nitrogen input from grazing leads to dominance by a few fast-growing plants, mowing maintains balanced nutrient cycling and prevents conditions that favor invasive species or lower endemism.
+- **Swarm sensor nodes**: Inspired by CSIRO's work, integrating fixed weather stations with mobile sensor nodes (sampling at sub-second intervals) allows for unprecedented spatio-temporal resolution. These systems, when coupled with near-infrared optical sensors, have recorded up to 19 times more observations than traditional methods.
+- **Edge computing and IoT networks**: While integrating heterogeneous environmental data recorded by UAVs, IoT sensors, and ground-based platforms poses challenges (e.g., energy constraints on edge devices), progress in optimized deep learning models and near-sensor processing is promising. These technological advancements underpin the leap toward integrating dynamic Bayesian classification frameworks into adaptive pest management.
 
-2. **Soil Structure Sensitivity:** In systems where soil compaction can significantly affect plant establishment (e.g., sandy-organic soils or alpine meadows), the controlled disturbance from mowing preserves soil aeration and structure more effectively.
+### 4.2 Molecular and Computational Approaches
 
-3. **Uniform Disturbance Regimes:** When spatial heterogeneity and event-driven dynamics are critical for ecosystem stability—as evidenced by models showing threshold effects—mowing’s uniform application minimizes patchiness that can result in abrupt shifts toward alternative stable states.
+DNA metabarcoding and next-generation sequencing are now integral to assessing insect community changes with greater sensitivity:
 
-4. **Long-term Ecosystem Sustainability:** For managers prioritizing sustained ecosystem multifunctionality and ecosystem service preservation (e.g., soil carbon, nutrient cycling, and biodiversity), mowing typically outperforms grazing by reducing the risk of measured cumulative damage such as soil degradation.
+- **Multi-modal integration**: Combining traditional field sampling with non-destructive protocols, such as FAVIS, has enhanced detection—yielding a fourfold increase in species detection among Lepidoptera. This dual approach helps calibrate studies against CAP-driven land use changes.
+- **Machine learning applications**: Advanced ML models, including four-layer artificial neural networks trained on weather data, have yielded improved predictive accuracy (with up to 20% gains in F1 scores for aphid flight prediction). These models successfully integrate classical phenology models with dynamic environmental data to forecast pest dynamics.
 
-5. **Economic Trade-offs:** In cases where economic models forecast that intensified grazing will lead to exponential monetary gains at the expense of biodiversity, mowing presents a strategy to balance financial returns with the conservation of ecological capital.
+---
 
-### 6.2 Strategic Recommendations for Management
+## 5. Integrated Modeling Frameworks and Adaptive Management
 
-- **Tailor Intervention Frequency:** Site-specific evaluations, such as reducing mowing frequency to align with local productivity, are essential. The optimal frequency varies by ecosystem productivity and sensitivity to nutrient inputs.
+### 5.1 Combining Mechanistic and Data-Driven Models
 
-- **Combine with Adaptive Management:** Mowing should be integrated with spatially explicit interventions and temporal adaptive frameworks to mitigate threshold risks. For example, experimental approaches combining mowing with temporary exclosures can optimize recovery and long-term diversity.
+An integrated approach that leverages both mechanistic models (such as Dynamic Bayesian Networks) and data-driven machine learning frameworks is critical. These integrative models:
 
-- **Leverage Remote Sensing and Advanced Monitoring:** Adoption of IoT-enabled field sensors, UAV imaging, and integrated bio-economic models can refine monitoring of species composition, soil moisture, and nutrient cycling dynamics to inform mowing schedules and intensities.
+- Offer detailed insights into behavioral patterns such as endocyclism in soil-borne versus nidicolous pests.
+- Factor in memory effects and spatial dependencies, and simulate future scenarios under varying agro-economic and climatic conditions.
 
-- **Economic Policy Instruments:** Aligning land use policies with ecosystem service valuations (such as through differentiated subsidy schemes and land taxes that internalize biodiversity externalities) can reinforce mowing as a restoration practice with long-run sustainability benefits.
+For example, the Zin-AgriTRA fate model in conjunction with Eur-Agri-SSP socio-economic scenarios has been deployed in Burgenland, Austria, projecting pesticide emissions and ecological impacts through 2050.
 
-- **Research Gaps:** More targeted studies in non-grassland transitional areas (shrublands, forest edges) are needed to evaluate mowing’s efficiency relative to grazing under different canopy and biodiversity structures.
+### 5.2 Frameworks for Policy Alignment and Conservation
+
+Applying frameworks like DPSIR and Delphi elicitation has elucidated how multifactorial interactions between land use, pesticide regimes, and conservation policies drive declines. Notable insights include:
+
+- **Localized management strategies**: Expert elicitation demonstrates that tailored, stakeholder-informed conservation measures (e.g., Ecological Focus Areas) can mitigate adverse impacts more effectively than broad-brush approaches.
+- **Agri-environment schemes**: Regional programs in Germany, Hungary, Switzerland, and the Netherlands have provided nuanced views on how CAP reforms impact pollinator conservation, emphasizing multi-dimensional indicators such as forage, nesting, and population dynamics.
+
+---
+
+## 6. Future Directions, Challenges, and Policy Implications
+
+### 6.1 Addressing Data Gaps and Standardization
+
+Moving forward, research must prioritize the following:
+
+- **Standardized monitoring protocols**: Combining traditional methods with modern molecular approaches (e.g., standardized DNA metabarcoding) to reduce detection bias and improve spatial-temporal extrapolations.
+- **Investment in long-term data integration**: Enhancing the continuous monitoring of insect populations by integrating historical datasets with sensor-layer data using open-source frameworks and international standards for data curation and transparency.
+
+### 6.2 Advancing Technological Integration
+
+The fusion of advanced sensor networks, edge computing, and integrative modeling approaches represents a promising direction:
+
+- **Real-time adaptive management**: Leveraging swarm sensor nodes, UAVs, and distributed IoT systems promises improved resilience in monitoring efforts. Computational models that incorporate real-time data can support dynamic pest management strategies with tangible benefits for both biodiversity and agricultural productivity.
+- **Interdisciplinary collaboration**: Bridging the gap between ecological research, sensor technology development, and policy-making is imperative. This requires technical cooperation between modelers, field ecologists, and policy experts to establish effective, adaptive management frameworks that address region-specific challenges.
+
+### 6.3 Broader Ecosystem and Socio-Economic Implications
+
+The cascading effects of insect decline extend beyond ecological boundaries. Quantitative evidence from studies in the UK, the Netherlands, and elsewhere shows measurable impacts on insectivorous birds and ecosystem services such as pollination. Future policy must integrate:
+
+- **Multi-scalar socio-economic assessments**: Tools such as ENA (ecological network analysis) and economic vulnerability ratios can help translate ecological outcomes into socio-economic impacts, informing proactive, tailored CAP reforms.
+- **Long-term legacy planning**: Scenario analyses (GRAS, BAMBU, SEDG) indicate that early, proactive policy frameworks can reduce agricultural vulnerability to ecosystem collapse, whereas reactive approaches may yield divergent regional impacts, particularly between Southern and Northern Europe.
 
 ---
 
 ## 7. Conclusion
 
-Mowing emerges as a more efficient tool than grazing in restoring plant diversity, particularly when the management goals emphasize long-term ecosystem sustainability, control of nutrient excess, and soil structure preservation. It is best suited to ecosystems where grazing may lead to selective pressures detrimental to species richness by promoting invasive species and inducing soil compaction. Coupled with modern, adaptive management frameworks and policy instruments that account for both ecological and economic dimensions, mowing provides a compelling strategy for sustainable restoration in a range of ecological settings.
+In conclusion, the drivers of insect decline in Europe emerge as a complex interplay of anthropogenic, climatic, and biological factors. Empirical evidence underscores the primary role of agricultural intensification, urbanization, and climate change—with additional contributions from pesticide use and habitat degradation. Methodological challenges, including data heterogeneity and baseline issues, have spurred technological innovations and integrative modeling approaches that promise more accurate, real-time assessments of insect dynamics.
+
+Robust, multi-disciplinary monitoring frameworks that blend traditional ecological methods with cutting-edge sensor technologies are essential for informing adaptive management strategies. These strategies must balance immediate agricultural productivity needs with long-term biodiversity conservation imperatives. Moving forward, it is imperative to enhance both empirical research and policy coordination to address the cascading ecosystem services losses brought about by continuing insect declines.
+
+This final report reinforces that while challenges remain, integrating novel technologies and advanced modeling frameworks offers a pathway to not only understand but also mitigate the driving forces behind insect declines in Europe.
 
 ---
 
-This comprehensive review integrates extensive field experiment data, multi-scale modeling results, and economic analyses, providing a nuanced roadmap for practitioners and policymakers aiming to balance ecosystem restoration with productive land use. Future research should continue to explore spatial and temporal heterogeneities and refine mixed management practices to achieve multifunctional landscapes.
-
-**End of Report**
+*Note: Future research directions include scaling these integrative approaches across additional taxa and incorporating real-time data streams from a growing network of citizen scientists and remote sensing platforms to further refine predictive models and inform policy interventions.*
 
 ## Sources
 
-- https://pure.knaw.nl/portal/en/publications/198cfdef-1f56-4116-98a8-3f8e1cd74cae
-- http://doi.org/10.1371/journal.pone.0061149
-- https://uknowledge.uky.edu/igc/24/6/9
-- http://prodinra.inra.fr/record/398711
-- http://hdl.handle.net/10150/643790
-- http://edepot.wur.nl/329889
-- http://libres.uncg.edu/ir/ecu/f/0000-embargo-holder.txt
-- https://escholarship.org/uc/item/6d68c6jf
-- https://hdl.handle.net/10568/19563
-- https://hal.archives-ouvertes.fr/hal-01074586/file/Huber2013a_EcolSoc.pdf
-- https://ezproxy.uws.edu.au/login?url=https://doi.org/10.1016/j.ecolind.2018.03.034
-- http://hdl.handle.net/10150/643046
+- https://zenodo.org/record/7325335
+- http://hal.cirad.fr/cirad-00645926
+- https://figshare.com/articles/Multi_factor_climate_change_effects_on_insect_herbivore_performance/682395
+- https://research.wur.nl/en/publications/a-critical-analysis-of-the-potential-for-eu-common-agricultural-p
+- https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2664.14357
+- https://zenodo.org/record/3255165
+- http://hdl.handle.net/10468/5630
+- https://zenodo.org/record/5497740
 - http://urn.fi/
-- https://hdl.handle.net/11250/2987530
-- http://hdl.handle.net/11858/00-001M-0000-000E-EFEC-2
-- https://doi.org/10.1016/j.biocon.2004.07.016
-- http://hdl.handle.net/10150/642987
-- http://hdl.handle.net/10261/336176
-- https://digitalcommons.unl.edu/ncfwrustaff/222
-- http://hdl.handle.net/10150/657017
-- https://scholarworks.umt.edu/ntsg_pubs/143
-- http://ir.ibcas.ac.cn/handle/2S10CLM1/22263
-- http://ageconsearch.umn.edu/record/25525
-- http://ajae.oxfordjournals.org/content/77/4/901.full.pdf
-- http://hdl.handle.net/10255/dryad.193762
-- http://hdl.handle.net/11250/2409084
-- https://zenodo.org/record/3679157
-- http://www.rhinoresourcecenter.com/pdf_files/123/1236246067.pdf
-- https://escholarship.org/uc/item/0rf7h8cz
-- https://hal.inrae.fr/hal-02740901/file/2015_Chopin_a%20modeling%20framework%20for%20designing_1.pdf
-- https://digitalcommons.usu.edu/envs_facpub/239
-- https://doaj.org/toc/1537-744X
-- http://www.vliz.be/imisdocs/publications/41/326241.pdf
-- https://ezproxy.uws.edu.au/login?url=https://doi.org/10.1007/s11104-020-04516-1
-- https://hal.inrae.fr/hal-02623254
-- https://doaj.org/article/0ee5067b4e9c45dabd683bc4c178f164
-- http://hdl.handle.net/11581/378386
-- http://hdl.handle.net/2261/33392
-- https://zenodo.org/record/8303756
-- http://hdl.handle.net/10255/dryad.108298
-- https://repository.rothamsted.ac.uk/item/85736/how-much-will-it-cost-to-save-grassland-diversity
-- https://www.ajol.info/index.php/ajrfs/article/view/161809
-- https://hal.sorbonne-universite.fr/hal-01286257
-- https://doi.org/10.5061/dryad.pb62bk0.1
-- http://dx.doi.org/10.1002/ecs2.2582
-- https://escholarship.org/uc/item/3bk347k7
-- https://dspace.library.uu.nl/handle/1874/378151
-- http://hdl.handle.net/11581/250337
-- https://doi.org/10.1111/nph.12845
-- http://link.springer.com/article/10.1007/s10666-016-9531-5
-- http://hdl.handle.net/11566/63760
-- https://stars.library.ucf.edu/scopus2015/2742
-- https://openresearch-repository.anu.edu.au/bitstream/1885/261154/3/01_Stokes_Broadacre_Grazing_2010.pdf.jpg
-- http://agritrop.cirad.fr/574912/1/document_574912.pdf
-- https://scholars.unh.edu/faculty_pubs/208
-- https://zenodo.org/record/6915869
-- http://ir.ibcas.ac.cn/handle/2S10CLM1/25956
-- http://hdl.handle.net/10962/d1005934
-- https://doaj.org/toc/1932-6203
-- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0304380014004827/MAIN/application/pdf/df293b01d440c6eb1e13aad1ff87ab8d/main.pdf
-- http://real.mtak.hu/41834/
-- http://digital.lib.uidaho.edu/cdm/ref/collection/etd/id/2020
-- https://ir.library.carleton.ca/pub/2760
-- http://www.nusl.cz/ntk/nusl-463689
-- https://research.rug.nl/en/publications/ad3d7546-98ac-4e5d-913d-504a9ae6def6
-- https://research.rug.nl/en/publications/87cdcede-7443-4ee1-a6bb-7c4ef743eace
-- https://doi.org/10.3389/fsufs.2024.1507692
-- http://hdl.handle.net/11336/20641
-- https://escholarship.org/uc/item/3528q926
-- http://hdl.handle.net/2066/225690
-- http://publications.jrc.ec.europa.eu/repository/handle/JRC114508
-- http://ageconsearch.umn.edu/record/147910
-- https://biblio.ugent.be/publication/1989981/file/1989984
-- https://research.vu.nl/en/publications/ae4a1378-c3ac-40e6-8ff9-641e3661aaad
-- http://tubiblio.ulb.tu-darmstadt.de/view/person/Schwabe=3AAngelika=3A=3A.html
-- https://research.rug.nl/en/publications/alternate-stable-states-and-threshold-effects-in-semiarid-grazing-systems(a36494ec-a758-4109-a88d-ba9d5af18197).html
-- https://hal.archives-ouvertes.fr/hal-02101572
-- https://www.cambridge.org/core/journals/environmental-conservation/article/shortterm-effects-on-diversity-and-biomass-on-grasslands-from-artificial-dykes-under-grazing-and-mowing-treatments/BEF72982195D862E647376620437D34B#
-- http://agritrop.cirad.fr/581726/1/Chapitre%205%20%20Building%20resilience%20of%20human-natural%20systems....pdf
-- https://research.rug.nl/en/publications/dynamics-of-grazing-lawn-formation(ad3d7546-98ac-4e5d-913d-504a9ae6def6).html
-- https://hal.archives-ouvertes.fr/hal-02423302
-- http://dx.doi.org/10.1111/1365-2745.12383
-- http://library.wur.nl/WebQuery/wurpubs/371328
-- https://ageconsearch.umn.edu/record/170450/files/AAEA2014_Yun_and_Gramig.pdf
-- https://hal.inrae.fr/hal-02646148
-- https://scholarsjunction.msstate.edu/td/5650
-- www.eaae2014.si
-- http://creativecommons.org/licenses/by-nd/4.0
-- http://hdl.handle.net/20.500.11850/536578
-- https://hdl.handle.net/1959.7/uws:65605
-- http://cees.eldoc.ub.rug.nl/root/2008/OikosCromsigt/
-- https://research.wur.nl/en/publications/evaluating-long-term-success-in-grassland-restoration-an-ecosyste
-- https://www.ajol.info/index.php/ajrfs/article/view/235
-- http://dx.doi.org/10.1073/pnas.2118931119
-- https://biblio.ugent.be/publication/8756604
-- http://www.nusl.cz/ntk/nusl-51254
-- http://edepot.wur.nl/178299
-- https://ageconsearch.umn.edu/record/22478/files/36010057.pdf
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:101644
-- http://urn.fi/urn:isbn:9514259947
-- http://edepot.wur.nl/327475
-- https://www.mdpi.com/2073-445X/10/11/1158
-- https://doaj.org/article/61175befd92c40cf8149be5094349af0
-- http://ir.ibcas.ac.cn/handle/2S10CLM1/20586
-- http://datacite.org/schema/kernel-4
-- https://store.extension.iastate.edu/product/15667.pdf
-- http://hdl.handle.net/11336/96054
-- http://hdl.handle.net/10453/155089
-- http://www.nusl.cz/ntk/nusl-201486
-- http://hdl.handle.net/10045/115289
-- http://hdl.handle.net/20.500.11850/468281
-- https://research.aber.ac.uk/en/publications/1d7550db-6a04-44f4-bef4-cb890090eafe
-- http://edepot.wur.nl/40407
-- http://www.vliz.be/imisdocs/publications/06/305406.pdf
-- http://hdl.handle.net/11566/39438
-- https://doaj.org/article/e5a83043a56448cf9280d242e2f63fa8
-- https://www.ajol.info/index.php/ajrfs/article/view/447
-- https://doi.org/10.1016/j.baae.2016.06.003
-- https://doi.org/10.1016/j.ecolmodel.2022.110113
-- https://doaj.org/article/2dd7eae2c4e64d1bad5ed41c4311ac6f
-- https://eprints.whiterose.ac.uk/184916/7/Conservation%20Biology%20-%202022%20-%20Simpson%20-%20Ecological%20and%20economic%20implications%20of%20alternative%20metrics%20in%20biodiversity%20offset.pdf
-- http://www.snarc.ars.usda.gov/SP2UserFiles/Place/66120900/SoilManagementAndCarbonSequestration/2007ajfP02
-- https://hal.inrae.fr/hal-02896383
-- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-123378
-- https://library.wur.nl/WebQuery/wurpubs/562971
-- http://hdl.handle.net/11336/69943
+- http://nbn-resolving.de/urn:nbn:de:bsz:352-2-pszkoelynv3v1
+- https://nbn-resolving.org/urn:nbn:de:hbz:1044-opus-76743
+- https://zenodo.org/record/6118897
+- https://zenodo.org/record/5038084
+- http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.431.9356
+- https://orgprints.org/id/eprint/41719/
+- https://resolver.obvsg.at/urn:nbn:at:at-ubs:3-17720
+- http://users.isr.ist.utl.pt/~pal/cadeiras/deds0708/deds/Projects03-04/GongHongFei.pdf
+- https://hal-univ-rennes1.archives-ouvertes.fr/hal-03155982/file/Dahl%20et%20al.%20-%202021%20-%20Thermal%20plasticity%20and%20sensitivity%20to%20insecticides.pdf
+- https://opus.bibliothek.uni-wuerzburg.de/files/26505/s41467-021-26181-3.pdf
+- https://research.wur.nl/en/publications/longterm-declines-of-european-insectivorous-bird-populations-and-
+- https://hal-amu.archives-ouvertes.fr/hal-01790601
+- ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/41/59/11356_2014_Article_3220.PMC4284389.pdf
+- https://doi.org/10.1016/j.ecolmodel.2007.08.005
+- http://dx.doi.org/10.3896/IBRA.1.50.2.07
+- http://handle.westernsydney.edu.au:8081/1959.7/uws:46599
+- http://www.napawatersheds.org/files/managed/Document/3508/Cairns
+- http://www.icsd.aegean.gr/publication_files/conference/431562871.pdf
+- https://lirias.kuleuven.be/bitstream/123456789/600029/1/Op%20de%20Beeck%20et%20al.%202018%20Science%20of%20the%20total%20environment.pdf
+- http://www.nusl.cz/ntk/nusl-448018
+- http://ageconsearch.umn.edu/record/277069
+- http://www.theses.fr/2019UBFCK051/document
+- https://serval.unil.ch/notice/serval:BIB_EFABBF112C3E
+- https://hal.inrae.fr/hal-03775577/document
+- http://prodinra.inra.fr/record/416147
+- https://hal.inrae.fr/hal-04084454
+- https://zenodo.org/record/1139276
+- https://zenodo.org/record/4934987
+- http://hdl.handle.net/2078.1/237710
+- https://doaj.org/article/72f1188c412f45c5afa8bcd4d3da3755
+- http://hdl.handle.net/2078.1/237708
+- http://prodinra.inra.fr/record/382088
+- http://www.nusl.cz/ntk/nusl-445730
+- http://www.mne.psu.edu/ray/journalasokray/2009/208SrivastavRayPhoha09.pdf
+- https://hal.archives-ouvertes.fr/hal-03295506
+- https://research.wur.nl/en/publications/insects-and-insecticides-in-agricultural-landscapes-socio-ecologi
+- http://vuir.vu.edu.au/34678/
+- http://hdl.handle.net/10447/147231
+- https://pub.epsilon.slu.se/31642/1/iwaszkiewicz-eggebrecht-e-et-al-20230830.pdf
+- https://centaur.reading.ac.uk/49905/1/Wickens%20Jen.pdf
+- http://hdl.handle.net/11586/231541
+- https://hal.science/hal-03769565/document
+- http://hdl.handle.net/2381/31970
+- http://tubiblio.ulb.tu-darmstadt.de/view/person/Weisser=3AWolfgang_W=2E=3A=3A.html
+- https://centaur.reading.ac.uk/121700/3/CF-TRM_v3b.pdf
+- http://nora.nerc.ac.uk/id/eprint/535499/
+- http://www.teses.usp.br/teses/disponiveis/11/11134/tde-11032020-114024/
+- http://tubiblio.ulb.tu-darmstadt.de/view/person/Gossner=3AMartin_M=2E=3A=3A.html
+- http://dx.doi.org/10.1145/2833258.2833295
+- http://edepot.wur.nl/136610
+- https://zenodo.org/record/1406962
+- https://hdl.handle.net/10568/99875
+- https://hal.archives-ouvertes.fr/hal-01602261
+- https://zenodo.org/record/8298555
+- https://mts.intechopen.com/articles/show/title/potential-reasons-for-insect-decline
+- https://escholarship.org/uc/item/1qc1k2sw
+- https://hal-univ-rennes1.archives-ouvertes.fr/hal-01810255/file/Alford%20et%20al.%20-%202017%20-%20The%20effect%20of%20landscape%20complexity%20and%20microclimat.pdf
+- http://tubiblio.ulb.tu-darmstadt.de/view/person/Achury=3ARafael=3A=3A.html
+- http://www.scopus.com/inward/record.url?scp=85080975537&partnerID=8YFLogxK
+- https://zenodo.org/record/972696
+- http://zaguan.unizar.es/record/125280
+- http://hal.cirad.fr/cirad-00645823
+- https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1878029615004612/MAIN/application/pdf/2dadbbbf416f11eafa13873b1f67f08f/main.pdf
+- http://www.rcaap.pt/detail.jsp?id=oai:agregador.ibict.br.RI_USP:oai:www.producao.usp.br:BDPI/46189
+- https://researchonline.jcu.edu.au/71338/1/71338.pdf
+- http://www.sciencedirect.com/science/article/B6VDY-4VH7BDD-3/2/3df4f296f90b76b0bce3c24ff75443bd
+- http://hdl.handle.net/11382/522607
+- http://hdl.handle.net/10400.5/21416
+- https://doaj.org/article/cbacd8606c444fb2a40ad1bacb3b4bf4
+- https://hal.science/cirad-00645926
+- https://doi.org/10.1016/j.scitotenv.2006.05.019
+- https://www.accademiaentomologia.it/scuole/
+- https://boris.unibe.ch/114573/
+- https://theses.hal.science/tel-02479851/document
+- https://doaj.org/article/8eeecae9082946b188aa35f9ded4d361
+- https://doaj.org/article/ef779e07c0a443bbba6480a4c4e7c097
+- https://escholarship.org/uc/item/2268n7r2
+- http://hdl.handle.net/2078.1/251039
+- http://dx.doi.org/10.1038/s41598-022-06439-6
+- https://research.wur.nl/en/publications/approaches-to-identify-the-value-of-seminatural-habitats-for-cons
+- http://hdl.handle.net/11590/124075
+- https://hau.repository.guildhe.ac.uk/id/eprint/17716/
+- https://tel.archives-ouvertes.fr/tel-01686567
+- http://hdl.handle.net/11615/26521
+- http://hdl.handle.net/11586/371296
+- https://dspace.library.uu.nl/handle/1874/409293
+- http://fiver.ifvcns.rs/handle/123456789/3114
+- https://ageconsearch.umn.edu/record/196589/files/agris_on-line_2014_4_tsiligiridis_pontikakos_perdikis.pdf
+- http://hdl.handle.net/11573/443205
+- https://tel.archives-ouvertes.fr/tel-02479851
+- http://agritrop.cirad.fr/549622/
+- https://hal.science/hal-04295207
+- http://hdl.handle.net/11586/220958
+- https://dx.doi.org/10.3390/agronomy8010007
+- http://nbn-resolving.de/urn:nbn:de:bsz:352-2-19eoob21llvrc9
+- https://repository.rothamsted.ac.uk/item/89q72/rapid-declines-of-common-widespread-british-moths-provide-evidence-of-an-insect-biodiversity-crisis
+- https://dspace.library.uu.nl/handle/1874/420149
+- http://edepot.wur.nl/286105
+- http://hdl.handle.net/1959.14/1135100
+- https://zenodo.org/record/5497742
+- http://hdl.handle.net/1854/LU-7902580
+- https://research.monash.edu/en/publications/8bc58182-948f-4a41-8d19-bdcb69267d20
+- https://biblio.ugent.be/publication/8709431/file/8709592
 - http://www.loc.gov/mods/v3
-- https://lup.lub.lu.se/record/35c94509-b30e-4329-8fd1-3db758f569e7
-- https://polired.upm.es/index.php/pastos/article/view/1712
-- http://conservancy.umn.edu/bitstream/handle/11299/60121/7.2.Berger.pdf%3Bjsessionid%3D8454D215BB538098067326637D920FB5?sequence%3D1
-- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-141735
-- www.duo.uio.no:10852/77234
-- http://publications.ut-capitole.fr/15737/1/desquilbet_15737.pdf
-- http://agritrop.cirad.fr/581957/
-- http://agritrop.cirad.fr/482252/
-- https://uknowledge.uky.edu/context/igc/article/6391/viewcontent/Vibart_GrassNEXT_Paper_copy.pdf
-- http://hdl.handle.net/10255/dryad.191476
-- https://hal.science/hal-01779748/document
-- https://hal.archives-ouvertes.fr/hal-01019762
-- https://www6.paca.inra.fr/ecodeveloppement/content/download/3240/31502/version/1/file/Etienne_2005_OM.pdf
-- http://www.ag.auburn.edu/auxiliary/nsdl/scasc/Proceedings/2005/Franzluebbers.pdf
-- https://normandie-univ.hal.science/hal-04259787/document
-- https://doaj.org/article/205883eb60444bd6b43eafd9a5e9e2fd
-- http://www.fs.fed.us/openspace/pubs/Lewis
-- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-149680
-- http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.1068.2128
-- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-111926
-- http://hdl.handle.net/10150/621017
-- http://era.daf.qld.gov.au/id/eprint/7335/
-- https://kb.osu.edu/dspace/bitstream/handle/1811/4058/V53N04_236.pdf;jsessionid=0A35FD108B7DAADB74301C0468894AC8?sequence=1
-- https://hau.repository.guildhe.ac.uk/id/eprint/18015/1/Michael%20Lee%20Grazing%20Livestock%20UPLOAD%202.OCR.pdf
-- https://doaj.org/toc/1806-6690
-- https://doi.org/10.3389/fsufs.2021.664103
-- http://ezproxy.uws.edu.au/login?url=http://doi.org/10.1002/ldr.975
-- http://hdl.handle.net/1957/19647
-- https://escholarship.org/uc/item/6bj4p9c9
-- https://uknowledge.uky.edu/igc/22/plenary/3
-- http://scripties.fwn.eldoc.ub.rug.nl/scripties/Lifesciences/Bachelors/2010/SchrojensteinLantman/
-- https://repositorium.ub.uni-osnabrueck.de/bitstream/urn:nbn:de:gbv:700-201112078601/2/thesis_jakoby.pdf
-- https://portal.research.lu.se/ws/files/5528474/625284.pdf
-- https://hal.archives-ouvertes.fr/hal-01019733
-- https://eprints.lancs.ac.uk/id/eprint/210914/
-- https://hal.archives-ouvertes.fr/hal-02350556
-- https://doaj.org/article/79cf4b04f9444218b5868aabc8d52912
-- http://hdl.handle.net/11858/00-001M-0000-000E-D851-8
-- http://ria.asturias.es/RIA/handle/123456789/2132
-- http://hdl.handle.net/20.500.11897/458799
-- http://hdl.handle.net/2440/69263
-- http://library.wur.nl/WebQuery/wurpubs/123909
-- https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0167880915301535/MAIN/application/pdf/3c7f35be999de01e824340559312974f/main.pdf
+- https://dspace.library.uu.nl/handle/1874/427162
+- https://doaj.org/article/b64c5f4ef5164d78ac05bd35cb83b57c
+- https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1878029615001711/MAIN/application/pdf/5e5075d236166af690afdc5ad2f45de3/main.pdf
+- https://doi.org/10.1016/bs.aecr.2020.07.001
+- http://hdl.handle.net/11577/3364477
+- https://espace.library.uq.edu.au/view/UQ:bb681a8
+- http://www.nepjol.info/index.php/AEJ/article/download/731/751/
+- https://cris.maastrichtuniversity.nl/en/publications/576d0e80-398f-4c83-96b3-29e9dcfbabd5
+- https://repository.rothamsted.ac.uk/item/8q692/aerial-insect-biomass-trends-from-long-term-monitoring
+- https://repository.rothamsted.ac.uk/item/88419/spatio-temporal-associations-in-beetle-and-virus-count-data
+- http://www.aughty.org/pdf/climchange_biodiv_eur.pdf
+- http://www.fnu.zmaw.de/fileadmin/fnu-files/publication/working-papers/FNU171Koleva_new.pdf
+- https://doi.org/10.1016/j.envsoft.2020.104925
+- http://www.taccire.sua.ac.tz/handle/123456789/210
+- http://dx.doi.org/10.1111/1365-2664.13572
+- http://dx.doi.org/10.13039/501100000780
+- https://epub.wupperinst.org/frontdoor/index/index/docId/6687
+- http://www.icup.org.uk/reports/ICUP700.pdf
+- https://hal.archives-ouvertes.fr/hal-01001278
+- http://www.nusl.cz/ntk/nusl-509902
+- http://www.repository.naturalis.nl/document/46390
+- http://old.scielo.br/scielo.php?script=sci_arttext&pid=S1516-89132016000300402
+- http://www.documentation.ird.fr/hor/fdi:010069888
+- https://library.wur.nl/WebQuery/wurpubs/490351
+- https://zenodo.org/record/8298553
+- http://library.wur.nl/WebQuery/wurpubs/358800
+- https://ageconsearch.umn.edu/record/20722/files/sp01am02.pdf
+- https://zenodo.org/record/5819077
+- https://doaj.org/article/0e58899db98e4401a2d1d61dd8d944e2
+- http://oar.icrisat.org/8747/
+- http://hdl.handle.net/1957/11779
+- https://pub.h-brs.de/frontdoor/index/index/docId/6535
+- http://urn.fi/URN:NBN:fi:jyu-201510133365
+- https://zenodo.org/record/6417178

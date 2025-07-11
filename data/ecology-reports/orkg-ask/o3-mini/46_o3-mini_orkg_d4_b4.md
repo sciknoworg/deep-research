@@ -1,341 +1,301 @@
-# Mechanisms Underlying Fish Invasiveness in Mountain Lakes
+# Final Report: Will the AMOC Change Its Course?
 
-This report synthesizes a broad range of research findings to elucidate how fish become invasive in mountain lakes. It integrates insights from biological, ecological, genetic, epigenetic, and anthropogenic perspectives, as well as findings from numerous case studies and advanced modeling approaches. The discussion spans direct biotic interactions, the modulation of ecosystem subsidies, and the role of human-mediated environmental alterations. The goal is to provide an in‐depth, multi-page exploration suitable for expert analysis.
+This report synthesizes extensive research findings and modeling experiments on the Atlantic Meridional Overturning Circulation (AMOC), addressing the question of whether it will "change its course." For clarity, the term is unpacked into two distinct but interrelated aspects:
 
----
+1. **Spatial Shifts vs. Dynamic/Intensity Changes:**
+   - **Spatial Shifts:** Refers to changes in the physical path of the AMOC—from a reconfiguration of the current’s geographical trajectory (e.g., shifts in the mean centers, Gulf Stream/North Atlantic Current alignment, ITCZ repositioning) potentially driven by changes in submesoscale processes, basin-wide freshwater balances, and topographic effects.
+   - **Dynamic/Intensity Changes:** Involves alterations in the strength, phase, or variability of the circulation. This includes variations in the magnitude of deep water formation, the rate of northward salinity transport, and the transient responses to anomalous forcing (freshwater input, temperature gradients, or atmospheric feedbacks).
 
-## 1. Overview and Introduction
-
-Mountain lake ecosystems are unique due to their isolated geography, extreme environmental conditions, and steep elevational gradients, which create distinct regimes in nutrient cycling, food web dynamics, and evolutionary pressures. Invasion by non-native fish species in these systems is not solely a product of the fish’s inherent biological traits but is driven by a confluence of processes, including:
-
-- **Biological and ecological mechanisms**: traits such as reproductive strategies, competitive capabilities, and trophic interactions.
-- **Genetic and epigenetic modifications**: rapid adaptive changes via DNA methylation, histone modifications, and hybridization dynamics.
-- **Anthropogenic factors**: historical and modern human interventions (e.g., stocking practices, facilitated introductions, habitat modifications) that disrupt native balances.
-
-This report reviews empirical evidence and advances in modeling techniques that capture the complexity of invasion dynamics in mountain lake environments.
+In what follows, we provide a detailed discussion spanning near-term (decades) to long-term (centuries) perspectives, potential drivers, feedback processes, and the implications of advanced modeling and observational efforts.
 
 ---
 
-## 2. Biological and Ecological Mechanisms
+## 1. Defining the Problem and Scope
 
-### 2.1 Reproductive Strategies and Life‐History Traits
+### 1.1. Terminology and Distinctions
 
-One of the critical determinants of invasion success lies in the intrinsic reproductive traits and life‐history strategies of invasive fish such as brook trout (Salvelinus fontinalis), lake trout, and various trout species. For example:
+Studies across disciplines have distinguished between _spatial remapping_ (i.e., changes in the geographic locus or course, analogous to visuomotor remapping in cognitive neuroscience) and _dynamic or intensity variations_ (e.g., alterations in error-correction gains in adaptive systems). While a spatial shift might represent a reorganization in the AMOC’s mean pathway due to inherent oceanic and atmospheric interactions, changes in dynamics manifest as fluctuations in its strength, speed, or energy content over various timescales.
 
-- **Sheltered Spawning Strategies**: Species such as common carp have been shown to spawn in shallow, hypoxic waters (areas that experience winterkill) to avoid native egg predators. This strategy underscores how niche utilization can permit reproduction in otherwise hostile environments.
-- **Competitive Superiority**: In cases like vendace (Coregonus albula) displacing native whitefish, successful zooplanktivory in the pelagic zone has been observed. This competitive advantage is linked directly to feeding efficiency, foraging behavior, and exploitation of available trophic resources.
+### 1.2. Timeframe Considerations
 
-### 2.2 Trophic Cascades and Cross-Ecosystem Subsidies
-
-Invasive fish have been documented to cause cascading effects through food webs in mountain lakes:
-
-- **Terrestrial-Aquatic Linkages**: Studies have demonstrated that introduced brook trout can consume terrestrial arthropods at rates several-fold higher than the natural sinking flux, creating an imbalance in cross-ecosystem nutrient subsidies. The ingestion and subsequent excretion of these inputs can modify the nutrient cycling dynamics significantly, influencing primary productivity and altering in-lake subsidy regimes.
-- **Predation and Indirect Effects**: In ecosystems such as Yellowstone National Park, lake trout not only directly reduce populations of native cutthroat trout but also modify the reproductive strategies and population dynamics of native species, as evidenced by bioenergetics and cohort modeling. This disruption often has downstream effects on both invertebrate communities and even terrestrial predators that rely on emergent aquatic insects.
-
-### 2.3 Seasonal Lake Physical Parameters
-
-Seasonal variations in lake conditions (e.g., ice-cover duration, temperature regimes, dissolved organic carbon, and nutrient concentrations) critically interact with fish biology:
-
-- For instance, temperature thresholds (e.g., water temperatures sustaining >15 °C in sub-alpine environments like Castle Lake, CA) can enhance growth rates and alter foraging behavior. Additionally, the winter increase in total dissolved nitrogen (up to 78%) suggests that abiotic seasonal shifts create episodic windows where invasive species may capitalize on transient resource surpluses.
+- **Near-term (Decadal) Adjustments:** Driven largely by rapid feedbacks such as those associated with the North Atlantic Oscillation (NAO), barotropic/baroclinic responses, and seasonal freshwater anomalies.
+- **Long-term (Centennial to Millennial) Projections:** Governed by slower processes including coupled sea ice-ocean feedbacks, greenhouse gas-induced radiative changes, and land-ice meltwater contributions.
 
 ---
 
-## 3. Genetic and Epigenetic Mechanisms
+## 2. Drivers and Feedback Mechanisms
 
-### 3.1 Epigenetic Modifications and Inheritance
+The AMOC is subject to complex and interwoven drivers. The following subsections outline key processes identified through both observational campaigns and high-resolution simulations:
 
-Recent studies have highlighted the role of epigenetic mechanisms in facilitating rapid adaptation. Notable examples include:
+### 2.1. Temperature and Salinity Feedbacks
 
-- **DNA Methylation Dynamics**: In species such as Poecilia mexicana, differential DNA methylation patterns have been shown to be stably inherited over multiple generations. Studies report an >80% overlap in differentially methylated regions from the parental to the F2 generation, even after removal of environmental stressors (e.g., hydrogen sulfide exposure). Similar epigenetic stability is noted in cichlid fishes from Lake Malawi, where chromatin states (involving marks such as H3K4me3 and H3K27ac) mediate phenotypic plasticity in response to short-term nutritional changes.
+A critical research finding is the role of compensatory temperature and salinity feedbacks. For example:
 
-### 3.2 Hybridization Dynamics and Introgression
+- **Temperature Effects:** Global warming reduces the air–sea temperature gradients, particularly in regions of deepwater formation, which can dampen convection.
+- **Salinity Effects:** Freshwater input from melting ice alters the surface salinity, modifying the density structure essential for deep convection. Notably, freshwater anomalies can weaken the AMOC more effectively (a positive feedback mechanism), whereas negative anomalies require a larger magnitude to produce an equivalent intensification. The asymmetry in these responses underscores the observed nonlinearity in AMOC behavior.
 
-Hybridization plays a dual role in invasion dynamics by increasing genetic variability and unlocking transgressive phenotypes:
+### 2.2. Freshwater Forcing and Feedback Amplification
 
-- **Enhanced Variance in Gene Expression**: Invasive sculpins and documented sunflowers (as seen in Rieseberg et al.'s work) provide evidence for heightened gene expression variability following hybridization. Such variance enables hybrids to exploit novel ecological niches.
-- **Overcoming Founder Effects**: Cases such as the lake trout invasion in Swan Lake (MT) reveal that even minimal founding populations (e.g., descendants of only two individuals) may trigger rapid adaptation through genetic drift and strong selective pressures, often mediated by recurrent genetic admixture from multiple source populations.
+Several studies have demonstrated that regional freshwater anomalies, particularly in the North Atlantic and Greenland meltwater runoff, can yield dramatic reductions in AMOC strength. Sensitivity experiments (e.g., from the Bergen Climate Model) have indicated that enhanced freshwater runoff can depress the AMOC by up to 30% within 50 years. Importantly, once freshwater input declines, there can be a decadal-scale recovery, although lasting regional sea-level impacts may persist.
 
-### 3.3 Considerations of Ontogenetic Variation
+In addition, the role of South Atlantic dipole anomalies is crucial. Freshwater input in these regions can reconfigure the basin-scale salt-advection feedback, potentially triggering abrupt shifts or even a complete collapse of the AMOC if representatively strong gradients arise.
 
-The ontogenetic stage is crucial in understanding gene expression divergence among hybrids. For example, while embryonic stages of lake whitefish hybrids show minimal misexpression, juveniles display extensive transcriptional misregulation—a factor that can drive rapid phenotypic divergence post-hybridization and modulate invasive capacity.
+### 2.3. Aerosol-Cloud Interactions
 
----
+CMIP6 simulations introduce refined aerosol-cloud interaction parameterizations that demonstrate anthropogenic aerosol forcing can lead to a strengthening (by up to ~10–20%) of the AMOC in the historical period (1850–1985). While these effects appear to modify the salinity budget and deep convection processes, there is debate over the magnitude and realism of this forcing. Aerosol-induced changes generally interact with thermal gradients and salinity anomalies, adding another layer of complexity to predicting whether the AMOC will shift spatially or change in strength.
 
-## 4. Anthropogenic Drivers and Landscape-Level Influences
+### 2.4. Barotropic and Baroclinic Responses
 
-### 4.1 Human-Mediated Introductions and Stocking Histories
+Studies using coupled and atmosphere-only simulations reveal a two-timescale response in the AMOC:
 
-Human activities have a profound impact on fish invasions in mountain lakes:
-
-- **Historical and Modern Stocking**: Regions such as the Pyrenees and North American mountain ranges have experienced extensive histories of fish stocking. Historical trout cultivation and modern recreational introductions have altered native assemblages, with studies noting that between 25% and up to 85% of lakes in certain valleys have been affected.
-- **Assisted Colonization**: Programs aimed at enhancing native species—for instance, the assisted colonization of westslope cutthroat trout in the Canadian Rockies—have led to noticeable shifts in benthic invertebrate communities (e.g., reductions in free-swimming ameletid mayflies and increases in burrowing taxa). This suggests that even regionally native introductions exert pressures comparable to invasive species due to altered trophic cascades.
-
-### 4.2 Anthropogenic Habitat Modifications
-
-In addition to direct introductions, land-use changes and infrastructural modifications have created favorable conditions for invasive fish:
-
-- **Habitat Connectivity Changes**: Developments that enhance connectivity among water bodies can enable fish dispersal, which is strongly linked to establishment risks over multidecadal scales. Modeling studies consistently identify lake connectivity and anthropogenic covariates as robust predictors of establishment.
-- **Recreational Fishing and Live Bait Use**: The phenomenon of live bait transfer and recreational fisheries operations have expanded the range of non-native minnows and trout, significantly altering the local ecological balance and frequently correlating with declines in amphibian and invertebrate populations.
-
-### 4.3 Case Studies Across Geographic Regions
-
-The invasion dynamics in mountain lakes are context-dependent:
-
-- **Yellowstone and Swan Lake**: In Yellowstone, the introduction of lake trout has had quantifiable impacts on native cutthroat trout populations. Meanwhile, in Swan Lake (MT), even very low founding numbers led to rapid adaptation, demonstrating that genetic admixture and subsequent hybridization processes are potent invasion facilitators.
-- **European Alps and Pyrenees**: Detailed regional studies in the Pyrenees have traced shifts in fish community structure linked to centuries-old stocking combined with modern anthropogenic pressures. Similarly, experiments in the European Alps have documented trophic cascades and alterations in the zooplankton community, a reflection of both natural and anthropogenically induced drivers.
-- **Canadian Rockies**: The introduction of native westslope cutthroat trout into fishless lakes has shown trophic cascade risks similar to those observed with invasive brook trout, highlighting that even assisted colonization can substantially reconfigure ecosystem dynamics.
+- **Fast Barotropic Adjustment:** Occurring on sub-monthly timescales, primarily linked to immediate wind-driven and pressure adjustment processes.
+- **Slower Baroclinic Response:** Occurring over around two years, reflecting deep water formation changes and linked to broader-scale phenomena like the NAO. This duality in response emphasizes that both rapid fluctuations and long term trends must be considered in any comprehensive evaluation of AMOC course changes.
 
 ---
 
-## 5. Ecosystem and Modeling Insights
+## 3. Modeling Approaches and Advanced Techniques
 
-### 5.1 Predictive Models and Simulation Approaches
+Given the complexity of the system, recent advances in modeling and observational strategies have been essential in elucidating the AMOC’s behavior. We now describe several high-impact approaches:
 
-Advanced modeling has been critical for forecasting invasion risks and understanding long-term ecosystem trajectories. Key methodologies include:
+### 3.1. High-Resolution and Multi-Resolution Modeling
 
-- **Trait-Based Classification and Ensemble Species Distribution Models**: Techniques such as random forests, general additive models, and hybrid machine learning workflows have frequently achieved 75–83% accuracy in predicting invasion outcomes. These multivariate models incorporate both anthropogenic and natural variables, offering a quantitative framework for risk assessments.
-- **Age-Structured and Bioenergetics Models**: Simulations that account for age-structured populations have underscored the importance of high-resolution genetic markers and robust field sampling. Coupled bioenergetics models (e.g., those applied to Lake Constance’s whitefish) also demonstrate the role of nutrient dynamics—such as phosphorus levels—in modulating growth and ecosystem stability.
-- **Integrated Ecosystem Models**: Tools like PCLake and its successors (FABM-PCLake) comprehensively simulate physical, chemical, and biological interactions. Sensitivity analyses in these models reveal that parameters like temperature, nutrient cycling, and lake morphometry can act as leverage points for managing invasions.
+- **Eddy-Resolving Models:** High-resolution studies (e.g., 1/24° resolution in the Labrador Sea) have shown more rapid and pronounced responses to Greenland freshwater runoff (e.g., a decline of ~2 Sv in 13 years) compared to coarser CMIP6 models. Such simulations capture mesoscale eddy interactions and spatial heterogeneity essential for realistic AMOC dynamics.
 
-### 5.2 Statistical and Genomic Innovations
+- **Coupled Model Intercomparison Projects (CMIP5/CMIP6):** Analyses across these ensembles reveal inter-model variability in the magnitude and even the sign of the AMOC trend. Differences in the treatment of aerosol-cloud interactions, zonal salinity contrasts, and spatial binning (depth vs. density frameworks) are systematically responsible for these differences. Novel techniques such as image warping and spatial binning corrections have been applied to align GCM outputs with observational reanalyses, thereby isolating the effects of spatial shifts versus intensity changes.
 
-Beyond ecological modeling, advances in genomic techniques and statistical methodologies have refined our understanding of invasion dynamics:
+### 3.2. Data Assimilation and Multiscale Integration
 
-- **Genomic and Transcriptomic Assays**: Studies employing RNA-seq, FISH thermodynamic modeling, and high-throughput sequencing have identified candidate genes under positive selection (e.g., HIF pathway members in high-altitude fish) and documented rapid selective shifts in invading populations.
-- **Bayesian and Hybrid Modeling Approaches**: Methods such as Bayesian networks and ancestral recombination graph analyses (augmented by particle filters) capture nuanced details of non-equilibrium dynamics, highlighting the interplay between selection, drift, and admixture.
+Recent studies have integrated satellite remote sensing (using platforms such as MODIS, MISR, CALIPSO) with in situ measurements (e.g., AERONET and advanced lidar systems). The fusion of these datasets—facilitated by cloud-based frameworks like the Pangeo project—allows for improved quantification of aerosol optical properties and better constraints on the coupled interactions between the atmosphere and ocean.
 
----
+- **Coupled Data Assimilation Techniques:** Approaches such as offline quadratic programming with non-negativity constraints have significantly reduced uncertainties in aerosol forcing, which directly impacts oceanic saline budgets. Adaptive observation methods, including UAV-based mobile platforms guided by information-theoretic algorithms, further enhance our observational capability to track AMOC transitions.
 
-## 6. Impacts on Nutrient Cycling and Ecosystem Subsidies
+### 3.3. Statistical Downscaling and Machine Learning
 
-### 6.1 Trophic Cascades and Nutrient Redistribution
+- **Advanced Downscaling:** Methods involving multi-objective genetic programming, multiple-point geostatistics, and spectral nudging allow for the transformation of coarse-resolution climate fields into high-resolution datasets. These statistical downscaling approaches preserve the physical relationships between variables and improve the representation of air-sea interactions that modulate AMOC dynamics.
 
-The introduction of invasive fish in mountain lakes has profound implications for nutrient cycling. Notable findings include:
-
-- **Altered Terrestrial Subsidies**: In fishless lakes, natural inputs of terrestrial organic matter occur primarily via passive sinking. In contrast, invasive species like brook trout actively transfer terrestrial arthropods—a process that can multiply nutrient influx several-fold. This vectoring effect disrupts finely tuned nutrient budgets and may influence productivity at multiple trophic levels.
-- **Ecosystem Subsidies and Cross-Boundary Dynamics**: The interlinkage between aquatic and terrestrial ecosystems is underscored in studies documenting shifts in predator-prey dynamics and reciprocal subsidies. For example, introduced piscivores can decrease amphibian or emergent insect populations, indirectly affecting nutrient flows into the terrestrial realm.
-
-### 6.2 Seasonal and Elevational Variability
-
-Lake ecosystems across varying elevations display distinct nutrient and energy subsidy regimes:
-
-- **Lower vs. Higher Elevations**: Lower elevation lakes benefit from high organic input due to dense terrestrial vegetation; higher elevations, however, receive relatively higher inorganic nutrient inputs (e.g., up to 78% greater dissolved nitrogen in winter). Invasive fish modify these regimes further by acting as both predators and nutrient vectors.
-- **Seasonal Shifts in Productivity**: The marked seasonal changes—such as a 44% reduction in productivity during winter—further interact with fish-driven alterations to yield complex, temporally dynamic food web responses.
+- **Machine Learning:** Random forests, gradient boosting, and XGBoost techniques have been effectively applied to forecast particulate matter and aerosol fields. Their integration into numerical models enhances the detection of rapid transitions in AMOC behavior, especially when combined with dynamic data assimilation techniques.
 
 ---
 
-## 7. Synthesis, Management Implications, and Future Directions
+## 4. Synthesis of Model Findings and Observations
 
-### 7.1 Synthesis of Key Mechanisms
+Drawing on dozens of simulation studies and observational campaigns, several patterns emerge:
 
-Integrating the multiple lines of evidence leads to several core conclusions:
+### 4.1. Near-Term Variability and Threshold Behavior
 
-- **Multifactorial Origins of Invasiveness**: The invasive capacity of fish in mountain lakes arises from a synergistic interplay between intrinsic biological traits (e.g., reproductive strategies, competitive foraging), rapid genetic and epigenetic adaptations, and extrinsic human-mediated drivers. In many cases, even low founder populations, through subsequent hybridization and epigenetic stabilization, adapt quickly to the fluctuating demands and stressors in mountain lakes.
-- **Ecosystem-Level Ramifications**: The ensuing trophic cascades and nutrient cycling perturbations reverberate beyond the immediate aquatic community, impacting both terrestrial subsidies and cross-ecosystem dynamics. This misshaping of natural inputs—combined with anthropogenic alterations—complicates restoration efforts.
-- **Modeling as a Decision-Support Tool**: Advanced simulation and integrated ecosystem models provide critical insights into threshold dynamics (e.g., the onset of clear-to-turbid state shifts) and offer a predictive scaffold for managing invasive populations.
+- Studies using RAPID array data indicate that a sustained 20-year decline in the AMOC can be attributed to internal ocean dynamics—particularly a decline in subpolar salinity transport—rather than external atmospheric forcing alone. However, aerosol and radiative forcings are important in shaping broader trends.
 
-### 7.2 Management and Mitigation Strategies
+- Sensitivity experiments consistently illustrate a threshold-like behavior with hysteresis. In many models, once the AMOC weakens due to freshwater anomalies or thermal differences, recovery may be slow or incomplete even if the original forcing is reversed.
 
-Given these insights, several management directions emerge:
+### 4.2. Long-Term Projections and Stabilizing Feedbacks
 
-- **Integrated Risk Assessments**: Deploy ensemble modeling techniques that integrate anthropogenic and natural variables. Marrying trait-based classification systems with advanced genomic diagnostics can enhance early detection and intervention capabilities.
-- **Adaptive Stocking Policies**: Reassess fish stocking practices in light of ecological legacy effects. Adaptive management should consider not only the direct impacts of invasive species but also their influence on nutrient subsidies and trophic cascades.
-- **Targeted Removals and Ecosystem Restorations**: Whole-lake removal experiments have demonstrated rapid recovery of native communities (e.g., amphibian rebounds post-trout removal). Coupling these efforts with precise field monitoring and high-resolution genomic tracking can help recalibrate native trophic dynamics.
-- **Landscape-Level Interventions**: Modifying habitat connectivity, managing recreational fishing pressures, and reconciling infrastructure development with conservation goals are key to reducing anthropogenic contributions to invasive success.
+- Multi-centennial simulations (e.g., the AWI climate model over 900 years) show that while interdecadal variability is robust, the long-term course of the AMOC is highly sensitive to both coupled feedbacks and external perturbations. The non-linear and asymmetric nature of the freshwater and temperature feedbacks implies that sustained changes—either spatial reorientations or intensity alterations—depend critically on the balance of these processes.
 
-### 7.3 Anticipated Directions and Novel Approaches
+- Historical reconstructions indicate significant model-observation discrepancies. For instance, the unique "rogue" period observed between 1995 and 2015 has been linked to internal AMOC feedbacks, emphasizing that both internal variability and anthropogenic impacts must be adequately captured.
 
-Future research should dedicate enhanced focus to:
+### 4.3. Spatial Reorientation Versus Intensity Modulation
 
-- **Long-read Genomic Sequencing**: Use of long-read platforms to resolve fine-scale recombination and migration patterns, thereby refining non-equilibrium population genetic models.
-- **Epigenetic Editing and Manipulation**: Exploring interventions that target maladaptive epigenetic modifications to potentially reverse invasive phenotypes.
-- **Climate Change Interactions**: Further integration of climate model outputs (e.g., predicted ice-breakup advances) into invasive species risk frameworks may further elucidate climate-driven invasion dynamics.
+- **Spatial Reorientation:** Evidence from mesoscale simulations and image warping techniques indicates that spatial shifts (e.g., a southward displacement of mid-latitude jets or a change in the Gulf Stream’s position) are possible. These reorientations are generally associated with changes in regional salinity contrasts and air–sea flux variations, though their magnitude varies considerably across models.
+
+- **Intensity Modulation:** Several experiments—particularly those incorporating enhanced Greenland meltwater or targeted freshwater anomalies—demonstrate that changes in the overall strength of the AMOC can be abrupt (with reductions exceeding 20–30% over decades) and are subject to recovery dynamics that exhibit hysteresis. This sensitivity is further complicated by the interplay of aerosol effects, which under some assumptions have contributed to a historical strengthening that may now be transitioning into a decline under global warming.
 
 ---
 
-## 8. Conclusion
+## 5. Open Questions and Future Research Directions
 
-In summary, fish invasiveness in mountain lakes is a phenomenon born of complex interplay among natural biological traits, rapid genetic and epigenetic adaptations, and pervasive anthropogenic influences. The evidence reviewed herein underscores the need for an integrative, multi-dimensional management approach that leverages cutting-edge modeling and genomic tools. Such an approach will be essential for restoring native biotic integrity in these delicate ecosystems and for mitigating the far-reaching impacts of invasive species. Future research and adaptive management must operate synergistically to address ongoing challenges and ensure the resilience of mountain lake ecosystems in a rapidly changing world.
+Despite major advances, several key questions remain:
 
-*This report provides a detailed account of the mechanisms by which fish become invasive in mountain lakes, integrating learning across multiple scales—from molecular to ecosystem—and offers pathways for future research and management intervention.*
+### 5.1. Uncertainty Reduction in Model Ensembles
+
+- **Inter-model Variability:** Given the discrepancies between CMIP5 and CMIP6 simulations as well as the differences introduced by model resolution, future work should focus on reconciling these differences through improved proxy reconstructions, targeted observational campaigns, and enhanced physical parameterizations.
+
+- **Hybrid Approaches:** Integrating high-resolution local observations with global datasets via advanced statistical and machine learning frameworks (e.g., Gaussian-process emulation) appears promising to provide tighter constraints on AMOC dynamics.
+
+### 5.2. Role of Novel Feedback and Control Mechanisms
+
+- **Air-Sea Interaction Nuances:** The latest findings on aerosol-induced effects suggest that further investigation into the coupling between aerosol forcing, cloud microphysics, and oceanic convection is warranted. Detailed process studies are needed to quantify how these interactions may tip the balance in favor of either spatial reorientation or intensity modulation.
+
+- **Neuromodulatory and Adaptive Control Paradigms:** Recent interdisciplinary work, inspired by sensorimotor adaptation in biological systems, hints that dynamic adjustments and adaptation memory might be analogous to ocean response systems. These counterintuitive approaches might offer novel ways to conceptualize rapid versus gradual shifts in the AMOC system.
+
+### 5.3. Observational Campaigns and Advanced Instrumentation
+
+- **Enhanced Remote Sensing:** The integration of satellite observations (e.g., from new-generation instruments beyond the A-Train constellation) with in situ measurements will be critical for reducing uncertainties, particularly in aerosol optical properties and salinity fields.
+
+- **Mobile Observers:** There is strong evidence supporting the deployment of high-resolution mobile measurement systems—including UAV-based platforms—for adaptive, real-time tracking of AMOC pathways and changes in the subpolar gyre.
+
+---
+
+## 6. Conclusions
+
+The current state of research indicates that the AMOC is likely to "change its course" in both senses of the term: spatial reorientations and modulations in strength. 
+
+- Under near-term scenarios, rapid barotropic adjustments driven by atmospheric fluctuations and internal oceanic variabilities are superimposed on slower baroclinic responses driven by alterations in deep water production.
+- Long-term projections suggest that compounded effects from anthropogenic warming, freshwater forcing (especially from Greenland ice melt), and aerosol-cloud interactions may push the AMOC through non-linear thresholds resulting in significant reconfigurations and intensity declines with potential hysteresis.
+
+While substantial uncertainties remain, particularly regarding model intercomparisons and parameter sensitivities (notably the magnitudes of aerosol forcing and freshwater perturbations), the use of advanced, high-resolution computational and observational tools is steadily narrowing these gaps. The path forward lies in coupling diverse observational strategies with robust, multi-scale models that incorporate both classic physical constraints and newer adaptive control paradigms inspired by neuromodulatory systems.
+
+In summary, whether changes in the AMOC manifest predominantly as spatial shifts, intensity modulations, or a combination thereof depends critically on the interplay between rapid atmospheric forcing, slower oceanic feedbacks, and the evolving background state under a warming climate. Continued investment in high-resolution simulations, comprehensive data assimilation efforts, and innovative observational campaigns will be key to resolving these issues and informing projections of future climate impacts.
+
+---
+
+*This report integrates multidisciplinary insights from climate modeling, oceanography, remote sensing, and innovative computational techniques to provide a comprehensive overview addressing the multifaceted nature of potential AMOC changes.*
 
 ## Sources
 
-- http://hdl.handle.net/10068/997695
-- http://hdl.handle.net/10278/3714405
-- https://scholarcommons.sc.edu/etd/483
-- http://library.wur.nl/WebQuery/wurpubs/483512
-- http://hdl.handle.net/10.1021/acs.est.8b07250.s002
-- http://elib.bsu.by/handle/123456789/163593
-- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2015-0549
-- https://biblio.ugent.be/publication/8641302
-- http://hdl.handle.net/11392/2490677
-- https://library.wur.nl/WebQuery/wurpubs/506286
-- https://hdl.handle.net/11511/38282
-- https://zenodo.org/record/8134076
-- http://hdl.handle.net/10255/dryad.128224
-- http://www.ecolab.ups-tlse.fr/IMG/pdf/2008_Leprieur
-- https://doaj.org/article/9ce836acc8fb4175a2d7ec78d702eb33
-- https://hal.inrae.fr/hal-03790661
-- https://www.ajol.info/index.php/sfjfs/article/view/43827
-- http://hdl.handle.net/10261/160112
-- http://urn.fi/
-- http://hdl.handle.net/11858/00-001M-0000-000E-7F2A-F
-- http://nbn-resolving.de/urn:nbn:de:bsz:352-2-1n5eggpsh0pvl4
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:80505
-- https://escholarship.org/uc/item/90c25815
-- http://hdl.handle.net/11714/6038
-- https://repository.uwyo.edu/zoology_facpub/10
-- http://nbn-resolving.de/urn:nbn:de:bsz:352-2-somwldmvtlyz3
-- http://publications.jrc.ec.europa.eu/repository/handle/JRC60622
-- https://pure.knaw.nl/portal/en/publications/5ce46824-1672-4633-a08a-ffe7ccc7e383
-- http://file.scirp.org/pdf/OJGen_2012123121350270.pdf
-- http://www.nusl.cz/ntk/nusl-461943
-- https://escholarship.org/uc/item/6rk0982f
-- https://escholarship.org/uc/item/3qg532m2
-- http://hdl.handle.net/1807/87338
-- http://hdl.handle.net/11858/00-001M-0000-000F-D412-5
-- http://publications.jrc.ec.europa.eu/repository/handle/JRC36125
-- http://arodes.hes-so.ch/record/10851
-- https://zenodo.org/record/4299336
-- https://hdl.handle.net/11250/3021741
-- https://escholarship.org/uc/item/3362g3jb
-- https://digitalcommons.georgiasouthern.edu/cosm-cour-symposium/2021/2021/18
-- https://oak.novartis.com/978/
-- http://library.wur.nl/WebQuery/wurpubs/410484
-- https://zenodo.org/record/5771330
-- http://depot.knaw.nl/6260/
-- https://eprints.bournemouth.ac.uk/37645/1/Ecological%20impacts%20of%20invasive%20freshwater%20fish_accepted%20version.pdf
-- http://hdl.handle.net/10393/28286
-- http://www.documentation.ird.fr/hor/fdi:010044297
-- https://lirias.kuleuven.be/bitstream/123456789/645097/2/Jiang%20et%20al%2019%20J%20Insect%20Physiol.pdf
-- http://hdl.handle.net/11858/00-001M-0000-000F-D3A0-B
-- http://www.infish.com.pl/wydawnictwo/Archives/Fasc/work_pdf/Vol9Fasc2/Vol9Fasc2
-- http://www.glerl.noaa.gov/pubs/fulltext/2005/20050014.pdf
-- https://hal.archives-ouvertes.fr/hal-00453856
-- https://library.wur.nl/WebQuery/wurpubs/501349
-- https://escholarship.org/uc/item/7r0423xg
-- http://www.mtcfru.org/wp-content/uploads/2014/12/Kalinowski_etal_2010_conservation_genetics.pdf
-- http://glei.nrri.umn.edu/default/documents/Bhagat
-- http://hdl.handle.net/10255/dryad.102137
+- http://hdl.handle.net/20.500.11897/419756
+- http://hdl.handle.net/11585/821587
+- http://public.lanl.gov/wilbert/Publications/pdf/Weijer2012a.pdf
+- https://figshare.com/articles/_The_CoP_progression_velocity_in_anterior_posterior_direction_and_stance_time_/1383507
+- https://centaur.reading.ac.uk/115656/1/Cefalu_thesis_redacted.pdf
+- https://epic.awi.de/id/eprint/57985/1/Sun_et_al_2022.pdf
+- http://hdl.handle.net/21.11116/0000-0001-4852-2
+- https://dspace.library.uu.nl/handle/1874/257329
+- https://mural.maynoothuniversity.ie/12060/1/GM_Atlantic.pdf
+- https://repository.uwyo.edu/cgi/viewcontent.cgi?article=1040\u26amp;context=atmospheric_facpub
+- https://dx.doi.org/10.1175/BAMS-86-12-1795
+- https://ojs.aaai.org/index.php/AAAI-SS/article/view/27650
+- http://resolver.tudelft.nl/uuid:46e1ed64-8aa7-4508-917b-8fe26b1956eb
+- https://doaj.org/article/35ce16c6215c446488bcca5b7caf036c
+- https://repository.uwyo.edu/cgi/viewcontent.cgi?article=1107\u26amp;context=geology_facpub
+- https://hal.science/hal-00138640/file/%255B15200485%2520-%2520Journal%2520of%2520Physical%2520Oceanography%255D%2520Gulf%2520Stream%2520Variability%2520in%2520Five%2520Oceanic%2520General%2520Circulation%2520Models.pdf
+- http://hdl.handle.net/2060/20070004780
+- http://hdl.handle.net/11583/2959546
+- https://doaj.org/article/3a840b292a25436d94cfc021fa87c44d
+- http://hdl.handle.net/11858/00-001M-0000-0010-764F-0
+- http://localhost:8080/xmlui/handle/123456789/18947
+- http://digital.library.unt.edu/ark:/67531/metadc834490/
+- https://hdl.handle.net/1956/804
+- http://hdl.handle.net/2066/99722
+- https://dspace.library.uu.nl/handle/1874/424095
+- http://www.scopus.com/home.url)
+- http://www.mssanz.org.au/modsim09/I13/katzfey_I13.pdf
+- https://research.monash.edu/en/publications/b4405581-6335-43e1-8487-494d9f44a913
+- http://hdl.handle.net/20.500.11937/45900
+- https://hal.sorbonne-universite.fr/hal-01331257/document
+- https://orcid.org/0000-0001-5993-9088
+- https://openscholarship.wustl.edu/etd/1178
+- https://doaj.org/article/defdf3782fe847fcb1699d79a37dad54
+- http://sedici.unlp.edu.ar/bitstream/handle/10915/22665/Documento_completo.pdf?sequence%3D3
+- https://doaj.org/toc/2072-4292
+- https://hal.archives-ouvertes.fr/hal-00770689
+- https://hal.science/hal-00985545
+- https://hal.archives-ouvertes.fr/hal-02338493
+- https://doi.org/10.1029/2021GL097114
+- https://scholarworks.uvm.edu/graddis/1556
+- http://www.documentation.ird.fr/hor/fdi:010048440
+- http://hdl.handle.net/11858/00-001M-0000-0012-3050-7
+- https://oceanrep.geomar.de/id/eprint/44233/1/jcli-d-17-0859.1.pdf
+- https://hdl.handle.net/1912/6378
 - https://doaj.org/toc/1932-6203
-- http://hdl.handle.net/10255/dryad.115478
-- https://doi.org/10.17863/CAM.101706
-- https://zenodo.org/record/4963397
-- http://ir.ihb.ac.cn/handle/342005/18283
-- https://hdl.handle.net/1969.1/191696
-- http://hdl.handle.net/10150/630352
-- https://doi.org/10.1111/j.1095-8649.2007.01685.x
-- https://doaj.org/article/c100e138add14d7686a3a584f438c409
-- https://hdl.handle.net/1871.1/2a684d54-8a03-4ee1-8edb-ecdadc9d258b
-- http://hdl.handle.net/11858/00-001M-0000-000F-D5CC-0
-- https://doi.org/10.1111/ddi.12391
-- http://hdl.handle.net/10722/198818
-- http://hdl.handle.net/11311/1000299
-- https://doi.org/10.1051/kmae/2019029
-- http://www.aslo.org/lo/toc/vol_52/issue_6/index.html
-- https://figshare.com/articles/_Hybridization_between_Yellowstone_Cutthroat_Trout_and_Rainbow_Trout_Alters_the_Expression_of_Muscle_Growth_Related_Genes_and_Their_Relationships_with_Growth_Patterns_/1580097
-- http://ir.ihb.ac.cn/handle/342005/36551
-- http://nora.nerc.ac.uk/id/eprint/5359/
-- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0075951104800318/MAIN/application/pdf/f3abd90f4a53be3ec799a9b238a0358f/main.pdf
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:87423
-- http://hdl.handle.net/11343/256876
-- https://espace.library.uq.edu.au/view/UQ:398781
-- https://researchonline.jcu.edu.au/64218/1/64218.pdf
-- http://hdl.handle.net/11250/2629630
-- http://ir.ihb.ac.cn/handle/342005/30188
-- http://er.uwpress.org/content/32/1/59.full.pdf
-- http://www-heb.pac.dfo-mpo.gc.ca/congress/2000/evolution/evolution.pdf
-- http://www.documentation.ird.fr/hor/fdi:010079389
-- https://opensiuc.lib.siu.edu/dissertations/1497
-- http://ir.ihb.ac.cn/handle/342005/35095
-- http://ageconsearch.umn.edu/record/36673
-- https://pure.knaw.nl/portal/en/publications/2035db26-15bc-4417-9ca0-12f027226739
-- http://hdl.handle.net/11571/757660
-- https://eprints.whiterose.ac.uk/97707/1/2014_JEZ_Epigenetics.pdf
-- https://doaj.org/article/7f16f08f733348b2801ad0e555583cdc
-- https://hdl.handle.net/11250/2981355
-- http://hdl.handle.net/1957/11210
-- http://pqdtopen.proquest.com/#viewpdf?dispub=13424864
-- https://doi.org/10.1051/limn/2000016
-- http://hdl.handle.net/1807/70966
-- https://hal.science/hal-03563547
-- https://escholarship.org/uc/item/0wf2q0pk
-- https://serval.unil.ch/notice/serval:BIB_6E2E2D36EADD
-- https://repository.uwyo.edu/ugrd/2012_UGRD/Presentations/37
-- http://hdl.handle.net/11714/4896
-- https://escholarship.org/uc/item/4kk6d7jr
-- http://hdl.handle.net/10255/dryad.61339
-- https://digitalcommons.unl.edu/ncfwrustaff/225
-- https://hal.science/hal-03128511/document
-- https://escholarship.org/uc/item/2820k3vs
-- http://hdl.handle.net/10803/384835
-- https://figshare.com/articles/Ambiguous_influences_of_omnivorous_fish_on_trophic_cascade_and_alternative_states_Implications_for_biomanipulation_from_an_ecological_model/1276464
-- https://doaj.org/article/1d5dcba46b554a12a06a3fa12dace201
-- http://datacite.org/schema/kernel-4
-- https://doaj.org/article/683934d8a570432ba65388d41aa1ad4c
-- http://journals.plos.org/plosone/article/asset?id%3D10.1371/journal.pone.0141373.PDF
-- https://zenodo.org/record/6676480
-- https://works.bepress.com/yvonne-vadeboncoeur/5
-- http://nbn-resolving.de/urn:nbn:de:bsz:352-281207
-- https://hal.inrae.fr/hal-02647929
-- https://digitalcommons.unl.edu/biosciforbes/55
-- https://digitalcommons.wayne.edu/biosci_frp/14
-- https://univ-tlse2.hal.science/hal-01660680
-- https://escholarship.org/uc/item/08q4v4xj
-- http://hdl.handle.net/10393/34263
-- https://escholarship.org/uc/item/9xh1383v
-- http://hdl.handle.net/10255/dryad.107156
-- https://research.wur.nl/en/datasets/genome-wide-association-analysis-of-adaptation-to-oxygen-stress-i-2
-- http://hdl.handle.net/11858/00-001M-0000-000F-DECB-4
-- https://works.bepress.com/yvonne-vadeboncoeur/25
-- http://ir.ihb.ac.cn/handle/342005/30187
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:95767
-- https://doaj.org/article/32942c9a70fc45eeb1d36812162e200b
-- http://dx.doi.org/10.1111/j.1095-8649.2007.01668.x
-- https://escholarship.org/uc/item/4km875j6
-- https://doi.org/10.1007/s00442-019-04574-y
-- https://research.vu.nl/en/publications/ebb3f73f-4f58-4db1-a132-4b33a4ff295a
-- https://eprints.whiterose.ac.uk/86296/1/J%20%20Exp%20%20Bot%20-2015-Meyer-jxb_eru502.pdf
-- https://doaj.org/toc/1545-7885
-- http://www.nrcresearchpress.com/doi/abs/10.1139/bcb-2015-0111
-- https://hal.inrae.fr/hal-04026895/document
-- https://aquila.usm.edu/fac_pubs/8771
-- https://escholarship.org/uc/item/19q4h61t
-- http://www.aslo.org/lo/toc/vol_52/issue_6/2718.pdf
-- https://hal.archives-ouvertes.fr/hal-02009264
-- https://zenodo.org/record/5799722
-- http://eprints.bice.rm.cnr.it/15380/1/Havel_2015_Hydrobiologia_AIS.pdf
-- http://eprints.cmfri.org.in/10679/1/18.%20Sakthivel.pdf
-- https://escholarship.org/uc/item/4ww3x92z
-- https://hal.science/hal-00913592
-- http://hdl.handle.net/10.6084/m9.figshare.7987085.v1
-- http://hdl.handle.net/2376/13006
-- http://wfcb.ucdavis.edu/www/Faculty/Peter/petermoyle/publications/FishInvasion02.pdf
-- https://hdl.handle.net/10037/14937
-- http://hdl.handle.net/2160/11979
-- https://zenodo.org/record/4544066
-- http://hdl.handle.net/1807/93058
-- http://ir.ihb.ac.cn/handle/342005/35158
-- http://hdl.handle.net/11579/43652
-- https://globalhub.org/resources/1068/download/yilmaz.pdf
-- https://zenodo.org/record/7825729
-- http://urn.kb.se/resolve?urn=urn:nbn:se:su:diva-204219
-- http://stopstocking.cowyafs.org/documents/Ruzyckietal2003EFFECTSOFINTRODUCEDLAKETROUTONNATIVECUTTHROATtroutinYellowstonelake.pdf
-- https://doaj.org/article/90cbb3f33e534e78817bf2f7cd9c85b6
-- https://hal.inrae.fr/hal-02631603
-- https://doaj.org/toc/2079-7737
-- https://doi.org/10.1051/proc/201444019
-- http://ir.ihb.ac.cn/handle/342005/23989
-- https://eprints.whiterose.ac.uk/106644/1/Goussen2016_srep36004.pdf
-- https://escholarship.org/uc/item/4329x9nw
-- https://opensiuc.lib.siu.edu/fiaq_data/1
-- http://dx.doi.org/10.1007/s10709-010-9540-2
-- https://digitalcommons.unl.edu/ncfwrustaff/181
-- https://digitalcommons.unl.edu/ncfwrustaff/9
-- https://digitalcommons.usu.edu/wats_facpub/796
-- https://lirias.kuleuven.be/bitstream/123456789/60751/1/Van%20de%20Meutter%20et%20al.%202004%20Oikos.pdf
-- https://zenodo.org/record/4998608
-- http://edepot.wur.nl/330297
-- https://pdxscholar.library.pdx.edu/geology_fac/187
-- http://hdl.handle.net/11562/429241
+- https://archimer.ifremer.fr/doc/00746/85806/90953.jpg
+- http://hdl.handle.net/2027.42/95340
+- http://resolver.tudelft.nl/uuid:5550c9bc-5eca-4945-a084-2eeebcfbb4fe
+- http://bjps.oxfordjournals.org/content/40/3/289.full.pdf
+- http://digitool.Library.McGill.CA:80/R/?func=dbin-jump-full&object_id=34503
+- http://conference2011.wcrp-climate.org/posters/C9/C9_Wen_M98B.pdf
+- https://hal.science/hal-00753326
+- http://unist.dcollection.net/common/orgView/200000643055
+- https://figshare.com/articles/Consequences_of_Global_Warming_of_1_5_C_and_2_C_for_Regional_Temperature_and_Precipitation_Changes_in_the_Contiguous_United_States/4541557
+- http://hdl.handle.net/2060/20000112948
+- https://espace.library.uq.edu.au/view/UQ:81cb075
+- https://escholarship.org/uc/item/3ww7v7s2
+- http://hdl.handle.net/21.11116/0000-0004-87EE-8
+- https://www.zora.uzh.ch/id/eprint/115456/1/3130.full.pdf
+- https://osf.io/ewh4t
+- https://escholarship.org/uc/item/8z8729ks
+- https://mural.maynoothuniversity.ie/17729/1/mccarthy-caesar-2023-can-we-trust-projections-of-amoc-weakening-based-on-climate-models-that-cannot-reproduce-the-past.pdf
+- https://centaur.reading.ac.uk/103346/8/fmars-09-830821.pdf
+- https://escholarship.org/uc/item/4x24m9qr
+- http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.468.3540
+- https://doi.org/10.1175/BAMS-D-11-00151.1
+- https://zenodo.org/record/3467549
+- http://hdl.handle.net/2078.1/35529
+- http://pqdtopen.proquest.com/#viewpdf?dispub=1505254
+- http://resolver.sub.uni-goettingen.de/purl?gldocs-11858/8380
+- https://doi.org/10.1002/2017JC013390
+- http://hdl.handle.net/1885/69337
+- https://figshare.com/articles/_Spatial_transfer_of_adaptation_/834628
+- https://dspace.library.uu.nl/handle/1874/409300
+- http://publications.jrc.ec.europa.eu/repository/handle/JRC108763
+- http://hdl.handle.net/10397/27546
+- https://hal.science/hal-03841884/file/Swingedouw_FC_2022.pdf
+- http://www.perceptionandaction.com/pdf/publications/refJournals/2012-01-LawrenceBaughMarotta.pdf
+- https://hal.sorbonne-universite.fr/hal-03838473
+- https://figshare.com/articles/Behavioural_Distinction_between_Strategic_Control_and_Spatial_Realignment_during_Visuomotor_Adaptation_in_a_Viewing_Window_Task__/117264
+- http://web.mit.edu/hanlimc/www/hl.docs/Choietal_ICCS07.pdf
+- https://lirias.kuleuven.be/bitstream/123456789/553690/1/Hossein%20convection-permittmodels%20%28HESS%202016%29.pdf
+- http://conference2011.wcrp-climate.org/posters/C37/C37_Dixon_TH85B.pdf
+- https://escholarship.org/uc/item/13g840ps
+- http://resolver.sub.uni-goettingen.de/purl?gldocs-11858/9990
+- http://hdl.handle.net/10.6084/m9.figshare.7491629.v1
+- https://zenodo.org/record/8163482
+- https://hdl.handle.net/2104/11116
+- http://hdl.handle.net/10.6084/m9.figshare.24100547.v1
+- http://hdl.handle.net/20.500.11850/550679
+- https://hal.science/hal-00770689
+- http://hdl.handle.net/2144/2058
+- http://hdl.handle.net/11858/00-001M-0000-000E-F4C1-E
+- http://hdl.handle.net/10.1371/journal.pone.0280389.g002
+- http://web.science.unsw.edu.au/%7Ejasone/publications/jhaetal2013.pdf
+- https://doaj.org/article/1c7596edb9ab4dca9bb0f92ae02bc8f5
+- https://escholarship.org/uc/item/69c684rd
+- http://www.sfn.org/absarchive/
+- http://www.atmos-chem-phys.net/12/3601/2012/acp-12-3601-2012.pdf
+- https://archimer.ifremer.fr/doc/00358/46879/46760.pdf
+- https://research.vu.nl/en/publications/23819acf-602d-4819-8a62-f3e866c28812
+- https://hal.science/hal-03093315
+- https://elib.dlr.de/195688/
+- http://www.documentation.ird.fr/hor/fdi:010037648
+- http://urn.kb.se/resolve?urn=urn:nbn:se:su:diva-155716
+- https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0896627309007958/MAIN/application/pdf/d3ea55e74aabe0d84ddc6cf7d66767af/main.pdf
+- http://hdl.handle.net/10454/2874
+- https://mural.maynoothuniversity.ie/16046/
+- http://edoc.mpg.de/223452
+- https://doaj.org/article/e2010d89f7ec4aefb63cdb6ae520fcaa
+- https://hal.science/hal-03869321
+- http://www.loc.gov/mods/v3
+- https://doaj.org/article/b8ce710803964d8cb279e3a537aa5a39
+- https://authors.library.caltech.edu/39251/7/10.1175_bams-d-12-00015.2.pdf
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0960982201004158/MAIN/application/pdf/ac2837ec641ce8c45622660133f54fa2/main.pdf
+- https://hdl.handle.net/
+- https://hdl.handle.net/11591/485830
+- http://hdl.handle.net/2078.1/72000
+- https://escholarship.org/uc/item/6d30886d
+- https://oskar-bordeaux.fr/handle/20.500.12278/170370
+- http://hdl.handle.net/2060/20000050478
+- https://centaur.reading.ac.uk/91305/10/2020GL088166.pdf
+- https://escholarship.org/uc/item/9zh399j3
+- http://digital.library.unt.edu/ark:/67531/metadc867492/
+- https://hdl.handle.net/20.500.11766/11304
+- https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021GL096066
+- https://figshare.com/articles/Contributions_of_Uncertainty_in_Droplet_Nucleation_to_the_Indirect_Effect_in_Global_Models/4503047
+- http://hdl.handle.net/11858/00-001M-0000-0011-FB5D-D
+- https://hal.science/hal-00763172/document
+- http://hdl.handle.net/11858/00-001M-0000-0013-7900-4
+- http://earth.huji.ac.il/data/pics/Space_Science_Reviews_Rosenfeld06.pdf
+- https://dspace.library.uu.nl/handle/1874/361186
+- http://hdl.handle.net/20.500.11850/441066
+- https://orbi.uliege.be/handle/2268/230984
+- https://doi.pangaea.de/10.1594/PANGAEA.897395
+- https://oceanrep.geomar.de/id/eprint/39147/
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S1364815216302122/MAIN/application/pdf/91aa06a61dd197b732ce091786d4fb9f/main.pdf
+- http://hdl.handle.net/11858/00-001M-0000-002A-C590-5
+- https://figshare.com/articles/_The_shift_in_intervention_strategy_and_intensity_for_the_range_of_the_alternative_future_intervention_strategies_considered_/1374654
+- https://hal.science/hal-03023504
+- https://orcid.org/0000-0002-5468-575X
+- https://doaj.org/article/c6a3c51e9d194392b3ac55e16351c747
+- https://figshare.com/articles/Shifts_in_distance_and_direction_of_the_mean_centers_of_highly_suitable_areas_in_different_periods_/5847501
+- https://escholarship.org/uc/item/0z14d6c0
+- https://hal-insu.archives-ouvertes.fr/insu-03779396
+- https://www.repository.cam.ac.uk/handle/1810/261624
+- https://escholarship.org/uc/item/75165150
+- https://hal.science/hal-03662329
+- http://hdl.handle.net/10.3389/feart.2023.1245815.s001
+- https://journals.ametsoc.org/view/journals/clim/35/18/JCLI-D-21-0530.1.xml
+- http://www.perceptionweb.com/abstract.cgi?id=v080387
+- http://journal.frontiersin.org/researchtopic/2888/neural-and-computational-modeling-of-movement-control
+- http://handle.unsw.edu.au/1959.4/56988
+- https://dspace.library.uu.nl/handle/1874/275523
+- https://orcid.org/0000-0001-8579-6068
+- https://pearl.plymouth.ac.uk/secam-research/1466
+- http://ivrylab.berkeley.edu/uploads/4/1/1/5/41152143/taylor_ivry_-_2012_-_annals_of_the_new_york_academy_of_sciences.pdf

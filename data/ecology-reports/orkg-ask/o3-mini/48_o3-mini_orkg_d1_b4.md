@@ -1,141 +1,168 @@
-# Final Report: Methodological Challenges in Measuring Seedling Functional Traits
+# Final Report: When Mowing May Be More Efficient than Grazing in Restoring Plant Diversity, and Why
 
-This report synthesizes findings from recent research on the methodological challenges in measuring seedling functional traits. Drawing on a wide range of studies—including controlled laboratory experiments, high-throughput phenotyping systems, and field studies across temperate and tropical ecosystems—the report highlights both the strengths and limitations of current measurement techniques. The discussion is structured to address the major challenges in measurement, emerging technologies, and innovative experimental designs that aim to reconcile discrepancies between laboratory and field environments.
-
----
-
-## 1. Introduction
-
-Seedling functional traits (SFTs) are recognized as critical predictors of plant performance and survival. However, the quantification of these traits is fraught with methodological challenges due to context-dependencies, ontogenetic changes, and environmental variability. Detailed measurements such as leaf area, root:shoot ratios, photosynthetic capacity, and biomass distributions must capture dynamic responses, which differ when assessed under controlled versus field conditions. This report integrates multiple findings to provide a comprehensive examination of these challenges and recommends solutions for improved trait assessment.
+*Date: 2025-06-02*
 
 ---
 
-## 2. Challenges Related to Environmental Variability and Ontogenetic Shifts
+## Abstract
 
-### 2.1 Environmental Factors and Trait Expression
-
-- **Inconsistencies between controlled and natural conditions:** Studies have demonstrated that seedling traits measured in greenhouse or pot-grown systems often do not replicate the performance seen in natural field settings. For instance, measures of root system morphology and seedling quality parameters can differ substantially because the microenvironment in a lab does not capture soil heterogeneity, microbial interactions, and field-specific abiotic factors.
-
-- **General vs. specific ecological contexts:** Whether focusing on tropical systems (e.g., Ecuador, Panama, Puerto Rico) or temperate systems (e.g., British and Spanish floras), environmental gradients affect trait expression. Research shows that while certain traits, such as seed mass or cotyledon strategies, correlate robustly with early growth and survival in tropical forests, other traits (in particular, specific leaf area and leaf N content) show high ontogenetic variability that complicates cross-application of laboratory-derived data.
-
-### 2.2 Ontogenetic Changes
-
-- **Ontogenetic trajectories:** Many traits evolve with individual development. For example, leaf size and stem vessel diameter measured in laboratory settings may exhibit significant correlations with adult traits; however, non-linear developmental shifts (noted in the case of specific leaf area and leaf nitrogen content) can result in an approximate 27–36% and 17–31% contribution, respectively, to total trait variation. This underlines the need for cautious extrapolation from seedlings to adult phenotypes.
-
-- **Implications for functional ecology:** Early-stage processes such as germination and emergence have been linked to up to 90% of seedling survival variation. In contrast, traditional metrics like seed mass tend to capture only a small fraction (16–18%) of the variation, suggesting that ontogenetic dynamics are not fully accounted for in standard assays.
+This report synthesizes multiple strands of research on restoration methodologies in semi‐natural grasslands and related ecosystems, specifically focusing on the conditions where mowing may be more efficient than grazing in restoring plant diversity. Drawing from field experiments, meta-analyses, and long-term observational studies across diverse geographical contexts (ranging from southern Sweden to Botswana and Tasmania), we explore the impacts of mowing frequency, seasonal timing, technical regimes, and the underlying ecological mechanisms that drive plant community responses. We detail the factors that modulate diversity responses such as competitive interactions, soil disturbance, nutrient cycling, and species-specific responses, ultimately offering a comprehensive framework for managers interested in harnessing mechanical management tools for biodiversity conservation.
 
 ---
 
-## 3. Advances and Shortcomings in High-Throughput Phenotyping Platforms
+## Introduction
 
-### 3.1 High-Throughput Phenotyping Systems
-
-- **Automation and non-destructive measurement:** Platforms such as PHENOPSIS and innovative gel observation chambers have revolutionized phenotyping by enabling reproducible, non-destructive, multi-dimensional assessments. These platforms facilitate the capture of traits such as rosette area, seedling tillering, and barley root angular spread—where cultivated varieties show distinct angles compared to their wild counterparts.
-
-- **Integrated imaging and analysis pipelines:** Systems that combine both automated imaging and conventional destructive measures (e.g., the Jena Trait-Based Experiment protocols) are valuable for capturing a range of traits including root:shoot ratios, leaf area, and biomass allocation. The use of standardized image‐processing workflows (including Python-based protocols) has significantly minimized inter-sample variability, thereby enhancing the precision of trait measurements across a diversity of species.
-
-### 3.2 Methodological Shortcomings
-
-- **Standardization vs. natural heterogeneity:** Although high-throughput systems increase consistency, they often standardize measurement protocols in ways that may not capture natural environmental nuances. For example, automated imaging systems calibrated for Arabidopsis may not immediately translate to species with different morphological or growth patterns, such as tree seedlings or tropical species.
-
-- **Expression units and the interpretation of physiological data:** The choice between mass-based (e.g., nmol CO₂ g⁻¹ s⁻¹) and area-based (e.g., μmol CO₂ m⁻² s⁻¹) units in photosynthetic measurements significantly affects the correlation with ecophysiological variables. These differences can lead to conflicting interpretations about photosynthetic capacity, emphasizing the need for standardization across studies or the incorporation of correction factors when comparing results from different measurement units.
+Restoring plant diversity in managed grasslands involves balancing disturbance with species’ ecological dynamics. Both mowing and grazing are widely used management tools; however, they often differ in their ecological impacts. Mowing can be carefully controlled regarding timing, frequency, and intensity, lessening the uncontrolled effects often seen with grazing. Grazing, in contrast, introduces not only defoliation but also physical soil disturbances and nutrient inputs (e.g., via manure), which can affect competitive interactions among plant species. In this report, we examine when and why mowing may outperform grazing in the context of restoring plant diversity, particularly in ecosystems such as species-rich semi‐natural grasslands, lowland tussock communities, and productive grasslands. We draw from extensive research, integrating findings on mowing regimes, grazing intensity, technical comparisons of equipment, and regional case studies.
 
 ---
 
-## 4. Experimental Design Considerations
+## Overview of Ecosystems and Management Contexts
 
-### 4.1 Controlled Conditions and Replication
+### 1. Ecosystem and Plant Community Considerations
 
-- **Randomized block designs:** Advanced experimental designs utilizing randomized block arrangements (e.g., tree seedlings planted in 10-cm pots, moved weekly across replicated blocks) help in minimizing microenvironmental biases. Such designs are crucial for attributing observed variations to genuine trait differences rather than noise introduced by uncontrolled variables.
+The applicability of mowing vs. grazing varies with ecosystem type and its inherent productivity. The following are key ecosystem contexts:
 
-- **Environmental simulations:** Incorporating both wet and dry conditions, as seen in the Douglas-fir studies, reveals that genetic variation in growth and phenology is more pronounced under certain moisture regimes. Showing how genetic stability interacts with plastic adaptive traits (like budburst timing) underscores the need for multifactorial experimental setups that mimic diverse field conditions.
+- **Semi-Natural Grasslands:** In European settings, particularly in southern Sweden, data indicate that mowing regimes (especially annual mowing) increase indicator species associated with good management, thereby helping to maintain species richness and balance nutrient inputs. Grazing, especially at low intensities, may elevate nitrogen levels, possibly promoting nitrophilous species that can outcompete others.
 
-### 4.2 Field vs. Laboratory Setups
+- **Productive Grasslands:** In productive systems, increased mowing frequency has been shown to yield positive biodiversity effects. Frequent mowing in such ecosystems can disrupt competitive exclusion, thus promoting a more diverse plant assemblage.
 
-- **Bridging lab-field gaps:** While laboratory experiments offer controlled conditions for nuanced trait analysis, field trials provide realistic insights into how traits perform in natural communities. Comparative analyses have highlighted that while laboratory-derived traits may correlate with field performance (observed in 90 woody species studies), developmental and ontogenetic differences can significantly impact how traits like specific leaf area translate across growth stages.
+- **Lowland Tussock Grasslands and Specific Regions (e.g., Pontville, Tasmania):** These settings have shown that extreme mowing frequencies can enhance the cover of native and rare species, indicating that mowing under the right conditions may be more beneficial than grazing.
 
-- **Implications for restoration ecology:** Restoration studies have shown that while canonical traits such as seed mass contribute some predictive value, success in the field is often explained by early life-stage processes and less conventional traits. An approach that integrates additional metrics and accounts for trait plasticity can significantly improve species selection for reforestation and ecosystem restoration efforts.
+- **Other Global Case Studies:** Comparative studies in Botswana and southwest Montana underscore the importance of timing and frequency in grazing regimes, suggesting that these contextual variables can shift the balance between mowing and grazing efficiency in restoring diversity.
 
----
+### 2. Management Regimes: Timing, Frequency, and Intensity
 
-## 5. Innovative Approaches and Future Directions
+A key variable across multiple studies is the frequency of mowing. For instance:
 
-### 5.1 Leveraging Machine Learning and Image Analysis
+- **Annual vs. Multi-year Mowing:** Studies in Sweden have demonstrated that annual mowing generally maintains higher species richness compared to mowing at intervals such as every third year. Remarkably, even extended impact trails spanning 38 years have validated the long-term benefits of frequent mowing for diversity outcomes.
 
-- **Data integration and pattern recognition:** The application of machine learning to high-throughput phenotyping data represents a promising avenue for overcoming measurement variability. Advanced image analysis protocols can integrate multi-spectral imaging, 3D reconstructions, and pixel-based seed trait modeling to detect subtle trait differences and predict long-term performance.
+- **Grazing Timing and Frequency:** Field experiments reveal that the timing of grazing (e.g., early- vs. late-season) significantly influences the biomass and proportion of plant functional groups like forbs and graminoids. In some cases, early-season grazing might reduce biomass to levels that favor certain species, yet repeated defoliation can lead to an exponential decline in sensitive species like Brachiaria nigropedata.
 
-- **Predictive modeling of performance metrics:** Future studies could incorporate predictive analytics to link seedling traits measured under controlled settings to performance outcomes in the field. This approach could help in refining trait selection for restoration projects or in developing genotype-specific management practices.
-
-### 5.2 Cross-Contextual and Multi-Scale Measurements
-
-- **Integrative trait frameworks:** Combining laboratory measurements with on-site field assessments and microenvironmental data through sensor networks might help reconcile the differences observed in trait expression. Such integrative frameworks can better capture the influence of microhabitats on seedling performance.
-
-- **Exploiting genetic diversity:** Studies like those on Douglas-fir demonstrate that genetic variability and plastic responses to differing moisture regimes are key factors. Exploiting the genetic architecture underlying trait plasticity through genomics-assisted phenotyping could refine our understanding of the trait-performance relationship.
-
-### 5.3 Addressing Units and Scaling Issues
-
-- **Standardizing metrics:** Given the significant influence of expression units in physiological data interpretation, developing community-wide standardized protocols for trait measurement (including unit conversion guidelines) would improve inter-study comparability. Multi-laboratory calibration exercises could be an effective strategy to harmonize these measurements across different platforms and species.
+- **Seasonal Contexts:** Seasonal timing plays a critical role in both regimes. Mowing performed in the optimal phenological window can ensure seed set and minimize competitive interference, whereas grazing during certain times might not afford the recovery periods needed for sensitive species.
 
 ---
 
-## 6. Synthesis and Conclusions
+## Mechanistic Insights: Underlying Ecological Processes
 
-The methodological challenges in measuring seedling functional traits are multifaceted. They stem from the inherent differences in environmental conditions, the developmental stage of seedlings, and the discrepancies between controlled and field conditions. Modern high-throughput phenotyping platforms have mitigated some of these issues by standardizing measurements and enabling non-destructive assessments. However, limitations remain in capturing the complexity of natural environments and addressing ontogenetic shifts.
+Understanding why mowing may sometimes be preferable requires a close look at the ecological mechanisms underpinning restoration outcomes. Several factors are central:
 
-Key takeaways include:
+### 1. Seed Dispersal and Recruitment
 
-1. The need for integrated experimental designs that combine controlled laboratory assays with field evaluations to capture the full spectrum of trait variability.
-2. The importance of adopting advanced image-processing workflows and machine learning techniques to address data variability and improve predictive power.
-3. The significance of standardizing measurement units and calibration across platforms to ensure comparability of results across diverse species and environments.
-4. The emerging potential of multi-scale and multi-context measurement strategies to reconcile differences between laboratory and field conditions, thereby improving the applicability of early-stage trait measurements to mature plant performance.
+- **Mowing:** By cutting plants uniformly, especially on an annual schedule, mowing may promote seed dispersal patterns that are conducive to the recruitment of a broader spectrum of species. The relatively homogeneous disturbance minimizes tree visitation by opportunistic, nitrophilous species that might otherwise dominate disturbed patches.
 
-Future research should focus on developing hybrid experimental frameworks where automated high-throughput measurements are complemented by real-world field trials, facilitating a more holistic understanding of seedling functional traits. Implementing such integrative methodologies can greatly enhance our predictive ability in both ecological research and practical applications, such as restoration ecology and sustainable forestry.
+- **Grazing:** Grazing animals are selective feeders. Their defoliation patterns, coupled with patchy nutrient deposition, can create microsites that favor opportunistic species over late successional species. This spatial heterogeneity might sometimes hinder the establishment of a diversified seed bank.
 
----
+### 2. Soil Disturbance and Nutrient Cycling
 
-## 7. Recommendations for Future Research
+- **Soil Compaction and Disturbance:** Mowing is largely a non-compactive disturbance when compared to some forms of grazing. The mechanical action of cutting does not significantly disturb the soil structure. Conversely, the trampling associated with grazing can compact soils, altering water infiltration and microbial dynamics, which in turn may favor a less diverse plant community.
 
-- **Development of integrated phenotyping platforms:** Encourage the design of next-generation systems that can simultaneously monitor multiple trait dimensions (morphological, physiological, and genetic markers) across different environmental gradients.
-- **Enhanced calibration protocols:** Establish collaborative networks for inter-laboratory calibration, ensuring that measurements are comparable regardless of the imaging platform or geographical context.
-- **Longitudinal studies:** Promote long-term experiments that track seedling performance from controlled growth stages through to mature plant performance in the field, leveraging remote sensing and sensor networks.
-- **Genotypic and plasticity analyses:** Integrate genomic data with phenotypic measurements, particularly focusing on the plasticity of traits and their adaptive significance under varying environmental conditions.
+- **Nutrient Inputs:** Grazing typically introduces additional nitrogen into the system (via manure deposition), leading to conditions that favor rapid-growing, nitrophilous species. Long-term studies in Swedish grasslands have shown that low-intensity grazing is associated with an increased presence of such indicator species for excess nitrogen. Mowing limits this nitrogen enrichment, thereby supporting a balance that enables a broader species base.
 
-In summary, overcoming the methodological challenges in measuring seedling functional traits demands a holistic approach that integrates technological advancements and innovative experimental designs. Such efforts are essential for enhancing predictive accuracy and translating early life-stage data into robust forecasts of plant community dynamics and ecosystem resilience.
+### 3. Competitive Interactions and Species Composition
+
+- **Competition for Light and Resources:** Mowing’s uniform removal of above-ground biomass can temporarily reduce competitive hierarchies in species-rich grasslands—allowing less competitive species to regenerate and establish. In contrast, grazing can be biased toward certain palatable species, intensifying competitive exclusion of less grazing-tolerant species.
+
+- **Disturbance-Driven Succession:** Evidence from meta-analyses across European grasslands suggests that while both mowing and grazing are forms of disturbance, the relatively predictable and uniform disturbance imposed by mowing fosters a better environment for the persistence of diverse species in the long run.
 
 ---
 
-This comprehensive synthesis seeks to provide not only a detailed overview of current challenges but also actionable recommendations that can guide future research directions in the field of seedling trait ecology.
+## Comparative Analysis and Case Studies
+
+### 1. Long-Term Field Experiments and Meta-Analyses
+
+Drawing from long-term Swedish field experiments and meta-analyses encompassing over 35 studies, the following observations emerge:
+
+- **Indicator Species Occurrence:** Annual mowing correlates with higher odds of detecting indicator species characteristic of well-managed, species-rich grasslands. Although grazing can show moderate positive effects on biodiversity in some cases, these benefits are often context-dependent and less predictable.
+
+- **Grazing vs. Mowing in Semi-Natural Grasslands:** In semi-natural grasslands, grazing is demonstrated to afford slight advantages in particular contexts, yet its effectiveness depends on the intensity and timing of the grazing events. Mowing often provides a more reliable restoration technique when the objective is to avoid nutrient over-enrichment and to mitigate potential soil compaction effects.
+
+### 2. Equipment and Technical Comparisons
+
+Studies comparing mechanical mowing techniques, such as the hand-pushed sickle bar mower versus grass trimmers, have generally found negligible differences in their effects on vegetation composition over long-term assessments (e.g., a 12-year trial in southeastern Sweden). This suggests that the choice of equipment—when deployed appropriately—may be less critical than the frequency and timing of mowing.
+
+### 3. Integration of Grazing and Mowing
+
+Some studies, notably in lowland tussock grasslands of Tasmania, indicate that an integrated approach combining mowing and grazing can, in specific settings, optimize native species cover. In these scenarios, mowing may be used to reset competitive dynamics followed by controlled grazing to manage biomass and maintain open structures. However, for sites where nutrient cycling and soil disturbance are a primary concern, mowing as a standalone strategy often proves to be more efficient in restoring and maintaining plant diversity.
+
+---
+
+## Discussion
+
+### When is Mowing More Efficient?
+
+The key takeaways suggest that mowing becomes comparatively more efficient in restoring plant diversity under the following conditions:
+
+1. **High Productivity Ecosystems:** In highly productive grasslands, the risk of competitive exclusion is higher. Frequent mowing (annual or more frequent, depending on site specifics) reduces dominance by aggressive species, thereby boosting diversity.
+
+2. **Avoidance of Nutrient Over-Enrichment:** In contexts where grazing results in excess nitrogen through manure deposition, mowing preserves a nutrient balance that benefits a broader array of species. For instance, long-term experiments in Sweden illustrate that low-intensity grazing can inadvertently favor nitrophilous species, whereas annual mowing sustains a diverse indicator species profile.
+
+3. **Soil Integrity and Reduced Compaction:** Mowing minimizes soil disturbance and compaction that often accompany grazing. Preserving soil structure is critically important in maintaining water infiltration and microbial activity—factors that contribute to long-term plant diversity.
+
+4. **Uniform Disturbance Regimes:** When a uniform approach to disturbance is desired—for example, to ensure equitable seed dispersal and minimize local pockets of competitive dominance—mowing offers a predictable mechanism, unlike the variability inherent in animal behavior during grazing.
+
+5. **Ecosystem-Specific Considerations:** In ecosystems where the ecological balance is sensitive to physical disturbances (e.g., fragile semi‐natural grasslands), mowing can be modulated to ensure minimal impact on soil microbial communities and maintain subtle cues for seed germination and establishment.
+
+### Underlying Ecological Mechanisms as a Rationale
+
+Beyond simple observed outcomes, the mechanistic rationale centers on the predictability and control associated with mowing. The uniform clipping mechanism avoids the heterogeneity of disturbance naturally introduced by grazing animals, allowing managers to target specific phenological phases, thereby promoting the recruitment of a diverse seed bank and limiting conditions conducive to dominance by a few species.
+
+### Challenges and Considerations
+
+Despite these advantages, it is critical to recognize several challenges and trade-offs:
+
+- **Species-Specific Responses:** Some plant species might require the patchy disturbance that grazing provides. Hence, the choice of regime must account for the particular species composition and management objectives of a site.
+
+- **Resource Constraints and Operational Costs:** Although mowing can be resource-efficient in some setups (especially when fewer passes are needed), the frequency of mowing operations must be balanced against cost, fuel use, and labor, particularly in extensive landscapes.
+
+- **Integration Possibilities:** In certain scenarios, an integrated approach that leverages the benefits of both mowing and grazing may be optimal. For example, mowing might be employed during critical growth periods followed by controlled, low-intensity grazing to maintain open-canopy conditions. Such adaptive management strategies require detailed site assessments and monitoring protocols.
+
+---
+
+## Conclusion and Future Directions
+
+### Synthesis
+
+Comprehensive review of the literature indicates that mowing can be more efficient than grazing in restoring plant diversity under certain well-defined conditions. Specifically, in ecosystems where high productivity, nutrient enrichment, and soil structure concerns dominate the conservation agenda, mowing—particularly under frequent, controlled regimes—offers significant benefits. Long-term studies, both in Sweden and internationally, back the argument that annual or more frequent mowing leads to enhanced species richness and improved indicators of good management compared to low-intensity grazing.
+
+### Future Research Avenues
+
+Moving forward, research should focus on refining the mechanistic understanding of how mowing frequency and timing interact with site-specific ecological variables. Areas worthy of further investigation include:
+
+- **Comparative Dynamics in Mixed Regimes:** More experiments integrating both mowing and grazing to identify optimal combinations that harness the strengths of each management tool.
+- **Technological Innovations:** Evaluating newer mechanical mowing technologies and precision cutting techniques that minimize collateral damage to the habitat, and potentially coupling these practices with remote sensing for enhanced monitoring.
+- **Ecosystem Modeling:** Developing predictive models that integrate seasonal variations, soil health, and competitive interactions to guide adaptive management practices.
+
+### Final Recommendations for Practitioners
+
+1. **Site-Specific Management:** Assess local conditions comprehensively before selecting mowing as a restoration tool. Consider soil health, existing nutrient levels, and species composition.
+2. **Regular Monitoring:** Implement robust monitoring procedures to track ecological changes over time. Utilize indicator species as benchmarks for management effectiveness.
+3. **Hybrid Approaches:** Evaluate the potential benefits of integrated management regimes that combine mowing and grazing, particularly in ecosystems with complex competitive dynamics.
+4. **Consider Scale and Cost:** Account for operational constraints in large-scale implementations. While mowing may be technical-equivalent across equipment types, the scale of operations might influence overall costs and efficiency.
+
+In summary, for experts aiming to maximize plant diversity restoration, mowing—when optimally timed and executed—presents a promising strategy, particularly in contexts where soil integrity, nutrient balance, and uniform disturbance are critical. This detailed synthesis of research should provide a robust starting point for future interventions tailored to the specific requirements of diverse ecosystems.
+
+---
+
+*End of Report*
 
 ## Sources
 
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:161602
-- https://doaj.org/article/61a5fbcea03a4aad96960206245acc3b
-- http://hdl.handle.net/10255/dryad.127069
-- https://hal.inrae.fr/hal-02620819
-- https://hdl.handle.net/11511/32834
-- http://hdl.handle.net/10255/dryad.49804
-- http://handle.westernsydney.edu.au:8081/1959.7/uws:39606
-- http://hdl.handle.net/11383/1486702
-- https://doaj.org/article/8a7f78ffde6c4ae0821aa75ecc48097e
-- http://hdl.handle.net/2072/440433
-- https://doi.org/10.1023/B:PLSO.0000037029.82618.27
-- https://doi.pangaea.de/10.1594/PANGAEA.876730
-- http://pure.iiasa.ac.at/view/iiasa/262.html
-- https://figshare.com/articles/Host_plant_phenotypic_traits/6035687
-- http://hdl.handle.net/10255/dryad.218147
-- http://www.agriculture.purdue.edu/fnr/htirc/pdf/publications/DavisandJacobs2005.pdf
-- http://hdl.handle.net/10255/dryad.49806
-- http://hdl.handle.net/1885/52646
-- http://dare.ubvu.vu.nl/bitstream/handle/1871/21464/162086.pdf%3Bjsessionid%3D9BA25E1FC05C82EAA891EDD7C4DEDE10?sequence%3D2
-- http://hdl.handle.net/10255/dryad.129878
-- https://figshare.com/articles/_Traits_related_to_light_acquisition_and_performance_measured_as_shoot_biomass_of_seven_legume_species_studied_in_monoculture_and_mixture_/1338253
-- http://hdl.handle.net/1957/42881
-- https://researchonline.jcu.edu.au/63560/1/Engert%20et%20al%202020%20Functional%20trait%20representation%20differes%20between%20restoration%20plantings%20and%20mature%20tropical%20rainforest%20FEM.pdf
-- https://zenodo.org/record/8322905
-- https://escholarship.org/uc/item/5dh022ms
-- http://hdl.handle.net/10255/dryad.100016
-- https://figshare.com/articles/Differences_in_plasticity_of_the_parameters_measured_in_i_Q_i_i_acutissima_i_seedlings_at_different_light_levels_and_nitrogen_deposition_rates_/5979190
-- https://researchonline.jcu.edu.au/41499/1/41499_Lloyd_etal_2013.pdf
-- https://orbi.uliege.be/handle/2268/152116
-- http://www.scionresearch.com/__data/assets/pdf_file/0008/36827/NZJFS1011980TIMMIS21_53.pdf
-- https://research.vu.nl/en/publications/fbfabb63-883c-4d01-a314-743d9b339f7b
+- https://doaj.org/article/421ecde70e124598b59df697813fe414
+- http://hdl.handle.net/10150/662767
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-141735
+- https://www.ajol.info/index.php/ajrfs/article/view/57130
+- http://library.wur.nl/WebQuery/wurpubs/372455
+- http://www.vliz.be/imisdocs/publications/41/326241.pdf
+- http://real.mtak.hu/42662/
+- https://doaj.org/toc/1932-6203
+- https://www.cambridge.org/core/journals/environmental-conservation/article/shortterm-effects-on-diversity-and-biomass-on-grasslands-from-artificial-dykes-under-grazing-and-mowing-treatments/BEF72982195D862E647376620437D34B#
+- http://real.mtak.hu/41834/
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-111926
+- https://uknowledge.uky.edu/igc/20/satellitesymposium3/34
+- http://real.mtak.hu/14170/
+- http://dx.doi.org/10.1111/j.1442-9993.2004.01425.x
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-149680
+- http://urn.fi/
+- http://www.nusl.cz/ntk/nusl-463689
+- http://hdl.handle.net/10150/644261
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-123378

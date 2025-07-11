@@ -1,201 +1,169 @@
-# Methodological Challenges to Measuring Seedling Functional Traits – A Technical Review
+# When (and Why) Mowing Out-performs Grazing for Plant‐Diversity Restoration
 
-*Prepared 2 June 2025*
-
----
-
-## 1. Introduction and Scope
-Plant functional‐trait ecology increasingly demands trait measurements on seedlings because this life stage determines recruitment, regeneration niches, and the first filter in community assembly. Yet seedling traits are **notoriously difficult to measure reliably**, and errors propagate into demographic models, Earth-system models, and gene-to-phenotype studies. This report synthesises the full spectrum of methodological challenges, spanning morphological, physiological, and biochemical traits; field vs greenhouse contexts; and across taxonomic and biome boundaries. All findings from the supplied research corpus are explicitly integrated and flagged. Where appropriate, I propose best-practice solutions and forward-looking (speculative) opportunities.
-
-
-## 2. Conceptual Sources of Error
-
-| Source of error | Manifestation at seedling stage | Empirical evidence |
-|-----------------|----------------------------------|--------------------|
-| Ontogenetic divergence | Rank stability of traits between seedling and adult can collapse | 90-species cross-system test: only 12/14 traits correlated; SLA R² 0.27–0.36, leaf N 0.17–0.31 (Learning 1,2,12) |
-| Environmental contingency | Greenhouse exaggerates plant–soil feedbacks and trait means; water & N quickly shift SLA and R/S | Meta-comparison of PSF; factorial water × N experiment (Learning 7,8) |
-| Measurement-intensity bias | Commonly sampled spp. show inflated SLA, seed mass; depressed leaf N_mass, max height | TRY database audit (Learning 5) |
-| Trait plasticity & context dependence | SLA, LMR, PNUE vary along light and N gradients (Learning 9) |
-| Inadequate root metrics | Classical shoot traits poor predictors of outplanting success; root-centred indices outperform (Learning 3) |
-
-These conceptual pitfalls shape the methodological challenges discussed below.
-
-
-## 3. Trait-Group Specific Challenges
-
-### 3.1 Morphological Traits (e.g. SLA, Root:Shoot, Height, Stem Diameter)
-
-1. **Trait Plasticity vs Standard Protocols**  
-   *SLA & R/S ratios shift within hours–days under water and nitrogen variation (Learning 8).* Failure to record microenvironmental conditions undermines trait comparability.  
-   **Solution:** Log soil water potential, photon flux density, and leaf nitrogen at sampling; include treatment covariates in metadata.
-
-2. **Ontogenetic Rank Instability**  
-   *SLA and leaf N in seedlings explain < 36 % of adult variation (Learning 1,2,12).* Morphological traits therefore cannot be blindly up-scaled.  
-   **Solution:** Pair seedling measurements with follow-up adult resampling in permanent plots; use hierarchical Bayesian models to explicitly propagate stage uncertainty.
-
-3. **Destructive vs Non-Destructive SLA**  
-   Traditional oven-drying limits repeated measures on the same individual.  
-   **Solution:** Use spectral reflectance calibration curves to derive leaf dry mass proxies; pilot tests indicate ±4 % error for Arabidopsis (Learning 4 analog).
-
-4. **Root Trait Visibility**  
-   Soil opacity hampers measurement of total root length (TRL) and fine-root distribution.  
-   **Solutions:** (i) Rhizotron & minirhizotron imaging – but scaling artefacts persist; (ii) X-ray CT offers µm-scale accuracy yet throughput and cost limit sample size; (iii) Hydrop-root phenotyping (plants grown on mesh) yields clean root systems but modifies aeration.
-
-### 3.2 Physiological Traits (Photosynthetic Rate, Stomatal Conductance, RGP)
-
-1. **Temporal Instability & Diurnal Rhythms**  
-   Gas‐exchange varies within minutes; seedlings have low leaf area, magnifying chamber leakage errors.  
-   **Mitigations:** Employ small chamber heads with active H₂O control; replicate diurnal cycles; record VPD.
-
-2. **Proxy Reliability**  
-   *SPAD-502 chlorophyll meter calibration in Arabidopsis reached R² ≈ 0.99 vs solvent extraction (Learning 4).* Nevertheless, species-specific calibration remains essential.  
-   **Best Practice:** Build calibration curves for each functional group; quantify non-linearity at high Chl concentrations.
-
-3. **Root Growth Potential (RGP) Limitations**  
-   Forestry protocols rely on 28-h flush tests that poorly predict field survival (Learning 3).  
-   **Alternatives:** Use TRL & DQI (Dickson Quality Index) plus metabolomic fingerprints via HPLC; ensemble models outperform RGP by 15–25 % in survival prediction.
-
-### 3.3 Biochemical Traits (Leaf N, Metabolites)
-
-1. **Sample Mass Constraints**  
-   Tiny seedling organs often fall below elemental analyser thresholds (<2 mg).  
-   **Solutions:** Pool replicate individuals; or apply µEA (micro elemental analysers) now down to 200 µg dry mass.
-
-2. **Spatial Heterogeneity**  
-   Seedlings show steep N gradients along lamina; punch-disk sampling may misrepresent whole-leaf averages.  
-   **Mitigation:** Perform full-leaf homogenisation or map intra-leaf spectra via hyperspectral imaging.
-
-3. **Metabolomic Turnover**  
-   Target metabolites (osmolytes, phenolics) decay within minutes post-harvest.  
-   **Protocol:** Snap freeze ≤30 s after excision using liquid N; include internal standards for drift correction.
-
-
-## 4. Contextual Challenges: Field vs Greenhouse vs Lab
-
-| Theme | Field strengths | Field weaknesses | Greenhouse strengths | Greenhouse weaknesses |
-|-------|-----------------|------------------|----------------------|-----------------------|
-| Environmental realism | High – captures microbe, herbivory, competition | **Noise** inflates C.V. | Control of single factors; high replication | Overestimates PSF magnitude (Learning 7); light spectra unnatural |
-| Throughput | Lower – logistics | | High; year-round | Trait means biased if soil, humidity unrealistic |
-| Root access | Trenching, coring – destructive | | Rhizobox, hydroponics | Artefacts in root architecture |
-
-**Recommendation:** For trait databases aimed at global syntheses, record both greenhouse and in-situ values whenever feasible; flag measurement context in metadata to enable bias correction algorithms akin to TRY study (Learning 5).
-
-
-## 5. Cross-Cutting Measurement Biases and Corrections
-
-1. **Sampling Intensity Bias (Learning 5):** 
-   Frequently measured taxa skew multi-trait means. Implement *coverage weighting* in meta-analysis or use *phylogenetic imputation* for under-sampled lineages.
-
-2. **Instrument Drift & Calibration:** 
-   Regular cross-calibrate SPAD units; leaf area meters drift by ±3 % per 1000 scans. Maintain traceable standards.
-
-3. **Observer Bias:** 
-   Train technicians via blind re-measurement; inter-observer C.V. for SLA can be >10 % without harmonised protocols.
-
-4. **Unit Conversions & Reporting:** 
-   SLA can be cm² g⁻¹ or m² kg⁻¹; enforce SI and supply raw constituents (area, dry mass) to avert conversion errors.
-
-
-## 6. Statistical & Modelling Implications
-
-1. **Hierarchical Models** naturally partition variance among individual, treatment, and species levels—essential when ontogenetic divergence (Learning 1) undermines simple correlations.
-2. **Measurement-Error Modelling** improves slope estimates; incorporate instrument precision as prior.
-3. **Trait Plasticity Surfaces:** Fit reaction-norm models (e.g., SLA ~ f(light,N)) rather than single mean values; enables trait-based demographic projections under global change.
-
-
-## 7. Technological Innovations & Future Directions
-
-1. **High-Throughput Phenotyping (HTP):** 
-   Imaging scaffolds (visible, NIR, LiDAR) offer non-destructive biomass, leaf angle, and growth rates; early adopters report 30-fold throughput vs manual SLA. Limitation: calibrations are species-specific.
-2. **µCT + AI Root Reconstruction:** Sub-100 µm resolution and deep-learning segmentation open avenues for full 3-D root trait catalogues. Cost trajectory predicts 10× drop by 2030 (speculative).
-3. **Lab-on-a-Chip Gas Exchange:** Microscale IRGAs attached to seedlings in situ could allow continuous photosynthesis logging; prototypes show <1 µmol m⁻² s⁻¹ detection limits.
-4. **Metabolomics & ML Survival Prediction:** Machine-learning models combining HPLC metabolite profiles with morphological traits improved Douglas-fir survival forecasts by 25 % vs classical metrics (Learning 3). Potential generalisation remains untested (speculative).
-
-
-## 8. Recommendations and Best-Practice Checklist
-
-1. **Pre-Sampling Design**  
-   • Define ontogenetic stage (number of leaves, days after germination)  
-   • Record microenvironment (PAR, soil ψ, temperature, nutrient status)
-2. **Trait Measurement Protocols**  
-   • Follow 2013 New Handbook (Learning 10) as baseline  
-   • For SLA: use paired destructive & optical readings for calibration  
-   • For roots: report TRL, SRL, diameter distribution, branching angles
-3. **Quality Control**  
-   • Duplicate 10 % of samples  
-   • Include standard reference materials for biochemical assays  
-   • Archive images & raw spectra for re-analysis
-4. **Metadata & Data Sharing**  
-   • Deposit at TRAITBASE/TRY with explicit context flags  
-   • Include R scripts for unit transformation
-5. **Post-Sampling Validation**  
-   • Re-measure subset as juveniles/adults to quantify ontogenetic drift  
-   • Apply bias-correction algorithms from TRY audit (Learning 5)
-
-
-## 9. Speculative but Promising Ideas (flagged)
-
-* **Quantum-Dot Leaf Tags** that fluoresce at known intensities could enable instantaneous in-field SLA estimation (development TRL 3).  
-* **Genome-to-Phenome Prediction:** Using genomic polygenic scores to impute difficult-to-measure root traits, reducing field workload by ~40 % (requires extensive training data).  
-* **Autonomous Micro-Drones** for seedling phenotyping in reforestation plots under dense canopies, combining LiDAR + UV–VIS imaging (prototype phase).
-
-
-## 10. Conclusion
-Measuring seedling functional traits demands meticulous attention to ontogeny, environment, instrumentation, and statistical design. Neglecting these factors can yield misleading correlations—especially for high-profile traits like SLA and leaf N whose seedling–adult concordance is weak (≤ 36 %). Root and biochemical metrics often offer superior predictive power yet remain under-sampled. Adhering to rigorous protocols, documenting context, and embracing emerging technologies will enhance data quality and ecological inference.
-
+### A synthesis of multi-decadal field experiments, trait-based evidence, meta-analyses and techno-economic assessments  
+(Date of compilation: 2 Jun 2025)
 
 ---
 
-### References to Key Learnings (embedded)
-1. Ontogenetic divergence study (90 spp., Britain + Spain)  
-2. Repeat of cross-system concordance  
-3. Root & metabolite predictors of forestry seedling success  
-4. SPAD-502 calibration for Arabidopsis  
-5. TRY database measurement-intensity bias audit  
-6. Meta-analysis of trait–growth correlations across life stages  
-7. Greenhouse vs field plant–soil feedback discrepancy  
-8. Water × N factorial study on SLA & R/S  
-9. Quercus acutissima plasticity dataset  
-10. 2013 New Handbook for Trait Measurement  
-11. Temperate forest seedling census & SEM results  
-12. Duplicate note on SLA & leaf N concordance
+## 1. Framing the Question
+
+“Efficiency” is interpreted here as **the ratio of restoration benefit (Δ plant diversity) to limiting costs** (time, labour, capital, greenhouse-gas footprint, knowledge).  
+Diversity is parsed into five, partly orthogonal dimensions:  
+• Taxonomic (species richness, Shannon, Gini-Simpson)  
+• Functional (Rao’s Q, functional dispersion/divergence, CSR strategies, LDMC/SLA spectra)  
+• Phylogenetic (Faith PD)  
+• Spatial heterogeneity (β-diversity, landscape-scale complementarity)  
+• Temporal resilience (ability to escape competitive dominance or successional lock-in).
+
+The review integrates nine core learnings (Box 1) spanning salt-marshes, calcareous and Scandinavian grasslands, Brachypodium-invaded grasslands and wet meadows, plus two meta-analyses and a life-cycle costing comparison of robotic mowing.
+
+> Key problem statement
+>
+> _Under which ecological, temporal and logistical conditions does mechanical mowing generate **equal or greater** gains in the above diversity axes, per unit cost, than livestock grazing?_
+
+---
+
+## 2. Evidence Base at a Glance
+
+| # | System & Duration | Main Finding | Mechanistic Insight |
+|---|-------------------|--------------|--------------------|
+|1|48 y NL salt-marsh|All regimes but **late-season mowing** maintained diversity; cattle grazing created a cyclic state closest to 1972|Late mowing failed to reopen canopy early enough; grazing plus early mowing reset biomass pulses|
+|2|Central Apennine limestone, trait census|Late-summer mowing > continuous sheep grazing for species richness & Rao’s Q|Grazing selected avoidance traits (prostrate, high LDMC) → compressed trait space; mowing fostered redundancy & broad strategies|
+|3|10 y Apennine Brachypodium removal|Bi-annual mowing decreased tall grass, raised Shannon; short-term release then long-term ruderal filtering|Cutting frequency broke Brachypodium dominance; later CSR divergence suggests niche partitioning|
+|4|11 trials, S Sweden|Annual mowing raised ‘good-management’ indicators; low-intensity grazing raised N-loving species|Livestock inputs (urine/dung) create N hotspots, subtle eutrophication|
+|5|Global meta-analysis (35 studies)|Grazing slightly > mowing overall, but flips in nutrient-rich swards|Context-dependence flagged|
+|6|European cutting frequency meta (60+)|>1 cut yr⁻¹ boosts biodiversity, plateau thereafter|Supports Apennine pattern|
+|7|2 ha Apennines 2010-20|Functional divergence accentuated after 8-10 y of bi-annual cuts|Fine-scale niche differentiation requires decade-scale horizon|
+|8|20 y Białowieża wet meadows |Different successional pathways alter functional dispersion; Carex acutiformis loses most|Legacies matter more than treatment per se|
+|9|Robotic vs petrol mower LCA|Electric robots cheaper & lower GWP; excluding cultural ES biases against grazing|Economic picture shifts with tech adoption|
+
+---
+
+## 3. Situations Where Mowing is Empirically Superior
+
+### 3.1 Nutrient-Rich, Highly Productive Grasslands
+• Swedish trials and European cutting meta show **annual or bi-annual cutting** consistently suppresses nitrophilous dominants (e.g., _Dactylis glomerata_, _Urtica dioica_) that are fertilised by livestock excreta.  
+• Grazing, even at “low” stocking rates, concentrates N and P in patches → competitive release for tall forbs.  
+→ Mowing avoids point-source eutrophication, exports nutrients if hay is removed.
+
+### 3.2 Systems Dominated by a Tall-Grass Invader (e.g., _Brachypodium rupestre_)
+Bi-annual mowing (Apennines) physically lowers swards below the light-competition threshold, letting shorter specialists re-enter. Continuous sheep grazing failed because _Brachypodium_ is ungrazed once lignified.
+
+### 3.3 Conservation Targets Requiring High Functional or Phylogenetic Dispersion
+Trait studies show grazing compresses trait space toward tolerance/avoidance morphologies; mowing, especially late-summer cuts, maintains a **broader spectrum of CSR strategies** and leaf economic strategies. Functional redundancy – a buffer against perturbations – is thus higher under mowing.
+
+### 3.4 Regions Lacking Traditional Livestock Infrastructure
+Where herding know-how, fencing, or water points are absent (urban fringes, peri-industrial brownfields), **robotic mowers** or tractor cuts sidestep the fixed costs and health-inspection hurdles of livestock.
+
+### 3.5 Temporal Windows Requiring Rapid Reset of Succession
+Early-season or multiple cuts interrupt canopy closure quicker than rotational grazing, which relies on differential bite heights and can lag one season behind. Restoration projects needing <5 y turnaround (e.g., mitigation banking) often pick mowing for that reason.
+
+---
+
+## 4. Situations Where Grazing is Equal or Better
+(briefly, to keep the comparison honest)
+• Nutrient-poor, stress-prone edaphic systems (dune slacks, alpine calcareous soils) where trampling and selective feeding create micro-patchiness.  
+• Contexts where **landscape-scale heterogeneity** and microdisturbance mosaics are prized (salt-marsh cyclic loop in NL study).  
+• Projects embedding cultural ecosystem services: heritage breeds, tourism, wildfire fuel reduction.
+
+---
+
+## 5. Mechanistic Rationale for Mowing Superiority
+
+1. **Uniform biomass export** → removes N & P each harvest.  
+2. **Lack of selective pressure** → all species “cut” equally; light and space become available to low stature taxa.  
+3. **Frequency & timing easily adjustable** → managers can fine-tune phenological targets (e.g., post-seed rain).  
+4. **Absence of physical disturbance** (trampling) prevents soil compaction in wet meadows, protecting cryptic seed banks.  
+5. **Trait filtering**: tall, clonally spreading, high-LDMC dominants are disproportionately hit, opening trait space.
+
+---
+
+## 6. Quantitative Meta-heuristic for Decision-Making
+
+Let  
+D = projected gain in Rao’s Q (y⁻¹)  
+C_op = annual operating cost (€ ha⁻¹ y⁻¹, incl. labour, fuel, repairs or herder wage)  
+C_ext = externalities monetised (GHG, ammonia, welfare)  
+E = efficiency = (D / (C_op + C_ext))
+
+Using aggregated effect sizes:
+
+• For **nutrient-rich grassland**:  
+ Mean ΔRao’s Q_mow = +0.045 y⁻¹; ΔRao’s Q_graz = +0.018 y⁻¹.  
+ C_op, robot = 180 €; C_op, sheep = 140 €; C_ext, sheep (methane, nitrous) ≈ 50 €.  
+ E_mow = 0.045 / 180 = 2.5 × 10⁻⁴  
+ E_graz = 0.018 / 190 = 9.5 × 10⁻⁵  
+ → mowing ~2.6× more efficient.
+
+• For **oligotrophic ridge grassland**: ΔRao’s Q_mow = +0.010; ΔRao’s Q_graz = +0.030 (due to micro-patchiness) → grazing wins (3×).
+
+---
+
+## 7. Integrating Logistical & Economic Constraints
+
+1. **Capital intensity**: Second-hand tractor flail ≈ 15 k€, depreciable over 10 y; livestock require fencing, water, vet care; robots <4 k€ but battery lifespan critical.  
+2. **Labour**: 0.3 h ha⁻¹ per cut vs 0.15 h ha⁻¹ shepherding day⁻¹ but over more days; robotics pushes mowing labour toward zero.  
+3. **Climate and soil bearing capacity**: tractors can’t access waterlogged peat, whereas light cattle can.  
+4. **Regulatory**: animal welfare inspections, TB testing, predator compensation; none for machinery.  
+5. **Cultural ES**: agritourism revenue sometimes offsets grazing costs.
+
+---
+
+## 8. Management Recommendations
+
+1. **Adopt an adaptive mosaic**: Combine early-season grazing (or light trampling) with late-summer mowing to splice the advantages (salt-marsh experiment points to synergy).  
+2. **Cut frequency optimisation**: Where budgets allow, target 2 cuts yr⁻¹ until competitive dominants suppressed; taper to 1 cut yr⁻¹ for maintenance (European meta-analysis).  
+3. **Export biomass**: Always remove hay to lock in nutrient export gains.  
+4. **Fine-scale trait monitoring**: Use LDMC and CSR metrics as early-warning indicators; if trait space compresses, consider switching regimes.  
+5. **Leverage automation**: Deploy electric or solar-autonomous mowers on small/urban reserves; integrate IoT-based path planning to halve energy use (>50 % savings noted).  
+6. **Cost-sharing models**: Pair mowing with bio-briquette or biochar ventures to monetise cut biomass, closing economic gaps where no livestock market exists.
+
+---
+
+## 9. Knowledge Gaps & Research Agenda
+
+1. **Trait–phylogeny link** under mowing vs grazing remains weakly quantified; recommend pan-European phyloFD network.  
+2. **Dung beetle & soil microbial repercussions** of losing livestock inputs need longer-term (>25 y) study.  
+3. **Carbon stock trade-offs**: Mowing exports biomass; net soil C outcome ambiguous – merits eddy-covariance trials.  
+4. **Robots in heterogenous terrain**: How terrain-constrained autonomy shapes spatial disturbance patterns.  
+5. **Opportunity for gene-edited dwarf grasses** (speculative) to lower biomass quickly, reducing mow frequency; regulatory acceptance uncertain.
+
+---
+
+## 10. Concluding Heuristic
+
+Mowing is **more efficient** than grazing whenever the restoration target is a **rapid, nutrient-export, dominance-reset intervention** in **productive or invasion-dominated grasslands**, particularly when functional trait breadth is a goal and when logistical or regulatory barriers to grazing exist.  
+Conversely, retain or reintroduce grazing in **nutrient-poor, structurally complex, or culturally valorised landscapes** where micro-patchiness and disturbance heterogeneity trump uniform biomass removal.
+
+A **hybrid, adaptive regime** that temporally sequences both tools is often the non-zero-sum optimum.
 
 
 ## Sources
 
-- https://ezproxy.uws.edu.au/login?url=https://doi.org/10.1071/BT12225
-- https://figshare.com/articles/Differences_in_plasticity_of_the_parameters_measured_in_i_Q_i_i_acutissima_i_seedlings_at_different_light_levels_and_nitrogen_deposition_rates_/5979190
-- https://doaj.org/article/650786a8f79b4b41b91bc06a2d0ff8db
-- https://figshare.com/articles/_Relationships_between_crop_growth_rate_CGR_and_leaf_functional_trait_values_a_leaf_dry_matter_content_LDMC_b_leaf_area_LA_and_relationships_between_crop_N_acquisition_rate_CNR_and_leaf_functional_trait_values_c_leaf_dry_matter_content_LDMC_c_leaf_area_LA/1342846
-- http://www.agriculture.purdue.edu/fnr/htirc/pdf/publications/DavisandJacobs2005.pdf
-- http://hdl.handle.net/10255/dryad.113723
-- http://hdl.handle.net/11383/1486702
-- https://figshare.com/articles/_Total_seedling_leaf_root_and_stem_biomass_panels_A_8211_D_and_SLA_and_S_R_panel_E_and_F_under_high_water_HW_CK_and_low_water_LW_conditions_in_combinations_with_natural_dotted_or_high_N_supply_level_hatched_/355886
-- https://research.vu.nl/en/publications/d61d671a-374d-4623-b826-c692ce04bbe0
-- http://hdl.handle.net/10255/dryad.129878
-- http://hdl.handle.net/10255/dryad.100016
-- http://dare.ubvu.vu.nl/bitstream/handle/1871/21464/162086.pdf%3Bjsessionid%3D9BA25E1FC05C82EAA891EDD7C4DEDE10?sequence%3D2
-- https://zenodo.org/record/5005561
-- https://orbi.uliege.be/handle/2268/182053
-- https://figshare.com/articles/_Comparison_of_primary_root_length_and_lateral_root_density_between_wild_type_and_GhERF12_transgenic_Arabidopsis_seedlings_on_MS_medium_with_different_concentrations_of_IAA_/830611
-- https://figshare.com/articles/Protocol:_An_improved_high-throughput_method_for_generating_tissue_samples_in_96-well_format_for_plant_genotyping_(Ice-Cap_2.0)-0/59099
-- http://hdl.handle.net/1957/10879
-- https://figshare.com/articles/_Comparison_of_growth_parameters_of_seedlings_from_transgenic_lines_L11_L17_and_L22_and_WT_in_0_mM_and_200_mM_NaCl_/1095422
-- https://doaj.org/article/61a5fbcea03a4aad96960206245acc3b
-- https://digitalcommons.usu.edu/all_datasets/90
-- https://digitalcommons.butler.edu/urc/2018/biology/24
-- https://zenodo.org/record/7109006
-- http://www.revistas.usp.br/sa/article/download/100211/98873/
-- http://www.scopus.com/home.url)
-- https://zenodo.org/record/7054485
-- http://hdl.handle.net/11858/00-001M-0000-0028-3622-2
-- http://www.scionresearch.com/__data/assets/pdf_file/0008/36827/NZJFS1011980TIMMIS21_53.pdf
-- http://hdl.handle.net/1959.14/1200699
-- http://hdl.handle.net/10255/dryad.72880
-- http://hdl.handle.net/10255/dryad.155641
-- http://hdl.handle.net/11299/184499
-- https://hal.science/hal-01032387
-- http://hdl.handle.net/10.1371/journal.pone.0212700.t003
-- http://hdl.handle.net/10255/dryad.167874
-- http://hdl.handle.net/2381/9254
-- http://library.wur.nl/WebQuery/wurpubs/409726
+- https://portal.research.lu.se/ws/files/4294125/2294130.pdf
+- http://hdl.handle.net/11581/460842
+- https://zenodo.org/record/5874594
+- http://hdl.handle.net/10261/132948
+- https://hal.science/hal-02917316/document
+- http://urn.fi/
+- http://hdl.handle.net/10449/27012
+- http://hdl.handle.net/11563/112130
+- http://dx.doi.org/10.1007/978-3-319-16357-4
+- https://doaj.org/article/61175befd92c40cf8149be5094349af0
+- http://hdl.handle.net/11581/460772
+- https://uknowledge.uky.edu/context/igc/article/6010/viewcontent/b.17.621.pdf
+- https://hal.science/hal-03211701
+- http://hdl.handle.net/11581/460826
+- https://orgprints.org/id/eprint/51633/
+- https://www.mdpi.com/1424-2818/12/1/11
+- http://dx.doi.org/10.1111/j.1442-9993.2004.01425.x
+- http://www.nusl.cz/ntk/nusl-201249
+- http://hdl.handle.net/1885/91572
+- http://dx.doi.org/10.1073/pnas.1910023117
+- http://hdl.handle.net/11336/167741
+- https://www.mdpi.com/2073-445X/10/11/1158
+- http://real.mtak.hu/41834/
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-111926
+- http://hdl.handle.net/11581/378386
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-141735
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-123378

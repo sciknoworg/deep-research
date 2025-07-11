@@ -1,216 +1,192 @@
-# Methodological Challenges in Measuring Seedling Functional Traits – A Comprehensive Technical Assessment
+# When is Mowing More Efficient than Grazing for Restoring Plant‐Species Diversity – and Why?
 
-> *“Seedlings are miniature spatiotemporal contradictions: physiologically hyper-dynamic yet biophysically tiny, ecologically decisive yet methodologically elusive.”*  
-> — *anonymous reviewer of the original IGBP-GCTE handbook (1995)*
-
----
-
-## 1. Scope and Rationale
-Functional‐trait ecology increasingly tries to push trait measurements down the ontogenetic ladder from adult plants to seedlings. Doing so promises earlier prediction of species performance, accelerated breeding, and near-real-time ecosystem modelling. Yet methodological friction emerges from (i) the intrinsic size, fragility and developmental lability of seedlings, (ii) the multiplicity of trait classes (morphological, physiological, biochemical) and (iii) divergent measurement arenas (growth chambers vs. field). Below I dissect the main classes of methodological challenges, integrate insights from the historical protocol literature and recent high-throughput phenomics/metabolomics advances, and close with actionable recommendations, including contrarian and speculative solutions flagged as such.
-
-The analysis deliberately treats the three axes left blank in the prior Q&A—trait class, measurement environment, and comparative objective—as variables, offering guidance across the full factorial space.
+*Synthesising evidence from long-term experiments, continental meta-analyses, agro-economic datasets and emerging remote-sensing indices*
 
 ---
 
-## 2. Trait Classes and Measurement Contexts – Overview of Specific Hurdles
+## 1. Framing the Question
 
-| Trait Class | Typical Seedling Metrics | Controlled Environment Hurdles | In-situ Field Hurdles | Cross-Species vs. Ontogenetic Issues |
-|-------------|--------------------------|--------------------------------|-----------------------|--------------------------------------|
-| **Morphological** | SLA, root:shoot, specific root length, hypocotyl length, tissue density | • Destructive sampling quickly exhausts individuals  
-• High variance due to diel water loss  
-• Gravimetric precision at mg-scale needed | • Soil heterogeneity -> noisy root excavations  
-• Optical occlusion in canopy gaps  
-• Microtopography complicates basal diameter readings | • Ontogenetic drift: root:shoot pivot between 10–35 d in many species  
-• Size normalization across species scales non-linearly |
-| **Physiological** | Photosynthetic CO₂ assimilation (Amax), stomatal conductance, transpiration, water-use efficiency (WUE), chlorophyll fluorescence | • Chamber lids create boundary-layer artefacts on tiny leaves  
-• Instrument dead-volume vs. seedling leaflet area mismatch  
-• Rapid ontogenic change requires sub-daily repeated measures | • Wind and irradiance variability swamp signal  
-• Gas-exchange cuvettes > leaf area of seedlings  
-• Water potential probes damage soft tissue | • Trait plasticity dwarfs genetic signal in early ontogeny  
-• Species with heteromorphic cotyledons inflate variance |
-| **Biochemical** | Elemental (C, N, P, K), non-structural carbohydrates, metabolite fingerprints (LC-MS, GC-MS, NMR) | • Sample mass < analytical detection limit; pooling obscures individuals  
-• Cryogenic grinding creates bottleneck  
-• Metabolite half-lives < 30 s after excision | • Field HPLC impossible without cold chain  
-• Soil contamination confounds root samples  
-• UV-visible degradation during transport | • Adult–seedling biochemical correlations weak (~30 %)  
-• Divergent metabolite ontologies across taxa hamper database match |
+Restoration practitioners routinely ask whether to deploy livestock grazing or mechanical mowing when the objective is to **recover or maintain high vascular‐plant diversity** in degraded grasslands, meadows or open shrublands. “Efficiency” can be interpreted along several, non-exclusive axes:
 
+1. **Ecological speed** – years until target α-diversity, β-diversity or multi-functionality is reached.
+2. **Economic cost-effectiveness** – €–US$ per hectare until restoration success, including long-term O&M.
+3. **Risk/variance** – probability of failure, inter-annual variability, insurance value for landholders.
+4. **Monitoring burden** – staff time or analytical cost needed to demonstrate success.
+
+The evidence below focuses primarily on **temperate mesic grasslands of Europe** (with extensions to Mediterranean and alpine contexts where data exist) and uses the **speed-of‐richness recovery per unit cost** as the composite efficiency criterion unless otherwise stated.
 
 ---
 
-## 3. Historical Baselines: The Protocol Handbooks
+## 2. Key Mechanistic Contrasts: Mowing vs. Grazing
 
-1. **IGBP-GCTE (1995) original 28-trait protocol**  
-   • Still underpins TRY and associated databases.  
-   • Strength: taxonomy-agnostic, low-cost.  
-   • Limitation: seedling-specific nuances largely absent (e.g., cotyledon vs. first true leaf distinction).
+| Process | Mowing (1–4 cuts yr⁻¹) | Grazing (continuous or rotational, variable stocking) |
+|---------|-------------------------|------------------------------------------------------|
+| Defoliation pattern | Uniform, height‐truncated; 100 % of above-ground biomass removed per event (Grass Use Intensity = 100 %) | Heterogeneous, selective; biomass removal proportional to stocking rate and palatability (GUI ≈ 10–70 %) |
+| Nutrient removal/return | Export of N, P, K via hay if removed; minimal in situ redistribution | Strong redistribution via dung/urine patches; potential N hotspots |
+| Disturbance seasonality | Fixed or planner‐chosen; can avoid bird nesting | Spans entire grazing season; harder to exclude sensitive windows |
+| CapEx/OpEx | Machinery, fuel, labour; scalable; high spatial precision | Fencing, water, herder, animal welfare; may carry multi‐use revenue (meat/milk) |
+| Non-target impacts | Soil compaction low (if dry); little trampling, but machinery may cause ruts | Hoof action creates microsites; compaction, eutrophication patches |
 
-2. **“New Handbook” (CSIRO, 2013)**  
-   • Adds root, stem and regenerative modules, many directly relevant to seedlings.  
-   • Step-by-step recipes but assume adult organ sizes; adaptation needed for mg-scale tissues.  
-   • Introduces quality-control (QC) flags that later helped meta-analyses discriminate data reliability.
-
-3. **TraitBank/FPP-FM frameworks (post-2018)**  
-   • Marry high-throughput phenotyping with QTL mapping.  
-   • Provide statistical scaffolding (mixed models, G×E variance partitioning) but not hardware guidelines.
-
-The key message: protocols exist but need *miniaturisation*, *temporal densification* and *integration with omics* to serve seedling work.
+These mechanistic differences underpin where and why mowing can outcompete grazing for diversity outcomes.
 
 ---
 
-## 4. Core Methodological Challenges and Emerging Solutions
+## 3. Evidence Summary
 
-### 4.1 Miniaturisation of Instrumentation
+### 3.1 Long‐Term Swedish Trials (11 sites, 14 yr)
 
-**Challenge**: Gas-exchange cuvettes, IRGA chambers, pressure bombs and leaf area meters were designed for cm²–dm² leaves. Seedlings often offer < 0.25 cm² total photosynthetic surface.
+• **Annual mowing** preserved baseline species richness, whereas shifting to a 3-yr mowing interval led to **50–60 % loss of conservation value** and woody/tall species encroachment.  
+• **Low-intensity grazing** increased nitrophilous “excess‐N indicators”, signalling eutrophication risk.  
+**Implication:** On fertile, previously mown Scandinavian grasslands, *consistent annual mowing* is more efficient than introducing grazing, because it avoids N hotspots and maintains light availability.
 
-**Current fixes**:  
-• Custom 3-D-printed micro-cuvettes with laminated mylar windows (0.5–1 ml dead volume).  
-• NIR spectroscopic proxies calibrated against destructive leaf N/Chl metrics.  
-• Lab-on-a-chip respirometry (microfluidic O₂ sensors) for whole-seedling metabolic rate.
+### 3.2 European Meta-analysis (35 studies)
 
-**Speculative (flagged)**: integrate *nanoplasmonic leaf patches* that transduce turgor-driven strain into spectral shift, enabling non-contact stomatal conductance estimates.
+• Found grazing *slightly* superior to single annual mowing **on average**, but with large heterogeneity.  
+• Moderator analysis shows **productive sites and higher mowing frequencies (≥2 cuts yr⁻¹)** tip the balance in favour of mowing.
 
-### 4.2 Throughput vs. Individual Resolution
+### 3.3 Multifunctionality & Below-ground Recovery (Central Europe)
 
-High-throughput (HTP) pipelines (e.g., metabolomics with robotics) can now process thousands of samples, approaching genomic selection costs. Yet seedling trait datasets often need individual-level resolution to capture ontogenetic variance.
+• Grasslands started with **250 % higher initial sown richness plus frequent burning** *or* with **topsoil removal + seed addition** reached seminatural multifunctionality **within 22 yr**.  
+• Monitoring analysis: **Plant richness alone explains 54 %** of multifunctionality at only **4 % of survey cost** – mowing easily schedules around targeted seed addition and topsoil removal, whereas grazing complicates burn windows and seedling survival.
 
-• *Phenomic selection* pipelines (Robotics + LC-MS) succeed when pooling tissues because statistical models treat metabolite PCs as predictors.  
-• For morphological traits, computer-vision root scanners (e.g., RhizoVision Explorer) allow non-destructive, time-series capturing of the same individual.
+### 3.4 Productivity–Cost Trade-off Experiment (78 plots; 1–16 spp; 0–4 cuts yr⁻¹)
 
-Hybrid solution: Pair HTP biochemical trait assays (pooled) with image-based morphological time-series (individual) and fuse through hierarchical Bayesian models.
+• **16-species low-input mixtures with 1–2 cuts yr⁻¹** matched biomass of **4-species + 4 cuts + 200 kg N ha⁻¹ yr⁻¹**.  
+• Diversity “substituted” for both fertiliser and extra mowing intensity.  
+**Take-home:** Where seed addition is feasible, *moderate mowing* plus high diversity achieves target biomass without fertiliser, something grazing cannot replicate without extra feed or legumes.
 
-### 4.3 Ontogenetic Drift and Temporal Alignment
+### 3.5 Agro-economic Analysis (3 960 EU farms, 2002-2013)
 
-A 90-species comparative study (Britain/Spain) showed only ~30 % of adult SLA and leaf-N variation traceable to seedling measurements. This ontogenetic drift implies:
+• **Higher grassland diversity or larger permanent grassland share** increased *certainty equivalents* (risk-adjusted profit) via *yield insurance* and reduced variable input costs.  
+• Mowing can be scheduled to capture hay revenue; grazing requires livestock enterprise – a barrier for many arable farmers.
 
-• Describing time explicitly (days after germination, DAG) in the metadata.  
-• Sampling multiple ontogenetic checkpoints (cotyledonary, first true leaf, phase change).  
-• Using derivative traits (rate of change in SLA) which may be more heritable than static values.
+### 3.6 Land-Use Intensity (LUI) & GUI Indices (Biodiversity Exploratories)
 
-### 4.4 Controlled vs. Field Environment Artefacts
-
-Chamber trials exaggerate light uniformity, vapour pressure deficit stability and root confinement, potentially flattening trait variance. Conversely, field seedlings face spatial microheterogeneity.
-
-Mitigation strategies:
-
-1. Split-plot design: core family/genotype repeated in both environments, allowing calibration transfer functions.  
-2. Deploy *in-field* microphenotyping rigs: portable chlorophyll fluorometers and pocket spectrometers for real-time QC.  
-3. Use isotopic tracers (e.g., ¹⁵N pulses) to uncouple soil heterogeneity from genotypic uptake capacity.
-
-### 4.5 Root Trait Acquisition
-
-Roots represent >50 % of seedling biomass but remain the most under-sampled trait domain.
-
-• X-ray micro-CT (resolution 20 µm) penetrates damp soil cores of < 4 cm diameter—largely adequate for seedling root architecture studies, yet high cost.  
-• Gel-based *GLO-roots* (Arabidopsis) combined with optical tomography: powerful for model species but fails for woody seedlings.  
-• Rhizotron transparency plates can scale to small Conifer seedlings; open-source Imaging Root Finder algorithms now support real-time skeletonisation.
-
-Speculative: *Muon-based root imaging* (low-energy cosmic muon tomography) theoretically could map carbon density distribution in intact soil cores; currently at proof-of-concept for forestry saplings.
-
-### 4.6 Biochemical Trait Bottlenecks
-
-• Detection limit problem: classical Kjeldahl or ICP-OES needs > 2–5 mg dry mass. Many seedlings contain less.  
-• Solution:   
-  – **Micro-XRF** for in-situ elemental mapping on intact tissues (resolution 50 µm).  
-  – **Ion-mobility spectrometry‐MS (IMS-MS)** with a 544-standard library now disambiguates isobaric signatures, reducing sample mass needed.  
-• Time-to-quench: Non-structural carbohydrates degrade within minutes. Liquid-nitrogen immersion at harvest + freeze dryer recommended; dewars must be field-portable (< 6 kg units now exist).
-
-### 4.7 Data Integration and Statistical Power
-
-Seedling trait matrices are often *wide but shallow*: dozens of traits, few individuals. Variance-component models (REML) help partition G, E, G×E but inflate type-I errors at low n.
-
-Emerging approach:  
-• **FPP-FM pipeline**: integrates trait time-series, environmental covariates and genetic marker data in a single mixed-effects structural equation model, automatically penalising over-parameterised paths.  
-• Cross-validation with *phenomic selection* (metabolite PCs) acts as orthogonal confirmation.
+• Vegetation richness declines with higher **compound LUI**; temporal variance was dominated by year-to-year **grazing** fluctuations.  
+• **GUI concept** counts mowing as 100 % removal; thus, for equal GUI, fewer mowing events usually out-perform equal‐GUI grazing for diversity because nutrient return is lower and disturbance more evenly spread.
 
 ---
 
-## 5. Practical Recommendations – A Consolidated Checklist
+## 4. Situations Where Mowing is Likely More Efficient
 
-1. **Define Ontogenetic Stage Precisely**  
-   – Use phenological codes (BBCH-00 to ‑11) rather than age alone.
+### 4.1 High-Productivity, High‐Nitrogen Sites
 
-2. **Miniaturise Where Feasible, Upscale Stats Elsewhere**  
-   – Custom micro-cuvettes; micro-XRF; IMS-MS.  
-   – Apply hierarchical models to borrow strength across timepoints.
+• Fertile soils + atmospheric N deposition favor fast turf grasses. Grazing animals selectively remove forbs less, and dung/urine elevate N further.  
+• Annual or twice-annual mowing *exports* biomass and N, counteracting eutrophication. Swedish and Central-European trials confirm faster recovery of *forb richness* under mowing.
 
-3. **Implement Dual-Environment Calibration**  
-   – Repeat a core subset of genotypes in both field and chamber to generate correction functions (e.g., SLA_field = 0.82·SLA_lab + 4 cm² g⁻¹).
+### 4.2 Early-Stage Restoration After Topsoil Removal or Seed Addition
 
-4. **Prioritise Non-destructive, Repeated Measures for Fragile Traits**  
-   – Hyperspectral imaging for biochemical proxies; root scanners for architectural dynamics.
+• Newly sown or colonising seedlings tolerate uniform light and limited trampling. Mowing offers predictable window and low soil disturbance; grazing hoof action can exceed seedling tolerance.  
+• Fire integration (as in 250 % higher richness treatment) pairs better with post-burn mowing than with grazing because livestock are usually removed during burns.
 
-5. **Standardise Metadata with Handbook Variables**  
-   – Follow CSIRO (2013) field metadata + new “TraitBank” ontology.  
-   – Note instrument model, calibration regime, sample mass, DAG, tissue temperature, photon flux.
+### 4.3 Absence of Grazing Infrastructure or Willing Livestock Holders
 
-6. **Use Paired Biochemical–Morphological Approaches**  
-   – Metabolite fingerprints can predict morphological SLA at r ≈ 0.7 (Arabidopsis proof-of-concept). This allows indirect estimation when tissue mass is limiting.
+• Many fragmented peri-urban grasslands lack fences, water points. The CapEx to enable grazing (>€ 1 000 ha⁻¹) vs. a contractor mowing fee (~€ 120 ha⁻¹ for a single cut) makes mowing cost-efficient when livestock revenue cannot offset setup.
 
-7. **Invest in QC Flags and Reference Standards**  
-   – Include NIST plant SRM 1515 or custom pooled seedling powders for every 20 samples in the run.
+### 4.4 Sites Requiring Strict Phenology Windows (e.g., Ground‐nesting Birds)
 
-8. **Plan for Scaling Error**  
-   – Extrapolation from seedling to adult is uncertain; treat seedling traits not as surrogates but as *distinct* predictors in ecosystem models.
+• Rotary or bar mowing can be scheduled post-fledging. Rotational grazing inevitably spans several phenological phases unless heavily managed.
 
----
+### 4.5 Controlling Woody Encroachment on Mesic Meadows
 
-## 6. Contrarian & Future Directions (Speculative)
+• Uniform 100 % biomass removal & ability to collect small brush via flail toppers checks sapling establishment more effectively than cattle/sheep grazing, which often avoid thorny or woody seedlings.
 
-1. **Digital Twins of Seedlings** *(high speculation)* – Real-time photogrammetry + physiological sensor fusion feeding a finite-element model, allowing *in silico* destructive sampling (e.g., virtual root:shoot). Could circumvent ethical/perm constraints in endangered species.
+### 4.6 Monitoring and Compliance Contexts
 
-2. **On-Chip ^13C Metabolic Flux Assays** – Micro drop (< 200 nL) stable-isotope labelling in microfluidic devices glued to cotyledons; mass-spectrometric readout after 30 min. Would map carbon allocation kinetics without whole-plant harvests.
-
-3. **Field-Deployable HPLC** – Battery-powered µHPLC modules (∼10 kg) exist for oil‐&‐gas. Retrofitting for plant metabolite analysis could enable same-day metabolomics on remote plots, avoiding degradation artefacts.
-
-4. **Satellite-to-Seedling Downscaling** – Use high-resolution UAV hyperspectral data to model canopy biochemical variability, then sample seedlings only in spectral “modal bins,” reducing rep effort by 70 % while preserving representativeness.
-
-5. **Crowd-Sourced Trait Imaging** – Smartphone macro-photography calibrated with colour standards can capture seedling morphology at continental scale; machine-learning segmentation compensates for device variability.
+• Because **plant richness alone** proxies 54 % of multifunctionality, mown sites that achieve richness targets reduce monitoring cost (only botanical surveys), whereas grazed sites often require soil nutrient & patchiness metrics to verify equality – inflating transaction costs in agri-environment schemes.
 
 ---
 
-## 7. Concluding Synthesis
-Measuring seedling functional traits remains a technically thorny endeavour owing to size constraints, rapid developmental shifts, and environment-sensitivity. However, technological advances—robotics-assisted metabolomics, ion-mobility MS, micro-cuvettes, and sophisticated statistical frameworks such as FPP-FM—are closing the gap.
+## 5. When Grazing May Still Outperform Mowing
 
-Key take-homes:
+To avoid one-sided bias it is worth noting scenarios where mowing is rarely more efficient:
 
-• *Standardisation* matters: Adopt the New Handbook’s metadata rigor but miniaturise its protocols.  
-• *Throughput vs. resolution* is a trade-off—hybrid pipelines are optimal.  
-• *Ontogenetic context* cannot be ignored; seedling traits have limited but non-trivial predictive power for later stages.  
-• *Integration* across morphological, physiological and biochemical dimensions provides a fuller functional picture than any single trait class.
+1. **Oligotrophic, dry calcareous grasslands:** Grazers create micro‐heterogeneity and bare soil crucial for terricolous lichens/shallow-rooted endemics; uniform mowing can homogenise structure.
+2. **Steep, inaccessible slopes:** Machinery risk > grazing cost; shepherded goats/sheep excel.
+3. **Sites with encroached thatch layer >5 cm:** Hoof disturbance may be necessary to break litter; mowing may only add further litter if biomass is not removed.
+4. **Regions where livestock premiums or carbon credits offset costs:** Economic calculus tilts.
 
-Future research should prototype field-deployable biochemical assays, explore digital twin technologies, and continue refining statistical models that explicitly incorporate ontogenetic trajectories. Addressing these methodological challenges will not merely improve trait databases; it will fundamentally sharpen our capacity to forecast plant performance, community assembly and ecosystem functioning under unprecedented environmental change.
+---
+
+## 6. Quantitative Decision Framework
+
+A simple multi-criteria matrix can operationalise “efficiency”. Each criterion is scored 1 (worst)-5 (best); weights (wᵢ) adjustable. Example weights from EU agri-environment perspective are pre-filled.
+
+| Criterion | wᵢ | Mowing (1-2× yr⁻¹) | Grazing (0.4 LU ha⁻¹; May-Oct) |
+|-----------|----|---------------------|----------------------------------|
+| Plant α-diversity speed | 0.30 | 4 | 3 |
+| Implementation cost | 0.20 | 3 | 2 |
+| Risk/variance | 0.10 | 4 (predictable) | 2 (weather, stock health) |
+| Nutrient export | 0.15 | 5 | 2 |
+| Structural heterogeneity | 0.15 | 2 | 5 |
+| Social acceptance & co-benefits | 0.10 | 3 | 4 |
+| **Weighted score** | **1.00** | **3.55** | **3.05** |
+
+Above shows mowing leading on fertile mesic sites. Tuning weights or stocking rates flips the outcome on xeric, low-N grasslands.
+
+---
+
+## 7. Emerging & Contrarian Options
+
+1. **Robotic, GPS-guided mowers** with variable cutting height could mimic grazing heterogeneity without nutrient hotspots.
+2. **Virtual fencing & e-collars** might soon reduce infrastructure cost, potentially restoring competitiveness of grazing on small parcels.
+3. **Cut‐and‐carry mulch grazing (“zero-grazing”)** marries mowing’s nutrient export with livestock feed demand elsewhere – a hybrid catching on in Northern Europe.
+4. **Seed-harvesting mowers** could simultaneously cut biomass and collect propagules for other restoration sites – dual revenue stream.
+
+All four could disrupt the current trade-off landscape within the next decade (speculative, flagged).
+
+---
+
+## 8. Practical Recommendations
+
+1. **Stratify by soil fertility (top 25 % vs. lower):** choose mowing on fertile strata, grazing or mosaic on poor soils.
+2. **Aim for ≥1 cut yr⁻¹; 2 cuts on extremely productive sites** (>5 t DM ha⁻¹) to keep N removal ~75 kg N ha⁻¹ yr⁻¹.
+3. **Combine first 3-yr phase of mowing with overseeding of 16-species forb-rich mix** for rapid biomass equivalence with high-input systems without fertiliser (saves 40–50 % input cost).
+4. **Adopt Grass Use Intensity (GUI) tracking** via remote-sensing to ensure cross‐year comparability and detect management drift.
+5. **Budget monitoring around plant species richness only** once sites approach target richness; allocate freed funds to adaptive management.
+
+---
+
+## 9. Knowledge Gaps & Research Needs
+
+• **Threshold GUI values** where mowing ceases to outperform grazing still poorly resolved beyond Central Europe.  
+• **Below-ground biota responses** (mycorrhizae, nematodes) – most datasets focus above ground.  
+• **Life‐cycle carbon accounting** of tractor mowing vs. enteric CH₄ – vital for climate-coupled restoration funding.  
+• **Integration with rewilding narratives** – public likes “wild” grazers; can mowing emulate heterogeneity aesthetics?
+
+---
+
+## 10. Conclusion
+
+Mowing becomes the *more efficient* restoration tool for plant diversity in **fertile, mesic grasslands where nutrient export, uniform seedling light climate and low implementation risk are paramount**. Evidence from Swedish long-term trials, multifunctionality experiments and EU farm economics consistently points to **annual or twice-annual biomass removal by mowing** achieving faster and cheaper diversity recovery than realistic grazing regimes, provided biomass is removed from site. Grazing retains advantages on nutrient-poor, structurally complex or inaccessible terrains, but for a large share of European restoration targets – particularly fragmented or peri-urban meadows – mowing currently offers the optimal blend of ecological and economic efficiency. Emerging technologies (robotic mowers, virtual fencing) may, however, blur these boundaries in the coming decade.
 
 
 ## Sources
 
-- https://doaj.org/article/2c41e6c083c64cec80eab3fb065cb1eb
-- http://edoc.mpg.de/251475
-- http://hdl.handle.net/11858/00-001M-0000-000E-D01D-B
-- http://edoc.mpg.de/228639
-- https://figshare.com/articles/_Overview_of_plant_traits_used_in_analyses_of_functional_trait_diversity_and_community_weighted_mean_traits_/1107424
-- https://juser.fz-juelich.de/search?p=id:%22FZJ-2018-01164%22
-- https://hal.inrae.fr/hal-03150312
-- http://hdl.handle.net/1957/10879
-- https://espace.library.uq.edu.au/view/UQ:389388
-- http://hdl.handle.net/10.1371/journal.pone.0212232.t002
-- http://jxb.oxfordjournals.org/content/early/2013/08/05/jxb.ert244.full.pdf
-- http://edepot.wur.nl/214222
-- https://ezproxy.uws.edu.au/login?url=https://doi.org/10.1071/BT12225
-- http://hdl.handle.net/11383/1486702
-- http://dare.ubvu.vu.nl/bitstream/handle/1871/21464/162086.pdf%3Bjsessionid%3D9BA25E1FC05C82EAA891EDD7C4DEDE10?sequence%3D2
-- http://hdl.handle.net/10255/dryad.129878
-- https://archive-ouverte.unige.ch/unige:89505
-- http://handle.westernsydney.edu.au:8081/1959.7/uws:39606
-- http://hdl.handle.net/2072/440433
-- http://hdl.handle.net/10255/dryad.100016
-- http://www.loc.gov/mods/v3
-- https://oskar-bordeaux.fr/handle/20.500.12278/168520
-- https://doaj.org/article/c6ee17943c764acda28aea86569624bc
-- http://hdl.handle.net/11858/00-001M-0000-000E-D01E-9
-- https://research.vu.nl/en/publications/d61d671a-374d-4623-b826-c692ce04bbe0
-- https://orgprints.org/id/eprint/38654/
-- http://hdl.handle.net/10255/dryad.49806
-- https://research.vu.nl/en/publications/c99c2ab2-255e-4ffb-aba4-a82dc243397f
-- https://zenodo.org/record/6916522
+- https://hal.univ-lorraine.fr/hal-01478331
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:96925
+- http://hdl.handle.net/20.500.11850/156972
+- https://research.wur.nl/en/publications/evaluating-long-term-success-in-grassland-restoration-an-ecosyste
+- https://egf2022.symposium.inrae.fr/
+- https://www.ajol.info/index.php/ajrfs/article/view/141359
+- https://pure.knaw.nl/portal/en/publications/198cfdef-1f56-4116-98a8-3f8e1cd74cae
+- http://real.mtak.hu/41834/
+- http://hdl.handle.net/20.500.11850/468281
+- https://www.ajol.info/index.php/ajrfs/article/view/161810
+- http://ir.iswc.ac.cn/handle/361005/8036
+- http://urn.fi/
+- http://www.europeangrassland.org/printed-matter/proceedings.html
+- http://ageconsearch.umn.edu/record/261288
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-141735
+- http://hdl.handle.net/10150/647544
+- http://hdl.handle.net/11858/00-001M-0000-000E-DD0F-9
+- http://ageconsearch.umn.edu/record/276948
+- http://hdl.handle.net/11336/211624
+- https://arbor.bfh.ch/9075/
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-123378
+- http://hdl.handle.net/11383/1501448
+- http://hdl.handle.net/10150/645054
+- https://isara.hal.science/hal-03703723
+- https://research.vu.nl/en/publications/04ca142a-06fa-4a47-8ca1-c1c8599ff819
+- http://dx.doi.org/10.1111/j.1442-9993.2004.01425.x
+- http://hdl.handle.net/2434/30487

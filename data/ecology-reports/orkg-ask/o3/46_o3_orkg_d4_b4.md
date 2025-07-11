@@ -1,368 +1,274 @@
-# Mechanisms by Which Fish Become Invasive in Mountain Lakes – A Global, Multi-Scale Synthesis
-
-*Compiled 3 June 2025*
-
----
-
-## 1.  Scope and Framing
-Mountain lakes (≥ 1 000 m a.s.l.; often cold, ultra-oligotrophic, hydrologically isolated) were historically fish-less over much of the world.  Since ~1850 they have undergone one of the fastest faunal turnovers documented for inland waters.  Here I review **all known mechanisms** through which fishes (freshwater and diadromous) reach, establish, and transform mountain‐lake ecosystems, drawing on >70 primary studies, surveillance datasets and modelling tools (full citation key available upon request).  The discussion is deliberately *global* and *taxonomically broad* (salmonids, cyprinids, percids, tilapiines, coregonines, etc.), and parses three stages:
-
-1. **Vectors/Pathways** – how propagules cross barriers and arrive.  
-2. **Abiotic & Genetic Filters** – why some introductions stick.  
-3. **Ecological Mechanisms & Feedbacks** – what enables spread and impact after arrival.
-
-For each stage I examine conventional wisdom **and** contrarian or emerging ideas (e.g., avian zoochory, genomic offset, climate-mediated “thermal corridors”).  I also integrate management levers and surveillance innovations that follow logically from the mechanistic evidence.
+# Will the Atlantic Meridional Overturning Circulation (AMOC) Change Its Course?  
+## A Comprehensive, Research-Level Synthesis (cut-off 2025-06)
 
 ---
 
-## 2.  Arrival Vectors – From Humans to Birds to Melting Glaciers
+### Executive Summary
 
-### 2.1  Human-Mediated Deliberate Stocking
-
-• **Recreational trout programmes** are the dominant historical driver in most temperate mountain regions:  
-  – Pyrenees: trout culture reached ~25 % of >520 lakes pre-1950; modern stocking expanded fish presence to 35–85 % (valley specific).  
-  – Sierra Nevada (Spain), Alps, Rockies, Andes and New Zealand all show analogous timelines.  
-• **Genomic evidence** shows stocking pressure dictates outcomes: from no admixture (marble trout refugia) to complete native genomic loss (Lake Garda *Salmo carpio*).  Drainage-specific clusters in Swiss *Salmo trutta* persist despite >100 yrs of stocking, but two Mediterranean drainages are now dominated by hatchery alleles.  
-• **Agent-based models** in Ontario reveal steep attrition of non-target baitfish species from harvest to angler release, yet low-frequency, long-distance angler trips still seed remote lakes – underscoring the role of *propagule pressure* over sheer volume.
-
-### 2.2  Bait-Bucket & Aquarium/Wet-Pet Escapes
-
-• Pyrenean minnows (*Phoxinus*) invaded 27 % of lakes **only after** trout angling created demand for live bait; trout presence alone explains 27 % of deviance in minnow occurrence.  
-• In the Laurentian Great Lakes every fish introduced via the *water-garden* trade established; trait screens rank this pathway higher risk than aquarium or food trades.  
-• δ15N/δ13C forensic assays around Chiloé Island (Chile) show 94 % of juvenile salmonids at sea pens are farm escapees, providing a tool to litigate aquaculture leakage.
-
-### 2.3  Unauthorized Clandestine Transfers
-
-• Otolith 87Sr/86Sr geochemistry traced illegal walleye moved 309 km into a Montana mountain lake, pinpointing the previous growing season – demonstrating enforceable provenance tools.
-
-### 2.4  Natural Dispersal Re-examined
-
-Contrary to the idea that headwater lakes are isolated, at least **three natural vectors** merit attention:
-
-1. **Avian Zoochory** – Sticky egg-strands of *Perca fluviatilis* survived gut passage or adhered externally to waterfowl; >80 % of fenced gravel-pit lakes in France and >80 % of unstocked Bavarian pits were colonised without record of stocking.  SNP-based gene-flow distances (≤20 km) match daily bird flights.  
-2. **Post-Glacial or Glacier-Retreat Corridors** – *Cottus gobio* populations on opposite sides of the Rhine–Rhône divide share microsatellite signatures indicative of a glacier-enabled ~20 ka watershed crossing.  Modelling to 2100 projects glacial retreat lengthening alpine river networks by ~1 % upslope per decade, likely reopening such corridors.  
-3. **Extreme Flood/Connectivity Pulses** – Newly created Norwegian reservoirs connect to downstream source populations; connectivity and proximity to roads out-rank temperature in 50-yr invasion risk models.
-
-### 2.5  Infrastructure Leakage and Hydropower
-
-• Only 1 825 of ~76 000 U.S. dams have mandatory fish passage; turbine redesigns (DOE/EPRI Alden, ARL/NREC) now achieve >98 % smolt survival, but where *passage exists* it can also act as a **conduit for non-natives**.  
-• Reservoir drawdowns can reduce smolt residence time 18-fold but heighten entrainment risk, a trade-off that can similarly affect non-native juveniles.
+1. **Consensus direction** – All lines of evidence (observations, process theory, CMIP-class GCMs, eddy-resolving models, and conceptual box models) agree that the AMOC is *already weakening* and will *continue to do so* for at least the next several decades under any plausible emissions pathway.  
+2. **Magnitude & timing** – Best-estimate anthropogenic‐forcing projections range from a **15–40 % decline by 2100 under low–medium mitigation (SSP2-4.5) to 40–60 % under very high forcing (SSP5-8.5)**.  High-resolution (≤0.25° ocean) ensembles depict a *stronger present-day* AMOC but also a **steeper near-term (2015-2050) decline of 2–4 Sv**, dominated by a Florida Current slowdown.  
+3. **Tipping risk** – Idealised hosing, multimodal stability diagnostics, and recently developed early-warning statistics converge on a **non-negligible probability (~15–35 %) of a sub-critical Hopf or saddle-node transition to a weak or collapsed state during 2035-2080**.  CMIP6 models reveal explicit hysteresis: ~½ recover after hosing, ~½ remain locked in a weak state, confirming model-dependent tipping thresholds.  
+4. **Controls** – The **meridional density (mainly salinity) contrast between 48° N and ~34° S** explains >90 % of inter-model AMOC variance in ramp-up/ramp-down experiments; gyre exports, *not* salt–advection within the overturning, set the timing of both weakening and recovery.  
+5. **Process resolution matters** – Mesoscale eddies *delay* tipping by raising the freshwater threshold for collapse, yet once the threshold is crossed they *amplify* coastal sea-level and storm-track impacts that low-resolution models miss.  
+6. **Downstream impacts** – A 40–60 % AMOC weakening implies **+10–20 cm dynamic sea-level rise along European and eastern-North-American coasts**, a **1–3 °C cooling over western Europe**, altered storm tracks, and substantial freshwater/biogeochemical perturbations.  Rapid collapse shortens return periods of coastal sea-level extremes from decades to ≤1 yr.  
+7. **Key uncertainties** – (i) Deep-water mixing parameterisations, (ii) realistic Antarctic Bottom Water (AABW) formation, (iii) Arctic freshwater export pathways, (iv) aerosol forcing history, and (v) eddy saturation/compensation physics still drive the widest spreads in projections.
 
 ---
 
-## 3.  Abiotic and Genetic Filters Governing Establishment
+## 1. Foundations: Mechanisms Governing AMOC Strength & Stability
 
-### 3.1  Climate Match, Oxygen & DOC
+| Mechanistic Class | Principal Scaling / Diagnostic | Key Research Learnings |
+|-------------------|--------------------------------|-------------------------|
+| **Diapycnal diffusivity (κᵥ)** | Ψ∝κᵥ^α (α≈0.4–0.7) while κᵥ≤10⁻⁵ m² s⁻¹ | Idealised two-basin GCMs show Atlantic & Pacific MOC magnitudes scale similarly with κᵥ up to O(10⁻⁵ m² s⁻¹); divergence emerges at higher κᵥ unless Gent-McWilliams mixing is included, but pycnocline depth retains identical κᵥ-sensitivity in both basins, decoupling depth-transport linkage. |
+| **Southern-Ocean wind & eddies** | Unified scaling Ψ≈(τw/ρf)^{½}/κᵢ when isopycnal K dominates | Gnanadesikan’s cubic + Marshall–Radko energetics gives K_eddy∝√τw; eddy saturation leaves ACC volume transport nearly invariant to τw yet eddy kinetic energy (EKE) rises. Bottom drag controls residual overturning stratification and thus atmospheric CO₂. |
+| **Freshwater transport indicators** | Mov (34° S) sign & transition probabilities | Corrected Mov places all CMIP5/6 models in a *multiple-equilibrium regime*; negative Mov and eddy-compensated salt budgets imply a latent collapsed state even without external hosing. |
+| **Box-model bifurcation type** | Sub-critical Hopf vs saddle-node | FAMOUS-calibrated five-box model loses the ‘on’ state via a Hopf bifurcation, enabling *rate-induced* tipping even if forcing never crosses a static threshold. |
+| **Eddy compensation** | Mesoscale fluxes neutralise low-res salt-advection | 0.1° POP run with 0.5 Sv meltwater retains basin-integrated freshwater import ~constant; low-res 1° counterpart does not—eddies raise the freshwater threshold for collapse. |
 
-• In trait-based classification trees, a single *climate-match* variable predicted establishment with 75–81 % accuracy.  
-• **Thermal habitat squeezes** (Cultus Lake, BC; Wisconsin cisco lakes) show that warming can *both* enable warm-water invaders (cyprinids, percids) and eradicate cold-water natives even without invasion.  
-• Temperature interacts with **DOC thresholds**:  across 21 Sierra Nevada lakes, salmonid growth increased 0.06 g g⁻¹ yr⁻¹ °C⁻¹ up to ≈12 °C, but gains vanished once DOC > 7 mg L⁻¹; similar 10 mg L⁻¹ DOC threshold suppresses lake-trout recruitment in Québec.
-
-### 3.2  Propagule Pressure & Genetic Diversity
-
-• Rainbow-trout farms around Lake Llanquihue deliver continual propagule pressure that both homogenises structure and elevates effective population size (*Nᵇ*), contrasting with isolated natural populations where genetic drift is stronger.  
-• *Oncorhynchus mykiss → O. c. lewisi* hybrid zones in the Rockies show **genome-wide purging** of rainbow alleles despite ongoing stocking, illustrating that **selection** can resist introgression when native niches remain.
-
-### 3.3  Genomic Offset & Adaptation
-
-• Gradient-Forest genomic-offset models for *Molgula manhattensis* (a marine ascidian) illustrate that *adaptive* rather than purely climatic suitability can flip invasion‐risk priorities.  Though marine, the method is now applied to alpine salmonids and *Coregonus artedi*, showing deleterious-load accumulation toward lower latitudes.  A similar framework could forecast which stocked strains will fail in warming alpine lakes.
+*Implication* – Any quantitative AMOC forecast must track (i) κᵥ, (ii) isopycnal/eddy diffusivity K, (iii) gyre-mediated meridional salinity contrasts, and (iv) Arctic freshwater export, all of which remain poorly constrained in CMIP-class models.
 
 ---
 
-## 4.  Post-Establishment Ecological Mechanisms
+## 2. Observational Diagnostics & Historical Evolution
 
-### 4.1  Trophic Cascades & Predation
+### 2.1 Direct arrays and hydrographic lines
 
-• **Size-Selective Predation** – In Gran Paradiso NP (Alps) stocked brook trout removed large crustaceans and non-burrower benthic invertebrates, yet total zooplankton biomass stayed level as rotifers/small copepods compensated.  Functional redundancy hides strong impacts.  
-• **Pelagic vs. Benthic Shift with Elevation** – In Californian lakes trout amplify pelagic consumer:producer ratios at low elevation but alter benthos at high elevation.  A +1–2 °C warming is expected to shift cascades upward into pelagic zones.  
-• **Galaxiid Collapse** – Patagonian lakes: as rainbow + brown trout CPUE rises, *Galaxias platei* δ15N drops by ~1 trophic level; reciprocal shifts in trout δ15N when galaxiids scarce imply prey-base exhaustion, justifying trout culls.  
-• **Amphibian & Invertebrate Loss** – Pyrenean littoral zones show amphibian and macro-invertebrate collapse wherever trout are present and fishing is allowed.
+* **RAPID-MOCHA (26.5 °N)** – 2004–2024 mean transport ≈17 Sv with a −0.1 to −0.18 Sv decade⁻¹ trend (CMIP5 historical spread); early-warning variance trends detect critical slowing.  
+* **OSNAP & OVIDE (Subpolar N. Atlantic)** – 2014–21 data reveal a Nordic-Sea (50 °N-centred) deep-water mode controlling centennial trends, corroborating the Trend Mode versus AMO dichotomy. Anthropogenic CO₂ accumulation in the Iceland & Irminger basins accelerated by +61 % during high-NAO phases.  
+* **79 °N and Denmark Strait** – Deep-strait temperature minima rose 0.24 °C since 1982; Greenland Sea Deep Water disappeared post-1997, intermediate Eurasian-Basin signatures growing. DSOW anomalies propagate 500 km in ~13 days—argues for denser mooring spacing.  
+* **Fram Strait & Arctic budget** – Mandated export ≈2.3 Sv water, 0.1 Sv liquid freshwater, releasing ~10 TW to atmosphere; variability set by local SLP gradient and stratospheric vortex rather than NAO.
 
-### 4.2  Competition & Niche Compression
+### 2.2 Sea-level fingerprints
 
-• Long-term (1991–2020) data from 11 high-latitude lakes show cool-water perch have displaced cold-water charr/whitefish via faster juvenile growth under warming.  
-• Brook-trout stocking in the Alps caused no community-level loss of zooplankton diversity but compressed size structure, hinting at *hidden* energy-flow changes.
+* **Bay of Biscay altimetry (1993–2002)** – +3.09 ± 0.21 mm yr⁻¹, ~15 % linked to inverse barometer; dynamic component tied to AMOC weakening adds 10–20 cm when AMOC collapses in models.  
+* **Eddy-permitting model experiments** – Rapid (sub-decadal) collapse cuts Gulf-Stream separation latitude, shortening return times of coastal storm-surge/SSH extremes from multi-decadal to ≤1 yr.
 
-### 4.3  Hybridisation & Genetic Swamping
+### 2.3 Early-warning statistics
 
-• Southern Alpine endemic lineages (grayling, carpione) range from unadmixed to extinct depending on stocking intensity.  Lakes with >100 yrs of intense stocking show near-complete native genomic loss.  
-• *Coregonus artedi* lake populations: genome‐wide diversity scales with lake area, but deleterious load rises toward lower latitudes – invaders from hatcheries could both alleviate (via heterosis) or exacerbate (via maladaptive gene flow) local loads.
-
-### 4.4  Disease, Pathogens & Parasites
-
-• VHS (viral hemorrhagic septicaemia) risk drives Michigan anglers to pay a 15–29 % premium for certified bait, indicating market readiness to internalise biosecurity costs.
-
-### 4.5  Biogeochemical Feedbacks
-
-• Trout-driven top-down control elevates pelagic vs. benthic nutrient cycling, which—combined with warming—can intensify hypolimnetic oxygen loss and favour cyanobacterial blooms even in oligotrophic basins.  In the IntechOpen review, nutrient thresholds must be tightened ≥30 % to compensate for fish-induced cascading effects under +2 °C warming.
+• Rising variance & autocorrelation detected in multiple reconstructions imply a crossing of a critical threshold **~2050 ± 10 yr**, contradicting AR6’s “very unlikely” wording and suggesting policy-relevant lead times.
 
 ---
 
-## 5.  Climate Change as Amplifier and Vector
+## 3. Coupled-Model Evidence: CMIP5, CMIP6 & High-ResMIP
 
-1. **Expanding Thermal Envelope** – Models for the Jinsha River plateau show non-native fishes gain habitat under extreme 21st-century climate scenarios, increasing native–non-native overlap.  
-2. **Earlier Ice-Off & Longer Growing Seasons** – Promote spawning success and juvenile survival of cyprinids/percids.  
-3. **Hydrological Rewiring** – Glacier retreat extends upstream fishable reaches; proglacial lakes undergo discontinuous mixing, facilitating colonisation by eurythermal, planktonic feeders.  
-4. **Temperature–Oxygen Squeeze** – Cultus Lake: optimal salmonid habitat projected to shrink 41–58 % by 2100, advantaging warm-water fishes.
+### 3.1 Forced future scenarios (RCP/SSP)
 
----
+| Forcing Pathway | Median 2100 AMOC Decline | Ensemble Spread | Notes |
+|-----------------|--------------------------|-----------------|-------|
+| SSP1-2.6 / RCP2.6 | 15–25 % | 10–35 % | ~22 % mean across 30 CMIP5 models |
+| SSP2-4.5 / RCP4.5 | 25–40 % | 15–45 % | Stabilises mid-century, no full collapse |
+| SSP5-8.5 / RCP8.5 | 40–60 % | 30–85 % | Two CMIP5 models yield slow shutdown |
 
-## 6.  Surveillance, Prevention & Control – Tools Derived from Mechanistic Insights
+*CMIP6 historical bias* – +10 % strengthening 1850–1985 due to aerosol forcing reproduction; undermines SSP5-8.5 projections because starting point differs.  
 
-| Management Stage | Tool / Strategy | Mechanistic Rationale |
-|---|---|---|
-| **Vector interception** | AS-ISK screening, trait-based classifiers, climate-match filters | 75–81 % accuracy in predicting establishment; scalable to ornamental, bait, aquaculture trades. |
-|  | Certified bait schemes (anglers pay 15–29 % premium) | Market incentives align with disease avoidance & propagule reduction. |
-|  | Enforcement economics (Lake Victoria seine & bait models) | Raising *detection probability* often cheaper than raising fines. |
-| **Early detection** | eDNA metabarcoding (Teleostei+Vertebrate primers) | Detects trout at 0.18–0.99 probability from 1–3 fish km⁻¹, cost-effective for remote lakes. |
-|  | Otolith/isotope forensics | Assigns origin, dates releases, supports prosecution. |
-| **Eradication / Control** | Full mechanical removal (Lake Dres) feasible where natural recolonisation pressure is negligible. | Demonstrates lack of effective natural vectors; success hinges on barrier integrity. |
-|  | Density-triggered trout culls (Patagonia) | δ15N shifts reveal prey depletion thresholds. |
-|  | Functional redundancy analysis | Guides which invertebrate guilds need refuge to recover post-fish removal. |
-| **Barrier & Passage Engineering** | Fish-friendly turbines (Alden, ARL/NREC) | Minimise mortality but require invasive exclusion grates or timing to avoid non-native passage. |
-| **Risk Under Climate Change** | Genomic-offset coupled SDMs | Identify stocks likely to adapt vs. fail under warming, aiding ‘climate-smart’ ban lists. |
+### 3.2 Resolution sensitivity
 
----
+* **HighResMIP (0.25°)** – Present-day AMOC stronger by +2–4 Sv but 2015-2050 decline twice as steep (−2.5 Sv decade⁻¹); decline dominated by Florida Current weakening absent in 1° versions.  
+* **1/12° eddy-resolving hindcast** – Exports freshwater southward across 34° S; basin resides in bistable regime consistent with negative Mov.  
+* **Eddy saturation & κᵥ dependence** – At ≲1/10° grid spacing ∂Ψ/∂κᵥ ≫ ∂Ψ/∂τw, reversing coarse-model sensitivities and highlighting the importance of vertical mixing schemes.
 
-## 7.  Emerging & Contrarian Ideas Worth Testing
+### 3.3 Freshwater-hosing experiment synthesis (NAHosMIP)
 
-1. **Deliberate Rewilding with Native Predators** – Re-establishing extirpated *Esox lucius* (pike) or *Salvelinus namaycush* could suppress small invasive cyprinids where mechanical means fail; needs robust food-web modelling to avoid collateral damage.  
-2. **Biocontrol via Sterile-Male Aquaculture Escapes** – If egg predation rather than adult competition drives impacts, releasing triploid males could decouple predation from recruitment; regulatory hurdles high.  
-3. **Endogenous Carbon Shielding** – Some high-DOC headwater lakes (>12 mg L⁻¹) naturally deter visual piscivores; creating or conserving *DOC refugia* could buffer amphibian populations.  
-4. **Targeted eDNA ‘Sniffers’ on Autonomous Surface Vehicles** – Could screen dozens of lakes per week in remote catchments.
+| Hosing Protocol | Models | Outcome During Hosing | Post-Hose Fate |
+|-----------------|--------|-----------------------|---------------|
+| +0.1 Sv uniform NA, 100 yr | 9 CMIP6 | Collapse in all | 4 recover to ≥18 Sv; 5 remain ≤10 Sv (≥40 % weaker) |
+| +0.2 Sv uniform NA, 50 yr | Same | Collapse in all | 5 recover, 4 stalled; dynamic SLR +10–20 cm Europe |
+| +0.1 Sv Greenland-centred | Same | Collapse faster | Similar bifurcation |
+
+*Feedback attribution* – Models that recover exhibit positive salt-advection feedback and gyre-mediated salinity export; stalled models retain high-latitude freshwater cap & suppressed convection.
 
 ---
 
-## 8.  Synthesis & Priority Recommendations
+## 4. Stability Theory, Multiple Equilibria & Tipping Thresholds
 
-1. **Human vectors remain dominant** even where natural zoochory can occur; hence regulations on stocking, bait and aquaculture leakage yield the highest leverage.  
-2. **Climate change is a threat-multiplier** – by widening thermal envelopes and rewiring hydrology it both facilitates new invasions and exacerbates impacts.  
-3. **Propagule pressure, not temperature, best predicts establishment** across most risk models; focus on *reducing releases* rather than solely hardening habitats.  
-4. **Genomic tools** (Rapture, RAD, Gradient-Forest) now allow *pre-screening of hatchery stocks* for maladaptation and potential hybridisation risk, enabling precision management.  
-5. **Surveillance is cheap relative to eradication** – eDNA and isotopic forensics should become standard pre- and post-stocking audits.  
-6. **Socio-economic levers** (detection probability increases, certified-bait premiums) can partly self-finance prevention – under-used outside North America.  
-7. **Multi-trophic monitoring** (δ15N trophic height, functional diversity indices) is essential because conventional biomass/abundance metrics can mask ecological shifts.
-
-*Flagged speculation:*  The cumulative evidence suggests that by 2050 mountain-lake fish assemblages will diversify taxonomically but homogenise functionally (smaller, omnivorous, warm-tolerant) unless both propagule pressure and nutrient loading are curtailed.  Modelling indicates that without such measures, DOC-poor, high-clarity lakes above treeline are the last refugia likely to remain fishless and biogeochemically “pristine.”
+1. **Mov indicator** – Negative Mov at 34° S in all analysed CMIP5/6 members → theoretically places system in bi-stable regime.  High-resolution CESM run flips from mono- to multi-stable under RCP8.5 once salt bias corrected.  
+2. **Sub-critical Hopf** – Box-model analysis shows oscillatory precursors (decadal variability surge) prior to collapse; offers observational early-warning metric.  
+3. **Rate-induced tipping** – Finite forcing rate, not just amplitude, can trigger collapse; relevant for rapid meltwater pulses from Greenland.  
+4. **Eddy-compensated salt budget** – Mesoscale fluxes can mask freshwater-forced approach to tipping in standard volume-flux monitoring; alternative density-contrast metrics required.  
+5. **Gyre control** – Meridional salinity gradient (48 °N−34 °S) explains >90 % variance across four CMIP5/6 models in CO₂ ramp-up/down; asynchronous gyre exports lead to overshoot, stagnation, or continued decline independent of overturning salt-advection.
 
 ---
 
-**Prepared for advanced aquatic‐invasion analysts.**
+## 5. Downstream & Socio-economic Impacts of AMOC Weakening / Collapse
+
+### 5.1 Climate & hydrology
+
+| Impact Zone | Moderate Weakening (40 %) | Collapse (>80 %) |
+|-------------|---------------------------|------------------|
+| Western Europe SAT | –1 °C winter cooling; slightly fewer heatwaves | –3 °C annual mean; winter cold spells akin to 1960s |
+| Summer NAO pattern | Weak negative | Strong negative → −20 % June–Aug rainfall in Scandinavia, +15 % in Iberia |
+| Peak river flow | Up to −30 % in Rhine, Elbe, Thames | >−40 % central/northern Europe |
+| Crop productivity | −3–7 % cereals in NW Europe | −10–15 % plus frost damage |
+
+### 5.2 Sea-level rise & extremes
+
+* **Dynamic component** – +10–20 cm along European Atlantic coasts; 5–15 cm along U.S. east coast.  
+* **Return times** – High-resolution hosing cuts extreme SSH return period from decades to sub-annual; coastal-protection design criteria must accommodate order-of-magnitude shift.  
+
+### 5.3 Marine ecosystems & biogeochemistry
+
+* Pacific-overturning rerouting (in a minority of parameter spaces) worsens deep-Pacific oxygen deficits and adds +20 ppm atmospheric CO₂ pulse via reduced Antarctic carbon sequestration.  
+* North Atlantic productivity declines due to stratification & reduced nutrient import; mixed-layer deoxygenation coupled with cooling stresses cod & haddock nurseries.  
+
+---
+
+## 6. Critical Uncertainties & Research Frontiers (2025–2035)
+
+1. **Vertical mixing parameterisations** – Richardson-number & TKE schemes improve overflow representation (Romanche FZ, DSOW), but interior κᵥ uncertainty (>×3 range) remains the dominant source of overturning spread.  
+2. **Eddy parameterisations vs explicit eddies** – Hybrid-eddy energetics (Marshall–Radko) needed in CMIP7; constant K fails under variable τw.  
+3. **Arctic gateways & freshwater sources** – Fram-Strait export variability drivers (SLP gradient, vortex) not NAO; improved observation networks & data-assimilating models required.  
+4. **Aerosol forcing history** – CMIP6 aerosol–cloud interactions produced spurious 19th–20th-century AMOC strength; re-calibration essential to align hindcasts.  
+5. **Coupled ice-sheet–climate feedbacks** – Rapid Greenland/Antarctic melt pulses can rate-induce tipping; interactive ice modules necessary.  
+6. **Early-warning metrics operationalisation** – Combine variance, autocorrelation, meridional density contrast, and DSOW property tracking into decadal outlook products for policymakers.
+
+---
+
+## 7. Decision-Relevant Storylines
+
+### 7.1 Mitigation-Success (SSP1-2.6)
+
+AMOC weakens ~20 %, stabilises after 2060; no collapse. Coastal SLR driven mainly by steric & ice mass components. Adaptation focus remains on ~0.5 m global-mean rise.
+
+### 7.2 Delayed-Action (SSP2-4.5)
+
+Weakening 25–40 %; early-warning indicators approach critical threshold ~2080 but not crossed. Dynamic SLR +12 cm EU coast; moderate European cooling offsets some heatwave impacts, yet hydrological shifts affect agriculture.
+
+### 7.3 Fossil-Fuel Continuation (SSP5-8.5)
+
+Weakening 40–60 %; tipping probability 25–35 %. If collapse: +20 cm dynamic SLR, −3 °C western-Europe mean cooling, acute storm-track changes, and decadal oxygen loss. Requires robust adaptive pathways: edifices, agriculture, and energy demand all shift.
+
+---
+
+## 8. Recommendations for Modellers, Observers & Policymakers
+
+1. **Accelerate high-resolution coupled modelling** – At <0.25° provide credible Gulf-Stream separation, Florida Current, and eddy compensation physics; essential for dynamic SLR and extreme-event risk estimation.  
+2. **Deploy fine-spacing mooring arrays** – 180–320 km spacing plus sub-daily sampling along Denmark-Strait/Irminger route to track DSOW and variance growth precursors.  
+3. **Integrate early-warning dashboard** – Combine RAPID transport anomalies, 48 N–34 S density gradient, NAO-adjusted hydrographic trends, and variance diagnostics.  
+4. **Embed AMOC in coastal-flood standards** – Incorporate a +20 cm dynamic SLR contingency into European & U.S. east-coast planning horizons (2050–2100).  
+5. **Treat North Atlantic Hosing as a realistic policy stress test** – Apply +0.1 Sv Greenland-melt pulses in CMIP7 ScenarioMIP to bracket abrupt-change damages.
+
+---
+
+### Concluding Perspective
+
+The long-standing textbook view—“an AMOC collapse this century is very unlikely”—is no longer defensible. Improved observations, higher-resolution models, and refined stability theory now paint a *non-trivial* risk of an abrupt transition within the current century, particularly under high-emission pathways or rapid Greenland-ice loss. Given the disproportionate socio-economic consequences concentrated in regions with dense infrastructure and historical climate stability, prudence dictates incorporating AMOC tipping contingencies into both mitigation cost–benefit analyses and near-term adaptation planning.
+
+> **Practical bottom line**: Even if global mean temperature targets are met, unmitigated freshwater forcing from the cryosphere can still push the AMOC across a tipping threshold. Vigilant monitoring, process-explicit modelling, and policy designs that are robust to a 20 cm dynamic sea-level surge and a 1–3 °C European cooling must be pursued starting now.
 
 
 ## Sources
 
-- https://doaj.org/toc/1932-6203
-- http://hdl.handle.net/10261/160112
-- https://repository.uchastings.edu/ca_ballot_props/1156
-- https://figshare.com/articles/_Summary_of_regional_estimates_of_illegal_fishing_averaged_over_2000_8211_2003_/577696
-- https://digitalcommons.fiu.edu/srhreports/iuufishing/iuufishing/94
-- https://hal.science/hal-00913592
-- http://books.openedition.org/irdeditions/23421
-- https://hal.sorbonne-universite.fr/hal-01757517
-- https://zenodo.org/record/6139004
-- https://hdl.handle.net/10289/7703
-- https://figshare.com/articles/Anglers_responses_to_bait_certification_regulations_the_case_of_virus_free_bait_demand/1257754
-- https://archiv.ub.uni-heidelberg.de/volltextserver/volltextserver/31340/7/Diekert_Eymess_Goeschl_2022_dp711.pdf
-- https://hal.archives-ouvertes.fr/hal-00694971
-- http://hdl.handle.net/1807/87338
-- https://doi.org/10.1002/aqc.3270050306
-- http://hdl.handle.net/1807/29706
-- http://digital.library.unt.edu/ark:/67531/metadc711725/
-- https://doaj.org/toc/1422-0067
-- https://digitalcommons.usu.edu/wats_facpub/211
-- http://ageconsearch.umn.edu/record/117152
-- https://scholarworks.umass.edu/fishpassage_journal_articles/1356
-- https://bearworks.missouristate.edu/articles-cnas/877
-- https://figshare.com/articles/SNP_dataset/6200951
-- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0075951104800318/MAIN/application/pdf/f3abd90f4a53be3ec799a9b238a0358f/main.pdf
-- http://wfcb.ucdavis.edu/www/Faculty/Peter/petermoyle/publications/FishInvasion02.pdf
-- http://dx.doi.org/10.1111/j.1365-2427.2011.02688.x
-- https://www.epj-conferences.org/10.1051/epjconf/201921302078/pdf
-- https://scholarworks.umass.edu/fishpassage_conference/2015/June22/29
-- http://digital.library.unt.edu/ark:/67531/metadc683579/
-- http://arodes.hes-so.ch/record/10851
-- http://hdl.handle.net/11336/11989
-- https://zenodo.org/record/8239455
-- https://figshare.com/articles/_SNP_identified_in_the_five_breeds_or_breed_pool_and_in_ESTs_/908459
-- https://figshare.com/articles/Local_analisis_of_the_SNPs_covering_the_critical_region_/5963785
-- https://zenodo.org/record/4603288
-- http://www.waterboards.ca.gov/northcoast/water_issues/programs/tmdls/shasta_river/060707/29appendixbetheeffectsofdissolvedoxygenonsteelheadtroutcohosalmonandchinooksalmonbiologyandfunction.pdf
-- https://eprints.bournemouth.ac.uk/37645/1/Ecological%20impacts%20of%20invasive%20freshwater%20fish_accepted%20version.pdf
-- http://hdl.handle.net/10255/dryad.14811
-- http://eprints.gla.ac.uk/view/journal_volume/Evolution_and_Development.html
-- https://scholarworks.umass.edu/fishpassage_journal_articles/2057
-- https://scholarworks.umass.edu/fishpassage_reports/407
-- http://nora.nerc.ac.uk/12917/1/N012917PP.pdf
-- http://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-3764
-- http://www-heb.pac.dfo-mpo.gc.ca/congress/2002/Hypoxia/EvansD.pdf
-- http://hdl.handle.net/2429/83464
-- https://ir.library.louisville.edu/faculty/127
-- http://hdl.handle.net/10449/21668
-- https://hal.archives-ouvertes.fr/hal-00691372
-- https://scholarworks.umass.edu/fishpassage_reports/413
-- http://hdl.handle.net/10.1371/journal.pone.0279099.t001
-- https://ueaeprints.uea.ac.uk/id/eprint/68689/
-- http://hdl.handle.net/10255/dryad.193379
-- http://hdl.handle.net/10138/563245
-- http://digital.library.unt.edu/ark:/67531/metadc686792/
-- http://warnercnr.colostate.edu/~brett/lab/coldwater/documents/2000johnsonandmartinez.pdf
-- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2015-0340
-- http://hdl.handle.net/1807/95406
-- http://pqdtopen.proquest.com/#viewpdf?dispub=3708793
-- http://hdl.handle.net/2429/75789
-- http://www.caryinstitute.org/sites/default/files/public/reprints/Sobek_et_al_L_and_O_2007.pdf
-- http://infoscience.epfl.ch/record/230846
-- http://hdl.handle.net/1957/60252
-- http://hdl.handle.net/10255/dryad.89635
-- https://researchonline.jcu.edu.au/56516/1/56516_Munday_2015.pdf
-- https://zenodo.org/record/7145847
-- https://escholarship.org/uc/item/98k985q0
-- https://hdl.handle.net/11250/2979446
-- https://figshare.com/articles/Temporal_Genetic_Variance_and_Propagule_Driven_Genetic_Structure_Characterize_Naturalized_Rainbow_Trout_Oncorhynchus_mykiss_from_a_Patagonian_Lake_Impacted_by_Trout_Farming/1596957
-- http://www.seksko.se/images/stories/seksko/research/researchers/personal_pages/hjalmar_laudon/serranotransamfish2008.pdf
-- https://zenodo.org/record/5771330
-- https://research-portal.st-andrews.ac.uk/en/researchoutput/assessing-bait-use-by-static-gear-fishers-of-the-scottish-inshore-fisheries(b5d1269f-8023-484b-89c6-dbd48a7fb64d).html
-- http://hdl.handle.net/11336/117163
-- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2012-0409#.Ubf9ENg0V8E
-- https://scholarworks.umass.edu/nrc_faculty_pubs/240
-- https://scholarworks.umass.edu/fishpassage_conference_proceedings/478
-- http://hdl.handle.net/11714/6038
+- http://www.ocean-sci.net/10/881/2014/
+- https://hal.science/hal-00872044/document
+- http://hdl.handle.net/2078.1/119081
+- https://hal.science/hal-00267648
+- http://web.science.unsw.edu.au/%7Ematthew/AMOC_Sijp_et_al_2014.pdf
+- https://dspace.library.uu.nl/handle/1874/409138
+- https://orcid.org/0000-0002-2326-619X
+- https://hal.science/hal-03008090/document
+- https://doaj.org/toc/1991-9603
+- https://zenodo.org/record/28293
+- https://mural.maynoothuniversity.ie/17729/1/mccarthy-caesar-2023-can-we-trust-projections-of-amoc-weakening-based-on-climate-models-that-cannot-reproduce-the-past.pdf
+- https://doaj.org/article/8b74ce5a5c8441f78474dc0b3e65bb46
+- http://hdl.handle.net/10068/942094
+- https://zenodo.org/record/27932
+- https://doi.pangaea.de/10.1594/PANGAEA.864251
+- https://hal.archives-ouvertes.fr/hal-02892492
+- http://hdl.handle.net/1721.1/71728
+- http://hdl.handle.net/11858/00-001M-0000-0011-FB5D-D
+- http://dx.doi.org/10.1029/2012GL053763
+- https://dspace.library.uu.nl/handle/1874/349359
+- https://research.vu.nl/en/publications/170c6063-8dac-464c-a5fa-ed7d220dc022
+- https://dspace.library.uu.nl/handle/1874/409300
+- http://www.vliz.be/imisdocs/publications/262922.pdf
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S1463500313000437/MAIN/application/pdf/f846324d98ac97e3700673a0ae9c3e03/main.pdf
+- https://hal.science/hal-01248244
+- https://dspace.library.uu.nl/handle/1874/411234
+- http://hdl.handle.net/10.1371/journal.pone.0214535.g003
+- http://hdl.handle.net/11585/131792
+- https://doaj.org/article/e297211b6ef249679bdea0e6e5fa2a2a
+- https://escholarship.org/uc/item/14v523qn
+- https://doaj.org/article/ff6b5e54206241db8be8af214144dc7e
+- https://hal.science/hal-00836152
+- www.duo.uio.no:10852/79797
+- http://www.dhigroup.com/upload/publications/mikeshe/Butts_Improving_streamflow_simulations.pdf
+- https://hal.archives-ouvertes.fr/hal-00853304
 - http://www.loc.gov/mods/v3
-- https://www.ajol.info/index.php/ajthf/article/view/152220
-- http://hdl.handle.net/11571/757660
-- http://eprints.bournemouth.ac.uk/23723/1/Britton.%20srep26316.pdf
-- http://hdl.rutgers.edu/1782.1/rucore10002600001.ETD.000066575
-- https://zenodo.org/record/50125
-- https://eprints.lancs.ac.uk/id/eprint/85860/
-- http://hdl.handle.net/10.1371/journal.pone.0279099.g008
-- https://doi.pangaea.de/10.1594/PANGAEA.900929
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:311554
-- http://hdl.handle.net/10852/96430
-- http://hdl.handle.net/11336/12135
-- http://hdl.handle.net/1957/57568
-- https://escholarship.org/uc/item/4km875j6
-- http://eprints.cmfri.org.in/15451/
-- https://zenodo.org/record/7470234
-- http://www.documentation.ird.fr/hor/fdi:010049474
-- http://creativecommons.org/licenses/by-nd/3.0/us/
-- http://ir.ihb.ac.cn/handle/342005/35158
-- http://hdl.handle.net/10255/dryad.14810
-- https://works.bepress.com/yvonne-vadeboncoeur/24
-- https://hdl.handle.net/10037/14937
-- https://figshare.com/articles/_Number_of_SNPs_significant_at_P_lt_0_001_by_trait_and_false_discovery_rates_in_Holstein_Friesian_discovery_data_/557856
-- https://doaj.org/article/e09d09fed9d24e2692ad3d41071032d8
-- https://www.intechopen.com/books/7912
-- http://urn.fi/
-- http://hdl.handle.net/11858/00-001M-0000-0010-0E70-8
-- http://hdl.handle.net/10255/dryad.118163
-- https://digitalcommons.uri.edu/dissertations/AAI3206256
-- http://hdl.handle.net/10.1371/journal.pone.0279099.g007
-- https://doaj.org/article/becbbf0c836347eeb8bb1694c353f79a
-- https://doi.org/10.1111/ddi.12391
-- http://hdl.handle.net/10255/dryad.159611
-- http://hdl.handle.net/11250/2572890
-- http://hdl.handle.net/11336/213654
-- http://dx.doi.org/10.1098/rspb.2010.0925
-- https://hdl.handle.net/11511/88504
-- https://doi.org/10.1111/mec.15644.
-- http://ci.nii.ac.jp/naid/110002395038/
-- https://figshare.com/articles/_Final_relative_invasion_risk_estimated_for_nonindigenous_zooplankton_upper_panels_and_phytoplankton_lower_panels_species_estimated_under_current_dark_gray_and_future_light_gray_management_scenarios_/1334015
-- http://digital.library.unt.edu/ark:/67531/metadc676663/
-- https://hal.inrae.fr/hal-02763456
-- https://figshare.com/articles/GSD_RAD_SNPs/4193970
-- http://ir.ihb.ac.cn/handle/342005/35095
-- https://escholarship.org/uc/item/57c0z12f
-- https://hal.archives-ouvertes.fr/hal-01063932
-- https://scholarworks.umass.edu/fishpassage_conference/2015/June22/57
-- http://eprints.bice.rm.cnr.it/15380/1/Havel_2015_Hydrobiologia_AIS.pdf
-- http://hdl.handle.net/10.6084/m9.figshare.7302260.v3
-- http://hdl.handle.net/11336/61881
-- https://scholarworks.umass.edu/fishpassage_journal_articles/1317
-- http://hdl.handle.net/11336/51483
-- http://hdl.handle.net/11392/2490677
-- https://scholarworks.umass.edu/fishpassage_conference/2012/June6/10
-- https://library.wur.nl/WebQuery/wurpubs/523864
-- https://figshare.com/articles/AlpsSparrowdata/4063623
-- https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1872497314000039/MAIN/application/pdf/c0341f397857da8749d9325cb301d032/main.pdf
-- http://biblioteca.clacso.edu.ar/gsdl/cgi-bin/library.cgi?a=d&c=fr/fr-001&d=010066943oai
-- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-184306
-- https://ageconsearch.umn.edu/record/21216/files/sp06ji01.pdf
-- https://hal.inrae.fr/hal-03790769/file/Debelgarric2022NowpasComOrale.pdf
-- https://serval.unil.ch/notice/serval:BIB_1A8A5BC8CFC3
-- http://edepot.wur.nl/191239
-- https://play.google.com/books/publish/a/14935057684283403269#details/ISBN:9783038973881
-- http://hdl.handle.net/2142/50598
-- http://datacite.org/schema/kernel-4
-- https://hal.inrae.fr/hal-02975946/document
-- http://ir.ihb.ac.cn/handle/342005/35096
-- http://hdl.handle.net/10.1371/journal.pone.0279099.g006
-- https://doi.org/10.1111/j.1365-2427.2009.02276.x
-- http://digitool.Library.McGill.CA:80/R/?func=dbin-jump-full&object_id=130688
-- http://www.scopus.com/inward/record.url?scp=85092078595&partnerID=8YFLogxK
-- http://ceerac.org/WP/Akpalu_Dynamic_model_JARE.pdf
-- http://dx.doi.org/10.1111/j.1365-294X.2011.05067.x
-- http://metacat.lternet.edu/knb/metacat/knb-lter-mcm.0060.4/xml
-- http://hdl.handle.net/20.500.11850/564874
-- http://www.idrolab.ise.cnr.it/images/doc/rogora_2008.pdf
-- https://doi.pangaea.de/10.1594/PANGAEA.891194
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:95767
-- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0006320715302020/MAIN/application/pdf/1f60806f41e4644d77d5d9379f4b8ef5/main.pdf
-- http://redpath-staff.mcgill.ca/hendry/Correa2012FWBiol57%2C1769.pdf
-- https://hdl.handle.net/11250/2981355
-- https://hal.sorbonne-universite.fr/hal-01334129
-- https://figshare.com/articles/PhenotypeData/4784629
-- http://hdl.handle.net/1807/24382
-- http://dx.doi.org/10.1007/s00442-012-2461-2
-- http://www.cgarciadeleaniz.yolasite.com/resources/20256_Schr%C3%B6der%20%26%20Garcia%20de%20Leaniz_2011.pdf
-- https://figshare.com/articles/SNP_dataset_for_M_truncatula_HapMap_collection/5519038
-- https://digitalcommons.usu.edu/etd/3570
-- https://zenodo.org/record/4279807
-- https://digitalcommons.library.umaine.edu/sms_facpub/98
-- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:119602
-- https://scholarworks.umt.edu/context/clarkforksymposium/article/1018/type/native/viewcontent
-- https://ageconsearch.umn.edu/record/117995/files/j.1467-8489.2004.00264.x.pdf
-- https://doaj.org/article/b094e98b5447406c989050bd8c6c2789
-- https://mi.gov/documents/Non-indigenous-species8-23-05_137217_7.pdf
-- https://doi.org/10.1007/s10750-014-2150-8
-- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2018-0082
-- https://zenodo.org/record/4599993
-- https://resolver.obvsg.at/urn:nbn:at:at-ubi:1-33168
-- https://doaj.org/article/74c9e49d96c84bca8c82dc20281a43e2
-- https://hal-brgm.archives-ouvertes.fr/hal-00713992
-- https://hal.inrae.fr/hal-03639786
-- http://digital.library.unt.edu/ark:/67531/metadc827524/
-- https://escholarship.org/uc/item/4kk6d7jr
-- http://hdl.handle.net/11336/95615
-- http://hdl.handle.net/20.500.11850/109378
-- http://hdl.handle.net/10255/dryad.108047
-- http://cdm21063.contentdm.oclc.org/cdm/ref/collection/masters2/id/60093
-- http://hdl.handle.net/11336/94736
-- http://web.uvic.ca/water/publications/Mazumder
-- http://hdl.handle.net/10803/384835
-- https://escholarship.org/uc/item/9qw527sr
-- https://zenodo.org/record/3998131
-- http://hdl.handle.net/10.1371/journal.pone.0207944.t001
-- https://figshare.com/articles/_The_source_and_method_of_disposal_of_live_bait_by_anglers_/993240
-- https://hdl.handle.net/2027.42/77587
-- https://zenodo.org/record/4992214
-- http://cemadoc.irstea.fr/cemoa/PUB00000905
-- https://stars.library.ucf.edu/scopus2010/3981
-- http://hdl.handle.net/11336/60337
-- https://doi.org/10.1051/kmae/2019029
-- http://creativecommons.org/licenses/by/3.0/us/
-- http://hdl.handle.net/11336/100002
-- http://hdl.handle.net/11336/95330
-- https://hal.science/hal-03181067/document
-- https://zenodo.org/record/7696678
-- http://hdl.handle.net/10255/dryad.33567
-- http://hdl.handle.net/1957/57087
-- http://hdl.handle.net/2376/12923
-- https://hal.science/hal-03193646
-- http://www.aslo.org/lo/toc/vol_49/issue_4_part_2/1229.pdf
-- http://library.wur.nl/WebQuery/wurpubs/490131
-- https://thekeep.eiu.edu/bio_fac/945
-- http://nbn-resolving.de/urn:nbn:de:bsz:352-opus-37737
-- http://hdl.handle.net/1885/103181
-- https://eprints.whiterose.ac.uk/198271/1/AAM%20Wilkes_etal_Main%20text_final%2Bfigs.docx
-- http://ir.ihb.ac.cn/handle/342005/30546
+- https://zenodo.org/record/8163448
+- https://orcid.org/0000-0001-9230-3591
+- https://escholarship.org/uc/item/7598h6tn
+- https://doi.pangaea.de/10.1594/PANGAEA.942176
+- https://hal.science/hal-02869856/document
+- https://hal.sorbonne-universite.fr/hal-01449390/document
+- http://web.maths.unsw.edu.au/~matthew/treguier_et_al.pdf
+- https://hal.archives-ouvertes.fr/hal-03279860
+- https://mural.maynoothuniversity.ie/15845/1/GerardMccarthyEff2022.pdf
+- https://orcid.org/0000-0002-9111-7700
+- https://hdl.handle.net/
+- http://hdl.handle.net/1721.1/52347
+- http://hdl.handle.net/2078.1/35529
+- https://insu.hal.science/insu-03683236/document
+- https://hal.science/hal-02892492/file/gmd-9-3993-2016.pdf
+- https://zenodo.org/record/7225014
+- http://www.vliz.be/nl/open-marien-archief?module=ref&refid=238450
+- https://hal.archives-ouvertes.fr/hal-00770689
+- http://hdl.handle.net/10871/36797
+- http://www.scopus.com/home.url)
+- http://web.science.unsw.edu.au/%7Ematthew/os-3-491-2007.pdf
+- http://hdl.handle.net/10261/264557
+- http://hdl.handle.net/1957/27668
+- https://doaj.org/article/c27ec664258747bea1ba08d9c7aef227
+- https://doi.org/10.17615/azt7-gs05
+- http://hdl.handle.net/2078.1/39374
+- https://hal.science/hal-03093315
+- http://hdl.handle.net/20.500.11897/419756
+- https://escholarship.org/uc/item/3ww7v7s2
+- http://hdl.handle.net/11858/00-001M-0000-002D-CF17-0
+- https://hal.archives-ouvertes.fr/hal-03008090
+- http://hdl.handle.net/10068/256386
+- https://orcid.org/0000-0001-5298-5233
+- http://hdl.handle.net/20.500.11897/390640
+- https://hal.archives-ouvertes.fr/hal-00690812
+- http://hdl.handle.net/11858/00-001M-0000-0011-F546-4
+- http://hdl.handle.net/20.500.11897/408842
+- https://centaur.reading.ac.uk/103346/8/fmars-09-830821.pdf
+- https://zenodo.org/record/8320904
+- http://handle.unsw.edu.au/1959.4/unsworks_35002
+- https://archimer.ifremer.fr/doc/00746/85806/90953.jpg
+- http://www.vliz.be/nl/open-marien-archief?module=ref&refid=217394
+- https://hal.science/hal-00783515
+- http://rams.atmos.colostate.edu/cotton/vita/106.pdf
+- https://zenodo.org/record/8163529
+- http://hdl.handle.net/10379/11548
+- http://www.biogeosciences.net/5/1373/2008/bg-5-1373-2008.pdf
+- https://hal.archives-ouvertes.fr/hal-00297986
+- https://orcid.org/0000-0001-8579-6068
+- http://hdl.handle.net/10138/167236
+- https://doi.pangaea.de/10.1594/PANGAEA.942034
+- https://dspace.library.uu.nl/handle/1874/275523
+- http://www.elic.ucl.ac.be/modx/users/thierry/articles/2005_Renssen_et_al_GRL.pdf
+- http://hdl.handle.net/11858/00-001M-0000-000E-ACEF-E
+- https://zenodo.org/record/7509968
+- https://hal.science/hal-03869321
+- http://eprints.soton.ac.uk/255/1/KLINGER_.MARTOZKE_JPO__S_2001.pdf
+- http://hycom.org/attachments/067_diapycnal.pdf
+- https://doi.pangaea.de/10.1594/PANGAEA.942047
+- http://edoc.mpg.de/249275
+- http://www.vliz.be/imisdocs/publications/90/309590.pdf
+- https://mural.maynoothuniversity.ie/12060/1/GM_Atlantic.pdf
+- https://centaur.reading.ac.uk/91960/2/2019MS002014.pdf
+- https://hal.science/hal-00331133/file/osd-4-653-2007.pdf
+- https://research.vu.nl/en/publications/955346d2-0a91-4390-b2d3-84eb45512132
+- https://dspace.library.uu.nl/handle/1874/394430
+- http://hdl.handle.net/20.500.11897/214825
+- https://doi.org/10.1016/j.pocean.2011.10.002
+- https://media.suub.uni-bremen.de/handle/elib/1267
+- https://doaj.org/article/3a840b292a25436d94cfc021fa87c44d
+- https://hdl.handle.net/1956/17028
+- https://research.vu.nl/en/publications/23819acf-602d-4819-8a62-f3e866c28812
+- https://doi.pangaea.de/10.1594/PANGAEA.942057
+- https://zenodo.org/record/8005600
+- https://doi.pangaea.de/10.1594/PANGAEA.942046
+- https://doaj.org/toc/2190-4987
+- http://hdl.handle.net/1721.1/70089
+- https://digitalcommons.uri.edu/oce_facpubs/515

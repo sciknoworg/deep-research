@@ -1,274 +1,367 @@
-# Will the Atlantic Meridional Overturning Circulation (AMOC) Change Its Course?  
-## A Comprehensive, Research-Level Synthesis (cut-off 2025-06)
+# Methodological Challenges in Measuring Seedling Functional Traits – A Comprehensive Technical Synthesis (2025)
+
+*This report integrates >100 peer-reviewed and pre-print findings (2011–2024) to map the current methodological landscape, identify persistent bottlenecks, and propose forward-looking solutions for rigorous, transferable measurement of seedling functional traits across taxa, biomes and experimental contexts.*
 
 ---
+## 1. Conceptual Scope
 
-### Executive Summary
+1. **Trait space covered**  
+   • Morphological: specific leaf area (SLA), leaf dry-matter content (LDMC), seed mass/shape, root system architecture (RSA) metrics.  
+   • Physiological: photosynthetic capacity (A_max, α, R_d), intrinsic water-use efficiency (iWUE, δ¹³C), transpiration breakpoints, sap-ion dynamics.  
+   • Biochemical: tissue N, P, K, C fractions, ROS/NO signalling during germination.  
+   • ‘Hard’ regenerative & architectural traits: emergence probability, age at maximal growth, asymptotic height.
 
-1. **Consensus direction** – All lines of evidence (observations, process theory, CMIP-class GCMs, eddy-resolving models, and conceptual box models) agree that the AMOC is *already weakening* and will *continue to do so* for at least the next several decades under any plausible emissions pathway.  
-2. **Magnitude & timing** – Best-estimate anthropogenic‐forcing projections range from a **15–40 % decline by 2100 under low–medium mitigation (SSP2-4.5) to 40–60 % under very high forcing (SSP5-8.5)**.  High-resolution (≤0.25° ocean) ensembles depict a *stronger present-day* AMOC but also a **steeper near-term (2015-2050) decline of 2–4 Sv**, dominated by a Florida Current slowdown.  
-3. **Tipping risk** – Idealised hosing, multimodal stability diagnostics, and recently developed early-warning statistics converge on a **non-negligible probability (~15–35 %) of a sub-critical Hopf or saddle-node transition to a weak or collapsed state during 2035-2080**.  CMIP6 models reveal explicit hysteresis: ~½ recover after hosing, ~½ remain locked in a weak state, confirming model-dependent tipping thresholds.  
-4. **Controls** – The **meridional density (mainly salinity) contrast between 48° N and ~34° S** explains >90 % of inter-model AMOC variance in ramp-up/ramp-down experiments; gyre exports, *not* salt–advection within the overturning, set the timing of both weakening and recovery.  
-5. **Process resolution matters** – Mesoscale eddies *delay* tipping by raising the freshwater threshold for collapse, yet once the threshold is crossed they *amplify* coastal sea-level and storm-track impacts that low-resolution models miss.  
-6. **Downstream impacts** – A 40–60 % AMOC weakening implies **+10–20 cm dynamic sea-level rise along European and eastern-North-American coasts**, a **1–3 °C cooling over western Europe**, altered storm tracks, and substantial freshwater/biogeochemical perturbations.  Rapid collapse shortens return periods of coastal sea-level extremes from decades to ≤1 yr.  
-7. **Key uncertainties** – (i) Deep-water mixing parameterisations, (ii) realistic Antarctic Bottom Water (AABW) formation, (iii) Arctic freshwater export pathways, (iv) aerosol forcing history, and (v) eddy saturation/compensation physics still drive the widest spreads in projections.
+2. **Measurement arenas**  
+   • Growth chambers / glasshouse (HTP platforms, controlled VPD).  
+   • Field common gardens & chronosequences.  
+   • In-situ automated chambers, minirhizotrons, X-ray CT/MRI, hyperspectral + depth cameras.  
+   • Molecular & in-plant micro-electronic sensors (bioristor, sap δ¹³C).
 
----
-
-## 1. Foundations: Mechanisms Governing AMOC Strength & Stability
-
-| Mechanistic Class | Principal Scaling / Diagnostic | Key Research Learnings |
-|-------------------|--------------------------------|-------------------------|
-| **Diapycnal diffusivity (κᵥ)** | Ψ∝κᵥ^α (α≈0.4–0.7) while κᵥ≤10⁻⁵ m² s⁻¹ | Idealised two-basin GCMs show Atlantic & Pacific MOC magnitudes scale similarly with κᵥ up to O(10⁻⁵ m² s⁻¹); divergence emerges at higher κᵥ unless Gent-McWilliams mixing is included, but pycnocline depth retains identical κᵥ-sensitivity in both basins, decoupling depth-transport linkage. |
-| **Southern-Ocean wind & eddies** | Unified scaling Ψ≈(τw/ρf)^{½}/κᵢ when isopycnal K dominates | Gnanadesikan’s cubic + Marshall–Radko energetics gives K_eddy∝√τw; eddy saturation leaves ACC volume transport nearly invariant to τw yet eddy kinetic energy (EKE) rises. Bottom drag controls residual overturning stratification and thus atmospheric CO₂. |
-| **Freshwater transport indicators** | Mov (34° S) sign & transition probabilities | Corrected Mov places all CMIP5/6 models in a *multiple-equilibrium regime*; negative Mov and eddy-compensated salt budgets imply a latent collapsed state even without external hosing. |
-| **Box-model bifurcation type** | Sub-critical Hopf vs saddle-node | FAMOUS-calibrated five-box model loses the ‘on’ state via a Hopf bifurcation, enabling *rate-induced* tipping even if forcing never crosses a static threshold. |
-| **Eddy compensation** | Mesoscale fluxes neutralise low-res salt-advection | 0.1° POP run with 0.5 Sv meltwater retains basin-integrated freshwater import ~constant; low-res 1° counterpart does not—eddies raise the freshwater threshold for collapse. |
-
-*Implication* – Any quantitative AMOC forecast must track (i) κᵥ, (ii) isopycnal/eddy diffusivity K, (iii) gyre-mediated meridional salinity contrasts, and (iv) Arctic freshwater export, all of which remain poorly constrained in CMIP-class models.
+3. **Why seedlings?**  
+   Early ontogeny sets demographic filters (germination → emergence → survival). Yet cross-stage extrapolation is trait-dependent: only **27–36 %** of adult SLA and **17–31 %** of adult leaf N is explained by seedling measurements, whereas structural size traits retain >50 % correspondence. Hence methodological rigour at seedling stage is critical but cannot assume universal transferability.
 
 ---
+## 2. Core Methodological Challenges
 
-## 2. Observational Diagnostics & Historical Evolution
+### 2.1 Ontogenetic Signal vs Environmental Noise
 
-### 2.1 Direct arrays and hydrographic lines
+| Challenge | Empirical evidence | Consequence |
+|-----------|-------------------|-------------|
+| Weaker within-species trait correlations at seedling stage | Common-garden datasets show LDMC–SLA slope shallower than global inter-specific slope | Sampling designs that mimic adult trait networks over-estimate predictive power |
+| Emergence dominance | Boulder (2021) & Oregon (2014) – emergence explains >90 % of first-season survival, classic seed traits explain ≤18 % of emergence variance | Trait lists must extend beyond seed mass to **emergence mechanics, coleoptile force, mucilage wetting** |
+| Trait–growth link non-transferability | Only 1/3 post-fire chronosequences retained low SLA → tall stature, high N → fast growth | Model calibration must be site-specific; cross-ecosystem extrapolation risky |
+| Greenhouse vs field rank inversion | Rice A_max, maize WUE rankings flip between environments | Requires environment-standardised protocols (VPD ramps, PPFD spectra) & correction models |
 
-* **RAPID-MOCHA (26.5 °N)** – 2004–2024 mean transport ≈17 Sv with a −0.1 to −0.18 Sv decade⁻¹ trend (CMIP5 historical spread); early-warning variance trends detect critical slowing.  
-* **OSNAP & OVIDE (Subpolar N. Atlantic)** – 2014–21 data reveal a Nordic-Sea (50 °N-centred) deep-water mode controlling centennial trends, corroborating the Trend Mode versus AMO dichotomy. Anthropogenic CO₂ accumulation in the Iceland & Irminger basins accelerated by +61 % during high-NAO phases.  
-* **79 °N and Denmark Strait** – Deep-strait temperature minima rose 0.24 °C since 1982; Greenland Sea Deep Water disappeared post-1997, intermediate Eurasian-Basin signatures growing. DSOW anomalies propagate 500 km in ~13 days—argues for denser mooring spacing.  
-* **Fram Strait & Arctic budget** – Mandated export ≈2.3 Sv water, 0.1 Sv liquid freshwater, releasing ~10 TW to atmosphere; variability set by local SLP gradient and stratospheric vortex rather than NAO.
+### 2.2 Sampling Design & Statistical Power
 
-### 2.2 Sea-level fingerprints
+* Intraspecific trait variance ≈40 % of total; apparent trait–trait correlations inflate when n is small – emphasise **power analyses a priori**.
+* Hierarchical Bayesian models outperform pooled regressions in partitioning species vs environment random effects (LAI, biomass allocation).  
+  → **Recommendation**: use species-explicit random intercepts/slopes; plan >30 individuals per genotype × treatment for reliable slope estimates.
 
-* **Bay of Biscay altimetry (1993–2002)** – +3.09 ± 0.21 mm yr⁻¹, ~15 % linked to inverse barometer; dynamic component tied to AMOC weakening adds 10–20 cm when AMOC collapses in models.  
-* **Eddy-permitting model experiments** – Rapid (sub-decadal) collapse cuts Gulf-Stream separation latitude, shortening return times of coastal storm-surge/SSH extremes from multi-decadal to ≤1 yr.
+### 2.3 Instrumentation & Protocol Biases
 
-### 2.3 Early-warning statistics
+1. **Gas exchange**  
+   • Residence-time (τ) artefacts: Low-cost open chambers need τ-correction to keep C-uptake error <8 %.  
+   • Non-sequential light curves cut runtime 4× but raise A_max; greenhouse microclimate is confounding factor.  
+   • VPD breakpoints: Without scripted VPD ramps (PHENODYN vs PHENOARCH), WUE datasets are incomparable.
 
-• Rising variance & autocorrelation detected in multiple reconstructions imply a crossing of a critical threshold **~2050 ± 10 yr**, contradicting AR6’s “very unlikely” wording and suggesting policy-relevant lead times.
+2. **Root imaging**  
+   • Acquisition > Segmentation bottleneck: RootForce, 4DRoot, CT+U-Net reduce manual burden 10–100× but still need human QC.  
+   • Modality trade-offs: CT excels ≤56 mm pots, MRI superior in larger volumes; DIRT/3D-COLMAP slashes photogrammetry image count by 90 %.
 
----
+3. **Surface–seedling interactions**  
+   • Paper substrate chemistry alters root architecture (GrowScreen-PaGe).  
+   • HMDS vapour silanisation offers hydrophobic yet transparent paper; FDTS deteriorates at high RH → prefer ODTS or HMDS.
 
-## 3. Coupled-Model Evidence: CMIP5, CMIP6 & High-ResMIP
+4. **HTP Platforms**  
+   • Microphenotron achieves 4 320 treatments per 10 d but still manual plate handling dominates throughput.  
+   • Platforms differ in VPD logging frequency (3 min vs daily) – harmonisation protocol lacking.
 
-### 3.1 Forced future scenarios (RCP/SSP)
+### 2.4 Trait Definition Gaps
 
-| Forcing Pathway | Median 2100 AMOC Decline | Ensemble Spread | Notes |
-|-----------------|--------------------------|-----------------|-------|
-| SSP1-2.6 / RCP2.6 | 15–25 % | 10–35 % | ~22 % mean across 30 CMIP5 models |
-| SSP2-4.5 / RCP4.5 | 25–40 % | 15–45 % | Stabilises mid-century, no full collapse |
-| SSP5-8.5 / RCP8.5 | 40–60 % | 30–85 % | Two CMIP5 models yield slow shutdown |
-
-*CMIP6 historical bias* – +10 % strengthening 1850–1985 due to aerosol forcing reproduction; undermines SSP5-8.5 projections because starting point differs.  
-
-### 3.2 Resolution sensitivity
-
-* **HighResMIP (0.25°)** – Present-day AMOC stronger by +2–4 Sv but 2015-2050 decline twice as steep (−2.5 Sv decade⁻¹); decline dominated by Florida Current weakening absent in 1° versions.  
-* **1/12° eddy-resolving hindcast** – Exports freshwater southward across 34° S; basin resides in bistable regime consistent with negative Mov.  
-* **Eddy saturation & κᵥ dependence** – At ≲1/10° grid spacing ∂Ψ/∂κᵥ ≫ ∂Ψ/∂τw, reversing coarse-model sensitivities and highlighting the importance of vertical mixing schemes.
-
-### 3.3 Freshwater-hosing experiment synthesis (NAHosMIP)
-
-| Hosing Protocol | Models | Outcome During Hosing | Post-Hose Fate |
-|-----------------|--------|-----------------------|---------------|
-| +0.1 Sv uniform NA, 100 yr | 9 CMIP6 | Collapse in all | 4 recover to ≥18 Sv; 5 remain ≤10 Sv (≥40 % weaker) |
-| +0.2 Sv uniform NA, 50 yr | Same | Collapse in all | 5 recover, 4 stalled; dynamic SLR +10–20 cm Europe |
-| +0.1 Sv Greenland-centred | Same | Collapse faster | Similar bifurcation |
-
-*Feedback attribution* – Models that recover exhibit positive salt-advection feedback and gyre-mediated salinity export; stalled models retain high-latitude freshwater cap & suppressed convection.
+* SLA, wood density, seed mass explain little RGR variance in global sapling meta-analysis – need **new predictive metrics** (e.g., architectural trajectory parameters, radicle hydraulics, dynamic photosynthate allocation).
+* Root economics often proxied by SRL/Tissue density, yet near-infrared hyperspectral & PET tracers reveal spatial gradients and decay kinetics untapped by classical traits.
 
 ---
+## 3. Emerging Solutions & Technologies
 
-## 4. Stability Theory, Multiple Equilibria & Tipping Thresholds
+### 3.1 Sensors & Real-Time Physiology
 
-1. **Mov indicator** – Negative Mov at 34° S in all analysed CMIP5/6 members → theoretically places system in bi-stable regime.  High-resolution CESM run flips from mono- to multi-stable under RCP8.5 once salt bias corrected.  
-2. **Sub-critical Hopf** – Box-model analysis shows oscillatory precursors (decadal variability surge) prior to collapse; offers observational early-warning metric.  
-3. **Rate-induced tipping** – Finite forcing rate, not just amplitude, can trigger collapse; relevant for rapid meltwater pulses from Greenland.  
-4. **Eddy-compensated salt budget** – Mesoscale fluxes can mask freshwater-forced approach to tipping in standard volume-flux monitoring; alternative density-contrast metrics required.  
-5. **Gyre control** – Meridional salinity gradient (48 °N−34 °S) explains >90 % variance across four CMIP5/6 models in CO₂ ramp-up/down; asynchronous gyre exports lead to overshoot, stagnation, or continued decline independent of overturning salt-advection.
+| Technology | Capability | Application |
+|------------|-----------|-------------|
+| Bioristor textile transistor | Continuous sap-ion & VPD breakpoint detection | Irrigation scheduling; genotype screening for WUE |
+| δ¹³C isotopic profiling | >70 % clonal repeatability; QTL anchored | Selection for intrinsic WUE in breeding |
+| OCTOflux multiplex | 4–7× higher leaf A_max throughput | Field phenotyping campaigns |
 
----
+### 3.2 Imaging & Computational Pipelines
 
-## 5. Downstream & Socio-economic Impacts of AMOC Weakening / Collapse
+1. **3-D reflectance + depth fusion** removes geometry-induced spectral noise; boosts crown-level trait precision.
+2. **RootForce + 4DRoot**: cylinder-fitting of CT time-series yields volumetric growth, θ distribution, soil density interaction – critical for carbon sequestration modelling.
+3. **Deep learning minirhizotron workflow**: Root-Painter + RhizoVision reduces analyst time by >98 % (R = 0.81), enabling seasonal RSA surveys.
 
-### 5.1 Climate & hydrology
+### 3.3 High-Throughput Germination & Emergence Assays
 
-| Impact Zone | Moderate Weakening (40 %) | Collapse (>80 %) |
-|-------------|---------------------------|------------------|
-| Western Europe SAT | –1 °C winter cooling; slightly fewer heatwaves | –3 °C annual mean; winter cold spells akin to 1960s |
-| Summer NAO pattern | Weak negative | Strong negative → −20 % June–Aug rainfall in Scandinavia, +15 % in Iberia |
-| Peak river flow | Up to −30 % in Rhine, Elbe, Thames | >−40 % central/northern Europe |
-| Crop productivity | −3–7 % cereals in NW Europe | −10–15 % plus frost damage |
+• ScreenSeed / GERMINATOR / SoyRET deliver automated radicle detection; image-based RGI quantifies speed, capacity & uniformity.  
+• Cost-effective imaging in inactinic green light distinguishes radicle/hypocotyl under darkness for hormone studies.
 
-### 5.2 Sea-level rise & extremes
+### 3.4 Functional–Structural Modelling (FSM)
 
-* **Dynamic component** – +10–20 cm along European Atlantic coasts; 5–15 cm along U.S. east coast.  
-* **Return times** – High-resolution hosing cuts extreme SSH return period from decades to sub-annual; coastal-protection design criteria must accommodate order-of-magnitude shift.  
-
-### 5.3 Marine ecosystems & biogeochemistry
-
-* Pacific-overturning rerouting (in a minority of parameter spaces) worsens deep-Pacific oxygen deficits and adds +20 ppm atmospheric CO₂ pulse via reduced Antarctic carbon sequestration.  
-* North Atlantic productivity declines due to stratification & reduced nutrient import; mixed-layer deoxygenation coupled with cooling stresses cod & haddock nurseries.  
+• GreenLab multilevel model calibrated for Cecropia & chrysanthemum captures organogenesis, branching, sink–source dynamics; adding delay equations enables reproductive output prediction.  
+• Virtual-ecology simulations used to pre-plan sampling and forecast accuracy of trait-growth models under limited data.
 
 ---
+## 4. Best-Practice Recommendations (2025 Edition)
 
-## 6. Critical Uncertainties & Research Frontiers (2025–2035)
+1. **Standardise Environmental Drivers**  
+   • Adopt *scripted VPD ramps* (0.8–4 kPa, 0.3 kPa h⁻¹) and *fluctuating light waveforms* in both glasshouse and field HTP to align WUE and photosynthesis datasets.  
+   • Log RH/T/PPFD at ≤1 min resolution; store with trait metadata.
 
-1. **Vertical mixing parameterisations** – Richardson-number & TKE schemes improve overflow representation (Romanche FZ, DSOW), but interior κᵥ uncertainty (>×3 range) remains the dominant source of overturning spread.  
-2. **Eddy parameterisations vs explicit eddies** – Hybrid-eddy energetics (Marshall–Radko) needed in CMIP7; constant K fails under variable τw.  
-3. **Arctic gateways & freshwater sources** – Fram-Strait export variability drivers (SLP gradient, vortex) not NAO; improved observation networks & data-assimilating models required.  
-4. **Aerosol forcing history** – CMIP6 aerosol–cloud interactions produced spurious 19th–20th-century AMOC strength; re-calibration essential to align hindcasts.  
-5. **Coupled ice-sheet–climate feedbacks** – Rapid Greenland/Antarctic melt pulses can rate-induce tipping; interactive ice modules necessary.  
-6. **Early-warning metrics operationalisation** – Combine variance, autocorrelation, meridional density contrast, and DSOW property tracking into decadal outlook products for policymakers.
+2. **Residence-Time Corrections**  
+   • Ensure chamber volume / flow ratio refreshes headspace every ≤3 s; implement τ-deconvolution for dynamic fluxes.
 
----
+3. **Sample Size & Hierarchical Statistics**  
+   • Minimum 30 seedlings per taxon × treatment; fit hierarchical Bayesian models with group-specific biases & kernels; share raw posteriors for meta-analysis.
 
-## 7. Decision-Relevant Storylines
+4. **Cross-Platform Calibration**  
+   • CO₂/H₂O flux systems: validate against lysimeter or BREB; target ±5 % accuracy.  
+   • Root imaging: benchmark against manual tracings on a 10 % subsample; document modality-dependent detection limits.
 
-### 7.1 Mitigation-Success (SSP1-2.6)
+5. **Trait Ontology Expansion**  
+   • Incorporate *architectural trajectory traits* (age at peak growth, branch emission rate) and *dynamic physiological thresholds* (VPD breakpoint, RGI) alongside classic static traits.  
+   • Register traits in TRY/BIEN with explicit ontogenetic stage tags.
 
-AMOC weakens ~20 %, stabilises after 2060; no collapse. Coastal SLR driven mainly by steric & ice mass components. Adaptation focus remains on ~0.5 m global-mean rise.
+6. **Surface Engineering for 2-D Root Platforms**  
+   • Adopt HMDS-treated or PVOH-coated transparent papers to minimise variable paper–root adhesion; avoid FDTS in >80 % RH setups.
 
-### 7.2 Delayed-Action (SSP2-4.5)
+7. **Automate Pre- and Post-Imaging Logistics**  
+   • Robotic plate handling, microfluidic sample cleanup, and error-detection algorithms are now rate-limiting; allocate budget accordingly (>50 % of HTP CAPEX).
 
-Weakening 25–40 %; early-warning indicators approach critical threshold ~2080 but not crossed. Dynamic SLR +12 cm EU coast; moderate European cooling offsets some heatwave impacts, yet hydrological shifts affect agriculture.
-
-### 7.3 Fossil-Fuel Continuation (SSP5-8.5)
-
-Weakening 40–60 %; tipping probability 25–35 %. If collapse: +20 cm dynamic SLR, −3 °C western-Europe mean cooling, acute storm-track changes, and decadal oxygen loss. Requires robust adaptive pathways: edifices, agriculture, and energy demand all shift.
-
----
-
-## 8. Recommendations for Modellers, Observers & Policymakers
-
-1. **Accelerate high-resolution coupled modelling** – At <0.25° provide credible Gulf-Stream separation, Florida Current, and eddy compensation physics; essential for dynamic SLR and extreme-event risk estimation.  
-2. **Deploy fine-spacing mooring arrays** – 180–320 km spacing plus sub-daily sampling along Denmark-Strait/Irminger route to track DSOW and variance growth precursors.  
-3. **Integrate early-warning dashboard** – Combine RAPID transport anomalies, 48 N–34 S density gradient, NAO-adjusted hydrographic trends, and variance diagnostics.  
-4. **Embed AMOC in coastal-flood standards** – Incorporate a +20 cm dynamic SLR contingency into European & U.S. east-coast planning horizons (2050–2100).  
-5. **Treat North Atlantic Hosing as a realistic policy stress test** – Apply +0.1 Sv Greenland-melt pulses in CMIP7 ScenarioMIP to bracket abrupt-change damages.
+8. **Data Transparency**  
+   • Publish full image stacks and raw sensor streams under FAIR principles; provide calibration files (spectral, geometric, gas-flux) for re-analysis.
 
 ---
+## 5. Speculative but Promising Frontiers (Flagged as *High Speculation*)
 
-### Concluding Perspective
+1. *In-silico trait estimation*: Transformer-based multi-modal models could infer root hydraulic conductance directly from hyperspectral shoots + soil moisture history, bypassing destructive digging.
+2. *On-chip metabolomics*: Mars-origin microfluidic automatons adapted to seedlings could deliver picomolar metabolite profiling during germination screens.
+3. *Paper micro-robotics*: Electroactive HMDS-paper layers might bend with root exudate gradients, serving as self-reporting root force sensors.
 
-The long-standing textbook view—“an AMOC collapse this century is very unlikely”—is no longer defensible. Improved observations, higher-resolution models, and refined stability theory now paint a *non-trivial* risk of an abrupt transition within the current century, particularly under high-emission pathways or rapid Greenland-ice loss. Given the disproportionate socio-economic consequences concentrated in regions with dense infrastructure and historical climate stability, prudence dictates incorporating AMOC tipping contingencies into both mitigation cost–benefit analyses and near-term adaptation planning.
+---
+## 6. Concluding Synthesis
 
-> **Practical bottom line**: Even if global mean temperature targets are met, unmitigated freshwater forcing from the cryosphere can still push the AMOC across a tipping threshold. Vigilant monitoring, process-explicit modelling, and policy designs that are robust to a 20 cm dynamic sea-level surge and a 1–3 °C European cooling must be pursued starting now.
+The last decade revealed that methodological artefacts—from chamber residence times to substrate chemistry and underspecified statistical hierarchies—explain a substantial share of the mismatches that frustrate trait-based predictions of seedling performance. Concurrently, breakthroughs in imaging, sensor technology and functional–structural modelling provide a path to close the predictive gap if (and only if) protocols become **environment-standardised, statistically powered, and ontogenetically explicit**.
 
+By integrating dynamic physiological thresholds (e.g., VPD breakpoints), architectural trajectory metrics, and high-throughput emergence assays with rigorous hierarchical analytics, the community can move beyond the classical SLA/LDMC paradigm toward a genuinely predictive seedling functional ecology relevant to restoration, crop breeding and Earth-system modelling.
+
+*Prepared 2025-06-03. All citations available upon request.*
 
 ## Sources
 
-- http://www.ocean-sci.net/10/881/2014/
-- https://hal.science/hal-00872044/document
-- http://hdl.handle.net/2078.1/119081
-- https://hal.science/hal-00267648
-- http://web.science.unsw.edu.au/%7Ematthew/AMOC_Sijp_et_al_2014.pdf
-- https://dspace.library.uu.nl/handle/1874/409138
-- https://orcid.org/0000-0002-2326-619X
-- https://hal.science/hal-03008090/document
-- https://doaj.org/toc/1991-9603
-- https://zenodo.org/record/28293
-- https://mural.maynoothuniversity.ie/17729/1/mccarthy-caesar-2023-can-we-trust-projections-of-amoc-weakening-based-on-climate-models-that-cannot-reproduce-the-past.pdf
-- https://doaj.org/article/8b74ce5a5c8441f78474dc0b3e65bb46
-- http://hdl.handle.net/10068/942094
-- https://zenodo.org/record/27932
-- https://doi.pangaea.de/10.1594/PANGAEA.864251
-- https://hal.archives-ouvertes.fr/hal-02892492
-- http://hdl.handle.net/1721.1/71728
-- http://hdl.handle.net/11858/00-001M-0000-0011-FB5D-D
-- http://dx.doi.org/10.1029/2012GL053763
-- https://dspace.library.uu.nl/handle/1874/349359
-- https://research.vu.nl/en/publications/170c6063-8dac-464c-a5fa-ed7d220dc022
-- https://dspace.library.uu.nl/handle/1874/409300
-- http://www.vliz.be/imisdocs/publications/262922.pdf
-- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S1463500313000437/MAIN/application/pdf/f846324d98ac97e3700673a0ae9c3e03/main.pdf
-- https://hal.science/hal-01248244
-- https://dspace.library.uu.nl/handle/1874/411234
-- http://hdl.handle.net/10.1371/journal.pone.0214535.g003
-- http://hdl.handle.net/11585/131792
-- https://doaj.org/article/e297211b6ef249679bdea0e6e5fa2a2a
-- https://escholarship.org/uc/item/14v523qn
-- https://doaj.org/article/ff6b5e54206241db8be8af214144dc7e
-- https://hal.science/hal-00836152
-- www.duo.uio.no:10852/79797
-- http://www.dhigroup.com/upload/publications/mikeshe/Butts_Improving_streamflow_simulations.pdf
-- https://hal.archives-ouvertes.fr/hal-00853304
+- https://doaj.org/toc/1932-6203
+- https://eprints.lancs.ac.uk/id/eprint/154661/
+- https://figshare.com/articles/_Correlation_between_quantitative_traits_and_geographical_locations_of_origin_/1629620
+- https://escholarship.org/uc/item/2f66029h
+- https://juser.fz-juelich.de/search?p=id:%22FZJ-2015-02120%22
+- http://web.utk.edu/~nsanders/Pubs/2010-MolecularEcology.pdf
+- https://digitalcommons.mtu.edu/michigantech-p/1673
+- https://figshare.com/articles/Sizes_of_random_effects_top_four_values_within_each_graph_including_residual_and_fixed_effects_bottom_three_values_expressed_in_standard_deviations_square_roots_of_variance_components_from_Bayesian_multilevel_analyses_of_variance_for_each_trait_/4886036
+- https://library.wur.nl/WebQuery/wurpubs/438841
+- http://www.documentation.ird.fr/hor/fdi:010079890
+- https://escholarship.org/uc/item/6ff3d3rf
+- http://hdl.handle.net/1957/42881
+- http://fiver.ifvcns.rs/handle/123456789/3742
+- ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/ad/8f/pone.0115732.PMC4275237.pdf
+- https://doaj.org/article/0568dcc17cbb4508968dd0695f611a33
+- http://www.doria.fi/handle/10024/128271
+- https://juser.fz-juelich.de/search?p=id:%22FZJ-2016-03626%22
+- https://hal.inria.fr/hal-00827469
+- https://doi.org/10.1371/journal.pone.0176959.
+- http://hdl.handle.net/10.3389/fpls.2023.1106672.s001
+- https://cris.vtt.fi/en/publications/d69f0733-6f70-4209-a54b-6311d2312813
+- https://hdl.handle.net/20.500.12636/1577
+- https://figshare.com/articles/Multi-trait_multi-environment_Bayesian_model_reveals_G_x_E_interaction_for_nitrogen_use_efficiency_components_in_tropical_maize_-_Fig_1/6711923
+- http://www.sciencedirect.com/science/article/pii/S0032386104012753
+- https://www.revistas.usp.br/sa/article/view/183015
+- http://agritrop.cirad.fr/520493/
+- https://www.chimia.ch/chimia/article/view/2005_243
+- https://www.mdpi.com/2223-7747/12/15/2866
+- http://hdl.handle.net/10355/9121
+- https://hal.science/hal-01190209
+- http://library.wur.nl/WebQuery/wurpubs/426103
+- https://juser.fz-juelich.de/record/873314
+- http://eprints.nottingham.ac.uk/37691/
+- https://zenodo.org/record/4426180
+- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-204518
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:104122
+- http://hdl.handle.net/2440/127351
+- http://hdl.handle.net/10.1371/journal.pone.0206861.t001
+- https://figshare.com/articles/Influence_of_the_size_of_the_training_population_TP_of_whole_population_size_on_the_genomic_prediction_accuracy_r_sub_GPA_sub_for_the_seven_traits_seedling_emergence_lodging_resistance_seed_yield_days_to_flowering_DTF_seed_glucosinolate_content_GSL_oil_yi/3045262
+- https://research.vu.nl/en/publications/d61d671a-374d-4623-b826-c692ce04bbe0
+- http://orcid.org/0000-0002-4562-9131
+- https://trepo.tuni.fi/handle/10024/143269
+- http://hdl.handle.net/20.500.11850/103905
+- http://hdl.handle.net/2117/16451
+- https://juser.fz-juelich.de/record/828097
+- https://hal.inria.fr/inria-00380520/file/ISCMDS08_Kang.pdf
+- https://dx.doi.org/10.3390/s18082711
+- http://repozitorij.ung.si/Dokument.php?id=23587&dn=
+- http://hdl.handle.net/11568/202361
+- https://scholarworks.rit.edu/ritamec/vol18/iss1/15
+- https://hal.archives-ouvertes.fr/hal-01173152
+- http://dx.doi.org/10.1088/0957-0233/17/12/S05
+- https://escholarship.org/uc/item/7d49t9gk
+- http://hdl.handle.net/2078.1/174415
+- https://figshare.com/articles/Differences_in_plasticity_of_the_parameters_measured_in_i_Q_i_i_acutissima_i_seedlings_at_different_light_levels_and_nitrogen_deposition_rates_/5979190
+- https://mel.cgiar.org/reporting/downloadmelspace/hash/9QuzRDmN/v/a4384564ab20f9e2b9644b012357b51c
+- https://hal.inrae.fr/hal-03334503
+- https://biblio.ugent.be/publication/8663377
+- https://repository.publisso.de/resource/frl:6414703
+- https://doaj.org/article/0b0deaa95d2f4cce992dac4fa690524a
+- https://library.wur.nl/WebQuery/wurpubs/510290
+- https://espace.library.uq.edu.au/view/UQ:4206777
+- https://research.wur.nl/en/publications/the-acquisitive-conservative-axis-of-leaf-trait-variation-emerges
+- http://prodinra.inra.fr/record/281601
+- http://hdl.handle.net/11383/1486702
+- https://zenodo.org/record/5549334
+- http://www.scielo.br/pdf/aabc/v86n4/0001-3765-aabc-0001-3765201420130249.pdf
+- http://hdl.handle.net/10179/14853
+- http://mems.sandia.gov/tech-info/doc/SPIE.0699.pdf
+- https://figshare.com/articles/_Variability_of_the_photosynthetic_efficiency_during_the_24h_laboratory_incubations_/1496088
+- https://doaj.org/article/67e1458617e34fbbb54e3ea6210502a2
+- https://escholarship.org/uc/item/3mg2x7gh
+- http://edepot.wur.nl/257379
+- https://biblio.ugent.be/publication/8673407
+- https://research.chalmers.se/en/publication/9878
+- http://www.publish.csiro.au/?act=view_file&file_id=FP09167.pdf
+- https://hal.science/hal-01210019
+- https://hdl.handle.net/2164/13307
+- http://hdl.handle.net/11368/2998031
+- https://zenodo.org/record/3830406
+- https://dx.doi.org/10.1016/S0168-1923(02)00023-0
+- http://old.scielo.br/scielo.php?script=sci_arttext&pid=S0100-84042007000300002
+- https://escholarship.org/uc/item/0cm6p2r3
 - http://www.loc.gov/mods/v3
-- https://zenodo.org/record/8163448
-- https://orcid.org/0000-0001-9230-3591
-- https://escholarship.org/uc/item/7598h6tn
-- https://doi.pangaea.de/10.1594/PANGAEA.942176
-- https://hal.science/hal-02869856/document
-- https://hal.sorbonne-universite.fr/hal-01449390/document
-- http://web.maths.unsw.edu.au/~matthew/treguier_et_al.pdf
-- https://hal.archives-ouvertes.fr/hal-03279860
-- https://mural.maynoothuniversity.ie/15845/1/GerardMccarthyEff2022.pdf
-- https://orcid.org/0000-0002-9111-7700
-- https://hdl.handle.net/
-- http://hdl.handle.net/1721.1/52347
-- http://hdl.handle.net/2078.1/35529
-- https://insu.hal.science/insu-03683236/document
-- https://hal.science/hal-02892492/file/gmd-9-3993-2016.pdf
-- https://zenodo.org/record/7225014
-- http://www.vliz.be/nl/open-marien-archief?module=ref&refid=238450
-- https://hal.archives-ouvertes.fr/hal-00770689
-- http://hdl.handle.net/10871/36797
+- http://prodinra.inra.fr/record/457240
+- https://zenodo.org/record/5703783
+- http://digital.library.unt.edu/ark:/67531/metadc620309/
+- http://www.publish.csiro.au/nid/103.htm
+- http://sio2associates.com/docs/aip_452.pdf
+- https://dx.doi.org/10.3390/ma9121019
+- http://hdl.handle.net/2097/17543
+- https://eprints.lancs.ac.uk/id/eprint/84838/
+- http://hdl.handle.net/1959.14/103128
+- https://zenodo.org/record/6818410
+- http://terraweb.forestry.oregonstate.edu/pubs/Burba_2012.pdf
+- http://edepot.wur.nl/39304
+- http://hdl.handle.net/10388/13257
+- https://oskar-bordeaux.fr/handle/20.500.12278/158421
+- https://doaj.org/article/25d82a33c89e4c46893194ad50a67360
+- https://digitalcommons.usf.edu/tropical_ecology/682
+- https://zenodo.org/record/5009280
+- http://repositorium.sdum.uminho.pt/bitstream/1822/24860/1/17601-o37p1_MSousa_SHpaper_ACSApplMatInterf_2013.pdf
+- http://hdl.handle.net/10197/8093
+- https://hal.inrae.fr/hal-02884893/document
+- https://hal.inria.fr/inria-00121501
+- http://edepot.wur.nl/306160
+- http://www.journals.elsevier.com/agriculture-ecosystems-and-environment/
+- http://hdl.handle.net/11585/678439
+- https://hdl.handle.net/11250/2739374
+- https://digitalcommons.unl.edu/biosysengfacpub/760
+- https://juser.fz-juelich.de/search?p=id:%22FZJ-2023-02611%22
+- https://doaj.org/article/3cd58aa173054fbda3ef611ddbe96499
+- http://hdl.handle.net/11588/694776
+- https://juser.fz-juelich.de/record/188889
+- https://dx.doi.org/10.3390/polym10040448
+- http://agritrop.cirad.fr/556068/
+- http://eprints.nottingham.ac.uk/41078/
+- https://ezproxy.uws.edu.au/login?url=https://doi.org/10.1071/BT12225
+- https://revista.ufrr.br/agroambiente/article/view/5166
+- http://hdl.handle.net/10.6084/m9.figshare.7163417.v1
 - http://www.scopus.com/home.url)
-- http://web.science.unsw.edu.au/%7Ematthew/os-3-491-2007.pdf
-- http://hdl.handle.net/10261/264557
-- http://hdl.handle.net/1957/27668
-- https://doaj.org/article/c27ec664258747bea1ba08d9c7aef227
-- https://doi.org/10.17615/azt7-gs05
-- http://hdl.handle.net/2078.1/39374
-- https://hal.science/hal-03093315
-- http://hdl.handle.net/20.500.11897/419756
-- https://escholarship.org/uc/item/3ww7v7s2
-- http://hdl.handle.net/11858/00-001M-0000-002D-CF17-0
-- https://hal.archives-ouvertes.fr/hal-03008090
-- http://hdl.handle.net/10068/256386
-- https://orcid.org/0000-0001-5298-5233
-- http://hdl.handle.net/20.500.11897/390640
-- https://hal.archives-ouvertes.fr/hal-00690812
-- http://hdl.handle.net/11858/00-001M-0000-0011-F546-4
-- http://hdl.handle.net/20.500.11897/408842
-- https://centaur.reading.ac.uk/103346/8/fmars-09-830821.pdf
-- https://zenodo.org/record/8320904
-- http://handle.unsw.edu.au/1959.4/unsworks_35002
-- https://archimer.ifremer.fr/doc/00746/85806/90953.jpg
-- http://www.vliz.be/nl/open-marien-archief?module=ref&refid=217394
-- https://hal.science/hal-00783515
-- http://rams.atmos.colostate.edu/cotton/vita/106.pdf
-- https://zenodo.org/record/8163529
-- http://hdl.handle.net/10379/11548
-- http://www.biogeosciences.net/5/1373/2008/bg-5-1373-2008.pdf
-- https://hal.archives-ouvertes.fr/hal-00297986
-- https://orcid.org/0000-0001-8579-6068
-- http://hdl.handle.net/10138/167236
-- https://doi.pangaea.de/10.1594/PANGAEA.942034
-- https://dspace.library.uu.nl/handle/1874/275523
-- http://www.elic.ucl.ac.be/modx/users/thierry/articles/2005_Renssen_et_al_GRL.pdf
-- http://hdl.handle.net/11858/00-001M-0000-000E-ACEF-E
-- https://zenodo.org/record/7509968
-- https://hal.science/hal-03869321
-- http://eprints.soton.ac.uk/255/1/KLINGER_.MARTOZKE_JPO__S_2001.pdf
-- http://hycom.org/attachments/067_diapycnal.pdf
-- https://doi.pangaea.de/10.1594/PANGAEA.942047
-- http://edoc.mpg.de/249275
-- http://www.vliz.be/imisdocs/publications/90/309590.pdf
-- https://mural.maynoothuniversity.ie/12060/1/GM_Atlantic.pdf
-- https://centaur.reading.ac.uk/91960/2/2019MS002014.pdf
-- https://hal.science/hal-00331133/file/osd-4-653-2007.pdf
-- https://research.vu.nl/en/publications/955346d2-0a91-4390-b2d3-84eb45512132
-- https://dspace.library.uu.nl/handle/1874/394430
-- http://hdl.handle.net/20.500.11897/214825
-- https://doi.org/10.1016/j.pocean.2011.10.002
-- https://media.suub.uni-bremen.de/handle/elib/1267
-- https://doaj.org/article/3a840b292a25436d94cfc021fa87c44d
-- https://hdl.handle.net/1956/17028
-- https://research.vu.nl/en/publications/23819acf-602d-4819-8a62-f3e866c28812
-- https://doi.pangaea.de/10.1594/PANGAEA.942057
-- https://zenodo.org/record/8005600
-- https://doi.pangaea.de/10.1594/PANGAEA.942046
-- https://doaj.org/toc/2190-4987
-- http://hdl.handle.net/1721.1/70089
-- https://digitalcommons.uri.edu/oce_facpubs/515
+- https://dx.doi.org/10.3390/agronomy8050071
+- https://eprints.qut.edu.au/31240/
+- http://publica.fraunhofer.de/documents/N-336546.html
+- https://hal.archives-ouvertes.fr/hal-01512173
+- https://doaj.org/article/97b3aec8a4e04688a17c69732ae1eadc
+- https://doaj.org/article/af0203044b334087b744d5dd5e7309c2
+- http://www.alice.cnptia.embrapa.br/alice/handle/doc/1118821
+- https://nrc-publications.canada.ca/fra/voir/objet/?id=b1af95b7-f83e-4c7b-baa7-979c78dc17b9
+- https://dr.lib.iastate.edu/handle/20.500.12876/105917
+- https://doaj.org/article/6756e1195b88482bb092ef06f9e3dff0
+- http://hdl.handle.net/11588/768703
+- http://hdl.handle.net/10255/dryad.49806
+- http://hdl.handle.net/11343/194879
+- https://hal-centralesupelec.archives-ouvertes.fr/hal-00872390
+- http://hdl.handle.net/2286/R.I.8870
+- https://juser.fz-juelich.de/search?p=id:%22FZJ-2022-00412%22
+- https://zenodo.org/record/7054485
+- http://publikace.k.utb.cz/handle/10563/1009028
+- http://digital.library.unt.edu/ark:/67531/metadc702298/
+- http://hdl.handle.net/1853/58249
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S187770581300091X/MAIN/application/pdf/16c00c21c02e9e6595eb9964eac30d5b/main.pdf
+- http://library.wur.nl/WebQuery/wurpubs/387436
+- http://hdl.handle.net/1957/10909
+- https://hdl.handle.net/2027.42/155513
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S2214574515000334/MAIN/application/pdf/fd1269725ba22c12c5ccd1ebec953587/main.pdf
+- https://doi.org/10.48693/206
+- https://juser.fz-juelich.de/record/202330
+- https://digitalcommons.unl.edu/dissertations/AAI29167763
+- http://library.soton.ac.uk/datarequest
+- https://doaj.org/article/0739233af18f4e2a86f6391e8ea8a13b
+- http://prodinra.inra.fr/record/344282
+- https://cris.vtt.fi/en/publications/67d68f25-e0be-4f96-b106-4e378394e49d
+- https://figshare.com/articles/Universal_Microfluidic_Automaton_for_Autonomous_Sample_Processing_Application_to_the_Mars_Organic_Analyzer/2384803
+- https://doi.org/10.1051/epjap:2005071
+- https://orbi.uliege.be/handle/2268/152116
+- http://hdl.handle.net/2078.1/227038
+- https://escholarship.org/uc/item/57966765
+- https://eprints.lancs.ac.uk/id/eprint/79809/
+- http://hdl.handle.net/10.3389/fevo.2022.983192.s001
+- http://hdl.handle.net/1885/186100
+- https://figshare.com/articles/Mean_rates_of_gas_exchange_during_Experiment_2_in_2017_/6345962
+- https://doaj.org/article/990cb1ce17844c3685265fc738c49aaa
+- https://dspace.unitus.it/handle/2067/30951
+- http://edepot.wur.nl/178287
+- http://hdl.handle.net/10.1371/journal.pone.0212200.g002
+- https://dx.doi.org/10.3390/agronomy8050063
+- https://doaj.org/article/920588c9f51e4914a677f6df0613bc8d
+- http://hdl.handle.net/1885/66720
+- https://hal.archives-ouvertes.fr/hal-02274473
+- http://digitalcommons.library.umaine.edu/cgi/viewcontent.cgi?article%3D1250%26context%3Detd
+- https://imisrise.tappi.org/TAPPI/Products/11/PAP/11PAP32.aspx
+- https://institut-agro-dijon.hal.science/hal-03279153
+- http://hdl.handle.net/11858/00-001M-0000-0014-79B5-8
+- http://hdl.handle.net/10.1371/journal.pone.0210183.t002
+- http://hdl.handle.net/1885/74050
+- http://hdl.handle.net/10255/dryad.129878
+- http://dx.doi.org/10.5194/bg-13-903-2016
+- http://eprints.nottingham.ac.uk/44225/
+- https://figshare.com/articles/_Shifting_correlations_between_plant_traits_and_species_abundance_at_the_plot_scale_over_a_range_of_soil_organic_matter_a_and_soil_total_nitrogen_content_b_/669891
+- https://figshare.com/articles/_Shifting_correlations_between_plant_traits_and_species_abundance_at_the_plot_scale_over_a_range_of_air_humidity_a_and_soil_moisture_contents_b_and_c_/669889
+- https://zenodo.org/record/7109006
+- https://doaj.org/toc/1424-8220
+- https://dspace.library.uu.nl/handle/1874/383047
+- http://www.nrcresearchpress.com/doi/abs/10.1139/cjb-2016-0148
+- http://hdl.handle.net/10255/dryad.51561
+- https://figshare.com/articles/_Shifting_correlations_between_plant_traits_and_species_abundance_at_the_plot_scale_over_a_range_of_soil_pH_/669892
+- https://doi.org/10.3390/app12189005
+- https://hal.inrae.fr/hal-04169477/document
+- http://hdl.handle.net/10150/644446
+- http://agritrop.cirad.fr/556048/
+- http://hdl.handle.net/11858/00-001M-0000-0027-5F93-7
+- http://library.wur.nl/WebQuery/wurpubs/431562
+- http://hdl.handle.net/10150/670193
+- http://hdl.handle.net/20.500.11897/237697
+- http://digital.library.unt.edu/ark:/67531/metadc710700/
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:102319
+- https://zenodo.org/record/211797
+- https://juser.fz-juelich.de/record/281945
+- https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S1369526615000266/MAIN/application/pdf/6a2e21a8b8a2cc332456ef8877b9f5d6/main.pdf
+- https://juser.fz-juelich.de/record/860087
+- http://hdl.handle.net/2078.1/262750
+- http://hdl.handle.net/10.1371/journal.pone.0206210.g001
+- https://hal.archives-ouvertes.fr/hal-03324566/file/giab052.pdf
+- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-68234
+- https://juser.fz-juelich.de/record/280592
+- https://figshare.com/articles/_Phenotype_of_high_and_low_vigor_bulks_in_seeds_collected_at_4_5_and_6_weeks_after_heading_in_2013_/1278112
+- https://doaj.org/article/012ed85d53604cb1b7d34299d3cdcd96
+- https://hal.univ-angers.fr/hal-03114726
+- http://prodinra.inra.fr/record/267832
+- https://figshare.com/articles/_Relationships_between_crop_growth_rate_CGR_and_leaf_functional_trait_values_a_leaf_dry_matter_content_LDMC_b_leaf_area_LA_and_relationships_between_crop_N_acquisition_rate_CNR_and_leaf_functional_trait_values_c_leaf_dry_matter_content_LDMC_c_leaf_area_LA/1342846
+- http://hdl.handle.net/10255/dryad.100016
+- http://umpir.ump.edu.my/id/eprint/6962/1/Assessment%20Of%20Organic%20Acid-Rich%20Bio-Sap%20To%20Generate%20Electricity.pdf
+- http://hdl.handle.net/1957/59338
+- http://catalog.lib.kyushu-u.ac.jp/handle/2324/8173/KJ00004506792.pdf
+- http://acta.bibl.u-szeged.hu/64907/1/proceedings_of_isaep_2019_461-464.pdf
+- http://library.wur.nl/WebQuery/wurpubs/431467
+- https://doaj.org/article/76b824497dfc4b1fb28781f3f96c019c
+- http://dare.ubvu.vu.nl/bitstream/handle/1871/21464/162086.pdf%3Bjsessionid%3D9BA25E1FC05C82EAA891EDD7C4DEDE10?sequence%3D2
+- http://hdl.handle.net/2440/90086
+- http://agritrop.cirad.fr/507958/
+- http://library.wur.nl/WebQuery/wurpubs/425029
+- https://research.aalto.fi/files/61232635/1_s2.0_S0141813021005651_main.pdf
+- http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.88.2732
+- https://hal.archives-ouvertes.fr/hal-01595406
+- http://hdl.handle.net/11858/00-001M-0000-0029-2883-8
+- http://hdl.handle.net/2072/440433
+- http://lup.lub.lu.se/student-papers/record/8917201

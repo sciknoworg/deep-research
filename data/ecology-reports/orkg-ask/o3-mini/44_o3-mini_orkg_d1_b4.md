@@ -1,124 +1,178 @@
-# Comprehensive Analysis of Research Approaches: Hypotheses, Domain Specification, and Methodological Transparency
+# Final Report on the Success Factors for Reintroducing Lynx to the Austrian Northern Limestone Alps
 
-## Abstract
-
-This report provides an in-depth exploration of various critical facets in contemporary research, specifically focusing on the role of hypotheses, domain identification in requirements elicitation, semantic web technologies to support research, challenges in research domain classification, the negotiation of contested qualitative techniques, and the imperatives of methodological transparency. Drawing upon a range of studies and empirical findings, this report aims to synthesize lessons learned through extensive research. These include contrasting approaches to hypothesis utility in structuring inquiry, the difficulties non-expert analysts face with domain model extraction, and the dynamic role of semantically anchored platforms in integrating heterogeneous data. The discussion further evaluates both simplistic and sophisticated methods of domain classification and underscores the importance of balancing theoretical debates with adaptive methodologies for effective qualitative research.
-
-## 1. Introduction
-
-The evolution of research methodologies over recent decades reflects a dynamic interplay between conventional methodological rigour and innovative, adaptive frameworks that respond to emergent challenges in diverse disciplines. Researchers, particularly those operating within the graduate-level and post-doctoral spectrums, have faced both empirical and conceptual challenges. The findings discussed herein span multiple aspects of research—from the formulation and use of hypotheses to domain identification and semantic integration—which together provide a multi-faceted lens through which modern inquiry can be understood and improved.
-
-This report is structured into several key sections that methodically unpack topics such as the structured use of hypotheses, domain-specific challenges in requirements elicitation, cutting-edge semantic technologies, and contested qualitative methods. Each section contains detailed analyses that critically engage with empirical results to propose not only a synthesis of current literature and research practices but also potential innovative directions moving forward.
-
-## 2. The Role of Hypotheses in Structuring Inquiry
-
-### 2.1. Formulation and Utility
-
-One of the most challenging decisions in research design is the choice of whether to craft explicit hypotheses. Traditionally, hypotheses have been foundational in structuring research, particularly within PhD-level and rigorously empirical projects. In many studies, hypotheses have been characterized by their origins, functionalities, and the indicators employed to assess them. The primary benefit of well-defined hypotheses is that they serve as guiding tools that shape both methodological design and subsequent analysis. They provide a framework that directs the scope of a research project, ensuring clarity and focus.
-
-Recent comparative analyses, however, have suggested a more flexible approach whereby hypothesis generation may be optional. The notion of a "hypothesis-optional framework" is contingent on the conceptual and methodological aims of the research. In projects that involve exploratory data or emergent theoretical domains where pre-established assertions may constrain interpretation, a flexible approach offers several advantages. These advantages include enhanced adaptability and the capacity for capturing unexpected phenomena.
-
-### 2.2. Challenges and Strategic Considerations
-
-On the strategic level, researchers must decide whether to adopt a stringent hypothesis-driven strategy or to pursue exploratory research that allows for iterative development of research questions and hypotheses as findings emerge. The decision is influenced by factors such as disciplinary norms, research objectives, the maturity of the theoretical field, and the nature of the data. From the research learnings discussed, it is clear that embracing a flexible stance may benefit innovative research while maintaining sufficient methodological rigour.
-
-## 3. Domain Identification in Requirements Elicitation
-
-### 3.1. The Case of Non-Expert Analysts
-
-Domain identification is critical in requirements elicitation processes, particularly within complex, data-rich environments. Studies conducted with postgraduate students at the Technical University of Madrid reveal that non-expert analysts often struggle with the extraction and visualization of implicit domain model fragments. This leads to incomplete or inaccurate consolidation of domain-specific knowledge, thereby impacting the overall quality of research outcomes. The difficulty lies not only in identifying the salient features of a domain but also in understanding the interplay between different domain components.
-
-### 3.2. Strategies for Effective Domain Modeling
-
-To overcome these challenges, the research suggests the need for enhanced training protocols and the integration of automated tools capable of facilitating the extraction and interpretation of domain knowledge. By leveraging improved visualization techniques and interactive modeling tools, institutions can empower non-expert analysts to contribute more reliably to the research process. This, in turn, improves data consistency and reduces the risk of cognitive overload during the elicitation process.
-
-## 4. Semantic Web Technologies and Research Integration
-
-### 4.1. Enhancing Resource Discovery
-
-Recent advancements in semantic web technologies have provided novel avenues for accelerating resource discovery and literature integration. Tools such as ResearchIQ, developed at The Ohio State University, exemplify how semantically anchored platforms integrate heterogeneous data resources to support novice researchers. These platforms offer comprehensive potential by wisely embedding domain ontologies which, despite the occasional complexity, can greatly enhance research efficiency.
-
-### 4.2. Leveraging Heterogeneous Data
-
-Integrating heterogeneous data sources through semantic techniques enables the identification of expert contributors, accelerates the unification of disparate databases, and augments the comprehensiveness of literature reviews. For instance, by harnessing semantic relationships inherent within large datasets, researchers can more effectively detect latent connections and trends that may inform their hypothesis formation and refinement. This shift towards semantic integration represents a paradigm change in how data is aggregated and understood in modern research settings.
-
-## 5. Research Domain Classification: Simplicity Versus Complexity
-
-### 5.1. Comparative Techniques in Domain Classification
-
-The classification of research domains, particularly within scientific datasets, poses a considerable challenge. Various approaches have been explored ranging from simple keyword-based classifiers using metrics such as the Normalized Google Distance to more sophisticated ontology-based methods. Contrary to expectations, research has highlighted that the simplicity of keyword-based approaches often yields better performance than complex ontology-driven techniques, especially under conditions with limited data variability.
-
-### 5.2. Balancing Methodologies
-
-The lessons learned underscore a critical tension: the balance between simplicity and complexity in domain classification. A key finding is that while sophisticated methods boast theoretical robustness, their practical application can be hampered by increased computational overhead and the intricacies of maintaining refined ontologies. On the other hand, simplistic methodologies, though less theoretically elegant, often deliver higher efficiency and comparable accuracy. Researchers are therefore advised to consider hybrid approaches that combine the robustness of ontologies with the computational efficiency of keyword-based classifiers.
-
-## 6. Negotiating Contested Qualitative Methods
-
-### 6.1. Grounded Theory versus Autoethnography
-
-The ongoing methodological debates have brought forth the contested techniques within qualitative research, such as grounded theory and autoethnography. Grounded theory, with its emphasis on systematic data collection and theory generation, remains a staple for many researchers. However, its methodological rigidity can clash with the more fluid, culturally adaptive approaches offered by autoethnography, which centers on personal narrative and introspection.
-
-### 6.2. Adaptive Strategies for Qualitative Research
-
-Researchers must navigate these dichotomies by adopting a balanced perspective. The learnings suggest that employing a combination of both methodologies where appropriate can foster a more comprehensive understanding. Adaptive strategies, where theoretical foundations are merged with culturally responsive practices, allow for nuanced interpretations of research findings. This balance not only addresses the inherent shortcomings of each individual approach but also enriches the interpretative depth of qualitative research.
-
-## 7. Methodological Transparency and Epistemological Alignment
-
-### 7.1. Decision Points in Research Design
-
-A recurring theme across contemporary research methodologies is the need for methodological transparency. Koro-Ljungberg et al. (2009) delineate ten critical decision points that researchers encounter, each heavily influenced by underlying epistemological stances. These junctures encompass decisions on data collection methods, analysis techniques, and the articulation of research values. Clearly articulating these decisions is vital, particularly in ambiguous or contested research contexts.
-
-### 7.2. Best Practices for Enhancing Transparency
-
-Explicit alignment of epistemological positions with research design decisions fosters both methodological rigor and enriched interpretability of results. It is essential for researchers to document the rationale behind each decision, thereby providing a coherent narrative that justifies methodological choices. Such transparency not only aids in replication and validation efforts but also supports critical examinations of research validity. In contemporary practice, such openness can be enhanced through integrated digital platforms that transparently track and log decision processes.
-
-## 8. Conclusion and Future Directions
-
-This comprehensive report underscores the multifaceted nature of modern research methodologies. The critical role of hypotheses, the challenges inherent in domain identification, the promise of semantic web technologies, and the balance required in qualitative methodological debates collectively inform a richer understanding of contemporary research design.
-
-Looking forward, several strategic directions warrant further exploration:
-
-1. **Hybrid Methodological Frameworks**: Future research should further integrate flexible hypothesis frameworks with robust quantitative techniques, particularly in domains where data variability challenges traditional methods.
-
-2. **Enhanced Domain Modeling Tools**: Investing in advanced visualization and interactive tools specifically designed for non-expert analysts could significantly improve domain-specific knowledge elicitation.
-
-3. **Optimized Semantic Integration**: Continuous development of semantically anchored platforms may bridge the gap between disparate data sources, fostering interdisciplinary research and accelerating literature synthesis.
-
-4. **Balanced Classification Approaches**: Further refinement of hybrid domain classification systems, combining simple and complex methodologies, may offer optimal performance across various scientific domains.
-
-5. **Culturally Responsive Qualitative Research**: More research is needed to blend grounded theoretical approaches with narrative methodologies in a manner that is both rigorous and sensitive to cultural nuances.
-
-By adopting these forward-looking initiatives, the research community can effectively address current challenges while paving the way for innovative, theory-informed, and methodologically transparent research practices.
-
-## 9. Implications for Advanced Research Projects
-
-For researchers and analysts engaged in high-stakes, empirically rigorous projects, this report provides actionable insights into the dual necessities of methodological flexibility and stringent transparency. By proactively addressing the trade-offs between ease of use and analytical depth—particularly in the context of domain representation and semantic data integration—researchers can further elevate the quality and reproducibility of their work. The integration of both established and emerging frameworks not only catalyzes improved outcomes but also ensures that innovation remains at the forefront of methodological evolution.
-
-In summary, the learnings compiled herein offer a robust framework for rethinking and enhancing research practices. They serve as a roadmap for balancing theoretical insight with practical applicability, ensuring that contemporary research continues to evolve in both depth and breadth.
+This comprehensive report examines the multifaceted factors that determine the success of reintroducing the Eurasian lynx (Lynx lynx) to the Austrian northern limestone Alps. Drawing on a wide range of previous research and case studies across Europe, this report evaluates ecological, genetic, and socio-economic factors. It further provides comparative insights from analogous reintroduction efforts and simulation studies in regions such as the Bohemian–Bavarian, Vosges–Palatinian, Carpathian border regions, the Alps (Switzerland, Italian, German sectors), Scotland, Norway, and Polish settings. Overall, the goal is to develop an integrated framework to optimize the reintroduction strategy under both immediate post-release survival scenarios and long-term population stability.
 
 ---
 
-*Note: While several suggestions here remain speculative and in early stages of empirical verification, they offer promising directions for future exploration and critical reflection on modern research practices.*
+## Table of Contents
+
+1. [Executive Summary](#executive-summary)
+2. [Introduction](#introduction)
+3. [Ecological and Environmental Factors](#ecological-and-environmental-factors)
+   - 3.1 Habitat Suitability and Fragmentation
+   - 3.2 Prey Availability and Kill Dynamics
+   - 3.3 Climate Conditions and Landscape Connectivity
+4. [Genetic and Demographic Considerations](#genetic-and-demographic-considerations)
+   - 4.1 Genetic Diversity and Founder Effects
+   - 4.2 Immigration Timing and Demographic Stability
+5. [Socio-Economic and Human-Related Factors](#socio-economic-and-human-related-factors)
+   - 5.1 Stakeholder Perspectives and Conflict Management
+   - 5.2 Policy Frameworks and Cross-Border Coordination
+   - 5.3 Communication, Compensation, and Community Engagement
+6. [Comparative Analyses with Analogous Reintroduction Efforts](#comparative-analyses-with-analogous-reintroduction-efforts)
+7. [Recommendations and Future Directions](#recommendations-and-future-directions)
+8. [Conclusion](#conclusion)
+
+---
+
+## Executive Summary
+
+Reintroducing the lynx to the Austrian northern limestone Alps is a challenging conservation effort shaped by a complex interplay of ecological, genetic, and socio-economic factors. Ecologically, habitat suitability is undermined by extensive fragmentation, while prey availability—particularly of roe deer—plays a critical role. Genetic challenges such as reduced diversity and founder effects necessitate integrated management strategies. Moreover, socio-political dimensions including local stakeholder opinions, regulatory frameworks, and transboundary management strongly influence outcomes. This report synthesizes findings from case studies and simulation models while suggesting innovative recommendations that address both immediate and long-term challenges. Collaborative management and adaptive monitoring are key to overcoming fragmentation, achieving demographic stability, and ensuring the reintroduction’s success.
+
+---
+
+## Introduction
+
+The project of reintroducing the Eurasian lynx to the Austrian northern limestone Alps is emblematic of broader conservation challenges, wherein ecological viability meets socio-political complexity. The Alps present a heterogeneous landscape; while providing suitable habitat pockets, human land use has significantly fragmented these areas, affecting both species dispersal and the broader ecosystem dynamics. In attempting reintroduction, practitioners must address critical questions: What determines immediate post-release survival? How can long-term population stability be achieved? And, crucially, how do stakeholder perspectives and socio-economic dynamics influence these outcomes?
+
+This report delves into the constellation of factors that undergird these questions by integrating insights from genetic analyses, simulation studies, stakeholder surveys, and comparative research from other European regions. The analysis is structured in sections that separately address ecological factors, genetic issues, socio-economic challenges, and comparative practices before concluding with integrative recommendations.
+
+---
+
+## Ecological and Environmental Factors
+
+### 3.1 Habitat Suitability and Fragmentation
+
+The physical landscape of the northern limestone Alps is characterized by natural variability and human-induced fragmentation. The following points are critical:
+
+- **Habitat Fragmentation:** Alpine reintroductions in overarching regions, as evidenced in studies where less than 20% of suitable habitat was recolonized over 40 years, highlight that high local densities are insufficient for overall expansion when fragmentation is pronounced. Connectivity is impeded by natural barriers and anthropogenic-induced divides such as roads and agricultural zones.
+- **Spatial Heterogeneity:** The landscape composition—a mosaic of forested areas, meadows, and human-dominated zones—directly influences lynx movements. Ensuring corridors that link isolated habitat patches is fundamental to facilitating dispersal and gene flow.
+
+### 3.2 Prey Availability and Kill Dynamics
+
+Lynx distribution is closely tied to prey dynamics in a given region:
+
+- **Prey Density:** Empirical telemetry studies in southern Norway indicate strong lynx selection for areas with high roe deer densities. The Austrian reintroduction must consider mapping and safeguarding zones with abundant prey.
+- **Disturbance Interactions:** Prey availability interacts with levels of human disturbance. Moderate disturbances may be tolerated, but high road densities are shown to increase mortality risks substantially. Therefore, establishing buffer zones that reduce road proximity can prevent fatal encounters.
+
+### 3.3 Climate Conditions and Landscape Connectivity
+
+While less explicitly documented in the learnings, climate conditions in the Alps—especially microclimates—affect prey populations and vegetation structure. Climate-induced alterations, such as shifts in snow cover lengths or unusual weather patterns, may further impact lynx mobility and hunting success. In addition, the changing climate necessitates adaptive management to ensure connectivity across shifting habitat boundaries.
+
+---
+
+## Genetic and Demographic Considerations
+
+### 4.1 Genetic Diversity and Founder Effects
+
+Genetic analyses from regions such as Bohemian–Bavarian and Carpathian borders reveal important trends:
+
+- **Reduced Diversity:** Reintroduced and peripheral lynx populations often suffer from reduced genetic diversity due to founder effects, where a small number of individuals establish the new population. Increased inbreeding may reduce adaptability and increase the risk of disease outbreaks.
+- **Translocation Strategies:** Integrated genetic management, including periodic translocations from genetically diverse populations, is a critical recommendation. This strategy mitigates inbreeding depression and ensures that a robust genetic pool is maintained to adapt to environmental changes.
+
+### 4.2 Immigration Timing and Demographic Stability
+
+Simulation studies from Polish settings underscore the sensitivity of population survival to the timing and rate of immigration:
+
+- **Post-Release Dynamics:** It has been shown that releasing additional individuals every four years can significantly extend the median extinction time. This suggests that a single release event may not suffice for long-term stability.
+- **Combined Effects of Immigration and Reduced Mortality:** Holistic management that simultaneously promotes immigration and reduces initial post-release mortality can build a more resilient population structure over time.
+
+---
+
+## Socio-Economic and Human-Related Factors
+
+### 5.1 Stakeholder Perspectives and Conflict Management
+
+Reintroducing an apex predator in regions densely populated by humans creates inevitable conflicts. Insights from a Q-methodology study in Scotland reveal the varied stakeholder standpoints:
+
+- **Diverse Perspectives:** The continuum of views ranges from those who see the lynx as a force for ecological regeneration ("Lynx for Change") to those who harbor concerns related to economic impacts on livestock farming ("Lynx for Economy"). Effectively addressing these polarized views demands transparent stakeholder engagement processes.
+- **Cooperative Frameworks:** Virtual roundtables, participatory decision-making frameworks, and conflict mediators can help bridge gaps between conservationists, livestock breeders, hunters, and policy makers.
+
+### 5.2 Policy Frameworks and Cross-Border Coordination
+
+The heterogeneous regulatory landscape in the Alpine region poses particular problems:
+
+- **Fragmented Regulations:** Differences in regional policies in Austria, Germany, Italy, and neighboring Switzerland complicate reintroduction efforts. A lack of systematic monitoring systems and effective livestock compensation schemes further compounds the risk of conflict.
+- **Need for Transboundary Management:** Coordinated policies at a supra-national level (e.g., within the framework of the European Union or other transboundary initiatives) are essential. Shared monitoring databases, joint funding models, and aligned legal provisions could provide a cohesive strategy for ensuring the success of reintroduction over a shared ecosystem.
+
+### 5.3 Communication, Compensation, and Community Engagement
+
+The human dimension extends beyond policy:
+
+- **Public Education:** Education and awareness campaigns are pivotal in mitigating fears and misconceptions regarding the lynx. Strategies should be tailored to local communities to demonstrate long-term benefits, both ecological (e.g., balanced predator-prey dynamics) and economic (e.g., eco-tourism).
+- **Livestock Compensation Schemes:** The implementation of robust compensation mechanisms for livestock loss can help appease local stakeholders, reducing direct conflicts and building trust across communities.
+
+---
+
+## Comparative Analyses with Analogous Reintroduction Efforts
+
+Several reintroduction initiatives provide valuable lessons:
+
+- **Alpine Regions (Switzerland, Italy):** Early reintroduction efforts in these regions highlight that even when local densities approach 120–150 individuals, recolonization remains patchy due to landscape fragmentation and a lack of coordinated management practices. In the Swiss Alps, higher occupancy contrasts starkly with the Italian Alps where numbers remain critically low. This disparity underscores the influence of cross-border immigration and regional policy discrepancies.
+
+- **Scottish Experience:** The stakeholder divisions observed in Scotland between proponents and opponents of lynx reintroduction emphasize the necessity for participatory frameworks. When applied to the Austrian context, stakeholder engagement must address residual socio-political mistrust explicitly.
+
+- **Polish Simulation Studies:** These studies underscore a crucial management tenet: success in reintroduction is contingent on a dual strategy that couples immediate mortality reduction with timely immigration boosts. With clear implications for risk management, such findings advocate for iterative reintroduction phases rather than a one-off event.
+
+---
+
+## Recommendations and Future Directions
+
+Based on the integrated analysis of ecological, genetic, and socio-economic dimensions, the following recommendations are proposed:
+
+1. **Adaptive Management and Monitoring:** Implement a dynamic monitoring system that tracks both ecological metrics (e.g., habitat connectivity, prey density) and demographic statistics (e.g., genetic diversity indices, immigration rates). This system should guide adaptive management decisions through real-time data inputs.
+
+2. **Integrated Genetic Management:** Establish routine genetic assessments and celebrate periodic translocations from a genetically robust pool to mitigate founder effects. Consider novel techniques in genomic selection and assisted gene flow to enhance adaptive potential.
+
+3. **Multi-Phase Reintroduction Protocol:** Design reintroduction efforts in successive phases with built-in immigration boosts every four years, as simulation studies demonstrate a dramatic extension in population viability through such strategies.
+
+4. **Transboundary Coordination Mechanisms:** Advocate for the formation of an Alpine Transboundary Advisory Committee to harmonize policies, share resources, and coordinate monitoring across Austria, Germany, Italy, and Switzerland. This cooperative strategy is essential to manage genetic flow and demographic stability in a fragmented ecosystem.
+
+5. **Stakeholder Engagement and Conflict Resolution:** Develop participatory planning platforms that include conservationists, livestock farmers, hunters, and local governments. Emphasize transparent decision-making, establish compensation schemes for livestock losses, and bolster public education campaigns.
+
+6. **Application of Remote Sensing and AI:** Leverage emerging remote sensing technologies, combined with machine learning models, to monitor landscape changes, habitat connectivity, and anthropogenic pressures in near real-time. Such tools can yield predictive insights and inform both local and transboundary management decisions.
+
+7. **Pilot Studies and Controlled Trials:** Before expanding large-scale reintroduction, implement pilot studies in strategically selected habitat patches to gather localized data. These can serve as proof-of-concept interventions to fine-tune broader strategies.
+
+8. **Financial Mechanisms and Incentives:** Secure multi-sectoral funding that includes private, public, and EU-level investments. Financial incentives, particularly those that reward community-based conservation efforts, could further reduce conflict and enhance project sustainability.
+
+---
+
+## Conclusion
+
+The success of reintroducing lynx to the Austrian northern limestone Alps depends on a complex and intertwined set of ecological, genetic, and socio-economic factors. While habitat fragmentation and prey dynamics present significant ecological challenges, genetic concerns arising from founder effects and the critical need for regular immigration underscore the necessity for comprehensive, multi-phased management strategies. Socio-economic dimensions further compound these challenges, demanding that reintroduction efforts be underpinned by robust stakeholder engagement, cross-border policy harmonization, and advanced monitoring techniques.
+
+By integrating insights from diverse European reintroduction projects and simulation studies, we advocate for an adaptive, detailed strategy that is responsive to both immediate survival needs and long-term population stability. Coupled with innovative tools such as remote sensing and transboundary coordination, this approach holds promise for restoring a balanced ecosystem while mitigating human-wildlife conflicts. Ultimately, success hinges on a holistic, multi-disciplinary approach that aligns ecological imperatives with social realities, ensuring the reintroduction of the lynx is both ecologically sustainable and socio-politically acceptable.
+
+---
+
+*This report is intended for conservation professionals and policy makers engaged in reintroduction projects and provides a detailed roadmap for achieving sustainable outcomes in complex, human-dominated landscapes.*
+
 
 ## Sources
 
-- https://research.vu.nl/en/publications/8cfb26b0-1f29-4092-bf63-0806f62d73ab
-- ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/a1/91/2091622.PMC4525255.pdf
-- http://dx.doi.org/10.17613/M6QJ77X8P
-- https://espace.library.uq.edu.au/view/UQ:619162
-- http://oa.upm.es/47883/
-- https://link.springer.com/article/10.1007/s11948-018-0065-x
-- www.myjurnal.my/filebank/published_article/7836article6.pdf
-- http://edepot.wur.nl/206269
-- http://www.wseas.us/e-library/transactions/information/2009/28-719.pdf
-- https://figshare.com/articles/Identifying_reporting_and_mitigating_sources_of_uncertainty_in_a_research_study_/6173078
-- https://stars.library.ucf.edu/cirs/3518
-- http://repository.wit.ie/1466/1/Choosing_the_Appropriate_Methodology_Understanding_Research_Philosophy_(RIKON_Group).pdf
-- http://cns.iu.edu/docs/presentations/2005-borner-sptiotmp-sweden.pdf
-- http://hdl.handle.net/10018/1212081
-- http://ageconsearch.umn.edu/record/288641
-- http://handle.uws.edu.au:8081/1959.7/40730
-- https://zenodo.org/record/3751623
-- https://zenodo.org/record/3534954
-- http://aisel.aisnet.org/acis2002/14/
-- http://hdl.handle.net/2134/3809
+- http://hdl.handle.net/10255/dryad.197701
+- https://doaj.org/toc/1399-1183
+- http://www.italian-journal-of-mammalogy.it/article/viewFile/4174/4110/
+- https://doaj.org/article/1aa9c2176910438585007725a024d2b3
+- https://doi.org/10.1016/j.landusepol.2017.04.019
+- https://doi.org/10.1002/pan3.10465
+- http://www.bio.uib.no/modelling/papers/Schadt_2002_Assessing_the_suitability.pdf
+- http://www.italian-journal-of-mammalogy.it/article/viewFile/4120/4056/
+- https://hdl.handle.net/11250/2999268
+- http://dx.doi.org/10.1017/S0030605309991013
+- https://orbi.uliege.be/handle/2268/128571
+- https://doaj.org/toc/1932-6203
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:84309
+- http://hdl.handle.net/11250/2367442
+- http://hdl.handle.net/11390/865217
+- https://doaj.org/article/9c9bb8e30ff3498e9d2fcb3f9435787a
+- https://doaj.org/article/dc2fc0d4496740b8818ab09774c6b5f8
+- http://www.scopus.com/inward/record.url?scp=85040322338&partnerID=8YFLogxK
+- https://www.db-thueringen.de/receive/dbt_mods_00051681
+- http://www.ebd.csic.es/carnivoros/personal/eloy/publications/KramerSchadt_Biol_Cons_2005.pdf
+- https://doi.org/10.1016/j.gloenvcha.2023.102723
+- https://doaj.org/article/01daf18426a24d9dae29995943a42618
+- http://scandlynx.nina.no/Portals/Scandlynx/Publikasjoner/Basillie_2009_lynx_distribution_Ecography.pdf
+- https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:92777
+- http://doc.rero.ch/record/300410/files/S0030605309991013.pdf

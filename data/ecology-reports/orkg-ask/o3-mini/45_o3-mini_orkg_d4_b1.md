@@ -1,149 +1,212 @@
-# Final Report: Multidimensional Determinants of Lynx Reintroduction Success in the Austrian Northern Limestone Alps
+# Invasive Mechanisms of Fish in Mountain Lakes: An Integrative Analysis
 
-This report provides a comprehensive analysis of the factors that influence the success of reintroducing lynx (Lynx lynx) to the Austrian northern limestone Alps. Drawing on extensive research from various reintroduction programs across Europe, such as Scotland, Iberia, and the broader Central, Western, and South‐Eastern European regions, the following analysis integrates ecological, socio-political, and modeling perspectives. It offers detailed insights into both retrospective evaluations and predictive modeling strategies, while aligning lessons learned with the local context of the Austrian limestone environment.
+## Executive Summary
 
----
-
-## 1. Ecological Factors Influencing Reintroduction Success
-
-### 1.1. Habitat Suitability and Landscape Structure
-
-The ecological foundation for lynx reintroduction revolves around evaluating habitat suitability. Key ecological determinants include:
-
-- **Natural Variables:** Studies have demonstrated the importance of combining elevation, terrain ruggedness, forest cover, and specific prey occurrence (e.g., roe deer, chamois) to assess propensity for lynx home range establishment. Multifactorial habitat suitability models developed in regions such as the Swiss Alps and the German–Czech border strongly underline these variables. In the limestone Alps, similar considerations must account for karstic landscapes, distinctive cliff systems, and mosaic woodland-agricultural interfaces.
-
-- **Prey Abundance:** While high local density of prey species is vital, research has indicated that isolated high prey densities do not guarantee ongoing population expansion. Instead, creating multiple source populations becomes essential. In addition, fine-scale spatial modeling that integrates dynamic factors of prey movement and population flux is crucial for long-term sustainability.
-
-- **Habitat Connectivity:** Connectivity analyses using least-cost path analysis and metrics like the Probability of Connectivity (dPC) have been utilized extensively in projects within the Iberian Peninsula and across Eurasia. For the Austrian case, maintaining strategic corridors that link probable lynx territories is essential to mitigate fragmentation caused by anthropogenic influences (e.g., roads, urban areas).
-
-### 1.2. Agent-Based Models and Telemetry Integration
-
-Agent-based models, particularly those developed in NetLogo, have been instrumental in simulating lynx dispersal dynamics in fragmented landscapes. Key learnings include:
-
-- **Dispersal Dynamics:** Simulation studies in fragmented environments have highlighted that road mortality and dispersal barriers are among the primary constraints. Empirical telemetry data—capturing individual movement patterns—has been successfully integrated into these models, informing optimal release site selection.
-
-- **Calibration with Empirical Data:** Model calibration using European telemetry data ensures that predictions realistically reflect dispersal behavior, habitat use, and barrier permeability. For the northern limestone Alps, similar calibration with high-resolution local telemetry data can refine predictions about lynx movements and potential mortality risks along fragmented habitat corridors.
+Mountain lakes are inherently dynamic and sensitive ecosystems where the introduction and establishment of invasive fish species can lead to profound ecological disruptions. This report synthesizes interdisciplinary findings based on previous research and recent methodological advances to detail the mechanisms by which fish become invasive in mountain lakes. We cover both human-mediated processes—such as stocking, infrastructure-linked translocations, and accidental introductions—and natural ecological processes including natural dispersal, habitat connectivity, and environmental fluctuations. The report also delves into the ecological impacts that these invasions create, including trophic cascades, habitat state shifts, and genetic and phenotypic adaptations. Finally, we review the latest advances in adaptive management strategies and predictive modeling that aim to mitigate these invasions.
 
 ---
 
-## 2. Socio-Political Dimensions
+## 1. Introduction
 
-A robust analysis of lynx reintroduction must extend beyond ecological variables. Socio-political factors are equally critical in ensuring long-term success.
-
-### 2.1. Stakeholder Perspectives and Public Perception
-
-- **Diverse Stakeholder Interests:** Case studies from the Alps and Scotland reveal intense debates among livestock breeders, hunters, conservationists, and governmental agencies. Participatory frameworks using methods such as Q-Methodology have uncovered that even where ecological conditions are favorable, public perception, potential economic benefits, or concerns regarding safety and livestock predation can shape reintroduction outcomes.
-
-- **Citizen Science and ICT Integration:** Initiatives such as the Horizon 2020 LandSense project, which leveraged citizen science, mobile applications, and Earth Observation data (e.g., Sentinel-2 imagery), have underscored the value of real-time, multisource data for monitoring land use changes. For the Austrian scenario, integrating participatory data offers two advantages: reducing in-situ monitoring costs and preemptively addressing socio-political conflicts through transparent data-sharing and dialogue with local communities.
-
-### 2.2. Policy Frameworks and Cross-Border Cooperation
-
-- **Regulatory Considerations:** Policy frameworks have historical significance, as fragmentation in policy or misalignment among stakeholders can stall reintroduction efforts. Learning from cross-border initiatives in the Albania–Macedonia–Kosovo corridor, a harmonized European strategy is advisable to ensure that regional lynx populations are protected and that connected migration corridors remain intact.
-
-- **Participatory Ecological Network Modeling:** A participatory modeling approach, as demonstrated in Bordeaux, emphasizes co-constructed socio-ecological networks that map diverse ecological and socio-political dynamics over medium to long planning horizons. This multiscale approach supports risk assessments and helps quantify potential impacts on corridor connectivity under different socio-political scenarios (dystopian vs. utopian futures), thus providing data-driven recommendations for policy adjustments.
+Mountain lakes are among the most fragile aquatic ecosystems. They typically serve as biodiversity hotspots and critical resources for endemic species with limited geographical ranges. However, they are increasingly threatened by invasive fish populations that arrive through both human-mediated and natural processes. The consequences of such invasions often include alterations in trophic interactions, changes in ecosystem structure, and disruptions to native genetic lineages. In this report, we examine mechanisms underlying these invasions and provide insights into adaptive management practices that integrate new technologies and predictive models to mitigate invasive threats.
 
 ---
 
-## 3. Methodological Lessons: Retrospective Evaluations and Predictive Modeling
+## 2. Mechanisms Enabling Fish Invasiveness in Mountain Lakes
 
-### 3.1. Retrospective Insights
+Invasive species colonization is a multifactorial process that depends on both the inherent biological traits of the invader and the environmental attributes of the recipient ecosystem. The mechanisms can be broadly classified into two categories:
 
-Historical reintroduction projects provide invaluable lessons. Experimental deployments in Scotland, where agent-based simulations identified road mortality as a critical setback, suggest that lessons on dispersal barriers can be adapted to predict similar challenges in the limestone Alps. Notably, retrospective analysis underscores the need for:
+### 2.1 Human-Mediated Introductions
 
-- **Calibration of Modeling Tools:** Empirical outputs from telemetry devices inform connectivity and mortality models, ensuring that potential pitfalls observed in historical reintroductions are addressed early in the planning phase.
+**Intentional Stocking and Translocations:** 
 
-- **Evaluations of Corridor Efficacy:** Past projects have utilized spatial models (least-cost paths) to retrospectively assess corridor effectiveness. In the Austrian context, mapping successful corridors in similar topographies (e.g., portions of the Bavarian Limestone Alps) can lend predictive strength to corridor selection.
+- **Recreational and Commercial Stocking:** Mountain lakes have often been stocked with fish for recreational fishing or aquaculture purposes. This intentional introduction has frequently led to the establishment of non-native species, which adapt to local conditions, sometimes outcompeting native species.
 
-### 3.2. Predictive Modeling for Future Success
+- **Infrastructure Development and Man-Made Water Transfers:** 
 
-Innovative forecasting methods are paramount for optimizing reintroduction success under evolving conditions. Recommendations include:
+  Modern infrastructure projects, including inter-basin water transfers and dam construction, often facilitate unexpected avenues for species movement. In some cases, even when fish are not directly introduced, connected waterways can enable the movement of non-native species into previously isolated mountain lakes.
 
-- **Integration of Multi-Scale Models:** Combining agent-based models with least-cost path analyses and high-resolution telemetry ensures a comprehensive predictive framework. Such integration enables scenario testing where variables such as road density, agricultural expansion, and climate-induced habitat shifts are dynamic inputs.
+- **Accidental Releases:** 
 
-- **Incorporation of Socio-Political Variables:** Future models must incorporate real-time socio-political data harvested from ICT platforms and participatory networks. This dual integration helps gauge the likelihood of stakeholder conflicts and aligns ecological predictions with policy scenarios. The dynamic feedback loop between human perceptions (e.g., real-time geotagged social media data) and ecological processes can be critical in adjusting management strategies on the fly.
+  Ballast water discharge from boats and inadvertent transfers via bait bucket introductions are common vectors for invasive fish species. Genetic analyses (e.g., microsatellite studies) have shown that such actions can result in significant founder effects and the establishment of distinct genetic clusters in recipient ecosystems.
 
-- **Sensitivity and Uncertainty Analysis:** Given the complexity of ecological and social systems, sensitivity analyses that identify critical thresholds (e.g., population viability, corridor functionality) and uncertainty quantification should be routine parts of predictive modeling. Such quantitative assessments afford policymakers a clearer risk profile for various intervention strategies.
+### 2.2 Natural Ecological Processes
 
----
+**Dispersal via Habitat Connectivity: 
 
-## 4. Site-Specific Considerations for the Austrian Northern Limestone Alps
+- **Natural Migration and Dispersal:** Mountain lakes often have episodic physical connections—such as during high water events—facilitating the natural dispersal of fish. This is particularly significant in regions where hydrological connectivity is influenced by seasonal snowmelt and water level fluctuations.
 
-Mapping the broad lessons onto the Austrian context, several localized factors emerge:
+- **Environmental Fluctuations and Habitat Heterogeneity:**
 
-### 4.1. Fragmented Landscapes and Connectivity
+  Variations in environmental factors such as water temperature, pH, nutrient loading, and water level fluctuations can alter the local habitat in ways that are favorable for invasive fish. For instance, certain morphological or life-history traits in invasive fish allow them to rapidly adjust to changing physical conditions, thereby supporting their successful establishment.
 
-- **Topographical Challenges:** The limestone Alps are characterized by a highly complex topography. Fine-scale spatial mapping using high-resolution Earth Observation data (similar to Sentinel-2 time series) can delineate critical habitat patches and determine least-cost corridors that not only respect ecological connectivity but also navigate anthropogenic disconnections (e.g., rural roads, ski resorts).
+- **Combined or Compound Dispersal Mechanisms:**
 
-- **Optimal Release Sites:** Building on simulation insights from Scotland and Iberian projects, candidate release sites in the Austrian Alps should be evaluated based not only on habitat quality and prey abundance but also on potential for sustainable connectivity with neighboring protected areas. Collaborative pilot studies using calibrated agent-based models can help select these sites with precision.
-
-### 4.2. Socio-Economic and Policy Synergies
-
-- **Engaging Local Communities:** The interplay of ecotourism, livestock management, and local economic interests demands an integrative policy framework. Leveraging participatory approaches ensures that local stakeholders, from farmers to park managers, voice their concerns and that policies are co-created to support both conservation and local livelihoods.
-
-- **Policy Harmonization:** Employing frameworks similar to those applied in cross-border projects in Eastern Europe, Austria should consider proactive coalitions with neighboring regions. This is particularly important where wildlife corridors extend beyond national boundaries. Institutional frameworks that promote adaptive management and dynamic policy refinements based on real-time ICT data integrations will be essential.
+  Evidence suggests that effective dispersal often results from the interplay between natural and human-mediated processes. For example, while natural migration may set the context for an invasion, human activities can rapidly augment the pool of invasive propagules, as seen in cases like the Round Goby in the Great Lakes.
 
 ---
 
-## 5. Recommendations and Future Directions
+## 3. Ecological Impacts in Mountain Lake Ecosystems
 
-### 5.1. Short-Term Actions
+The introduction of non-native fish species into mountain lake ecosystems has significant ecological ramifications:
 
-1. **Pilot Agent-Based Simulations:** Deploy short-term and pilot simulations using NetLogo and locally sourced telemetry data to identify high-risk zones (e.g., areas with high road mortality potential) and test corridor designs.
+### 3.1 Trophic Cascades and Prey-Predator Dynamics
 
-2. **Stakeholder Forums:** Initiate stakeholder engagements using participatory methods such as Q-Methodology to map out concerns, expectations, and potential conflict areas in the region.
+- **Case Study - Yellowstone Lake:**
 
-3. **High-Resolution Habitat Mapping:** Apply Earth Observation data and multi-spectral analysis to update high-resolution land cover maps, ensuring that both natural and anthropogenic variables are included.
+  The introduction of lake trout in Yellowstone Lake serves as a paradigm of how invasive fish can disrupt existing trophic cascades. Changes in zooplankton community structure—specifically in life-history traits such as reduced clutch sizes and altered brooding numbers—have been reported. Such disruptions result in altered prey-predator dynamics and can cause long-term shifts in ecosystem balance.
 
-### 5.2. Long-Term Strategies
+- **Bottom-Up and Top-Down Effects:**
 
-1. **Integrated Multi-Scale Modeling:** Develop an integrated framework combining retrospective data, agent-based predictive models, and least-cost path analyses. Ensure that both ecological and socio-political variables are incorporated to refine corridor design and release site selection over a 15-year horizon.
+  Invasive species like common carp are known to trigger ecosystem state changes by modifying nutrient cycling and sediment disturbances. The combined bottom-up (e.g., nutrient release from sediments) and top-down (e.g., predation on native species) processes not only alter nutrient dynamics, but also affect the entire food web.
 
-2. **Cross-Border Coordination:** Given the transboundary nature of wildlife movement, establish cooperative agreements with neighboring regions (e.g., Bavaria) to ensure consistent monitoring and policy alignment.
+### 3.2 Genetic and Phenotypic Adaptations
 
-3. **Adaptive Management Frameworks:** Implement adaptive management strategies that utilize real-time data streams from citizen science platforms and ICT tools to dynamically adjust reintroduction efforts, ensuring robust responses to emergent environmental changes and socio-political shifts.
+- **Rapid Evolution and Phenotypic Plasticity:**
 
-### 5.3. Innovative and Contrarian Approaches
+  Invasive fish species frequently exhibit rapid evolutionary responses. Studies have documented genetic admixture effects, hybridization, and the emergence of adaptive phenotypic plasticity in invasive populations. These adaptations might include alterations in reproductive output, age at maturity, body size, and spawning habits—all of which can impact both short and long-term ecological dynamics.
 
-- **Leveraging Socio-Ecological Networks:** Consider employing novel ICT-based participatory platforms that integrate large-scale datasets (including geo-tagged social media content) to monitor both human-carnivore interactions and landscape changes in near real-time. This could significantly supplement ecological models with socio-political insights.
+- **Founder Effects and Genetic Bottlenecks:**
 
-- **Decentralized Pilot Zones:** Establish decentralized pilot zones where specific corridors or release sites are managed by localized stakeholder groups. This bottom-up approach can provide rapid feedback and foster local stewardship, potentially acting as replicable models for broader regional management.
-
-- **Scenario-Based Policy Simulations:** Use dynamic simulation tools to model various socio-political scenarios (ranging from conflict-heavy to highly cooperative frameworks) and their impact on corridor connectivity and lynx dispersal. This proactive measure could uncover non-intuitive solutions and policy innovations.
+  Cases such as the two-founder scenario noted in Swan Lake, MT, exemplify the role of founder events in establishing distinct genetic structures among invasive populations. Such genetic patterns can influence both invasion success and the effectiveness of targeted eradication strategies.
 
 ---
 
-## 6. Conclusion
+## 4. Predictive and Adaptive Management Strategies
 
-Reintroducing lynx to the Austrian northern limestone Alps requires a multifaceted approach, integrating rigorous ecological modeling and inclusive socio-political strategies. The convergence of agent-based simulations, high-resolution telemetry data, and participatory modeling frameworks provides a robust foundation to predict and enhance reintroduction success. By leveraging lessons from similar projects across Europe and tailoring them to the unique topographical and socio-economic conditions of the Austrian Alps, managers and policymakers can anticipate challenges and implement adaptive strategies that strike a balance between ecological integrity and human dimensions.
+Given the extensive ecological consequences of fish invasions in mountain lakes, new research and technological approaches are needed for proactive management. Adaptive management strategies are increasingly relying on quantitative trait assessments and predictive modeling.
 
-Future research should focus on refining these integrated models and continuously feeding them with real-time data to further bridge the gap between predictive simulations and actual ecological outcomes. This adaptive, data-driven, and participatory framework stands as the cornerstone for ensuring that the lynx once again thrives in the rugged beauty of the Austrian limestone Alps.
+### 4.1 Advanced Predictive Modeling Techniques
+
+- **Hierarchical Risk Models and Machine Learning Workflows:**
+
+  Recent breakthroughs in hierarchical risk models combine environmental covariates (e.g., lake pH, phosphorus levels, connectivity indices) with human influence metrics (e.g., propagule pressure, infrastructure indices) to produce highly predictive risk maps (with AUC values nearing 0.94). These models facilitate early monitoring, targeted surveillance, and resource allocation based on predicted invasion hotspots.
+
+- **Ensemble Ecological Niche Models and Trait-Based Classification Trees:**
+
+  Models such as logistic regression (using Akaike’s Information Criteria for model selection) and ensemble ecological niche models have been successfully applied in various aquatic systems. These models integrate biological factors (like parental care, physiological tolerance) with human-mediated variables and are currently being refined using remote sensing data and advanced spatial analytics.
+
+- **Integration of Remote Sensing Data:**
+
+  The fusion of multispectral, hyperspectral, and radar data (e.g., from MODIS, Landsat, MERIS, and ALOS PALSAR) is driving the development of near real-time early warning systems. Such systems increase the precision of microcystin distribution mapping in water bodies, setting the foundation for similar approaches in detecting and forecasting invasive spread in mountain lakes.
+
+### 4.2 Adaptive Management and Intervention Strategies
+
+- **Quantitative Trait Assessment Methods:**
+
+  Translating model outputs into practical decision-support tools is key for adaptive management. Quantitative trait approaches inform interventions like targeted surveillance, early monitoring, and integrated management strategies that combine habitat manipulation (e.g., water level management, deployment of artificial spawning structures) with controlled translocations within historical ranges.
+
+- **Dispersal Pathway Mitigation:**
+
+  Integrated management approaches to tackle dispersal pathways include both infrastructure modifications and habitat restoration. For instance, replacing spawning substrates and controlling water level fluctuations can reduce habitat suitability for invasive species, while also carefully managing human-mediated pathways through improved ballast water management and public awareness campaigns.
 
 ---
 
-*This report synthesizes detailed insights from previous research along with forward-looking proposals to achieve a holistic reintroduction strategy. Further investigations and pilot projects are recommended to validate these approaches in the specific context of the Austrian region.*
+## 5. Integrating Technological Innovations and Interdisciplinary Approaches
+
+To tackle the challenges of invasive species management in mountain lakes, new technological integrations are necessary.
+
+### 5.1 Sensor Resolution and Data Integration
+
+- **Challenges of Spatial Scaling:**
+
+  Reconciling sensor resolution differences and the upscaling/downscaling of species distribution models remain significant challenges. Recent emphasis on merging data from various sensors (LiDAR, RADAR, multispectral) has begun to address these issues by providing higher resolution imagery and better uncertainty quantification.
+
+- **Early Warning Systems and Real-Time Data:**
+
+  Emerging technologies enable near real-time monitoring and rapid spatial risk assessments. For example, machine learning workflows that incorporate remote sensing data have already demonstrated high predictive accuracies in regions like Northwest Montana, offering robust early warning signals for rapid management responses.
+
+### 5.2 Interdisciplinary Frameworks
+
+- **Sensor Technology Meets Ecological Modeling:**
+
+  Interdisciplinary approaches that integrate sensor technologies with traditional ecological models can overcome historic limitations. By bringing together quantitative trait assessments, machine learning risk models, and remote sensing data, managers are now equipped to make informed decisions that are both scientifically rigorous and immediately actionable.
+
+- **Cross-Disciplinary Collaboration:**
+
+  Collaborative efforts between geneticists, ecologists, remote sensing experts, and resource managers are proving vital. These collaborations are essential not only for understanding species-specific adaptive traits but also for developing and refining predictive tools on a landscape scale.
+
+---
+
+## 6. Future Directions and Recommendations
+
+In light of the current state of research, several recommendations emerge for the management and study of invasive fish species in mountain lakes:
+
+1. **Enhance Integrative Modeling:**
+   - Invest in refining ensemble models that incorporate both human-mediated and natural dispersal factors. Utilize cross-validated machine learning techniques to improve prediction reliability in heterogeneous environments.
+
+2. **Prioritize Interdisciplinary Approaches:**
+   - Foster collaborations across remote sensing, genetics, and ecological modeling fields. Integrate high-resolution sensor data with ecological niche models to provide timely management feedback.
+
+3. **Focus on Adaptive Management:**
+   - Develop flexible management frameworks that can rapidly adjust to new data inputs, including real-time sensor outputs and early warning signals. Adaptive management must incorporate both immediate mitigation strategies and long-term habitat restoration plans.
+
+4. **Address Data and Technological Gaps:**
+   - Continue to reconcile sensor resolution differences and improve uncertainty quantification methods. Invest in technologies such as LiDAR and RADAR which are essential for upscaling and downscaling spatial models in complex terrains like mountain lakes.
+
+5. **Explore Genetic and Phenotypic Adaptations:**
+   - Deep dive into the genetic foundations of invasive success, including founder effects, genetic admixture, and rapid evolutionary dynamics. Such insights can tailor targeted eradication strategies that are both species-specific and context-specific.
+
+6. **Enhance Public and Stakeholder Engagement:**
+   - While much of the focus is on scientific and technical aspects, engaging local communities, stakeholders, and policy makers is essential for ensuring compliance and resource support for management interventions.
+
+---
+
+## 7. Conclusion
+
+Fish invasiveness in mountain lakes is shaped by a confluence of human activities and natural ecological processes. The complex interplay between intentional introductions, accidental transfers, and natural dispersal underpins the establishment and spread of invasive species, leading to significant ecological transformations in fragile mountain lake environments. Integrative approaches—combining advanced predictive models, real-time remote sensing data, and interdisciplinary management frameworks—offer promising avenues for mitigating invasions.
+
+As research continues to refine the predictive power of risk models and adaptive management strategies, the future of mountain lake conservation will depend on our ability to deploy these innovative technologies effectively. Proactive measures, grounded in a deep understanding of species-specific adaptations and ecological dynamics, are key to safeguarding these vital ecosystems against the pervasive threat of invasive fish species.
+
+---
+
+## References and Further Reading
+
+While specific source details are omitted in this report, the content is derived from a broad body of interdisciplinary research encompassing ecological modeling, sensor technology integration, and adaptive management in aquatic ecosystems. Future reports and peer-reviewed articles will continue to refine these approaches as technology and methodologies advance.
+
+*This report anticipates further developments in remote sensing technology and interdisciplinary research, offering a speculative projection that integrates emerging methodologies with traditional ecological insights. Continued research and field validations will be essential to confirm these predictive models and management strategies over extended time horizons.*
+
+---
+
+*End of Report*
 
 ## Sources
 
-- https://hal.inrae.fr/hal-03155195
-- https://doaj.org/toc/1399-1183
-- http://hdl.handle.net/1893/29669
-- https://eprints.whiterose.ac.uk/104966/1/Philips%20Lynx%20ABM%20scotland%20FOWEconf.pdf
-- https://orbi.uliege.be/handle/2268/128371
-- http://doc.rero.ch/record/300410/files/S0030605309991013.pdf
-- https://zslpublications.onlinelibrary.wiley.com/doi/full/10.1111/acv.12464
-- http://hdl.handle.net/1842/35464
-- http://www.ebd.csic.es/carnivoros/publica/pdf/Kramer-Schadt_J_App_Ecol_04.pdf
-- http://scandlynx.nina.no/Portals/Scandlynx/Publikasjoner/Basillie_2009_lynx_distribution_Ecography.pdf
-- https://espace.library.uq.edu.au/view/UQ:411229
-- http://www.bio.uib.no/modelling/papers/Schadt_2002_Assessing_the_suitability.pdf
-- https://zenodo.org/record/6484002
-- https://hal.inrae.fr/hal-02608951
-- https://zenodo.org/record/4146846
-- https://doi.org/10.1002/pan3.10465
-- https://github.com/DrIanPhilips/LynxABM.
-- https://www.db-thueringen.de/receive/dbt_mods_00051681
-- https://hdl.handle.net/11250/2983423
-- http://dspace.stir.ac.uk/bitstream/1893/29669/4/The%20potential%20for%20lynx%20reintroduction%20to%20Scotland.pdf
-- http://doc.rero.ch/record/301995/files/S0030605307002128.pdf
-- https://orbi.uliege.be/handle/2268/128571
-- https://orbi.uliege.be/handle/2268/186003
+- https://eprints.bournemouth.ac.uk/37645/1/Ecological%20impacts%20of%20invasive%20freshwater%20fish_accepted%20version.pdf
+- https://hdl.handle.net/11250/2981355
+- http://www.mtcfru.org/wp-content/uploads/2014/12/Kalinowski_etal_2010_conservation_genetics.pdf
+- https://hdl.handle.net/11250/2684794
+- http://hdl.handle.net/1807/87338
+- http://hdl.handle.net/11573/786277
+- https://doi.org/10.1890/02-5301
+- https://stars.library.ucf.edu/scopus2010/7682
+- https://elib.dlr.de/104480/1/He_et_al-2015-Remote_Sensing_in_Ecology_and_Conservation.pdf
+- http://ir.ihb.ac.cn/handle/342005/35095
+- http://biblioteca.clacso.edu.ar/gsdl/cgi-bin/library.cgi?a=d&c=fr/fr-001&d=010066943oai
+- https://stars.library.ucf.edu/scopus2010/9502
+- http://urn.kb.se/resolve?urn=urn:nbn:se:lnu:diva-88369
+- https://repository.uwyo.edu/ugrd/2012_UGRD/Presentations/37
+- https://doaj.org/toc/1545-7885
+- https://hal.sorbonne-universite.fr/hal-01334129
+- http://abstractsearch.agu.org/meetings/2014/FM/B53E-0229.html
+- https://stars.library.ucf.edu/scopus2010/5824
+- http://hdl.handle.net/2027/umn.31951d029778798
+- https://doi.org/10.1111/j.1365-2427.2004.01202.x
+- https://doi.org/10.1111/ddi.12391
+- http://hdl.handle.net/10.1371/journal.pone.0209009.g005
+- http://eprints.bice.rm.cnr.it/15380/1/Havel_2015_Hydrobiologia_AIS.pdf
+- http://ir.ihb.ac.cn/handle/342005/35509
+- https://doi.org/10.1111/j.1095-8649.2007.01685.x
+- http://www.math.ualberta.ca/%7Emlewis/Publications%202011/Potapov_etal_BiolInv.pdf
+- http://hdl.handle.net/11585/741455
+- https://escholarship.org/uc/item/0wf2q0pk
+- https://doi.org/10.1002/tafs.10325
+- https://aquila.usm.edu/fac_pubs/8771
+- http://wfcb.ucdavis.edu/www/Faculty/Peter/petermoyle/publications/FishInvasion02.pdf
+- https://doaj.org/article/90cbb3f33e534e78817bf2f7cd9c85b6
+- http://ppg.sagepub.com/
+- https://stars.library.ucf.edu/facultybib2010/5149
+- https://s3.amazonaws.com/prod-ucs-content-store-us-east/content/pii:S0075951104800318/MAIN/application/pdf/f3abd90f4a53be3ec799a9b238a0358f/main.pdf
+- https://scholar.uwindsor.ca/biologypub/1211
+- http://hdl.handle.net/10072/39863
+- http://er.uwpress.org/content/32/1/59.full.pdf

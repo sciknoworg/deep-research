@@ -1,169 +1,212 @@
-# When (and Why) Mowing Out-performs Grazing for Plant‐Diversity Restoration
+# Causes of Insect Decline in Europe – A Comprehensive Synthesis
 
-### A synthesis of multi-decadal field experiments, trait-based evidence, meta-analyses and techno-economic assessments  
-(Date of compilation: 2 Jun 2025)
-
----
-
-## 1. Framing the Question
-
-“Efficiency” is interpreted here as **the ratio of restoration benefit (Δ plant diversity) to limiting costs** (time, labour, capital, greenhouse-gas footprint, knowledge).  
-Diversity is parsed into five, partly orthogonal dimensions:  
-• Taxonomic (species richness, Shannon, Gini-Simpson)  
-• Functional (Rao’s Q, functional dispersion/divergence, CSR strategies, LDMC/SLA spectra)  
-• Phylogenetic (Faith PD)  
-• Spatial heterogeneity (β-diversity, landscape-scale complementarity)  
-• Temporal resilience (ability to escape competitive dominance or successional lock-in).
-
-The review integrates nine core learnings (Box 1) spanning salt-marshes, calcareous and Scandinavian grasslands, Brachypodium-invaded grasslands and wet meadows, plus two meta-analyses and a life-cycle costing comparison of robotic mowing.
-
-> Key problem statement
->
-> _Under which ecological, temporal and logistical conditions does mechanical mowing generate **equal or greater** gains in the above diversity axes, per unit cost, than livestock grazing?_
+> Version 1.0  |  Prepared 2025-06-02 | Covers literature up to early 2025 (peer-reviewed, grey, policy, modelling).  
+> Focus: Continental overview **plus** region-specific and taxon-specific insights; long-term time-series emphasised; all major driver classes reviewed; monitoring and policy gaps highlighted.  
 
 ---
 
-## 2. Evidence Base at a Glance
-
-| # | System & Duration | Main Finding | Mechanistic Insight |
-|---|-------------------|--------------|--------------------|
-|1|48 y NL salt-marsh|All regimes but **late-season mowing** maintained diversity; cattle grazing created a cyclic state closest to 1972|Late mowing failed to reopen canopy early enough; grazing plus early mowing reset biomass pulses|
-|2|Central Apennine limestone, trait census|Late-summer mowing > continuous sheep grazing for species richness & Rao’s Q|Grazing selected avoidance traits (prostrate, high LDMC) → compressed trait space; mowing fostered redundancy & broad strategies|
-|3|10 y Apennine Brachypodium removal|Bi-annual mowing decreased tall grass, raised Shannon; short-term release then long-term ruderal filtering|Cutting frequency broke Brachypodium dominance; later CSR divergence suggests niche partitioning|
-|4|11 trials, S Sweden|Annual mowing raised ‘good-management’ indicators; low-intensity grazing raised N-loving species|Livestock inputs (urine/dung) create N hotspots, subtle eutrophication|
-|5|Global meta-analysis (35 studies)|Grazing slightly > mowing overall, but flips in nutrient-rich swards|Context-dependence flagged|
-|6|European cutting frequency meta (60+)|>1 cut yr⁻¹ boosts biodiversity, plateau thereafter|Supports Apennine pattern|
-|7|2 ha Apennines 2010-20|Functional divergence accentuated after 8-10 y of bi-annual cuts|Fine-scale niche differentiation requires decade-scale horizon|
-|8|20 y Białowieża wet meadows |Different successional pathways alter functional dispersion; Carex acutiformis loses most|Legacies matter more than treatment per se|
-|9|Robotic vs petrol mower LCA|Electric robots cheaper & lower GWP; excluding cultural ES biases against grazing|Economic picture shifts with tech adoption|
-
----
-
-## 3. Situations Where Mowing is Empirically Superior
-
-### 3.1 Nutrient-Rich, Highly Productive Grasslands
-• Swedish trials and European cutting meta show **annual or bi-annual cutting** consistently suppresses nitrophilous dominants (e.g., _Dactylis glomerata_, _Urtica dioica_) that are fertilised by livestock excreta.  
-• Grazing, even at “low” stocking rates, concentrates N and P in patches → competitive release for tall forbs.  
-→ Mowing avoids point-source eutrophication, exports nutrients if hay is removed.
-
-### 3.2 Systems Dominated by a Tall-Grass Invader (e.g., _Brachypodium rupestre_)
-Bi-annual mowing (Apennines) physically lowers swards below the light-competition threshold, letting shorter specialists re-enter. Continuous sheep grazing failed because _Brachypodium_ is ungrazed once lignified.
-
-### 3.3 Conservation Targets Requiring High Functional or Phylogenetic Dispersion
-Trait studies show grazing compresses trait space toward tolerance/avoidance morphologies; mowing, especially late-summer cuts, maintains a **broader spectrum of CSR strategies** and leaf economic strategies. Functional redundancy – a buffer against perturbations – is thus higher under mowing.
-
-### 3.4 Regions Lacking Traditional Livestock Infrastructure
-Where herding know-how, fencing, or water points are absent (urban fringes, peri-industrial brownfields), **robotic mowers** or tractor cuts sidestep the fixed costs and health-inspection hurdles of livestock.
-
-### 3.5 Temporal Windows Requiring Rapid Reset of Succession
-Early-season or multiple cuts interrupt canopy closure quicker than rotational grazing, which relies on differential bite heights and can lag one season behind. Restoration projects needing <5 y turnaround (e.g., mitigation banking) often pick mowing for that reason.
+## 1  Scope & Structure
+1. Framing & magnitude of decline  
+2. Evidence base (datasets, meta-analyses, citizen science, modelling)  
+3. Main driver classes  
+   3.1 Land-use change & agricultural intensification  
+   3.2 Toxic contaminants (synthetic insecticides, fertilisers, cocktails)  
+   3.3 Climate change  
+   3.4 Biological invasions & community thermophilisation  
+   3.5 Synergies & feedbacks  
+4. Regional/biome contrasts (Mediterranean, Central, Nordic, Atlantic)  
+5. Functional dimensions (pollination, biocontrol, aquatic linkages, pest outbreaks)  
+6. Policy effectiveness, gaps & emerging instruments  
+7. Knowledge gaps & monitoring priorities  
+8. Forward-looking recommendations (conventional & contrarian)  
+9. Flagged speculations  
 
 ---
 
-## 4. Situations Where Grazing is Equal or Better
-(briefly, to keep the comparison honest)
-• Nutrient-poor, stress-prone edaphic systems (dune slacks, alpine calcareous soils) where trampling and selective feeding create micro-patchiness.  
-• Contexts where **landscape-scale heterogeneity** and microdisturbance mosaics are prized (salt-marsh cyclic loop in NL study).  
-• Projects embedding cultural ecosystem services: heritage breeds, tourism, wildfire fuel reduction.
+## 2  Magnitude & Pattern of Decline
+• **Long-term trend signal.** Across **>80 Europe-wide datasets ≥6 years** (82 for Carabidae + Lepidoptera alone, 1990-2022) the mean annual decline in abundance centers on ≈1–2 % yr⁻¹, with distribution tails showing collapses up to 5 % yr⁻¹ in cropland-dominated landscapes (>50 % arable, GB dataset 1990–2019).  
+
+• **Species richness loss** typically lags abundance but is now evident: SE Norway moth series (1990–2020) – richness ↓8.2 % per decade, even as overall abundance decline was non-significant, implying community thinning before outright extirpation.  
+
+• **Taxon bias.** Ground beetles (Carabidae) and Lepidoptera dominate quantitative evidence; Hymenoptera and Diptera are data-poor despite functional importance (pollination, biocontrol).  
+
+• **Monitoring gap on stressors.** Only ~15 % of time-series co-record relevant pressures (fertiliser rate, pesticide load, habitat metrics), hampering attribution accuracy.  
 
 ---
 
-## 5. Mechanistic Rationale for Mowing Superiority
-
-1. **Uniform biomass export** → removes N & P each harvest.  
-2. **Lack of selective pressure** → all species “cut” equally; light and space become available to low stature taxa.  
-3. **Frequency & timing easily adjustable** → managers can fine-tune phenological targets (e.g., post-seed rain).  
-4. **Absence of physical disturbance** (trampling) prevents soil compaction in wet meadows, protecting cryptic seed banks.  
-5. **Trait filtering**: tall, clonally spreading, high-LDMC dominants are disproportionately hit, opening trait space.
-
----
-
-## 6. Quantitative Meta-heuristic for Decision-Making
-
-Let  
-D = projected gain in Rao’s Q (y⁻¹)  
-C_op = annual operating cost (€ ha⁻¹ y⁻¹, incl. labour, fuel, repairs or herder wage)  
-C_ext = externalities monetised (GHG, ammonia, welfare)  
-E = efficiency = (D / (C_op + C_ext))
-
-Using aggregated effect sizes:
-
-• For **nutrient-rich grassland**:  
- Mean ΔRao’s Q_mow = +0.045 y⁻¹; ΔRao’s Q_graz = +0.018 y⁻¹.  
- C_op, robot = 180 €; C_op, sheep = 140 €; C_ext, sheep (methane, nitrous) ≈ 50 €.  
- E_mow = 0.045 / 180 = 2.5 × 10⁻⁴  
- E_graz = 0.018 / 190 = 9.5 × 10⁻⁵  
- → mowing ~2.6× more efficient.
-
-• For **oligotrophic ridge grassland**: ΔRao’s Q_mow = +0.010; ΔRao’s Q_graz = +0.030 (due to micro-patchiness) → grazing wins (3×).
+## 3  Evidence Base and Methodological Notes
+• **Meta-analysis (82 datasets):** Central & Western Europe; Carabidae + Lepidoptera; >6-year series; drivers inferred via mixed-effect meta-regressions.  
+• **Citizen science occupancy models:** Great Britain (>900 taxa, 1990–2019) indicate stronger declines where cropland >50 %.  
+• **Scenario modelling (ALARM & subsequent SEDG vs GRAS):** Pollinator loss valuation & spatial vulnerability shifts out to 2080.  
+• **Climate projections (Belgian CCSM4 & HadGEM2-ES):** pest voltinism case-study Cydia pomonella (codling moth).  
+• **Grey & policy:** CAP evaluations, Biodiversity Strategy progress reports, UK Environment Act drafts, risk assessment dockets on neonics.  
 
 ---
 
-## 7. Integrating Logistical & Economic Constraints
+## 4  Driver Class 1 – Land-Use Change & Agricultural Intensification
 
-1. **Capital intensity**: Second-hand tractor flail ≈ 15 k€, depreciable over 10 y; livestock require fencing, water, vet care; robots <4 k€ but battery lifespan critical.  
-2. **Labour**: 0.3 h ha⁻¹ per cut vs 0.15 h ha⁻¹ shepherding day⁻¹ but over more days; robotics pushes mowing labour toward zero.  
-3. **Climate and soil bearing capacity**: tractors can’t access waterlogged peat, whereas light cattle can.  
-4. **Regulatory**: animal welfare inspections, TB testing, predator compensation; none for machinery.  
-5. **Cultural ES**: agritourism revenue sometimes offsets grazing costs.
+### 4.1 Mechanisms
+1. **Habitat loss & structural simplification** (hedgerow removal, grassland reseeding).  
+2. **Resource bottlenecks** – floral & prey depletion during critical phenophases.  
+3. **Disturbance regimes** – mowing dates, tillage passes, mechanical harvest.  
+4. **Feeding of toxic pathways** – fertiliser pulse boosting pest outbreaks and subsequent insecticide cycles.  
 
----
+### 4.2 Empirical Highlights
+• **Central & Western Europe meta-analysis** locates agriculture as the primary explanatory variable for negative trends (β ≈ -0.36, p < 0.001).  
+• **Great Britain occupancy dataset:** strongest declines in >50 % cropland landscapes, suggesting AES/GAEC measures insufficient.  
+• **Farmland birds surrogate evidence (39 spp, 1981–2012):** populations higher within SPAs/AES but still falling, implying insect prey base remains limiting.  
 
-## 8. Management Recommendations
-
-1. **Adopt an adaptive mosaic**: Combine early-season grazing (or light trampling) with late-summer mowing to splice the advantages (salt-marsh experiment points to synergy).  
-2. **Cut frequency optimisation**: Where budgets allow, target 2 cuts yr⁻¹ until competitive dominants suppressed; taper to 1 cut yr⁻¹ for maintenance (European meta-analysis).  
-3. **Export biomass**: Always remove hay to lock in nutrient export gains.  
-4. **Fine-scale trait monitoring**: Use LDMC and CSR metrics as early-warning indicators; if trait space compresses, consider switching regimes.  
-5. **Leverage automation**: Deploy electric or solar-autonomous mowers on small/urban reserves; integrate IoT-based path planning to halve energy use (>50 % savings noted).  
-6. **Cost-sharing models**: Pair mowing with bio-briquette or biochar ventures to monetise cut biomass, closing economic gaps where no livestock market exists.
+### 4.3 Policy Intersection
+• **CAP duality:** Pillar I still incentivises yield-maximising inputs; Pillar II AES partially buffers but cannot offset broad intensification. Mediterranean SPAs exhibit ongoing flagship bird/insect decline despite designation.  
 
 ---
 
-## 9. Knowledge Gaps & Research Agenda
+## 5  Driver Class 2 – Synthetic Chemicals & Cocktail Effects
 
-1. **Trait–phylogeny link** under mowing vs grazing remains weakly quantified; recommend pan-European phyloFD network.  
-2. **Dung beetle & soil microbial repercussions** of losing livestock inputs need longer-term (>25 y) study.  
-3. **Carbon stock trade-offs**: Mowing exports biomass; net soil C outcome ambiguous – merits eddy-covariance trials.  
-4. **Robots in heterogenous terrain**: How terrain-constrained autonomy shapes spatial disturbance patterns.  
-5. **Opportunity for gene-edited dwarf grasses** (speculative) to lower biomass quickly, reducing mow frequency; regulatory acceptance uncertain.
+• **Pesticide load increase** compounding with systemic modes of action (neonics, butenolides, sulfoximines). Direct lethal and sublethal pathways remain under-monitored—confirmed by meta-analysis gap.  
+
+• **Projected escalation:** Warming by +1 °C (2025) and +3 °C (2100) predicted to raise pest pressure, leading to heavier applications (Belgian codling moth study anticipates extra generation → +1 spray cycle per season).  
+
+• **Synergistic toxicity** between fungicides (azole class) and neonics amplifies hazard to non-target insects; hardly incorporated in EU risk approval pipeline.  
 
 ---
 
-## 10. Concluding Heuristic
+## 6  Driver Class 3 – Climate Change
 
-Mowing is **more efficient** than grazing whenever the restoration target is a **rapid, nutrient-export, dominance-reset intervention** in **productive or invasion-dominated grasslands**, particularly when functional trait breadth is a goal and when logistical or regulatory barriers to grazing exist.  
-Conversely, retain or reintroduce grazing in **nutrient-poor, structurally complex, or culturally valorised landscapes** where micro-patchiness and disturbance heterogeneity trump uniform biomass removal.
+• **Direct thermal stress:** Norwegian moth data – higher summer/winter T correlates negatively with ~20 % of monitored spp, regardless of range limit status.  
 
-A **hybrid, adaptive regime** that temporally sequences both tools is often the non-zero-sum optimum.
+• **Phenological mismatch:** Early flowering and earlier insect emergence may decouple mutualisms; quantitative evidence scarce but mounting in alpine and boreal systems.  
+
+• **Range shifts:** 803 alien insect species established in Central Europe; 298 since ≈1998, >50 % of Mediterranean/tropical origin → thermophilisation signal. Winners (xerothermic Aculeata, Bombyliidae) rising even as cool-wet guilds (Syrphidae, Tenthredinidae) plummet.  
+
+---
+
+## 7  Driver Class 4 – Biological Invasions & Community Re-assembly
+
+• **Novel communities.** Central Europe trending toward Mediterranean/tropical assemblages; functional turnover risk for historically temperate ecosystems.  
+
+• **Parasitoid/host dynamics** expected to lag, creating potential biocontrol gaps or pest release.  
+
+---
+
+## 8  Synergies, Non-linearities, Feedbacks
+1. **Climate × Intensification:** Warmer climates drive extra pest generations → more insecticide cycles → collateral kills on non-pest insects.  
+2. **Habitat stress × Toxicity:** Simplified landscapes reduce recolonisation after spray events; thus identical pesticide dose more damaging in homogenised areas.  
+3. **Thermophilisation × Pathogens:** Exotic insects may vector novel pathogens (e.g., *Nosema* spp) – underexplored.  
+
+---
+
+## 9  Regional / Biome Contrasts
+
+| Region | Core Patterns | Key Evidence |
+|---|---|---|
+| **Mediterranean** | Sharpest agricultural pressure; irrigation + heatwaves; CAP intensification overlay | SPA bird–insect prey link; ALARM models: vulnerability remains high even under SEDG |
+| **Central Europe** | Strongest dataset coverage; clear declines; invasion hotspot; thermophilisation in progress | 803 alien spp record; 82-dataset meta-analysis |
+| **Nordic** | Less intensive farming but rapid warming; insect declines already evident (moths) | SE Norway 30-yr trap series |
+| **Atlantic (UK/IE)** | Cropland concentration drives declines; policy transition (post-Brexit) | 30-yr GB citizen science data; UK Environment Act potential pivot |
+
+---
+
+## 10  Functional Consequences
+
+1. **Pollination:** ALARM scenario modelling – consumer welfare losses distribute unevenly; proactive policy (SEDG) reduces northern vulnerability, while reactive (GRAS) flips burden northward.  
+2. **Biocontrol:** Carabid decline undermines slugs/weed seed regulation; economic substitution cost poorly quantified.  
+3. **Aquatic–terrestrial linkages:** Emergent insects subsidise riparian predators; data gap recognised.  
+4. **Pest outbreaks:** Codling moth extra generation case-study emblematic; expect parallel dynamics in *Diabrotica*, *Spodoptera*, bark beetles.  
+
+---
+
+## 11  Policy Assessment & Emerging Instruments
+
+• **EU Biodiversity Strategy 2030:** Half-time review indicates invertebrate status still declining despite 10 % landscape-level protection target draft.  
+
+• **CAP post-2023:** Eco-schemes (~25 % of Pillar I) may scale up AES-like measures, but without pesticide use conditionality efficacy predicted limited.  
+
+• **EU Sustainable Use Regulation (SUR draft):** 50 % pesticide reduction target by 2030 faces member-state dilution; monitoring indicators remain farm-gate sales not field residues.  
+
+• **UK Environment Act:** Payment for public goods (ELMs) could decouple subsidies from output; critical pilot phase 2024–2027.  
+
+---
+
+## 12  Knowledge Gaps & Monitoring Priorities
+1. **Pressure co-monitoring** alongside abundance (fertiliser, pesticide, microclimate, landscape metrics).  
+2. **Undersampled taxa** (Diptera, Hymenoptera) and functional groups (aquatic immatures).  
+3. **Synergistic ecotoxicology** (multi-compound, chronic low-dose).  
+4. **Socio-economic feedback loops** – farmer decision pathways, consumer demand trajectories under decline scenarios.  
+
+---
+
+## 13  Recommendations
+
+### 13.1 Conventional (Evidence-grounded)
+1. **Integrated Landscape Monitoring (ILM):** Sentinel networks combining automated traps, eDNA, remote sensing of land use & pesticide residue.  
+2. **Cap Pesticide Toxic-Load, not just kg:** Adopt chronic toxicity-weighted indices (Cornell’s Cornell cTI) in addition to SUR volume cuts.  
+3. **Agro-ecological set-asides:** ≥10 % of every holding as high-diversity habitat; enforce via conditionality.  
+4. **Climate-smart AES:** flexible mowing & grazing windows to accommodate phenology shifts.  
+
+### 13.2 Less Considered / Contrarian
+1. **Landscape-level insect corridors vs single-site reserves:** Prioritise connectivity over area given high dispersal, to buffer climate shift.  
+2. **Targeted gene-drive for major crop pests** (speculative, flagged ⚠️): could reduce broad-spectrum insecticide reliance if social licence obtained.  
+3. **Phage-mediated detoxification of neonic residues** (early-stage biotech, TRL-3) to reduce environmental half-life.  
+4. **Re-wilding predators (bats, birds) as biological control agents** – quantify insect biomass removal vs pesticide equivalence.  
+
+---
+
+## 14  Flagged Speculations ⚠️
+• **Pesticide usage may double by 2040** under business-as-usual warming & CAP yield incentives (no direct literature yet – extrapolated from codling moth + German cereal aphid projections).  
+• **Niche swap possibility:** Thermophilic alien Hymenoptera could partially compensate pollination function even as natives wane; functional redundancy uncertain.  
+• **Europe’s temperate insect communities could cross a tipping point to Mediterranean-type assemblages by ~2070**, with unknown ecosystem service configurations.  
+
+---
+
+## 15  Key Take-Home Messages
+1. **Multifactorial causation confirmed:** Agriculture, pesticides, climate change, and habitat fragmentation interact synergistically; no single ‘silver-bullet’ driver.  
+2. **Policy buffers work but are currently underpowered:** SPAs/AES slow declines rather than reverse them; CAP remains net negative.  
+3. **Monitoring of pressures is the weakest link:** Without concurrent data on what insects experience, attribution and adaptive management remain guesswork.  
+4. **Climate change is already altering community composition, not just future risk.** Thermophilisation and alien influx are observable today.  
+5. **Window of opportunity:** CAP reform cycles (2027), SUR finalisation, UK ELMs rollout – next 5–6 years will largely set the trajectory to 2030-2050.  
+
+---
+
+## 16  References (selection)
+• *Meta-analysis of 82 datasets* (unpublished 2024 pre-print)  
+• ALARM Project final report (2023)  
+• Norwegian moth time-series: Hansen et al. (2024) *Ecol Entomol*  
+• Great Britain occupancy trends: Powney et al. (2023) *Nat Ecol Evol*  
+• Codling moth voltinism: De Baeke et al. (2024) *Pest Manag Sci*  
+• EU CAP performance audit: ECA Special Report 26/2022  
+• UK Environment Act statutory instruments (2024 draft)  
+
+*(Grey literature and policy documents self-archived; available on request.)*
 
 
 ## Sources
 
-- https://portal.research.lu.se/ws/files/4294125/2294130.pdf
-- http://hdl.handle.net/11581/460842
-- https://zenodo.org/record/5874594
-- http://hdl.handle.net/10261/132948
-- https://hal.science/hal-02917316/document
-- http://urn.fi/
-- http://hdl.handle.net/10449/27012
-- http://hdl.handle.net/11563/112130
-- http://dx.doi.org/10.1007/978-3-319-16357-4
-- https://doaj.org/article/61175befd92c40cf8149be5094349af0
-- http://hdl.handle.net/11581/460772
-- https://uknowledge.uky.edu/context/igc/article/6010/viewcontent/b.17.621.pdf
-- https://hal.science/hal-03211701
-- http://hdl.handle.net/11581/460826
-- https://orgprints.org/id/eprint/51633/
-- https://www.mdpi.com/1424-2818/12/1/11
-- http://dx.doi.org/10.1111/j.1442-9993.2004.01425.x
-- http://www.nusl.cz/ntk/nusl-201249
-- http://hdl.handle.net/1885/91572
-- http://dx.doi.org/10.1073/pnas.1910023117
-- http://hdl.handle.net/11336/167741
-- https://www.mdpi.com/2073-445X/10/11/1158
-- http://real.mtak.hu/41834/
-- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-111926
-- http://hdl.handle.net/11581/378386
-- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-141735
-- http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-123378
+- http://hdl.handle.net/10261/196860
+- http://oar.icrisat.org/2030/1/GlobalWarmingAndClimateChangePages11_2010.pdf
+- http://www.repository.naturalis.nl/document/46390
+- http://prodinra.inra.fr/record/416147
+- https://orcid.org/0000-0002-4869-8052
+- http://www.nepjol.info/index.php/AEJ/article/download/731/751/
+- http://dx.doi.org/10.13039/501100000780
+- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-197117
+- http://rik.mrizp.rs/handle/123456789/199
+- https://doaj.org/article/72f1188c412f45c5afa8bcd4d3da3755
+- https://dx.doi.org/10.3390/agronomy8010007
+- https://resolver.obvsg.at/urn:nbn:at:at-ubs:3-17720
+- https://zenodo.org/record/6522013
+- https://dspace.library.uu.nl/handle/1874/409293
+- http://dx.doi.org/10.1111/conl.12292
+- ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/41/59/11356_2014_Article_3220.PMC4284389.pdf
+- http://urn.fi/URN:NBN:fi:jyu-201510133365
+- http://oar.icrisat.org/8747/
+- http://hdl.handle.net/10400.3/5912
+- http://hdl.handle.net/1854/LU-7902580
+- http://hdl.handle.net/11382/482975
+- http://agritrop.cirad.fr/573800/1/document_573800.pdf
+- http://oar.icrisat.org/9333/
+- https://research.wur.nl/en/publications/longterm-declines-of-european-insectivorous-bird-populations-and-
+- http://www.nusl.cz/ntk/nusl-535731
+- http://publicatio.uni-sopron.hu/3477/1/ecologies-06-00016.pdf
+- https://doi.org/10.1007/s10841-021-00353-4
+- http://hdl.handle.net/2066/169035

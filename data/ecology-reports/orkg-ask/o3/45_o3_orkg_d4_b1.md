@@ -1,148 +1,181 @@
-# Re-establishing Eurasian Lynx (Lynx lynx) in the Austrian Northern Limestone Alps: A Multi-Dimensional Success Framework 
-
-*Prepared 2025-06-02*
-
----
+# Mechanisms Enabling Fish Invasions in Mountain Lakes – A Detailed Synthesis (2025)
 
 ## 1. Executive Summary
+Mountain lakes were historically fish‐free or supported depauperate native assemblages.  Over the last century, however, deliberate stockings, bait releases, hydrological re-plumbing, climate warming and a suite of adaptive fish traits have converted thousands of high-elevation basins into novel fish ecosystems.  This report distils the state-of-knowledge on *how* fish become invasive in mountain lakes, drawing on >15 recent data sets, global syntheses, mechanistic models and regional case studies.  We interweave three analytical layers:
+1. **Pathways** – vectors that deliver propagules to remote lakes.  
+2. **Filters** – abiotic and biotic conditions that determine which species survive, reproduce and spread.  
+3. **Amplifiers & Feedbacks** – climate change, ecosystem engineering and management actions that accelerate (or occasionally constrain) invasions.
 
-The Northern Limestone Alps (NLA) form the last extensive montane block in Austria still missing a viable lynx population. Despite initial releases in the 1970s, the effort extirpated within two decades. Drawing on recent spatial‐ecological breakthroughs, large‐carnivore governance studies, and the latest EU finance reviews (1992-2024), this report synthesises determinants of *success* defined as:
+Key conclusions:
+•  Anthropogenic *introduction pathways* (recreational trout stocking, live-bait releases, and aquaculture escape) still dominate first arrivals, but **warming‐driven upstream range expansion** is an emerging secondary vector.  
+•  Cold-water oxy-thermal habitat (T < 21 °C; DO > 6 mg L⁻¹) and *dissolved organic carbon (DOC) < ≈5 mg L⁻¹* repeatedly surface as first-order abiotic filters for salmonid, percid and coregonid invaders.  
+•  Establishment is further gated by **a hierarchical filter**: coarse habitat constraints (temperature–oxygen–depth–DOC) screen most unsuccessful propagules; fine biological interactions (predation on embryos, prey availability, substrate) refine outcomes (e.g., carp recruitment failure in clear lakes).  
+•  Climate warming generally expands “favourable habitat volume” for cool-water piscivores in moderately deep oligotrophic lakes but is neutralised or reversed in DOC-rich browning systems, highlighting antagonistic “warm-vs-brown” controls.  
+•  Multiple empirical thresholds (TDO3 < 11 °C, DOC ≈5 mg L⁻¹) are now robust enough for **predictive risk zoning**.  
+•  Downstream consequences include trophic cascades, amphibian extirpations, altered nutrient cycling and feedbacks that can *reinforce* invasion success (e.g., trout-driven loss of zooplankton grazers increases algal turbidity, favouring trout persistence).
 
-1. **Demographic viability** – ≥80 adult lynx with an intrinsic growth rate r > 0 and ≥90 % probability of persistence over 50 years.
-2. **Genetic health** – mean heterozygosity within 10 % of a reference Carpathian donor, effective population size Ne ≥ 100.
-3. **Spatial functionality** – occupancy of ≥40 % of modelled NLA habitat patches plus functional corridors to the Bohemian-Bavarian and Alpine Eastern populations.
-4. **Ecosystem contribution** – measurable trophic or mesopredator release effects within 15 years (flagged as aspirational because evidence is still weak).
-5. **Socio-political legitimacy** – ≥70 % public acceptance; no >15 % annual increase in verified livestock depredations; inclusion in regional hunting plans instead of ad-hoc derogations.
-6. **Economic and institutional durability** – dedicated multi-source funding secured ≥20 years; adaptive monitoring encoded in legal mandates.
-
-Success rests on seven interacting factor clusters discussed below. The report ends with an integrated roadmap and ten actionable recommendations.
-
----
-
-## 2. Ecological Determinants
-
-### 2.1 Habitat Quantity and Configuration
-
-• **Rule-based / least-cost continental models (2023)** identified eight high-quality lynx clusters; the NLA sits at the eastern edge of the *East Alpine cluster* but is fragmented by A9/A10 motorways and post-storm salvage logging scars.<br>
-• A *GLM–Zonation* workflow calibrated in the Balkans (82 % accuracy for natural predictors) was re-run on Austrian layers (own analysis, 250 m resolution). Result: only 54 % of potential NLA lynx habitat is currently inside IUCN category II/IV areas. Adding just **11 %** (≈420 km²) of adjacent mixed-ownership forest to the Natura 2000 network would raise core-habitat protection to 70 %, the threshold used in Swiss viability assessments.
-
-> **Speculative (★)**: Carbon-market-financed “forest set-asides” could deliver the missing 420 km² if Austrian timber companies can monetise avoided harvest (≈€35 M at 2025 EU ETS spot prices).
-
-### 2.2 Connectivity & Corridors
-
-• SCALP C1-C3 maps (2012-2016) highlight two choke-points: (a) the Enns valley gap (A9 corridor) towards the Bohemian–Bavarian population; (b) the Wechsel-Semmering gap towards the Eastern Alps. Field-level resistance mapping shows that a **70 m wildlife overpass** at km 150 of A9 would reconnect 14 000 ha of suitable forest.
-• Cross-border corridors to Slovenia are hindered by dense motorway networks and ski-tourism nodes. The **Albania–Macedonia–Kosovo corridor proposal** offers transferable governance templates: tri-state MoUs backed by LIFE funding explicitly earmarked for corridor land purchase and multi-species targets.
-
-### 2.3 Prey Base and Trophic Dynamics
-
-Red deer density in NLA hunting districts averages 6.4 ind. km⁻²—near the lower lynx threshold (5–7). Roe deer are patchier due to browsing culls. Simulation with the *Lynx-Pred* model suggests initial stocking of 20 lynx could reduce roe deer densities by 18 % within ten years, within forestry tolerance.
-
-### 2.4 Mortality Risks
-
-1. **Traffic**: A9/A10 cause >40 % of recorded lynx deaths in the Alps. Mitigation value of 2 fenced crossings is modelled at 0.18 annual λ gain.
-2. **Poaching**: Founder-population genetics in Bohemia show microsatellite loss equal to two generations of genetic drift; anti-poaching units delivered a 25 % decline in illegal killings after Czech enforcement doubled fines (2018), but the Alps lack equivalent deterrence.
+We end with contrarian and emerging management options: catchment browning as a bio‐filter, genomic incompatibility drives, hydrodynamic manipulation, solar-powered aeration, and AI–eDNA early detection.
 
 ---
 
-## 3. Genetic & Demographic Determinants
+## 2. Introduction: Why Mountain Lakes Are Uniquely Vulnerable
+• Isolation (steep topography, small catchments) historically limited natural fish colonisation; many alpine and sub-alpine systems remained fishless well into the 20th century.  
+• Food webs are *simple* and productivity is low (TN ≈0.05–0.3 mg L⁻¹; TP often <5 µg L⁻¹). Fish introduction therefore causes disproportional change.  
+• Climate warming (0.2–0.6 °C decade⁻¹ in high mountains) now shortens ice-cover, strengthens stratification, and provides novel thermal habitat for invaders.  
 
-• Founder effects: Releasing ≤6 individuals—as in the 1977-79 Styria attempt—almost guarantees loss of allelic richness within 15 years. Minimum viable release is **2 × 10 individuals (M:F ≈ 1:1)** spaced two years apart.
-• Recommended donors: **Carpathian-Balkan composite** stocks maximise heterozygosity; Iberian lynx not admissible (different species). Genetic clustering software (TESS3) flags Carpathian linages as closest to historic Alpine genotype.
-• Translocations must follow **IUCN genetic rescue** guideline: Neutral markers >0.25 Fst vs. resident; boost gene flow every 7-10 years.
 
----
+## 3. Pathways Delivering Fish Propagules to Mountain Lakes
+### 3.1 Intentional Stocking (Recreational & Conservation)
+• **Historical waves** – Pyrenees: pre-1950 trout farming affected 25 % of 520 lakes; post-1950 recreation pushed fish occupancy to 35–85 %.  
+• Modern era – helicopter or drone stocking exceeds 1000 lakes yr⁻¹ in western North America.  
+• Management paradox: agencies still stock threatened native salmonids into predator-free mountain lakes to create “genetic refuges”, inadvertently priming systems for secondary invaders (e.g., minnows via live-bait).
 
-## 4. Socio-Economic & Governance Determinants
+### 3.2 Bait-Bucket and Aquarium Releases
+• Pyrenean minnows (27 % occupancy by 2000) were most strongly predicted by prior trout presence – anglers using live bait.  
+• Global dataset (307 non-native species) shows **multiple-pathway exposure** triples the odds of establishment; ornamental taxa are now showing up in warm foothill reservoirs.
 
-### 4.1 Conflict and Damage Economics
+### 3.3 Hydrological Connections (Canals, Dam Cascades, Glacier Meltwater Links)
+• Dam-raised backwater increases longitudinal connectivity; once salmons or smelt colonise headwater reservoirs, stepwise spread to natural lakes occurs.  
+• Range expansions in Wisconsin cisco lakes show rainbow smelt addition only explains ≈1 % extra thermal habitat loss but demonstrates synergy between climate warming and connectivity.
 
-• Across 27 EU states, **68 % of carnivore damage expenditure** pertains to free-ranging livestock; yet budgets still prioritise compensation over prevention.
-• Electric fencing is the most effective non-lethal measure but only 22 % of Austrian alpine pasture units deploy it. A LIFE pilot offering **tiered subsidies** tied to fence efficacy and maintenance logs could flip the ratio.
-• Cost projection: Prevention-heavy model reduces long-run public outlays by €1.1 M yr⁻¹ compared to business-as-usual compensation.
+### 3.4 Climate-Driven Natural Dispersal
+• Ice-free periods extend upstream. Trout in Sierra Nevada now move 0.6–1.2 km further into headwaters per decade (tagging data 2010–2022).  
 
-### 4.2 Public Acceptance & Stakeholders
+### 3.5 Rare Vectors
+• Waterfowl endozoochory of small cyprinid eggs (detected via DNA from 2019 Spanish survey).  
+• *Helicopter crash releases* (documented single event in BC, 2021) of hatchery trout – a reminder of low-probability, high-impact vectors.
 
-Surveys (N=870, 2024) in Upper Austria and Styria show 61 % general support but only 38 % among hunters. Acceptance climbs to 72 % when a *quota-based adaptive hunting* promise is made post-population stabilisation, mimicking the Norwegian “checks-and-balances” governance architecture that moderated political-to-administrative quota inflation.
 
-### 4.3 Legal & Institutional Landscape
+## 4. Environmental & Biotic Filters Governing Establishment
+We integrate nine data sets to build a **unified filter framework** (Fig. 1 conceptually):
 
-• Austria’s nine provinces retain wildlife authority; federal nature protection is fragmented.
-• EU-level 2023 *Population-Level Management Guidelines* now permit transboundary action plans, but implementation needs a **Pan-Alpine Lynx Management Board** committing at least Austria, Germany, Switzerland and Slovenia.
-• The current CAP and LIFE frameworks display a **transdisciplinary deficit**, favouring single-sector proposals. Reducing national co-financing from 40 % to 10 % has been proposed to incentivise cross-sector corridors and hunter-incentive pilots.
+### 4.1 Coarse Abiotic Filters
+1. **Oxy-thermal Habitat**  
+   • Rainbow trout growth scales with % lake volume where T < 21 °C and DO > 6 mg L⁻¹.  
+   • Minnesota cisco work: AvgATDO3VB < 11 °C = refuge; > 17 °C = functional loss.  
+2. **Lake Depth & Stratification**  
+   • Deep oligotrophic basins (high ΔT between epi and hypo) maintain thick cold, oxygenated volume. Shallow eutrophic lakes lose this refuge once algal turbidity absorbs heat.  
+3. **Dissolved Organic Carbon (DOC)**  
+   • Sierra Nevada: each +1 mg L⁻¹ DOC above ≈3 subtracts ≈10 % from trout growth; at >6 mg L⁻¹ the thermal benefit is neutralised.  
+   • Québec and Wisconsin: walleye and lake trout declines begin near 5 mg L⁻¹ DOC.  
+   • Hydrodynamic ML model: τw < 1 yr keeps DOC < 5 mg L⁻¹; τw > 6 yr tends toward > 8 mg L⁻¹ unless TN:TP > 25.  
+4. **Nutrient Level (TN, TP)**  
+   • Moderate enrichment (TN 0.2–0.5 mg L⁻¹) raises invertebrate prey, boosting trout condition – but only if turbidity does not erase the oxy-thermal layer.  
 
----
+### 4.2 Fine Biotic Filters
+1. **Prey Community Structure**  
+   • Common carp example: even turbid, nutrient-rich lakes fail to recruit if native micropredators are abundant (larvae predation).  
+2. **Predator Release & Novelty**  
+   • Fishless zooplankton with limited anti-predator morphology are naïve, enhancing piscivore success.  
+3. **Parasites & Disease**  
+   • Low initial parasite load in high-elevation lakes gives invaders an enemy‐free space; however, whirling disease outbreaks above 2600 m in Colorado now act as a new establishment bottleneck.
 
-## 5. Monitoring, Evaluation & Adaptive Management
+### 4.3 Trait Filters (Species Inherent)
+• Global synthesis: broad diet + parental care + multiple pathways explain widest global spread.  
+• Cold tolerance and high embryonic developmental plasticity specifically predict mountain lake success.  
+• Egg photoperiod threshold >2600 degree-days restricts some species; rainbow trout (≈2000 dd) pass this filter, grass carp (>3000 dd) do not.
 
-• **Impact reporting** in prior EU projects is non-standardised. A mandatory, open-data monitoring protocol should integrate camera trapping, eDNA scat genetics and GPS telemetry.
-• Propose a *state-space Bayesian* population model updated annually to inform quotas or release adjustments.
-• **Performance indicators** aligned with the six success criteria (Section 1) to unlock each LIFE funding tranche.
 
----
+## 5. Amplifiers: Climate & Land-Use Change
+1. **Warming**  
+   • +1 °C yields +15 % trout growth *if* DOC <5 mg L⁻¹ – “temperature bonus”.  
+   • Warming shifts strong top-down trophic control upslope; high-elevation lakes will soon receive predator–prey restructuring now typical of low-elevation sites.
+2. **Browning (DOC increase)**  
+   • Catchment afforestation and extreme rainfall pulses mobilise soil C. Warming + browning produce antagonistic effects (“warm-vs-brown”).  
+3. **Eutrophication & Stratification Compression**  
+   • Enhanced nutrients in shallow basins raise algal turbidity, compress cool-oxygenated refuge, thus *disfavoring* salmonids but may favour tolerant cyprinids.  
+4. **Hydrodynamic Residence Time Change**  
+   • Glacier retreat shortens residence time → reduces DOC → potentially reopens cold-clear niche for salmonids.
 
-## 6. Integrated Success Framework
 
-Determinants interact; below is a simplified causal diagram:
+## 6. Case Studies (Integrating Pathway × Filter × Amplifier)
+### 6.1 Sierra Nevada, California
+• 21 lakes 2.4–3.3 km: growth +0.12 mm day⁻¹ °C⁻¹, but DOC ≥5 mg L⁻¹ cancels benefit.  
+• Stocking intensifies pelagic consumer:producer ratios in warm low-elevation lakes; climate warming will shift that effect upslope.
 
-Habitat Protection → Spatial Connectivity → Demographic Viability
-                     ↘                         ↑
-                       Conflict Prevention → Public Acceptance → Political Support → Long-term Funding
-                     ↘                                         ↗
-                       Genetic Rescue → Ecosystem Impact  ———
+### 6.2 Pyrenees, Spain–France
+• Two-wave invasion pattern; minnows piggy-backing on trout presence causes a littoral trophic cascade, eliminating amphibians and large benthos.  
 
-Failure in any hub (connectivity, acceptance, finance) propagates downwards, explaining historical fade-outs.
+### 6.3 Wisconsin & Minnesota Glacial Lakes
+• Climate scenarios alone extirpate 25–70 % of cisco populations; rainbow smelt invasion adds only ≈1 % extra losses – climate > biotic factor.
 
----
+### 6.4 Warm-Temperate Lakes Meta-analysis
+• Rainbow trout in nine lakes: deep oligotrophic basins benefit from modest nutrient enrichment; shallow eutrophic lakes show reduced growth. Emphasizes depth-dependent management trade-offs.
 
-## 7. Recommendations
 
-1. **Release Plan**: Two-phase translocation of 20 Carpathian-Balkan lynx (2026–2028) with ongoing genetic augmentation every decade.
-2. **Corridor Build-out**: Construct the A9 wildlife overpass (70 m) and secure 420 km² of mixed-ownership forest via carbon set-aside financing (★ speculative but high leverage).
-3. **Anti-Poaching Task Force**: Federal-provincial MoU to replicate Czech fine structure; equip with canine units and encrypted kill-site reporting app.
-4. **Preventive Subsidy Reform**: Shift 60 % of compensation funds to electric fencing subsidies, performance-based. Pilot in Enns-Pyhrn district.
-5. **Hunter Incentive Scheme**: Guarantee adaptive quotas once Ne ≥ 100; emulate Norway’s quota decision chain to temper politicisation.
-6. **Pan-Alpine Board**: Institutionalise cross-border management; align monitoring protocols (SCALP 4.0).
-7. **Standardised Monitoring**: Deploy eDNA + camera grid (5 × 5 km) with public dashboard; tie LIFE disbursements to data submission.
-8. **Educational Campaign**: Co-design with hunting unions; focus on deer population control benefits.
-9. **Funding Mix**: Combine LIFE, Horizon “Restore4C” corridors call, private carbon credits, and insurance-sector biodiversity bonds.
-10. **Legal Safeguard**: Embed lynx targets in provincial conservation acts to survive political cycles.
+## 7. Downstream Ecological Consequences
+• **Food Web Collapse** – Pelagic zooplankton size spectra truncated; reduced grazing → algal blooms.  
+• **Amphibian Loss** – >90 % decline in *Rana* and *Triturus* spp. in Pyrenees fish-invaded lakes.  
+• **Biogeochemical Shifts** – Elevated sediment bioturbation by benthivores (carp, minnows) releases P; altered C burial rates.  
+• **Genetic Swamping** – Hybridisation between native cutthroat and stocked rainbow trout in Rocky Mountain lakes.
 
----
 
-## 8. Conclusion
+## 8. Management Responses & Emerging Technologies
+### 8.1 Traditional Tools
+• **Chemical Renovation (rotenone)** – effective but politically constrained; high mortality collateral.  
+• **Gill-net & Electrofishing Suppression** – feasible in <10 ha basins; requires multi-year effort.  
+• **Regulatory Bans on Live Bait** – proven in Pyrenees, but enforcement gaps persist.
 
-A successful lynx reintroduction to the Austrian Northern Limestone Alps hinges on a **systems approach** that marries ecological sufficiency (habitat, genetics, demographics) with socio-political legitimacy and durable finance. Historical failures were not biological inevitabilities but governance shortfalls. Leveraging new spatial-modelling tools, empirically proven Norwegian governance templates, and innovative funding (carbon markets, biodiversity bonds) offers an unprecedented window to restore a keystone predator while setting a replicable benchmark for transboundary large-carnivore management in Europe.
+### 8.2 Innovations & Contrarian Ideas
+1. **Catchment ‘Browning’ as Biocontrol**  
+   • Purposefully retaining DOC >5 mg L⁻¹ via riparian buffers to hinder trout performance.  Ethical/logistical questions but conceptually grounded in strong empirical threshold.  
+2. **Sterile Triploid or YY‐Male Stocking**  
+   • Provide angling opportunities while lowering long-term establishment. Widespread in New Zealand, under-used in North American alpine lakes.  
+3. **CRISPR-Gene Drives**  
+   • Sex-ratio distortion in isolated basins; early lab trials on zebrafish suggest feasibility but urgent governance debate needed.  
+4. **AI-Enhanced eDNA Monitoring**  
+   • Machine-learning classifiers reduce false positives, enabling detection of single smelt larvae equivalent.  
+5. **Solar-Powered Hypolimnetic Aeration**  
+   • Can selectively expand DO refuge for native cold stenotherms, disadvantaging warm-water invaders.  
+
+
+## 9. Decision Framework for Managers (Risk Zoning)
+1. Map **introduction probability** – proximity to roads/trails, angling pressure, historical stocking.
+2. Overlay **abiotic filters** – depth; “favoured habitat volume” (T < 21 °C; DO > 6); DOC.  
+3. Apply **climate projections** – CMIP6 derived TDO3 by 2035.  
+4. Identify **management levers** – eradicate, contain, or accept.  
+
+Example: A 12 ha, 18 m deep lake, current DOC = 4 mg L⁻¹, TDO3 = 10.5 °C, 3 km from trailhead – rated HIGH risk; implement sterile-fish policy and quarterly eDNA.
+
+
+## 10. Research Gaps & Speculative Directions (Flagged as Forecast)
+• **Cross-Taxa Interaction Models** – integrate fish, amphibian, macroalgae.  
+• **Global High-Resolution DOC Projection** – next-gen Earth system models coupled with ML catchment predictors.  
+• **Eco-evolutionary Dynamics** – rapid local adaptation of invaders to ultra-oligotrophic diets; experimental common-garden studies needed.
+
+
+## 11. Conclusions
+Fish invasions of mountain lakes exemplify a tight coupling of anthropogenic vectors and environmental filters.  Modern understanding has moved beyond simple “stocking or not” framing to a mechanistic, threshold-based view that blends physico-chemical template (temperature, oxygen, DOC), species traits, and climate amplifiers.  This knowledge enables proactive zoning and *pre‐invasion* defences, yet also opens room for creative – sometimes controversial – solutions such as catchment browning and gene drives.  The next decade will determine whether high-elevation lake networks remain bastions of unique biodiversity or converge toward homogenised, fish-dominated states.
 
 
 ## Sources
 
-- http://dx.doi.org/10.13039/501100010198
-- https://doi.org/10.3897/natureconservation.49.81469
-- http://biocenosi.dipbsf.uninsubria.it/atit/PDF/Volume12(2)/12(2)_6.pdf
-- https://doaj.org/toc/1399-1183
-- https://doaj.org/article/01daf18426a24d9dae29995943a42618
-- https://www.db-thueringen.de/receive/dbt_mods_00051681
-- http://fauna.dipbsf.uninsubria.it/atit/PDF/Volume10(1)/10(1)_5.pdf
-- https://orbi.uliege.be/handle/2268/128371
-- https://zenodo.org/record/5060137
-- http://www.italian-journal-of-mammalogy.it/article/viewFile/4120/4056/
-- http://www2.unil.ch/biomapper/Download/Zimmermann-PhD-2004.pdf
-- http://doc.rero.ch/record/300410/files/S0030605309991013.pdf
-- https://orbi.uliege.be/handle/2268/128571
-- https://repository.publisso.de/resource/frl:6407249
-- https://zenodo.org/record/6789818
-- http://dx.doi.org/10.1017/S0030605309991013
-- http://urn.fi/
-- https://hdl.handle.net/11250/3003876
-- https://research.tilburguniversity.edu/en/publications/7b4bca2a-d69b-4cf2-b31f-15d3d1a9d327
-- https://doaj.org/toc/1848-8080
-- https://doaj.org/article/9c9bb8e30ff3498e9d2fcb3f9435787a
-- https://hal.archives-ouvertes.fr/hal-01535368
-- http://hdl.handle.net/11573/1281522
-- http://hdl.handle.net/10.6084/m9.figshare.8101208.v3
-- https://orbi.uliege.be/handle/2268/176592
-- http://hdl.handle.net/20.500.11956/171118
-- https://hdl.handle.net/11250/2983423
-- https://orbi.uliege.be/handle/2268/186003
-- http://hdl.handle.net/10261/337169
-- http://hdl.handle.net/11250/2443208
+- https://research.wur.nl/en/publications/effects-of-climate-and-land-use-changes-on-fish-catches-across-la
+- http://hdl.handle.net/10803/384835
+- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2015-0340
+- https://escholarship.org/uc/item/4kk6d7jr
+- http://ir.ihb.ac.cn/handle/342005/35509
+- https://www.annualreviews.org/doi/10.1146/annurev-ecolsys-032522-015551
+- https://openprairie.sdstate.edu/nrm_pubs/51
+- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2012-0409#.Ubf9ENg0V8E
+- https://zenodo.org/record/4279807
+- https://hal.archives-ouvertes.fr/halsde-00927739
+- https://dx.doi.org/10.3390/w9090675
+- http://hdl.handle.net/10261/160112
+- https://digitalcommons.unl.edu/ncfwrustaff/225
+- http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0021884
+- https://zenodo.org/record/3452124
+- https://doaj.org/article/03703a8e55c743e5861ff6f7e90fcd78
+- https://www.intechopen.com/books/7912
+- http://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-414227
+- http://digitool.Library.McGill.CA:80/R/?func=dbin-jump-full&object_id=130688
+- https://doaj.org/toc/1932-6203
+- http://dx.doi.org/10.1111/j.1095-8649.2007.01668.x
+- https://hal.science/hal-03563547
+- https://pure.knaw.nl/portal/en/publications/85dc9b45-dbe7-45a0-a2b9-f8e7d1ebc3f2
+- https://figshare.com/articles/Disentangling_the_effects_of_a_century_of_eutrophication_and_climate_warming_on_freshwater_lake_fish_assemblages/5278963
+- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-184306
+- https://escholarship.org/uc/item/4km875j6
+- http://www.caryinstitute.org/sites/default/files/public/reprints/Sobek_et_al_L_and_O_2007.pdf
+- http://ir.ihb.ac.cn/handle/342005/18283
+- http://datacite.org/schema/kernel-4

@@ -1,181 +1,180 @@
-# Mechanisms Enabling Fish Invasions in Mountain Lakes – A Detailed Synthesis (2025)
-
-## 1. Executive Summary
-Mountain lakes were historically fish‐free or supported depauperate native assemblages.  Over the last century, however, deliberate stockings, bait releases, hydrological re-plumbing, climate warming and a suite of adaptive fish traits have converted thousands of high-elevation basins into novel fish ecosystems.  This report distils the state-of-knowledge on *how* fish become invasive in mountain lakes, drawing on >15 recent data sets, global syntheses, mechanistic models and regional case studies.  We interweave three analytical layers:
-1. **Pathways** – vectors that deliver propagules to remote lakes.  
-2. **Filters** – abiotic and biotic conditions that determine which species survive, reproduce and spread.  
-3. **Amplifiers & Feedbacks** – climate change, ecosystem engineering and management actions that accelerate (or occasionally constrain) invasions.
-
-Key conclusions:
-•  Anthropogenic *introduction pathways* (recreational trout stocking, live-bait releases, and aquaculture escape) still dominate first arrivals, but **warming‐driven upstream range expansion** is an emerging secondary vector.  
-•  Cold-water oxy-thermal habitat (T < 21 °C; DO > 6 mg L⁻¹) and *dissolved organic carbon (DOC) < ≈5 mg L⁻¹* repeatedly surface as first-order abiotic filters for salmonid, percid and coregonid invaders.  
-•  Establishment is further gated by **a hierarchical filter**: coarse habitat constraints (temperature–oxygen–depth–DOC) screen most unsuccessful propagules; fine biological interactions (predation on embryos, prey availability, substrate) refine outcomes (e.g., carp recruitment failure in clear lakes).  
-•  Climate warming generally expands “favourable habitat volume” for cool-water piscivores in moderately deep oligotrophic lakes but is neutralised or reversed in DOC-rich browning systems, highlighting antagonistic “warm-vs-brown” controls.  
-•  Multiple empirical thresholds (TDO3 < 11 °C, DOC ≈5 mg L⁻¹) are now robust enough for **predictive risk zoning**.  
-•  Downstream consequences include trophic cascades, amphibian extirpations, altered nutrient cycling and feedbacks that can *reinforce* invasion success (e.g., trout-driven loss of zooplankton grazers increases algal turbidity, favouring trout persistence).
-
-We end with contrarian and emerging management options: catchment browning as a bio‐filter, genomic incompatibility drives, hydrodynamic manipulation, solar-powered aeration, and AI–eDNA early detection.
+# Will the AMOC “Change its Course”?  
+**Integrating Observations, High-Resolution Modeling, and Risk-Management Perspectives**  
+*Prepared 2025-06-02*  
 
 ---
 
-## 2. Introduction: Why Mountain Lakes Are Uniquely Vulnerable
-• Isolation (steep topography, small catchments) historically limited natural fish colonisation; many alpine and sub-alpine systems remained fishless well into the 20th century.  
-• Food webs are *simple* and productivity is low (TN ≈0.05–0.3 mg L⁻¹; TP often <5 µg L⁻¹). Fish introduction therefore causes disproportional change.  
-• Climate warming (0.2–0.6 °C decade⁻¹ in high mountains) now shortens ice-cover, strengthens stratification, and provides novel thermal habitat for invaders.  
+## Executive Summary  
+The Atlantic Meridional Overturning Circulation (AMOC) faces a dual vulnerability: (i) a strength reduction (slow-down or collapse) and (ii) a potential spatial re-routing of its upper and lower limbs, most conspicuously the Gulf Stream/North Atlantic Current system. Contrary to the still-popular notion that the AMOC will only gradually weaken late in the century, multiple high-resolution CMIP6-HighResMIP experiments now show an abrupt, 3–5 Sv dec-¹ decline concentrated in 2015-2050, driven primarily by a Florida Current slow-down—an early warning absent from coarser models.  
 
+Observationally, the RAPID 26.5 °N array indicates a non-significant linear trend of −0.11 Sv yr-¹ over 2004-2024; statistical detection theory implies 28–67 years (median ≈ 43 y) of continuous records are needed to confirm any secular decline. Proxy reconstructions (sea-level, SST “fingerprint”) nevertheless suggest two major slow-downs since 1935 (1960–75 and 2000–present), both ≈ −4.5 Sv dec-¹.  
 
-## 3. Pathways Delivering Fish Propagules to Mountain Lakes
-### 3.1 Intentional Stocking (Recreational & Conservation)
-• **Historical waves** – Pyrenees: pre-1950 trout farming affected 25 % of 520 lakes; post-1950 recreation pushed fish occupancy to 35–85 %.  
-• Modern era – helicopter or drone stocking exceeds 1000 lakes yr⁻¹ in western North America.  
-• Management paradox: agencies still stock threatened native salmonids into predator-free mountain lakes to create “genetic refuges”, inadvertently priming systems for secondary invaders (e.g., minnows via live-bait).
+CMIP5/CMIP6 ensembles retain the canonical *quantitative* range—5–40 % weakening under RCP/SSP-low to 15–60 % under RCP8.5/SSP5-8.5 by 2100—but HighResMIP and hosing experiments reveal new *qualitative* behaviour: model-dependent hysteresis and incomplete recovery after freshwater forcing stops, implying a genuine tipping threshold.  
 
-### 3.2 Bait-Bucket and Aquarium Releases
-• Pyrenean minnows (27 % occupancy by 2000) were most strongly predicted by prior trout presence – anglers using live bait.  
-• Global dataset (307 non-native species) shows **multiple-pathway exposure** triples the odds of establishment; ornamental taxa are now showing up in warm foothill reservoirs.
+Coupled ocean-atmosphere feedbacks re-route the Gulf Stream 0–2 years after abrupt AMOC perturbation, raising U.S. Atlantic coastal sea level, altering shelf-break front ecology, and amplifying Northeast flood risk well before a classical “collapse” manifests.  
 
-### 3.3 Hydrological Connections (Canals, Dam Cascades, Glacier Meltwater Links)
-• Dam-raised backwater increases longitudinal connectivity; once salmons or smelt colonise headwater reservoirs, stepwise spread to natural lakes occurs.  
-• Range expansions in Wisconsin cisco lakes show rainbow smelt addition only explains ≈1 % extra thermal habitat loss but demonstrates synergy between climate warming and connectivity.
+From a risk-management perspective, the near-term (next 2–3 decades) window is no longer a quiescent, “monitor-only” phase but rather the highest-leverage period for mitigation and adaptation planning. Salinity-driven density anomalies dominate model uncertainty and outweigh scenario uncertainty after ~2050; hence, process-based observing systems and stochastic down-scaling at eddy-permitting resolution are urgent priorities.  
 
-### 3.4 Climate-Driven Natural Dispersal
-• Ice-free periods extend upstream. Trout in Sierra Nevada now move 0.6–1.2 km further into headwaters per decade (tagging data 2010–2022).  
+**Bottom line:** A detectable AMOC slow-down is not yet statistically confirmed, but high-resolution models and early-warning indicators point to an elevated probability of step-wise weakening and Gulf Stream re-routing before mid-century—even under moderate emissions. The scientific and policy community should treat the AMOC as an acute, not merely chronic, climate-risk focal point.
 
-### 3.5 Rare Vectors
-• Waterfowl endozoochory of small cyprinid eggs (detected via DNA from 2019 Spanish survey).  
-• *Helicopter crash releases* (documented single event in BC, 2021) of hatchery trout – a reminder of low-probability, high-impact vectors.
+---
 
+## 1. What Do We Mean by “Change its Course”?  
+1. **Dynamic-strength perspective** – integrated overturning transport (Sv) reduction at key latitudes (26.5 °N, 45 °N).  
+2. **Geographic-pathway perspective** – meridional shift of Gulf Stream separation latitude (Cape Hatteras) and altered subpolar gyre pathways, including a possible *bifurcation* toward the East Greenland Current.  
+3. **Lower-limb compensation** – changes in deep western boundary current (DWBC) pathways that may partially conserve overturning strength yet redistribute heat and nutrients.  
 
-## 4. Environmental & Biotic Filters Governing Establishment
-We integrate nine data sets to build a **unified filter framework** (Fig. 1 conceptually):
+Historically, “AMOC collapse” conflated (1) and (2); emerging literature now differentiates them because Gulf Stream re-routing can produce socio-economic impacts (coastal sea-level surge, fisheries disruption) **years to decades before** an overturning collapse is reached.  
 
-### 4.1 Coarse Abiotic Filters
-1. **Oxy-thermal Habitat**  
-   • Rainbow trout growth scales with % lake volume where T < 21 °C and DO > 6 mg L⁻¹.  
-   • Minnesota cisco work: AvgATDO3VB < 11 °C = refuge; > 17 °C = functional loss.  
-2. **Lake Depth & Stratification**  
-   • Deep oligotrophic basins (high ΔT between epi and hypo) maintain thick cold, oxygenated volume. Shallow eutrophic lakes lose this refuge once algal turbidity absorbs heat.  
-3. **Dissolved Organic Carbon (DOC)**  
-   • Sierra Nevada: each +1 mg L⁻¹ DOC above ≈3 subtracts ≈10 % from trout growth; at >6 mg L⁻¹ the thermal benefit is neutralised.  
-   • Québec and Wisconsin: walleye and lake trout declines begin near 5 mg L⁻¹ DOC.  
-   • Hydrodynamic ML model: τw < 1 yr keeps DOC < 5 mg L⁻¹; τw > 6 yr tends toward > 8 mg L⁻¹ unless TN:TP > 25.  
-4. **Nutrient Level (TN, TP)**  
-   • Moderate enrichment (TN 0.2–0.5 mg L⁻¹) raises invertebrate prey, boosting trout condition – but only if turbidity does not erase the oxy-thermal layer.  
+---
 
-### 4.2 Fine Biotic Filters
-1. **Prey Community Structure**  
-   • Common carp example: even turbid, nutrient-rich lakes fail to recruit if native micropredators are abundant (larvae predation).  
-2. **Predator Release & Novelty**  
-   • Fishless zooplankton with limited anti-predator morphology are naïve, enhancing piscivore success.  
-3. **Parasites & Disease**  
-   • Low initial parasite load in high-elevation lakes gives invaders an enemy‐free space; however, whirling disease outbreaks above 2600 m in Colorado now act as a new establishment bottleneck.
+## 2. Observational Status  
+### 2.1 RAPID 26.5 °N Array (2004-2024)  
+* Mean AMOC: ~17 Sv; multi-year variability ±4 Sv.  
+* Linear trend: −0.11 Sv yr-¹ (p > 0.05).  
+* Detectability analysis: 28–35 y required relative to CMIP5 variance; 29–67 y (median 43 y) using observed variance.  
 
-### 4.3 Trait Filters (Species Inherent)
-• Global synthesis: broad diet + parental care + multiple pathways explain widest global spread.  
-• Cold tolerance and high embryonic developmental plasticity specifically predict mountain lake success.  
-• Egg photoperiod threshold >2600 degree-days restricts some species; rainbow trout (≈2000 dd) pass this filter, grass carp (>3000 dd) do not.
+### 2.2 Extended Proxies  
+* **Sea-level-difference proxy (SLDIF)** between U.S. coast & Bermuda (r ≈ 0.7–0.9 with RAPID): identifies two −4.5 Sv dec-¹ slow-downs (1960s-70s, 2000-present).  
+* **SST fingerprint**: subpolar cooling plus Gulf Stream warming has strengthened since mid-20th C; consistent with a ~3 ± 1 Sv (≈ 15 %) weakening.  
+* **Tide-gauge & satellite altimetry**: Northeast U.S. sea-level “hotspot” events correlate with rapid (seasonal-to-annual) Florida Current reductions, confirming physical link.  
 
+> *Take-away:* The instrumental record is too short for formal detection but multiple, independent proxies imply that the AMOC has already lost 10–20 % of its mid-20th-century strength and is capable of episodic step declines.  
 
-## 5. Amplifiers: Climate & Land-Use Change
-1. **Warming**  
-   • +1 °C yields +15 % trout growth *if* DOC <5 mg L⁻¹ – “temperature bonus”.  
-   • Warming shifts strong top-down trophic control upslope; high-elevation lakes will soon receive predator–prey restructuring now typical of low-elevation sites.
-2. **Browning (DOC increase)**  
-   • Catchment afforestation and extreme rainfall pulses mobilise soil C. Warming + browning produce antagonistic effects (“warm-vs-brown”).  
-3. **Eutrophication & Stratification Compression**  
-   • Enhanced nutrients in shallow basins raise algal turbidity, compress cool-oxygenated refuge, thus *disfavoring* salmonids but may favour tolerant cyprinids.  
-4. **Hydrodynamic Residence Time Change**  
-   • Glacier retreat shortens residence time → reduces DOC → potentially reopens cold-clear niche for salmonids.
+---
 
+## 3. Modeling Evidence  
+### 3.1 Standard-Resolution CMIP5/CMIP6 (∼1° ocean)  
+* Historical (1850-1985): CMIP6 shows a ~10 % strengthening vs CMIP5, traced to stronger aerosol forcing.  
+* 21st-century:  
+  * **RCP/SSP-low (4.5/2-4.5)**: 5–40 % weakening by 2100; stabilisation or rebound post-2050.  
+  * **RCP8.5/SSP5-8.5**: 15–60 % weakening; continuous decline, no recovery.  
+  * Multidecadal oscillation (~60 yr, ≈1 Sv amplitude) persists.  
 
-## 6. Case Studies (Integrating Pathway × Filter × Amplifier)
-### 6.1 Sierra Nevada, California
-• 21 lakes 2.4–3.3 km: growth +0.12 mm day⁻¹ °C⁻¹, but DOC ≥5 mg L⁻¹ cancels benefit.  
-• Stocking intensifies pelagic consumer:producer ratios in warm low-elevation lakes; climate warming will shift that effect upslope.
+### 3.2 High-Resolution CMIP6-HighResMIP (0.25°–0.1° ocean)  
+* Starts with **stronger but less stable** AMOC.  
+* Projects **order-of-magnitude faster near-term weakening** (−3–5 Sv dec-¹, mostly 2015-2050).  
+* >50 % of loss stems from **Florida Current weakening**—missing in coarser models.  
+* Implies standard-resolution ensembles understate *near-term* Northern-Hemisphere climate risk.  
 
-### 6.2 Pyrenees, Spain–France
-• Two-wave invasion pattern; minnows piggy-backing on trout presence causes a littoral trophic cascade, eliminating amphibians and large benthos.  
+### 3.3 Freshwater-Hosing (NAHosMIP)  
+* Nine CMIP6 models forced with 0.1 Sv freshwater over subpolar gyre.  
+* All show AMOC weakening; **some recover, others don’t**—model-dependent hysteresis.  
+* Indicates a **tipping threshold** may be crossed irreversibly in certain model architectures.  
 
-### 6.3 Wisconsin & Minnesota Glacial Lakes
-• Climate scenarios alone extirpate 25–70 % of cisco populations; rainbow smelt invasion adds only ≈1 % extra losses – climate > biotic factor.
+---
 
-### 6.4 Warm-Temperate Lakes Meta-analysis
-• Rainbow trout in nine lakes: deep oligotrophic basins benefit from modest nutrient enrichment; shallow eutrophic lakes show reduced growth. Emphasizes depth-dependent management trade-offs.
+## 4. Timeframe & Scenario Prioritisation  
+1. **Near-term (2025-2050)** – HighResMIP signals a steep decline; mitigation cannot avoid *initial* weakening but can reduce magnitude of subsequent collapse.  
+2. **Mid/End-of-Century (2050-2100)** – Divergence between SSP2-4.5 (stabilisation) vs SSP5-8.5 (continued decline).  
+3. **Paleoclimate analogues** suggest multi-century hysteresis; however, human-time-scale decision-making should focus on (1) and (2) where reversibility is plausible.  
 
+---
 
-## 7. Downstream Ecological Consequences
-• **Food Web Collapse** – Pelagic zooplankton size spectra truncated; reduced grazing → algal blooms.  
-• **Amphibian Loss** – >90 % decline in *Rana* and *Triturus* spp. in Pyrenees fish-invaded lakes.  
-• **Biogeochemical Shifts** – Elevated sediment bioturbation by benthivores (carp, minnows) releases P; altered C burial rates.  
-• **Genetic Swamping** – Hybridisation between native cutthroat and stocked rainbow trout in Rocky Mountain lakes.
+## 5. Gulf Stream Pathway Shifts & Coastal Impacts  
+* **Positive NAO → northward, stronger Gulf Stream** with 0–2 y lead.  
+* **Abrupt AMOC weakening (eddying models)** shifts Gulf Stream separation southward/manifests in downstream SST gradient changes.  
+* **Sea-level Impact**: 1 Sv reduction in Florida Current raises dynamic sea level along U.S. Mid-Atlantic by ~5 cm; a 3–5 Sv decade-scale loss adds 15–25 cm on top of global mean rise, shortening *100-year* flood recurrence intervals to <5 years for cities like New York, Boston.  
+* **Ecosystem Impact**: Shelf water mass exchange modifies nutrient fluxes, fisheries recruitment (e.g., Atlantic cod, lobster larvae) and HAB frequency.  
 
+---
 
-## 8. Management Responses & Emerging Technologies
-### 8.1 Traditional Tools
-• **Chemical Renovation (rotenone)** – effective but politically constrained; high mortality collateral.  
-• **Gill-net & Electrofishing Suppression** – feasible in <10 ha basins; requires multi-year effort.  
-• **Regulatory Bans on Live Bait** – proven in Pyrenees, but enforcement gaps persist.
+## 6. Early-Warning Signals & Tipping Risk  
+* **Increased variance & lag-1 autocorrelation** detected in multiple instrumental proxies; collapse time estimated *median* ≈ 2050 (large uncertainty).  
+* **Model uncertainty after 2050 dominated by salinity-controlled density anomalies**, outweighing emission scenario spread; addresses why *process* uncertainty > *forcing* uncertainty later in century.  
 
-### 8.2 Innovations & Contrarian Ideas
-1. **Catchment ‘Browning’ as Biocontrol**  
-   • Purposefully retaining DOC >5 mg L⁻¹ via riparian buffers to hinder trout performance.  Ethical/logistical questions but conceptually grounded in strong empirical threshold.  
-2. **Sterile Triploid or YY‐Male Stocking**  
-   • Provide angling opportunities while lowering long-term establishment. Widespread in New Zealand, under-used in North American alpine lakes.  
-3. **CRISPR-Gene Drives**  
-   • Sex-ratio distortion in isolated basins; early lab trials on zebrafish suggest feasibility but urgent governance debate needed.  
-4. **AI-Enhanced eDNA Monitoring**  
-   • Machine-learning classifiers reduce false positives, enabling detection of single smelt larvae equivalent.  
-5. **Solar-Powered Hypolimnetic Aeration**  
-   • Can selectively expand DO refuge for native cold stenotherms, disadvantaging warm-water invaders.  
+---
 
+## 7. Uncertainties & Detectability Gaps  
+1. Short instrumental baseline; feasible detection only ≥ 2040s.  
+2. Eddy-feedbacks unresolved in mainstream ESMs; under-representation of near-term risk.  
+3. Divergent freshwater budget components (Arctic-tropical link, Greenland melt) produce model spread in salinity fields.  
+4. Deep circulation pathways poorly observed; DWBC fate largely unknown.  
 
-## 9. Decision Framework for Managers (Risk Zoning)
-1. Map **introduction probability** – proximity to roads/trails, angling pressure, historical stocking.
-2. Overlay **abiotic filters** – depth; “favoured habitat volume” (T < 21 °C; DO > 6); DOC.  
-3. Apply **climate projections** – CMIP6 derived TDO3 by 2035.  
-4. Identify **management levers** – eradicate, contain, or accept.  
+---
 
-Example: A 12 ha, 18 m deep lake, current DOC = 4 mg L⁻¹, TDO3 = 10.5 °C, 3 km from trailhead – rated HIGH risk; implement sterile-fish policy and quarterly eDNA.
+## 8. Socioeconomic & Ecological Risk Assessment  
+| Impact Channel | Time-scale | Summary |  
+|---|---|---|  
+| U.S. Northeast coastal flooding | Seasons to decades | 5–25 cm dynamic SL rise; >3× storm-surge baseline. |  
+| European summer circulation anomalies | Annual-decadal | Jet-stream waviness; heat-wave/drought intensification. |  
+| Fisheries & biogeochemistry | Seasonal-decadal | Northward shift of isotherms; species redistribution, acidification hotspots. |  
+| Atlantic hurricane tracks | Seasonal | Mixed evidence; SST gradient changes may steer storms poleward. |  
 
+> *Implicit risk-management principle:* Even **non-collapse** weakening demands adaptation budgets comparable to RCP8.5 sea-level allowances for coastal municipalities.
 
-## 10. Research Gaps & Speculative Directions (Flagged as Forecast)
-• **Cross-Taxa Interaction Models** – integrate fish, amphibian, macroalgae.  
-• **Global High-Resolution DOC Projection** – next-gen Earth system models coupled with ML catchment predictors.  
-• **Eco-evolutionary Dynamics** – rapid local adaptation of invaders to ultra-oligotrophic diets; experimental common-garden studies needed.
+---
 
+## 9. Risk-Management Strategies  
+### 9.1 Monitoring & Detection  
+* Extend RAPID-style arrays to 45 °N & 60 °N for early detection of subpolar signals.  
+* Deploy autonomous deep-ocean gliders along DWBC.  
+* Assimilate coastal tide-gauge networks as real-time AMOC proxy.  
 
-## 11. Conclusions
-Fish invasions of mountain lakes exemplify a tight coupling of anthropogenic vectors and environmental filters.  Modern understanding has moved beyond simple “stocking or not” framing to a mechanistic, threshold-based view that blends physico-chemical template (temperature, oxygen, DOC), species traits, and climate amplifiers.  This knowledge enables proactive zoning and *pre‐invasion* defences, yet also opens room for creative – sometimes controversial – solutions such as catchment browning and gene drives.  The next decade will determine whether high-elevation lake networks remain bastions of unique biodiversity or converge toward homogenised, fish-dominated states.
+### 9.2 Emissions & Cryospheric Mitigation  
+* Rapid CO₂ peaking before 2030 + 1-2 W m-² sulfate geo-engineering (flagged speculative) to slow Greenland meltwater flux.  
+* Arctic freshwater gate-keeping: maintain sea-ice buttressing to reduce Fram Strait freshwater export (contrarian, under investigation).  
 
+### 9.3 Adaptation & Preparedness  
+* Re-design FEMA & EU flood codes to include dynamic SL component from AMOC in addition to GMSL.  
+* Dynamic fisheries quotas accounting for rapid habitat shift scenarios.  
+* Insurance & re-insurance products that explicitly price AMOC risk (market gap).  
+
+### 9.4 High-resolution Modelling & Data Assimilation  
+* Mandate 0.1° eddy-res ocean in CMIP7 baseline.  
+* Stochastic parameterisation ensemble to bracket salinity uncertainty.  
+
+### 9.5 Radical/Contrarian Ideas (Flagged Speculative)  
+* **Salinity enhancement** across subpolar gyre via desalination brine discharge to counteract freshwater lens.  
+* **Floating sill** at Davis Strait to modulate Arctic freshwater export.  
+* **Directed cloud brightening** over subpolar Atlantic to increase evaporative cooling & densification.  
+
+---
+
+## 10. Research Priorities  
+1. **Partition Florida Current vs subpolar contributions** to total AMOC change in models and reanalyses.  
+2. **Greenland freshwater mapping**: meltwater plume fate, eddy mixing, and recirculation.  
+3. **Coupled sea-level risk integration**: embed dynamic SL modules in regional climate services.  
+4. **Deep-ocean biogeochemistry**: oxygen-minimum zone expansion under altered overturning.  
+5. **Machine-learning emulators** for real-time AMOC now-casting from multisensor data streams.  
+
+---
+
+## 11. Concluding Remarks  
+The consensus “slow-and-steady” narrative for the AMOC has cracked under the weight of high-resolution modeling and early-warning analyses. A **fast decline concentrated in the next 25 years** is fully plausible and would deliver disruptive coastal and climatic impacts well before a textbook *collapse* threshold is crossed.  
+
+Given the large socio-economic asymmetry between a false alarm and an un-anticipated tipping event, the rational strategy is a **precautionary, adaptive governance framework**: aggressive emissions mitigation to limit further forcing, coupled with immediate enhancement of observing systems and dynamic adaptation planning.  
+
+The AMOC may not literally “shut down” this century, but evidence is mounting that it can reconfigure in ways that society is not yet prepared for. Treating the circulation as a near-term, actionable risk—rather than an end-century academic curiosity—is the prudent path forward.  
+
+---
+
+*This report integrates findings from CMIP5/6 ensembles, HighResMIP eddy-permitting simulations, freshwater-hosing experiments, RAPID observations, and multi-proxy reconstructions to provide an expert risk-oriented assessment of AMOC trajectory and its broader implications.*
 
 ## Sources
 
-- https://research.wur.nl/en/publications/effects-of-climate-and-land-use-changes-on-fish-catches-across-la
-- http://hdl.handle.net/10803/384835
-- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2015-0340
-- https://escholarship.org/uc/item/4kk6d7jr
-- http://ir.ihb.ac.cn/handle/342005/35509
-- https://www.annualreviews.org/doi/10.1146/annurev-ecolsys-032522-015551
-- https://openprairie.sdstate.edu/nrm_pubs/51
-- http://www.nrcresearchpress.com/doi/abs/10.1139/cjfas-2012-0409#.Ubf9ENg0V8E
-- https://zenodo.org/record/4279807
-- https://hal.archives-ouvertes.fr/halsde-00927739
-- https://dx.doi.org/10.3390/w9090675
-- http://hdl.handle.net/10261/160112
-- https://digitalcommons.unl.edu/ncfwrustaff/225
-- http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0021884
-- https://zenodo.org/record/3452124
-- https://doaj.org/article/03703a8e55c743e5861ff6f7e90fcd78
-- https://www.intechopen.com/books/7912
-- http://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-414227
-- http://digitool.Library.McGill.CA:80/R/?func=dbin-jump-full&object_id=130688
-- https://doaj.org/toc/1932-6203
-- http://dx.doi.org/10.1111/j.1095-8649.2007.01668.x
-- https://hal.science/hal-03563547
-- https://pure.knaw.nl/portal/en/publications/85dc9b45-dbe7-45a0-a2b9-f8e7d1ebc3f2
-- https://figshare.com/articles/Disentangling_the_effects_of_a_century_of_eutrophication_and_climate_warming_on_freshwater_lake_fish_assemblages/5278963
-- http://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-184306
-- https://escholarship.org/uc/item/4km875j6
-- http://www.caryinstitute.org/sites/default/files/public/reprints/Sobek_et_al_L_and_O_2007.pdf
-- http://ir.ihb.ac.cn/handle/342005/18283
-- http://datacite.org/schema/kernel-4
+- http://hdl.handle.net/10.1371/journal.pone.0214535.g003
+- https://dspace.library.uu.nl/handle/1874/409300
+- https://hal.science/hal-03869321
+- https://hal.science/hal-03093315
+- http://mural.maynoothuniversity.ie/12192/1/McCarthy_Observed_2014.pdf
+- https://centaur.reading.ac.uk/91960/2/2019MS002014.pdf
+- https://figshare.com/articles/processed_CMIP5_SST_projections/6058616
+- https://aquila.usm.edu/fac_pubs/21515
+- https://escholarship.org/uc/item/3ww7v7s2
+- https://doaj.org/article/6dec35c165e1429aae39c947289b369e
+- https://hdl.handle.net/1956/16295
+- https://archimer.ifremer.fr/doc/00746/85806/90953.jpg
+- http://hdl.handle.net/10261/187078
+- https://research.vu.nl/en/publications/23819acf-602d-4819-8a62-f3e866c28812
+- https://zenodo.org/record/1248474
+- https://zenodo.org/record/3760556
+- http://hdl.handle.net/1773/39733
+- https://zenodo.org/record/29223
+- https://zenodo.org/record/8005600
+- https://doaj.org/article/8b74ce5a5c8441f78474dc0b3e65bb46
+- https://figshare.com/articles/Improved_resolution_in_sea_surface_temperature_field_SST_CCI_Analysis_/1155421
+- https://research.vu.nl/en/publications/955346d2-0a91-4390-b2d3-84eb45512132
+- https://digitalcommons.odu.edu/ccpo_pubs/114
+- https://doaj.org/article/e297211b6ef249679bdea0e6e5fa2a2a
+- https://hal.archives-ouvertes.fr/hal-00138640
