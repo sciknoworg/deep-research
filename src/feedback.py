@@ -15,8 +15,8 @@ def generate_feedback(
     prompt = (
         "You are a helpful research assistant.  "
         f"The user’s topic is: “{topic}”.  "
-        f"Generate exactly {num_questions} clarifying questions that will help me "
-        "narrow my focus (for example: consumption patterns, cultural uses, technical methods).  "
+        f"Generate exactly {num_questions} clarifying QUESTIONS that will help me "
+        "narrow my RESEARCH FOCUS (for example asking for interest in: consumption patterns, cultural uses, technical methods).  "
         "Return only a JSON array of strings.  No extra text.\n\n"
         "Example format:\n"
         "[\"Question one?\", \"Question two?\", \"Question three?\"]"

@@ -6,6 +6,7 @@ from pathlib import Path
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
+
 def main():
     parser = argparse.ArgumentParser(description="Run LLM on SLURM cluster")
     parser.add_argument('--model',      required=True, help='HuggingFace model name or path')
@@ -16,7 +17,7 @@ def main():
     parser.add_argument('--token',      default=os.getenv('HF_TOKEN'), help='HuggingFace access token')
     args = parser.parse_args()
 
-    # 1) Load tokenizer & model with trust_remote_code for gated repos
+    # 1) Load tokenizer & model
     tokenizer = AutoTokenizer.from_pretrained(
         args.model,
         cache_dir=args.cache_dir,
@@ -39,22 +40,28 @@ def main():
         tokenizer.save_pretrained(save_dir)
         model.save_pretrained(save_dir)
 
-    # 3) Build a simple text‐generation pipeline
+    # 3) Build text-generation pipeline (enable sampling, remove invalid stop_token)
     gen = pipeline(
         "text-generation",
-        model=model, tokenizer=tokenizer,
-        max_new_tokens=512, temperature=0.8, top_p=0.95,
-        repetition_penalty=1.1, return_full_text=False,
-        clean_up_tokenization_spaces=True, stop_token="\n"
+        model=model,
+        tokenizer=tokenizer,
+        do_sample=True,
+        max_new_tokens=512,
+        temperature=0.9,
+        top_p=0.95,
+        repetition_penalty=1.1,
+        return_full_text=False,
+        clean_up_tokenization_spaces=True
     )
 
     # 4) Generate & dump JSON
     out = gen(args.prompt)
-    text = out[0].get('generated_text','') if isinstance(out,list) else out.get('generated_text','')
-    result = {'choices':[{'text': text}]}
+    text = out[0].get('generated_text', '') if isinstance(out, list) else out.get('generated_text', '')
+    result = {'choices': [{'text': text}]}
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+
 
 if __name__ == '__main__':
     main()
