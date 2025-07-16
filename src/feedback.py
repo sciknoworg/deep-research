@@ -1,6 +1,6 @@
 import json
 from typing import List
-from ai.llms import query_llm
+from ai.llms import query_llm_cluster
 import json
 import re
 from typing import List
@@ -18,17 +18,17 @@ def generate_feedback_cluster(
     returned as a Python list of strings.
     """
     prompt = (
-        "You are a helpful research assistant.  "
-        f"The user’s topic is: “{topic}”.  "
-        f"Generate exactly {num_questions} clarifying QUESTIONS that will help me "
-        "narrow my RESEARCH FOCUS (for example asking for interest in: consumption patterns, cultural uses, technical methods).  "
-        "Return only a JSON array of strings.  No extra text.\n\n"
+        "You are a helpful research assistant.\n"
+        "Generate EXACTLY 3 clarifying QUESTIONS to narrow the research focus from the User on \n"
+        f"TOPIC: {topic}\n"
+        "(e.g. Ask about: geography, species, uses). "
+        "Return only a JSON array of strings of the Questions, no extra text.\n\n"
         "Example format:\n"
-        "[\"Question one?\", \"Question two?\", \"Question three?\"]"
+        "[\"Question one?\", \"Question two?\", \"Question three?\"]\n"
     )
 
     try:
-        raw = query_llm(prompt, model_name, save_models)
+        raw = query_llm_cluster(prompt, model_name, save_models)
     except Exception as e:
         print(f"[FEEDBACK-ERROR] LLM call failed: {e}")
         raw = ""

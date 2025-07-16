@@ -1,240 +1,187 @@
 import os
-import sys
 import asyncio
 import json
+import uuid
 import re
 from typing import List, Dict, Any
-from collections import defaultdict
-import aiohttp
+from pathlib import Path
 
-from ai.llms import query_llm
+from ai.llms import query_llm_cluster
+from paper_retrieval import get_search_client
 from ai.prompt_utils import trim_prompt
 from prompt import system_prompt
 
-# Ensure UTF-8 console output
-sys.stdout.reconfigure(encoding='utf-8')
+# Environment-configurable flags
+PROVIDER          = os.getenv('RESEARCH_PROVIDER', 'orkg').lower()
+FULL_SEARCH       = os.getenv('FULL_SEARCH', '0') == '1'
+MAX_CONTENT_CHARS = int(os.getenv('MAX_CONTENT_CHARS', '1000'))
 
-# --- Clients ---
-class FirecrawlApp:
-    """Client for the Firecrawl API."""
-    BASE_URL = os.getenv('FIRECRAWL_BASE_URL', 'https://api.firecrawl.dev/v1')
-    API_KEY  = os.getenv('FIRECRAWL_KEY', '')
+# Initialize retrieval client
+search_client = get_search_client(PROVIDER)
 
-    async def search(self, query: str, limit: int = 5, timeout: int = 15000) -> List[Dict[str, Any]]:
-        url = f"{self.BASE_URL}/search"
-        headers = {"Authorization": f"Bearer {self.API_KEY}", "Content-Type": "application/json"}
-        body = {"query": query, "limit": limit, "timeout": timeout, "scrapeOptions": {"formats": ["markdown"]}}
-        async with aiohttp.ClientSession() as session:
-            async with session.post(url, json=body, headers=headers) as resp:
-                resp.raise_for_status()
-                data = await resp.json()
-        return data.get('data', [])
+# Directory for logging raw data
+DATA_DIR = Path(__file__).parent / 'data'
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-class ORKGAskApp:
-    """Client for the ORKG Ask API."""
-    BASE_URL = 'https://api.ask.orkg.org/index'
-
-    async def search(self, query: str, limit: int = 5, timeout: int = 15000) -> List[Dict[str, Any]]:
-        url = f"{self.BASE_URL}/search"
-        params = {"query": query, "limit": limit}
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, params=params, timeout=timeout/1000) as resp:
-                print("[ORKG] resp.status", resp.status)
-                resp.raise_for_status()
-                data = await resp.json()
-        # ORKG returns either 'data' or 'payload.items'
-        return data.get('data', []) or data.get('payload', {}).get('items', [])
-
-    async def fetch_content(self, paper_id: str) -> str:
-        """Fetch abstract content for a paper ID."""
-        url = f"https://api.orkg.org/papers/{paper_id}"
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(url, timeout=10) as resp:
-                    if resp.status != 200:
-                        return ''
-                    doc = await resp.json()
-                    return doc.get('abstract', '') or ''
-        except Exception:
-            return ''
-
-# Select client based on flag
-def get_search_client(use_firecrawl: bool):
-    return FirecrawlApp() if use_firecrawl else ORKGAskApp()
-
-# --- JSON extraction ---
-def extract_json(raw: str) -> Dict[str, Any]:
-    m = re.search(r"\{.*\}", raw, flags=re.DOTALL)
-    if not m:
-        raise ValueError("No JSON found in LLM response")
-    return json.loads(m.group(0))
-
-# --- SERP query generation ---
-async def generate_serp_queries(
-    topic: str,
-    breadth: int,
-    questions: List[str],
-    answers: List[str],
-    learnings: List[str],
-    model_name: str,
-    save_models: int
-) -> List[str]:
-    # Build context with Q&A and previous learnings
-    ctx = topic
-    if questions:
-        qa = '; '.join(f"Q:{q} A:{a}" for q,a in zip(questions, answers))
-        ctx = f"{topic} — {qa}"
-    learn_ctx = '\n'.join(learnings)
-    prompt = trim_prompt(
-        f"""
-You are a focused research assistant generating concise search queries.
-Topic: {topic}
-Context: {ctx}
-Generate exactly {breadth} search queries. Include only user-affirmed aspects; ignore negatives.
-Previous learnings:
-{learn_ctx}
-Return *only* a JSON object {{"queries":[...]}} with no extra text.
-"""
-    )
-    raw = query_llm(prompt, model_name, save_models)
-    try:
-        data = extract_json(raw)
-        qs = data.get('queries', [])
-        if isinstance(qs, list) and qs:
-            return qs[:breadth]
-    except Exception:
-        print(f"[SERP-ERR] failed to parse JSON from: {raw}")
-    return [f"{topic} overview"]
-
-# --- SERP result summarization ---
-async def process_serp_result(
-    query: str,
-    items: List[Dict[str, Any]],
-    model_name: str,
-    save_models: int,
-    num_learnings: int = 3,
-    num_followups: int = 3
-) -> Dict[str, Any]:
-    orkg = ORKGAskApp()
-    blocks = []
-    visited = []
-    # Collect text blocks
-    for it in items[:num_learnings]:
-        txt = it.get('snippet') or it.get('abstract', '')
-        if not txt:
-            pid = it.get('paperId') or it.get('id')
-            if pid:
-                txt = await orkg.fetch_content(str(pid))
-        if txt:
-            blocks.append(trim_prompt(txt, 25000))
-        url = (it.get('urls') or it.get('url') or '')
-        if url:
-            visited.append(url[0] if isinstance(url, list) else url)
-    print(f"Ran {query}, found {len(blocks)} contents")
-    if not blocks:
-        return {'learnings': [], 'followUpQuestions': [], 'visited': visited}
-    contents_text = '\n'.join(f"<content>\n{b}\n</content>" for b in blocks)
-    prompt = trim_prompt(
-        f"""
-Given the following contents from a search for <query>{query}</query>, generate up to {num_learnings} concise learning sentences and up to {num_followups} follow-up questions.
-Return ONLY a JSON object matching:
-{{"learnings":[string,...],"followUpQuestions":[string,...]}}
-
-<contents>
-{contents_text}
-</contents>
-"""
-    )
-    raw = query_llm(prompt, model_name, save_models)
-    try:
-        data = extract_json(raw)
-        return {'learnings': data.get('learnings', []), 'followUpQuestions': data.get('followUpQuestions', []), 'visited': visited}
-    except Exception:
-        print(f"[SUMMARY-ERR] invalid JSON from LLM: {raw}")
-        return {'learnings': [], 'followUpQuestions': [], 'visited': visited}
-
-# --- Deep research orchestration ---
 async def deep_research(
-    topic: str,
-    breadth: int,
-    depth: int,
-    questions: List[str],
-    answers: List[str],
-    model_name: str,
+    topic:       str,
+    breadth:     int,
+    depth:       int,
+    questions:   List[str],
+    answers:     List[str],
+    model_name:  str,
     save_models: int,
-    use_firecrawl: bool = False
 ) -> Dict[str, Any]:
-    client = get_search_client(use_firecrawl)
-    fallback = get_search_client(not use_firecrawl)
-    all_learnings: List[str] = []
-    visited_urls: List[str] = []
-    for level in range(depth):
-        prompt_topic = topic if level == 0 else '; '.join(all_learnings)
-        queries = await generate_serp_queries(prompt_topic, breadth, questions, answers, all_learnings, model_name, save_models)
-        # Clear QA after first level
-        questions, answers = [], []
-        for q in queries:
-            print(f"[SEARCH {level+1}/{depth}] {q}")
-            items = await client.search(q, limit=breadth)
-            if not items:
-                items = await fallback.search(q, limit=breadth)
-            summary = await process_serp_result(q, items, model_name, save_models, breadth, breadth)
-            all_learnings.extend(summary['learnings'])
-            visited_urls.extend(summary['visited'])
-    return {'learnings': all_learnings, 'visited_urls': visited_urls}
+    """
+    Recursive deep research using SLURM jobs with breadth-halving at each level:
+      - breadth: number of queries at this level
+      - depth: recursion depth remaining
+      - FULL_SEARCH: if set, fetch full document metadata for summarization
+      - MAX_CONTENT_CHARS: truncate full document content
+    """
+    # helper to parse JSON from LLM
+    def extract_json(raw: str) -> Dict[str, Any]:
+        m = re.search(r"\{.*\}\Z", raw, flags=re.DOTALL)
+        if not m:
+            raise ValueError('No JSON found')
+        return json.loads(m.group(0))
 
-# --- Final report and answer ---
-async def write_final_report(
-    topic: str,
-    questions: List[str],
-    answers: List[str],
-    learnings: List[str],
-    visited_urls: List[str],
-    model_name: str,
-    save_models: int
-) -> str:
-    qa_block = ''
+    # build context
+    context = topic
     if questions:
-        qa_block = ' — ' + '; '.join(f"Q:{q} A:{a}" for q,a in zip(questions, answers))
-    learn_str = '\n'.join(f"<learning>\n{l}\n</learning>" for l in learnings)
-    full_prompt = trim_prompt(
-        f"""
-Given the following user prompt, write a detailed Markdown report (3+ pages) including ALL the learnings:
-<prompt>{topic}{qa_block}</prompt>
+        context += ' — ' + '; '.join(f'Q:{q} A:{a}' for q,a in zip(questions,answers))
 
-<learnings>
-{learn_str}
-</learnings>
-"""
+    # 1) generate EXACTLY breadth queries
+    serp_prompt = trim_prompt(
+        f"You are an expert search-query generator.\n"
+        f"Topic: {topic}\n"
+        f"Context: {context}\n"
+        f"Generate EXACTLY {breadth} distinct scholarly search queries."
+        " Output ONLY the JSON for the queries: {\"queries\":[…]}.\n"
+        "Example: {\"queries\":[\"neptune atmosphere composition\",\"neptune orbital dynamics\"]}\n"
+        "Return only the JSON array of queries, no extra text."
     )
-    raw = query_llm(full_prompt, model_name, save_models)
-    parsed = extract_json(raw)
-    report_md = parsed.get('reportMarkdown', '')
-    report_md += "\n\n## Sources\n" + '\n'.join(f"- {u}" for u in visited_urls)
+    raw_q = query_llm_cluster(serp_prompt, model_name, save_models)
+    try:
+        queries = extract_json(raw_q).get('queries', [])
+        if not isinstance(queries, list): raise ValueError
+    except Exception:
+        queries = []
+    # pad/truncate
+    if len(queries) < breadth:
+        queries += [f'{topic} overview'] * (breadth - len(queries))
+    else:
+        queries = queries[:breadth]
+
+    all_learnings: List[str] = []
+    all_visited_urls: List[str] = []
+
+    # 2) process each query and optionally recurse
+    for q in queries:
+        # fetch hits
+        hits = await search_client.search(q, limit=breadth)
+        # log raw hits
+        uid = uuid.uuid4().hex
+        (DATA_DIR / f'search_hits_{uid}.json').write_text(
+            json.dumps(hits, ensure_ascii=False, indent=2), encoding='utf-8'
+        )
+
+        # this level's learnings and urls
+        level_learnings: List[str] = []
+        level_urls:     List[str] = []
+        for item in hits[:breadth]:
+            # extract URLs from payload
+            urls = item.get('urls') or item.get('url') or []
+            if isinstance(urls, str):
+                urls = [urls]
+            for link in urls:
+                level_urls.append(link)
+
+            # determine content source
+            if FULL_SEARCH:
+                pid = item.get('paperId') or item.get('id')
+                if pid:
+                    doc = await search_client.fetch_document(str(pid))
+                    content = doc.get('abstract') or doc.get('full_text') or ''
+                    if len(content) > MAX_CONTENT_CHARS:
+                        content = content[:MAX_CONTENT_CHARS]
+                else:
+                    content = ''
+            else:
+                content = item.get('snippet') or item.get('abstract') or item.get('markdown') or ''
+            if not content:
+                continue
+
+            # summarize
+            sum_prompt = trim_prompt(
+                "You are a concise summarization assistant.\n"
+                "Summarize the content below in exactly one information-rich sentence, preserving entities and metrics. Return only that sentence.\n"
+                f"Content:\n{content}"
+            )
+            raw_s = query_llm_cluster(sum_prompt, model_name, save_models)
+            sent = raw_s.strip().splitlines()[0] if raw_s else ''
+            if sent:
+                level_learnings.append(sent)
+
+        all_learnings.extend(level_learnings)
+        all_visited_urls.extend(level_urls)
+
+        # recurse if depth > 1
+        if depth > 1 and level_learnings:
+            sub = await deep_research(
+                topic='; '.join(level_learnings),
+                breadth=max(breadth//2, 1),
+                depth=depth-1,
+                questions=[],
+                answers=[],
+                model_name=model_name,
+                save_models=save_models
+            )
+            all_learnings.extend(sub['learnings'])
+            all_visited_urls.extend(sub['visited_urls'])
+
+    return {'learnings': all_learnings, 'visited_urls': all_visited_urls}
+
+async def write_final_report(
+    topic:        str,
+    questions:    List[str],
+    answers:      List[str],
+    learnings:    List[str],
+    visited_urls: List[str],
+    model_name:   str,
+    save_models:  int,
+) -> str:
+    """
+    Generate a structured Markdown report in 5 sections via separate prompts.
+    """
+    sections = ["Introduction","Methods","Results","Discussion","Conclusion"]
+    report_parts = []
+    for sec in sections:
+        sec_prompt = trim_prompt(
+            f"You are writing the {sec} section. Topic: {topic}."
+            f" Key findings: {', '.join(learnings)}."
+            " Cite sources inline. Return only Markdown for this section."
+        )
+        raw = query_llm_cluster(sec_prompt, model_name, save_models)
+        md = raw.strip()
+        if not md.startswith(f"## {sec}"):
+            md = f"## {sec}\n\n" + md
+        report_parts.append(md)
+    report_md = "\n\n".join(report_parts)
+    report_md += "\n\n## Sources\n" + "\n".join(f"- {u}" for u in visited_urls)
     return report_md
 
 async def write_final_answer(
-    topic: str,
-    questions: List[str],
-    answers: List[str],
-    learnings: List[str],
-    model_name: str,
-    save_models: int
+    topic:       str,
+    questions:   List[str],
+    answers:     List[str],
+    learnings:   List[str],
+    model_name:  str,
+    save_models: int,
 ) -> str:
-    qa_block = ''
-    if questions:
-        qa_block = ' — ' + '; '.join(f"Q:{q} A:{a}" for q,a in zip(questions, answers))
-    learn_str = '\n'.join(f"<learning>\n{l}\n</learning>" for l in learnings)
-    full_prompt = trim_prompt(
-        f"""
-Given the following user prompt, write a concise final answer using the learnings:
-<prompt>{topic}{qa_block}</prompt>
-
-<learnings>
-{learn_str}
-</learnings>
-"""
+    prompt = trim_prompt(
+        "You are an expert answer generator. Provide a concise answer based on research.\n"
+        f"Question: {topic}. Insights: {', '.join(learnings)}.\n"
+        "Return only the answer text."
     )
-    raw = query_llm(full_prompt, model_name, save_models)
-    parsed = extract_json(raw)
-    return parsed.get('exactAnswer', '')
+    return query_llm_cluster(prompt, model_name, save_models)

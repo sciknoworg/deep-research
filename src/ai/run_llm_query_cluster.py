@@ -47,7 +47,7 @@ def main():
         tokenizer=tokenizer,
         do_sample=True,
         max_new_tokens=512,
-        temperature=0.9,
+        temperature=1,
         top_p=0.95,
         repetition_penalty=1.1,
         return_full_text=False,
