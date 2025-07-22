@@ -12,8 +12,8 @@ from ai.prompt_utils import trim_prompt
 from prompt import system_prompt
 
 # Environment-configurable flags
-PROVIDER          = os.getenv('RESEARCH_PROVIDER', 'orkg').lower()
-FULL_SEARCH       = os.getenv('FULL_SEARCH', '0') == '1'
+PROVIDER = os.getenv('RESEARCH_PROVIDER', 'orkg').lower()
+FULL_SEARCH = os.getenv('FULL_SEARCH', '0') == '1'
 MAX_CONTENT_CHARS = int(os.getenv('MAX_CONTENT_CHARS', '1000'))
 
 # Initialize retrieval client
@@ -24,164 +24,172 @@ DATA_DIR = Path(__file__).parent / 'data'
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 async def deep_research(
-    topic:       str,
-    breadth:     int,
-    depth:       int,
-    questions:   List[str],
-    answers:     List[str],
-    model_name:  str,
+    topic: str,
+    breadth: int,
+    depth: int,
+    questions: List[str],
+    answers: List[str],
+    model_name: str,
     save_models: int,
 ) -> Dict[str, Any]:
     """
-    Recursive deep research using SLURM jobs with breadth-halving at each level:
-      - breadth: number of queries at this level
-      - depth: recursion depth remaining
-      - FULL_SEARCH: if set, fetch full document metadata for summarization
-      - MAX_CONTENT_CHARS: truncate full document content
+    Perform recursive research with breadth-first query generation and summarization.
+    Level 1: generate `breadth` queries.
+    Level >1: after summarizing all level learnings, recurse once with breadth//2.
+    Returns a dict with 'learnings' and 'visited_urls'.
     """
-    # helper to parse JSON from LLM
     def extract_json(raw: str) -> Dict[str, Any]:
-        m = re.search(r"\{.*\}\Z", raw, flags=re.DOTALL)
+        m = re.search(r"\{.*\}", raw, flags=re.DOTALL)
         if not m:
-            raise ValueError('No JSON found')
+            raise ValueError("No JSON found in LLM output")
         return json.loads(m.group(0))
 
-    # build context
+    # Build prompt context
     context = topic
     if questions:
-        context += ' — ' + '; '.join(f'Q:{q} A:{a}' for q,a in zip(questions,answers))
+        qa_pairs = '; '.join(f"Q:{q} A:{a}" for q, a in zip(questions, answers))
+        context += f" — {qa_pairs}"
 
-    # 1) generate EXACTLY breadth queries
-    serp_prompt = trim_prompt(
-        f"You are an expert search-query generator.\n"
-        f"Topic: {topic}\n"
-        f"Context: {context}\n"
-        f"Generate EXACTLY {breadth} distinct scholarly search queries."
-        " Output ONLY the JSON for the queries: {\"queries\":[…]}.\n"
-        "Example: {\"queries\":[\"neptune atmosphere composition\",\"neptune orbital dynamics\"]}\n"
-        "Return only the JSON array of queries, no extra text."
+    # 1) Generate queries for this level
+    serp_prompt = trim_prompt(f"""
+You are an expert academic search-query generator.
+Topic: {topic}
+Context: {context}
+Generate EXACTLY {breadth} concise, scholarly search queries focused on methods, properties, or applications.
+Return ONLY THE QUERIES IN FORMAT: {{"queries":[...]}}\n.
+Nothing besides the queries should be output.
+Example:
+{{"queries":["neptune atmosphere composition","neptune orbital dynamics"]}}
+"""
     )
     raw_q = query_llm_cluster(serp_prompt, model_name, save_models)
     try:
-        queries = extract_json(raw_q).get('queries', [])
-        if not isinstance(queries, list): raise ValueError
+        queries = extract_json(raw_q)['queries']
     except Exception:
         queries = []
-    # pad/truncate
+    # pad or truncate to breadth
     if len(queries) < breadth:
-        queries += [f'{topic} overview'] * (breadth - len(queries))
+        queries += [f"{topic} overview"] * (breadth - len(queries))
     else:
         queries = queries[:breadth]
+    print(f"[SERP] Level(breadth={breadth}, depth={depth}) queries: {queries}")
 
     all_learnings: List[str] = []
-    all_visited_urls: List[str] = []
+    all_urls: List[str] = []
 
-    # 2) process each query and optionally recurse
+    # 2) Summarize hits for each query
     for q in queries:
-        # fetch hits
         hits = await search_client.search(q, limit=breadth)
-        # log raw hits
+        # log raw
         uid = uuid.uuid4().hex
-        (DATA_DIR / f'search_hits_{uid}.json').write_text(
-            json.dumps(hits, ensure_ascii=False, indent=2), encoding='utf-8'
-        )
-
-        # this level's learnings and urls
-        level_learnings: List[str] = []
-        level_urls:     List[str] = []
+        (DATA_DIR / f"search_hits_{uid}.json").write_text(json.dumps(hits, ensure_ascii=False, indent=2), encoding='utf-8')
         for item in hits[:breadth]:
-            # extract URLs from payload
+            # collect URLs
             urls = item.get('urls') or item.get('url') or []
             if isinstance(urls, str):
                 urls = [urls]
-            for link in urls:
-                level_urls.append(link)
-
-            # determine content source
-            if FULL_SEARCH:
-                pid = item.get('paperId') or item.get('id')
-                if pid:
-                    doc = await search_client.fetch_document(str(pid))
-                    content = doc.get('abstract') or doc.get('full_text') or ''
-                    if len(content) > MAX_CONTENT_CHARS:
-                        content = content[:MAX_CONTENT_CHARS]
-                else:
-                    content = ''
+            all_urls.extend(urls)
+            # choose content
+            if FULL_SEARCH and (pid := item.get('paperId') or item.get('id')):
+                doc = await getattr(search_client, 'fetch_document', lambda x: {})(pid)
+                content = doc.get('abstract') or doc.get('full_text', '')
+                content = content[:MAX_CONTENT_CHARS]
             else:
                 content = item.get('snippet') or item.get('abstract') or item.get('markdown') or ''
             if not content:
                 continue
-
-            # summarize
-            sum_prompt = trim_prompt(
-                "You are a concise summarization assistant.\n"
-                "Summarize the content below in exactly one information-rich sentence, preserving entities and metrics. Return only that sentence.\n"
-                f"Content:\n{content}"
+            # summarization
+            summary_prompt = trim_prompt(f"""
+You are an academic summarization assistant.
+Given a text snippet from a research abstract or result, produce exactly one concise, information-rich sentence capturing the core finding or insight, preserving entities, metrics, and dates.
+Return only the sentence.
+Content:
+{content}
+"""
             )
-            raw_s = query_llm_cluster(sum_prompt, model_name, save_models)
+            raw_s = query_llm_cluster(summary_prompt, model_name, save_models)
             sent = raw_s.strip().splitlines()[0] if raw_s else ''
             if sent:
-                level_learnings.append(sent)
+                all_learnings.append(sent)
 
-        all_learnings.extend(level_learnings)
-        all_visited_urls.extend(level_urls)
+    # 3) Recurse once with aggregated learnings
+    if depth > 1 and all_learnings:
+        next_breadth = max(breadth // 2, 1)
+        aggregated = '; '.join(all_learnings[:breadth])
+        sub = await deep_research(
+            topic=aggregated,
+            breadth=next_breadth,
+            depth=depth - 1,
+            questions=[],
+            answers=[],
+            model_name=model_name,
+            save_models=save_models,
+        )
+        all_learnings.extend(sub['learnings'])
+        all_urls.extend(sub['visited_urls'])
 
-        # recurse if depth > 1
-        if depth > 1 and level_learnings:
-            sub = await deep_research(
-                topic='; '.join(level_learnings),
-                breadth=max(breadth//2, 1),
-                depth=depth-1,
-                questions=[],
-                answers=[],
-                model_name=model_name,
-                save_models=save_models
-            )
-            all_learnings.extend(sub['learnings'])
-            all_visited_urls.extend(sub['visited_urls'])
-
-    return {'learnings': all_learnings, 'visited_urls': all_visited_urls}
+    return {'learnings': all_learnings, 'visited_urls': all_urls}
 
 async def write_final_report(
-    topic:        str,
-    questions:    List[str],
-    answers:      List[str],
-    learnings:    List[str],
+    topic: str,
+    questions: List[str],
+    answers: List[str],
+    learnings: List[str],
     visited_urls: List[str],
-    model_name:   str,
-    save_models:  int,
+    model_name: str,
+    save_models: int,
 ) -> str:
     """
-    Generate a structured Markdown report in 5 sections via separate prompts.
+    Generate a structured Markdown report: Introduction, Methods, Results, Discussion, Conclusion.
+    Each section is requested separately to keep prompts within token limits.
     """
-    sections = ["Introduction","Methods","Results","Discussion","Conclusion"]
-    report_parts = []
-    for sec in sections:
-        sec_prompt = trim_prompt(
-            f"You are writing the {sec} section. Topic: {topic}."
-            f" Key findings: {', '.join(learnings)}."
-            " Cite sources inline. Return only Markdown for this section."
+    print(f"[REPORT] Generating report for topic: {topic}")
+    if questions:
+        print(f"[REPORT] Questions: {questions}")
+        print(f"[REPORT] Answers: {answers}")
+    print("[REPORT] Key findings:")
+    for idx, l in enumerate(learnings, 1):
+        print(f"  {idx}. {l}")
+
+    report_sections = []
+    for sec in ["Introduction", "Methods", "Results", "Discussion", "Conclusion"]:
+        print(f"[REPORT] Generating section: {sec}")
+        section_prompt = trim_prompt(f"""
+You are a scholarly report writer.
+Write the **{sec}** section for a research report on '{topic}'.
+Use the following key findings as bullet points:
+{chr(10).join(f'- {l}' for l in learnings)}
+Include inline citations [1], [2], etc., corresponding to the numbered sources below.
+Return only the Markdown text for this section, starting with '## {sec}'.
+"""
         )
-        raw = query_llm_cluster(sec_prompt, model_name, save_models)
-        md = raw.strip()
+        raw_sec = query_llm_cluster(section_prompt, model_name, save_models)
+        md = raw_sec.strip()
         if not md.startswith(f"## {sec}"):
-            md = f"## {sec}\n\n" + md
-        report_parts.append(md)
-    report_md = "\n\n".join(report_parts)
-    report_md += "\n\n## Sources\n" + "\n".join(f"- {u}" for u in visited_urls)
+            md = f"## {sec}\n\n{md}"
+        report_sections.append(md)
+
+    report_md = "\n\n".join(report_sections)
+    report_md += "\n\n## Sources\n"
+    for i, url in enumerate(visited_urls, 1):
+        report_md += f"{i}. {url}\n"
     return report_md
 
 async def write_final_answer(
-    topic:       str,
-    questions:   List[str],
-    answers:     List[str],
-    learnings:   List[str],
-    model_name:  str,
+    topic: str,
+    questions: List[str],
+    answers: List[str],
+    learnings: List[str],
+    model_name: str,
     save_models: int,
 ) -> str:
-    prompt = trim_prompt(
-        "You are an expert answer generator. Provide a concise answer based on research.\n"
-        f"Question: {topic}. Insights: {', '.join(learnings)}.\n"
-        "Return only the answer text."
+    print(f"[ANSWER] Generating concise answer for topic: {topic}")
+    answer_prompt = trim_prompt(f"""
+You are an expert answer generator.
+Question: {topic}
+Insights:
+{chr(10).join(f'- {l}' for l in learnings)}
+Provide a concise, precise answer based on these insights. Return only the answer text.
+"""
     )
-    return query_llm_cluster(prompt, model_name, save_models)
+    return query_llm_cluster(answer_prompt, model_name, save_models)

@@ -19,11 +19,11 @@ def generate_feedback_cluster(
     """
     prompt = (
         "You are a helpful research assistant.\n"
-        "Generate EXACTLY 3 clarifying QUESTIONS to narrow the research focus from the User on \n"
+        "Generate EXACTLY 3 clarifying QUESTIONS to narrow and find the research focus from the User on \n"
         f"TOPIC: {topic}\n"
-        "(e.g. Ask about: geography, species, uses). "
+        "(e.g. Ask about the User could be interested about. For example which methods, properties, applications, etc. about the topic the user wants to learn about.)\n"
         "Return only a JSON array of strings of the Questions, no extra text.\n\n"
-        "Example format:\n"
+        "Format of your Answer:\n"
         "[\"Question one?\", \"Question two?\", \"Question three?\"]\n"
     )
 

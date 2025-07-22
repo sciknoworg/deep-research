@@ -36,11 +36,17 @@ def query_llm_cluster(prompt: str, model: str, save_models: int = 0) -> str:
     """
     Submit a SLURM batch job that runs run_llm_query_cluster.py with the specified prompt and model,
     then wait for it to complete and read the output JSON.
+    Properly escapes and flattens the prompt to avoid shell parsing errors.
     """
+    # Prepare output and script paths
     uid       = uuid.uuid4().hex[:8]
     out_json  = DATA_DIR / f"llm_{uid}.json"
     script_sh = DATA_DIR / f"llm_job_{uid}.sh"
     cache_dir = os.getenv('MODEL_CACHE_DIR') or str(AI_DIR.parent / 'models')
+
+    # Flatten and escape prompt for shell
+    flat_prompt = prompt.replace('\n', ' ')
+    escaped_prompt = flat_prompt.replace('"', '\\"')
 
     lines = [
         "#!/bin/bash",
@@ -59,7 +65,7 @@ def query_llm_cluster(prompt: str, model: str, save_models: int = 0) -> str:
         (
             f"python {AI_DIR}/run_llm_query_cluster.py "
             f"--model \"{model}\" "
-            f"--prompt '{prompt}' "
+            f"--prompt \"{escaped_prompt}\" "
             f"--output \"{out_json}\" "
             f"--cache_dir \"{cache_dir}\" "
             f"--save-models {save_models} "
@@ -77,6 +83,7 @@ def query_llm_cluster(prompt: str, model: str, save_models: int = 0) -> str:
             break
         time.sleep(0.1)
 
+    # read output
     if not out_json.exists():
         raise FileNotFoundError(f"Output missing: {out_json}")
     data = json.loads(out_json.read_text(encoding='utf-8'))

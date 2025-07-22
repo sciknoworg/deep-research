@@ -46,10 +46,15 @@ def main():
         model=model,
         tokenizer=tokenizer,
         do_sample=True,
+        num_beams=4,
+        early_stopping=True,
         max_new_tokens=512,
-        temperature=1,
+        temperature=0.01,
         top_p=0.95,
-        repetition_penalty=1.1,
+        top_k=50,
+        repetition_penalty=1.4,
+        length_penalty=1.3,
+        no_repeat_ngram_size=2,
         return_full_text=False,
         clean_up_tokenization_spaces=True
     )
