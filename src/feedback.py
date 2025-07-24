@@ -8,47 +8,71 @@ from pydantic import BaseModel, Field, ValidationError
 from prompt import system_prompt
 
 def generate_feedback_cluster(
-    topic:        str,
-    model_name:   str,
-    save_models:  int = 0,
-    num_questions:int = 3
+    topic:         str,
+    model_name:    str,
+    save_models:   int = 0,
+    num_questions: int = 3
 ) -> List[str]:
     """
     Ask the LLM for exactly `num_questions` clarifying follow-up questions,
     returned as a Python list of strings.
     """
     prompt = (
-        "You are a helpful research assistant.\n"
-        "Generate EXACTLY 3 clarifying QUESTIONS to narrow and find the research focus from the User on \n"
-        f"TOPIC: {topic}\n"
-        "(e.g. Ask about the User could be interested about. For example which methods, properties, applications, etc. about the topic the user wants to learn about.)\n"
-        "Return only a JSON array of strings of the Questions, no extra text.\n\n"
-        "Format of your Answer:\n"
-        "[\"Question one?\", \"Question two?\", \"Question three?\"]\n"
+        f"You are a research assistant.\n"
+        f"Given the research topic:\n\n"
+        f"  \"{topic}\"\n\n"
+        f"Generate EXACTLY {num_questions} concise, open-ended follow-up questions to clarify the user's intent.\n"
+        f"Return ONLY a JSON array in the format:\n"
+        f"[\"Question one?\", \"Question two?\", \"Question three?\"]"
     )
 
     try:
         raw = query_llm_cluster(prompt, model_name, save_models)
     except Exception as e:
-        print(f"[FEEDBACK-ERROR] LLM call failed: {e}")
+        print(f"[FEEDBACK-ERROR] LLM call failed: {e!r}")
         raw = ""
 
-    # Try to pull out a JSON array
-    start = raw.find('[')
-    end   = raw.rfind(']')
-    if start != -1 and end != -1:
+    # 1) Versuch: JSON-Array extrahieren (non-greedy, erstes Array)
+    m = re.search(r"\[\s*(?:\"[^\"]*\"\s*,\s*){"+str(num_questions-1)+r"\"[^\"]*\"\s*\]", raw, flags=re.S)
+    if m:
         try:
-            arr = json.loads(raw[start:end+1])
-            if isinstance(arr, list) and all(isinstance(x,str) for x in arr):
+            arr = json.loads(m.group(0))
+            if isinstance(arr, list) and all(isinstance(x, str) for x in arr):
                 return arr[:num_questions]
         except json.JSONDecodeError:
             pass
 
-    # Fallback: any line ending in '?'
-    lines = [ln.strip() for ln in raw.splitlines() if ln.strip().endswith('?')]
-    # Pad if needed
+    # 2) Fallback: jegliche JSON-Block-Extraktion
+    m2 = re.search(r"\[.*?\]", raw, flags=re.S)
+    if m2:
+        try:
+            arr2 = json.loads(m2.group(0))
+            if isinstance(arr2, list) and all(isinstance(x, str) for x in arr2):
+                return arr2[:num_questions]
+        except json.JSONDecodeError:
+            pass
+
+    # 3) Linien-basiertes Extrahieren: jede Zeile mit '?'
+    lines = []
+    for ln in raw.splitlines():
+        ln = ln.strip()
+        # entferne führende Nummern/Bullets
+        ln = re.sub(r"^[\-\*\d\.\)\s]+", "", ln)
+        if ln.endswith("?"):
+            lines.append(ln)
+    # 4) Fallback: in-Text-Fragmenten mit '?' behandeln
+    if len(lines) < num_questions:
+        fragments = re.findall(r"([A-Z][^?]{10,}?\?)", raw)
+        for frag in fragments:
+            if frag not in lines:
+                lines.append(frag.strip())
+            if len(lines) >= num_questions:
+                break
+
+    # 5) Pad mit Platzhaltern, falls zu wenige gefunden
     while len(lines) < num_questions:
         lines.append(f"(No question generated #{len(lines)+1})")
+
     return lines[:num_questions]
 
 class FeedbackSchema(BaseModel):

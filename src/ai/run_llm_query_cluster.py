@@ -41,21 +41,31 @@ def main():
         model.save_pretrained(save_dir)
 
     # 3) Build text-generation pipeline (enable sampling, remove invalid stop_token)
+    prompt_ids = tokenizer(args.prompt, return_tensors="pt").input_ids
+    total_cap = prompt_ids.shape[-1] + 250
+
     gen = pipeline(
         "text-generation",
         model=model,
         tokenizer=tokenizer,
-        do_sample=True,
-        num_beams=4,
+        # choose one block below:
+
+        # ─── Option A: Light beam search ────────────────
+        do_sample=False,
+        num_beams=2,
         early_stopping=True,
-        max_new_tokens=1000,
-        temperature=0.1,
-        top_p=0.9,
-        top_k=50,
-        repetition_penalty=1.2,
-        length_penalty=1.3,
+        max_length=total_cap,
+
+        # ─── Option B: Controlled sampling ─────────────
+        #do_sample=True,
+        #temperature=args.temperature,
+        #top_p=args.top_p,
+        #repetition_penalty=args.repetition_penalty,
+        #no_repeat_ngram_size=args.no_repeat_ngram_size,
+        #early_stopping=True,
+        #max_length=total_cap,
+
         pad_token_id=tokenizer.eos_token_id,
-        no_repeat_ngram_size=2,
         return_full_text=False,
         clean_up_tokenization_spaces=True
     )
