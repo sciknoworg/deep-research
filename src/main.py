@@ -49,11 +49,7 @@ async def main():
             a = input(f"\n{q}\nYour answer: ")
             answers.append(a)
 
-        combined_query = f"""
-Initial Query: {initial_query}
-Follow-up Questions and Answers:
-{chr(10).join([f"Q: {q}\nA: {a}" for q, a in zip(follow_up_questions, answers)])}
-"""
+        combined_query = f"""Initial Query: {initial_query}Follow-up Questions and Answers:{chr(10).join([f"Q: {q} - A: {a};" for q, a in zip(follow_up_questions, answers)])}"""
 
     print("\nStarting research...\n")
     result = await deep_research(query=combined_query, breadth=breadth, depth=depth)
