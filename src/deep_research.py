@@ -13,15 +13,31 @@ from prompt import system_prompt
 from dotenv import load_dotenv
 
 load_dotenv()
-
 sys.stdout.reconfigure(encoding='utf-8')
 
-# ---------------------------------------
-# Helpers
-# ---------------------------------------
+# ============ Feature flags & knobs ============
+def _env_flag(name: str, default: bool = False) -> bool:
+    val = os.getenv(name, "").strip().lower()
+    if not val:
+        return default
+    return val in ("1", "true", "yes", "on")
+
+# Optional ranking
+USE_SOURCE_RANKING   = _env_flag("USE_SOURCE_RANKING", False)
+SHOW_RANKING_SECTION = _env_flag("SHOW_RANKING_SECTION", False)
+
+# Citations behavior (defaults can be toggled via .env)
+CITATIONS_ORDER     = os.getenv("CITATIONS_ORDER", "numeric")  # "numeric" | "appearance"
+CITATIONS_RENUMBER  = _env_flag("CITATIONS_RENUMBER", True)    # remap to [1..N] in order
+CITATIONS_SANITIZE  = _env_flag("CITATIONS_SANITIZE", True)    # trim trailing punctuation
+
+# Output control (no max_tokens anywhere; continuation handles long outputs)
+CONTINUE_ROUNDS      = int(os.getenv("CONTINUE_ROUNDS", "3"))   # how many times we ask to continue
+MIN_REPORT_WORDS     = 1200  # ~3+ pages target; your prompt can also enforce length
+
+# ============ Helpers ============
 
 def _uniq_preserve(seq):
-    """Deduplicate while preserving original order."""
     seen = set()
     out = []
     for x in seq:
@@ -31,26 +47,17 @@ def _uniq_preserve(seq):
     return out
 
 def _build_sources_block(urls: List[str]):
-    """
-    Build the numbered source catalog from URLs (AS-IS, no normalization).
-    Returns: (sources_block_str, urls_list_as_is)
-    """
     urls_list = urls or []
     lines = [f"[{i}] {u}" for i, u in enumerate(urls_list, 1)]
     return "\n".join(lines), urls_list
 
 def _strip_existing_references(md: str) -> str:
-    """
-    Remove any trailing '## References' section to avoid parsing [n] from it.
-    Case-insensitive, matches '## References' or deeper headings.
-    """
     if not md:
         return md
     m = re.search(r'(?im)^#{2,}\s*references?\b.*$', md)
     return md[:m.start()] if m else md
 
 def _extract_citation_numbers_in_appearance_order(md_body: str) -> List[int]:
-    """Return distinct citation numbers in the order they first appear (e.g., [17], then [40], ...)."""
     seen = set()
     order = []
     for m in re.finditer(r"\[([0-9,\s]+)\]", md_body):
@@ -63,8 +70,7 @@ def _extract_citation_numbers_in_appearance_order(md_body: str) -> List[int]:
                     order.append(n)
     return order
 
-def _renumber_citations_in_text(md_body: str, mapping: dict[int, int]) -> str:
-    """Replace [old] (and lists) with [new] per mapping, preserving commas/spaces."""
+def _renumber_citations_in_text(md_body: str, mapping: Dict[int, int]) -> str:
     def repl(m):
         parts = []
         for token in m.group(1).split(","):
@@ -78,72 +84,278 @@ def _renumber_citations_in_text(md_body: str, mapping: dict[int, int]) -> str:
         return "[" + ", ".join(p.strip() for p in parts) + "]"
     return re.sub(r"\[([0-9,\s]+)\]", repl, md_body)
 
-# --- OPTIONAL: ultra-light URL sanitizer (on by default in add_citations below) ---
 def _sanitize_url(u: str) -> str:
     if not u:
         return u
     return u.strip().strip(".,);]")
 
-# ---------------------------------------
-# One-shot public API: add_citations
-# ---------------------------------------
+# ---- Bibliography helpers (formatting) ----
+
+def _first_h1_from_markdown(md: str) -> Optional[str]:
+    if not md:
+        return None
+    for line in md.splitlines():
+        line = line.strip()
+        if line.startswith("# "):
+            return line[2:].strip()
+        if line and not line.startswith("#"):
+            return line[:200].strip()
+    return None
+
+def _guess_year(text: str) -> Optional[str]:
+    if not text:
+        return None
+    m = re.search(r"(19|20|21)\d{2}", text)
+    return m.group(0) if m else None
+
+def _extract_doi(text: str) -> Optional[str]:
+    if not text:
+        return None
+    m = re.search(r"(10\.\d{4,9}/[-._;()/:A-Z0-9]+)", text, flags=re.I)
+    return m.group(1) if m else None
+
+def _normalize_authors(val) -> List[str]:
+    if not val:
+        return []
+    if isinstance(val, list):
+        out = []
+        for a in val:
+            if isinstance(a, dict):
+                name = a.get("name") or a.get("label") or a.get("family") or a.get("given")
+                if name:
+                    out.append(str(name))
+            elif isinstance(a, str):
+                out.append(a)
+        return [s.strip() for s in out if s and s.strip()]
+    if isinstance(val, str):
+        parts = re.split(r";|, and | and |, ", val)
+        return [p.strip() for p in parts if p.strip()]
+    return []
+
+def _authors_to_csl(authors: List[str], max_names: int = 8) -> str:
+    if not authors:
+        return ""
+    def short(n):
+        parts = n.split()
+        if len(parts) == 1:
+            return parts[0]
+        last = parts[-1]
+        initials = [p[0] + "." for p in parts[:-1] if p and p[0].isalpha()]
+        return " ".join(initials + [last])
+    names = [short(a) for a in authors]
+    if len(names) > max_names:
+        names = names[:max_names] + ["et al."]
+    return ", ".join(names)
+
+def _format_biblio_entry(idx: int, card: Dict, fallback_url: str) -> str:
+    authors = _authors_to_csl(card.get("authors", []))
+    title = (card.get("title") or "").strip()
+    venue = (card.get("venue") or card.get("journal") or card.get("publisher") or "").strip()
+    year = (card.get("year") or "").strip()
+    doi = (card.get("doi") or "").strip()
+    url = (card.get("url") or fallback_url or "").strip()
+
+    parts = []
+    if authors:
+        parts.append(authors + ",")
+    if title:
+        parts.append(title + ",")
+    if venue:
+        if year:
+            parts.append(f"{venue} ({year}).")
+        else:
+            parts.append(f"{venue}.")
+    elif year:
+        parts.append(f"({year}).")
+
+    trail = None
+    if doi:
+        trail = f"DOI: {doi}"
+    elif url:
+        trail = url
+
+    base = " ".join(p for p in parts if p).strip()
+    if trail:
+        base = f"{base} {trail}" if base else trail
+    if not base:
+        base = url or "Unavailable"
+
+    return f"[{idx}] {base}"
+
+# ============ Citations builder (uses source_cards when present) ============
+
+def _build_citations_bundle(
+    report_md_raw: str,
+    visited_urls: List[str],
+    *,
+    order_by: str = "numeric",
+    renumber: bool = True,
+    sanitize_urls: bool = True,
+    source_cards: Optional[List[Dict]] = None
+) -> Dict:
+    body = _strip_existing_references(report_md_raw or "").rstrip()
+
+    used_nums = _extract_citation_numbers_in_appearance_order(body)
+    if order_by == "numeric":
+        used_nums = sorted(used_nums)
+
+    urls_list = list(visited_urls or [])
+    if sanitize_urls:
+        urls_list = [_sanitize_url(u) for u in urls_list]
+
+    cards_by_url: Dict[str, Dict] = {}
+    if source_cards:
+        for c in source_cards:
+            u = c.get("url") or ""
+            if u and u not in cards_by_url:
+                cards_by_url[u] = c
+
+    if not used_nums:
+        catalog_lines = []
+        for i, u in enumerate(urls_list, 1):
+            card = cards_by_url.get(u, {})
+            catalog_lines.append(_format_biblio_entry(i, card, u))
+        references = "\n\n## References\n\n" + "\n".join(catalog_lines) if urls_list else ""
+        return {
+            "final_md": body + references,
+            "body": body,
+            "references_lines": catalog_lines,
+            "used_nums_original": [],
+            "mapping": None,
+            "urls_list": urls_list
+        }
+
+    used_nums = [n for n in used_nums if 1 <= n <= len(urls_list)]
+
+    mapping = None
+    if renumber:
+        mapping = {old: new for new, old in enumerate(used_nums, 1)}
+        body = _renumber_citations_in_text(body, mapping)
+        ref_lines = []
+        for old in used_nums:
+            u = urls_list[old-1]
+            card = cards_by_url.get(u, {})
+            ref_lines.append(_format_biblio_entry(mapping[old], card, u))
+    else:
+        ref_lines = []
+        for old in used_nums:
+            u = urls_list[old-1]
+            card = cards_by_url.get(u, {})
+            ref_lines.append(_format_biblio_entry(old, card, u))
+
+    references = "\n\n## References\n\n" + "\n".join(ref_lines)
+    return {
+        "final_md": body + references,
+        "body": body,
+        "references_lines": ref_lines,
+        "used_nums_original": used_nums,
+        "mapping": mapping,
+        "urls_list": urls_list
+    }
 
 def add_citations(
     report_md_raw: str,
     visited_urls: List[str],
     *,
-    order_by: str = "numeric",   # "numeric" (default) or "appearance"
-    renumber: bool = True,        # True = remap in-text to [1..N] in chosen order
-    sanitize_urls: bool = True,   # True = trim trivial trailing punctuation
+    order_by: str = "numeric",
+    renumber: bool = True,
+    sanitize_urls: bool = True,
+    source_cards: Optional[List[Dict]] = None
 ) -> str:
-    """
-    Build a References section aligned with in-text [n] citations.
+    bundle = _build_citations_bundle(
+        report_md_raw,
+        visited_urls,
+        order_by=order_by,
+        renumber=renumber,
+        sanitize_urls=sanitize_urls,
+        source_cards=source_cards
+    )
+    return bundle["final_md"]
 
-    Steps:
-      - remove any existing '## References' section from the model output
-      - parse [n] citations only from the body
-      - build catalog from visited_urls (as-is)
-      - create '## References' with only actually cited sources (fallback: full catalog if none cited)
-      - optionally renumber in-text citations to [1..N] by selected ordering
-    """
-    # 1) Body only
-    body = _strip_existing_references(report_md_raw or "").rstrip()
+# ============ Paper ranking (optional) ============
 
-    # 2) Collect used citation numbers
-    used_nums = _extract_citation_numbers_in_appearance_order(body)
-    if order_by == "numeric":
-        used_nums = sorted(used_nums)
+async def rank_papers(
+    research_question: str,
+    learnings: List[str],
+    visited_urls: List[str],
+    top_k: int = 12
+) -> List[Dict]:
+    urls = visited_urls or []
+    if not urls:
+        return []
 
-    # 3) Optional URL sanitize
-    urls_list = list(visited_urls or [])
-    if sanitize_urls:
-        urls_list = [_sanitize_url(u) for u in urls_list]
+    learnings_str = "\n".join(f"- {l}" for l in (learnings or []))
+    catalog_lines = "\n".join(f"[{i}] {u}" for i, u in enumerate(urls, 1))
+    k = min(top_k, len(urls))
 
-    # 4) Build output
-    if not used_nums:
-        # No citations in text → fallback to full catalog (as-is)
-        catalog_lines = [f"[{i}] {u}" for i, u in enumerate(urls_list, 1)]
-        references = "\n\n## References\n\n" + "\n".join(catalog_lines) if urls_list else ""
-        return body + references
+    prompt = trim_prompt(f"""
+You are ranking sources for usefulness to answer a research question.
+You CANNOT browse. Base your judgement only on the URL cues (domain/path/doi),
+and the provided learnings.
 
-    # Filter to only cited numbers that exist
-    used_nums = [n for n in used_nums if 1 <= n <= len(urls_list)]
+Research question:
+{research_question}
 
-    if renumber:
-        # Map old -> new by selected order (1..N), rewrite text and references
-        mapping = {old: new for new, old in enumerate(used_nums, 1)}
-        body = _renumber_citations_in_text(body, mapping)
-        ref_lines = [f"[{mapping[old]}] {urls_list[old-1]}" for old in used_nums]
-    else:
-        # Keep original numbers; list references in chosen order
-        ref_lines = [f"[{old}] {urls_list[old-1]}" for old in used_nums]
+Learnings:
+{learnings_str}
 
-    references = "\n\n## References\n\n" + "\n".join(ref_lines)
-    return body + references
+Source catalog:
+{catalog_lines}
 
-# ---------------------------------------
-# Search clients
-# ---------------------------------------
+Scoring (0-100):
+- Topical fit (50)
+- Likely credibility/rigor (25)
+- Likely citability (15)
+- Recency/relevance (10)
+
+Return JSON: ranked: [{{index:int, url:string, score:number, reason:string}}], sorted DESC, limit {k}.
+""")
+
+    schema = {
+        "type": "json_schema",
+        "json_schema": {
+            "name": "paper_ranking",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ranked": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "index": {"type": "integer"},
+                                "url": {"type": "string"},
+                                "score": {"type": "number"},
+                                "reason": {"type": "string"}
+                            },
+                            "required": ["index", "score"]
+                        }
+                    }
+                },
+                "required": ["ranked"]
+            }
+        }
+    }
+
+    result = _model_config_instance.generate_completion(
+        messages=[{"role": "system", "content": system_prompt()},
+                  {"role": "user", "content": prompt}],
+        response_format=schema
+    )
+
+    try:
+        parsed = json.loads(result.choices[0].message.content)
+        ranked = parsed.get("ranked", [])
+        ranked = [r for r in ranked if isinstance(r.get("index"), int) and 1 <= r["index"] <= len(urls)][:k]
+        for r in ranked:
+            if not r.get("url"):
+                r["url"] = urls[r["index"] - 1]
+        ranked.sort(key=lambda x: x.get("score", 0), reverse=True)
+        return ranked
+    except Exception:
+        return []
+
+# ============ Search clients ============
 
 class FirecrawlApp:
     def __init__(self, api_key: str, base_url: str = "https://api.firecrawl.dev/v1"):
@@ -151,20 +363,11 @@ class FirecrawlApp:
         self.base_url = base_url.rstrip("/")
 
     async def search(self, query: str, timeout: int = 15000, limit: int = 10):
-        headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json"
-        }
-        body = {
-            "query": query,
-            "limit": limit,
-            "timeout": timeout,
-            "scrapeOptions": {"formats": ["markdown"]}
-        }
+        headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
+        body = {"query": query, "limit": limit, "timeout": timeout, "scrapeOptions": {"formats": ["markdown"]}}
         async with aiohttp.ClientSession() as session:
             async with session.post(f"{self.base_url}/search", json=body, headers=headers) as resp:
-                print("resp.status")
-                print(resp.status)
+                print("resp.status"); print(resp.status)
                 if resp.status != 200:
                     text = await resp.text()
                     raise Exception(f"{resp.status}, message={repr(text)}, url='{str(resp.url)}'")
@@ -178,8 +381,7 @@ class ORKGAskApp:
         params = {"query": query, "limit": limit}
         async with aiohttp.ClientSession() as session:
             async with session.get(f"{self.base_url}/search", params=params) as resp:
-                print("resp.status")
-                print(resp.status)
+                print("resp.status"); print(resp.status)
                 if resp.status != 200:
                     text = await resp.text()
                     raise Exception(f"{resp.status}, message={repr(text)}, url='{str(resp.url)}'")
@@ -197,44 +399,120 @@ def get_search_client(provider: str):
     )
 
 search_client = get_search_client(os.getenv("RESEARCH_PROVIDER", "firecrawl"))
-
 print(f"Search provider in use: {type(search_client).__name__}")
 
-# ---------------------------------------
-# Final report
-# ---------------------------------------
+# ============ SourceCard extraction ============
 
-async def write_final_report(prompt: str, learnings: list, visited_urls: list) -> str:
-    """
-    Generate the report via LLM (with citation style instructions) and then call add_citations()
-    to set a consistent References section (only used sources, or full catalog as fallback).
-    """
+def _card_from_firecrawl_doc(doc: Dict) -> Dict:
+    url = doc.get("url") or ""
+    md = doc.get("markdown") or ""
+    title = doc.get("title") or _first_h1_from_markdown(md)
+    doi = _extract_doi(url) or _extract_doi(md)
+    year = _guess_year(url) or _guess_year(md)
+    return {"url": url, "title": title, "year": year, "doi": doi, "authors": [], "venue": ""}
+
+def _card_from_orkg_item(item: Dict) -> Dict:
+    url = None
+    if isinstance(item.get("urls"), list) and item["urls"]:
+        url = item["urls"][0]
+    elif isinstance(item.get("urls"), str):
+        url = item["urls"]
+    elif item.get("url"):
+        url = item["url"]
+
+    title = item.get("title") or ""
+    abstract = item.get("abstract") or ""
+    year = str(item.get("publicationYear") or item.get("year") or _guess_year(title) or _guess_year(abstract) or "")
+    authors = _normalize_authors(item.get("creators") or item.get("authors") or item.get("creator"))
+    venue = item.get("venue") or item.get("journal") or item.get("containerTitle") or item.get("publisher") or ""
+    doi = item.get("doi") or _extract_doi(url or "") or _extract_doi(abstract) or _extract_doi(title)
+    return {"url": url or "", "title": title, "year": year, "doi": doi, "authors": authors, "venue": venue}
+
+# ============ Report continuation helpers (prevent truncation) ============
+
+def _word_count(s: str) -> int:
+    return len(re.findall(r"\w+", s or ""))
+
+async def _continue_report_softhandoff(existing_body_md: str, sources_block: str, n_sources: int) -> str:
+    tail = existing_body_md[-2000:]  # small context to resume cleanly
+    cont_prompt = trim_prompt(f"""
+Continue the scholarly report **from where it stopped** (do not repeat text).
+Keep the same structure, tone, and the numeric citation style. Cite ONLY from the numbered catalog 1..{n_sources}.
+Do NOT add a new References section; just continue the body.
+
+=== LAST 2000 CHARS OF YOUR TEXT ===
+{tail}
+
+=== SOURCES (numbered catalog) ===
+{sources_block}
+""")
+
+    response_format = {
+        "type": "json_schema",
+        "json_schema": {
+            "name": "report_continuation",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "reportMarkdown": {"type": "string"}
+                },
+                "required": ["reportMarkdown"]
+            }
+        }
+    }
+
+    resp = _model_config_instance.generate_completion(
+        messages=[{"role": "system", "content": system_prompt()},
+                  {"role": "user", "content": cont_prompt}],
+        response_format=response_format
+    )
+    return json.loads(resp.choices[0].message.content)["reportMarkdown"]
+
+# ============ Final report (ranking optional; robust length; formatted refs) ============
+
+async def write_final_report(prompt: str, learnings: list, visited_urls: list, source_cards: Optional[List[Dict]] = None) -> str:
     learnings_string = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
-
-    # Catalog (only for the prompt display; add_citations will rebuild independently)
     sources_block, urls_list = _build_sources_block(visited_urls)
     n_sources = len(urls_list)
+
+    ranked = []
+    priority_block = "[none]"
+    if USE_SOURCE_RANKING and visited_urls:
+        ranked = await rank_papers(prompt, learnings, visited_urls, top_k=min(12, len(visited_urls)))
+        if ranked:
+            lines = []
+            for r in ranked:
+                idx = r["index"]; score = int(round(r.get("score", 0))); reason = (r.get("reason") or "").strip()
+                url = visited_urls[idx - 1]
+                lines.append(f"[{idx}] (score {score}) {url} — {reason}")
+            priority_block = "\n".join(lines)
+
+    prioritization_text = ""
+    if USE_SOURCE_RANKING:
+        prioritization_text = (
+            f"Prioritization:\n"
+            f"- Prefer the 'PRIORITY SOURCES' (by usefulness ranking) for at least ~70% of your citations.\n"
+            f"- When multiple sources support a claim, choose from the top-ranked set first.\n\n"
+            f"=== PRIORITY SOURCES (indices refer to the catalog) ===\n"
+            f"{priority_block}\n\n"
+        )
 
     full_prompt = trim_prompt(
         f"""
 You are writing a scholarly report. You MUST ONLY cite from the sources listed below.
 
-Citation style (important):
-- After every claim requiring evidence, place citations as [n] or [n,m] according to the numbered catalog below.
-- DO NOT invent sources and DO NOT use numbers outside 1..{n_sources}.
-- No bare URLs in the text. No footnote format. Only square brackets [ ].
-- If something cannot be sourced, explicitly write [citation needed].
+Citation style (strict):
+- Use numeric citations [n] from the catalog only (1..{n_sources}); [n,m] for multiple.
+- No bare URLs/footnotes. If a claim cannot be sourced, write [citation needed].
 
-Structure:
-1) Introduction (brief, contextual)
-2) Main body (precise, fact-based; insert [n] wherever a source backs a statement)
-3) Conclusion (short)
+{prioritization_text}
+Given the following prompt from the user, write a final report on the topic using the learnings from research. 
+Make it as detailed as possible, aim for 3 or more pages, include ALL the learnings from research:
 
-Material:
 === RESEARCH QUESTION ===
 {prompt}
 
-=== LEARNINGS (condensed) ===
+=== LEARNINGS ===
 {learnings_string}
 
 === SOURCES (numbered catalog) ===
@@ -254,43 +532,61 @@ section containing EXACTLY the above catalog 1..{n_sources} in identical order a
             "schema": {
                 "type": "object",
                 "properties": {
-                    "reportMarkdown": {
-                        "type": "string",
-                        "description": "Final report on the topic in Markdown"
-                    }
+                    "reportMarkdown": {"type": "string"}
                 },
                 "required": ["reportMarkdown"]
             }
         }
     }
 
+    # First pass
     completion = _model_config_instance.generate_completion(
-        messages=[
-            {"role": "system", "content": system_prompt()},
-            {"role": "user", "content": full_prompt}
-        ],
+        messages=[{"role": "system", "content": system_prompt()},
+                  {"role": "user", "content": full_prompt}],
         response_format=response_format
     )
-
     parsed = json.loads(completion.choices[0].message.content)
     report_md_raw = parsed["reportMarkdown"].rstrip()
 
-    # Single call that does everything: strip existing refs, parse [n] from body, build final refs
-    # NOTE: now using numeric ordering + renumber + sanitization, as requested
-    return add_citations(
-        report_md_raw,
-        visited_urls,
-        order_by="numeric",   # numeric ordering
-        renumber=True,        # rewrite in-text to [1..N] in numeric order
-        sanitize_urls=True    # trim trivial trailing punctuation on URLs
-    )
+    # Auto-continue until we have enough body (no new sources allowed)
+    body_only = _strip_existing_references(report_md_raw)
+    rounds = 0
+    while _word_count(body_only) < MIN_REPORT_WORDS and rounds < CONTINUE_ROUNDS:
+        more = await _continue_report_softhandoff(body_only, sources_block, n_sources)
+        body_only = (body_only + "\n\n" + more).strip()
+        rounds += 1
 
-# ---------------------------------------
-# Short final answer (unchanged)
-# ---------------------------------------
+    # Build final with citations & formatted references
+    report_for_refs = body_only + "\n\n## References\n"
+    final_bundle = _build_citations_bundle(
+        report_for_refs,
+        visited_urls,
+        order_by=CITATIONS_ORDER,
+        renumber=CITATIONS_RENUMBER,
+        sanitize_urls=CITATIONS_SANITIZE,
+        source_cards=source_cards
+    )
+    final_md = final_bundle["final_md"]
+    mapping = final_bundle["mapping"] or {}
+    urls_out = final_bundle["urls_list"]
+
+    # Optional: ranking section
+    if USE_SOURCE_RANKING and SHOW_RANKING_SECTION and ranked:
+        rank_lines = []
+        for r in ranked:
+            old_idx = r["index"]; score = int(round(r.get("score", 0)))
+            reason = (r.get("reason") or "").strip()
+            mapped = mapping.get(old_idx)
+            tag = f"[{mapped}]" if mapped is not None else "[not cited]"
+            url = urls_out[old_idx - 1] if 1 <= old_idx <= len(urls_out) else r.get("url", "")
+            rank_lines.append(f"{tag} (score {score}) {url} — {reason}")
+        final_md += "\n\n## Source Usefulness Ranking (top)\n\n" + "\n".join(rank_lines)
+
+    return final_md
+
+# ============ Short final answer ============
 
 async def write_final_answer(prompt: str, learnings: list) -> str:
-    """Generate a short and concise final answer based on learnings."""
     learnings_string = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
 
     full_prompt = trim_prompt(
@@ -334,16 +630,14 @@ Here are all the learnings from research that you can use:
     parsed = json.loads(completion.choices[0].message.content)
     return parsed["exactAnswer"]
 
-# ---------------------------------------
-# SERP query generator (unchanged)
-# ---------------------------------------
+# ============ SERP query generator ============
 
 async def generate_serp_queries(query: str, num_queries: int = 3, learnings: Optional[List[str]] = None):
     learnings_text = "\n".join(learnings) if learnings else ""
     prompt = (
         f"Given the following prompt, generate up to {num_queries} SERP queries to research the topic.\n"
         f"<prompt>{query}</prompt>\n\n"
-        f"{f'Here are some learnings from previous research: {learnings_text}' if learnings else ''}"
+        f"{f'Here are learnings from previous research: {learnings_text}' if learnings else ''}"
     )
 
     schema = {
@@ -371,39 +665,48 @@ async def generate_serp_queries(query: str, num_queries: int = 3, learnings: Opt
     }
 
     result = _model_config_instance.generate_completion(
-        messages=[
-            {"role": "system", "content": system_prompt()},
-            {"role": "user", "content": prompt}
-        ],
+        messages=[{"role": "system", "content": system_prompt()},
+                  {"role": "user", "content": prompt}],
         response_format=schema
     )
 
     parsed = json.loads(result.choices[0].message.content)
     return parsed["queries"][:num_queries]
 
-# ---------------------------------------
-# SERP result processing (unchanged)
-# ---------------------------------------
+# ============ SERP result processing ============
 
 async def process_serp_result(query: str, result: Dict, num_learnings: int = 3, num_followups: int = 3):
-    if "data" in result:  # Firecrawl response
-        contents = [
-            trim_prompt(doc.get("markdown", ""), 25000)
-            for doc in result.get("data", [])
-            if doc.get("markdown")
-        ]
-    elif "payload" in result and "items" in result["payload"]:  # ORKG Ask API
+    contents = []
+    if "data" in result:  # Firecrawl
+        for doc in result.get("data", []):
+            if doc.get("markdown"):
+                contents.append(trim_prompt(doc.get("markdown", ""), 25000))
+    elif "payload" in result and "items" in result["payload"]:  # ORKG classic
         items = result["payload"]["items"][:10]
-        contents = [
-            trim_prompt(
-                f"{item.get('title', '')}\n{item.get('abstract', '')}\n{item.get('urls', [''])[0]}",
-                25000
-            )
-            for item in items
-            if item.get("title") or item.get("abstract")
-        ]
-    else:
-        contents = []
+        for item in items:
+            block = f"{item.get('title','')}\n{item.get('abstract','')}\n{(item.get('urls') or [''])[0] if item.get('urls') else ''}"
+            if item.get("title") or item.get("abstract"):
+                contents.append(trim_prompt(block, 25000))
+    elif "payload" in result or "items" in result:
+        items = []
+        pl = result.get("payload")
+        if isinstance(pl, dict) and isinstance(pl.get("items"), list):
+            items = pl["items"][:10]
+        elif isinstance(pl, list):
+            items = pl[:10]
+        elif isinstance(result.get("items"), list):
+            items = result["items"][:10]
+        for item in items:
+            url = None
+            if isinstance(item.get("urls"), list) and item["urls"]:
+                url = item["urls"][0]
+            elif isinstance(item.get("urls"), str):
+                url = item["urls"]
+            elif item.get("url"):
+                url = item["url"]
+            block = f"{item.get('title','')}\n{item.get('abstract','')}\n{url or ''}"
+            if block.strip():
+                contents.append(trim_prompt(block, 25000))
 
     print(f"Ran {query}, found {len(contents)} contents")
 
@@ -424,14 +727,8 @@ generate up to {num_learnings} unique, detailed learnings and up to {num_followu
             "schema": {
                 "type": "object",
                 "properties": {
-                    "learnings": {
-                        "type": "array",
-                        "items": {"type": "string"}
-                    },
-                    "followUpQuestions": {
-                        "type": "array",
-                        "items": {"type": "string"}
-                    }
+                    "learnings": {"type": "array", "items": {"type": "string"}},
+                    "followUpQuestions": {"type": "array", "items": {"type": "string"}}
                 },
                 "required": ["learnings", "followUpQuestions"]
             }
@@ -439,23 +736,21 @@ generate up to {num_learnings} unique, detailed learnings and up to {num_followu
     }
 
     completion = _model_config_instance.generate_completion(
-        messages=[
-            {"role": "system", "content": system_prompt()},
-            {"role": "user", "content": prompt}
-        ],
+        messages=[{"role": "system", "content": system_prompt()},
+                  {"role": "user", "content": prompt}],
         response_format=response_format
     )
 
     parsed = json.loads(completion.choices[0].message.content)
     return parsed
 
-# ---------------------------------------
-# Main workflow – URLs in order, no sets
-# ---------------------------------------
+# ============ Main workflow – track URLs + SourceCards ============
 
 async def deep_research(query: str, breadth: int, depth: int, learnings=None, visited_urls=None, on_progress: Optional[Callable] = None):
     learnings = learnings or []
     visited_urls = visited_urls or []
+    source_cards: List[Dict] = []
+
     progress = {
         "currentDepth": depth,
         "totalDepth": depth,
@@ -481,23 +776,69 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
         try:
             result = await search_client.search(serp_query["query"])
 
-            # Extract URLs in order, then light dedup to avoid exact repeats
-            if "data" in result:
-                urls_raw = [doc.get("url") for doc in result.get("data", []) if doc.get("url")]
-                urls = _uniq_preserve(urls_raw)
+            urls = []
+            cards_local: List[Dict] = []
+
+            if "data" in result:  # Firecrawl
+                docs = result.get("data", [])
+                for doc in docs:
+                    u = doc.get("url")
+                    if u:
+                        urls.append(u)
+                        cards_local.append(_card_from_firecrawl_doc(doc))
+                urls = _uniq_preserve(urls)
+
             elif "payload" in result and "items" in result["payload"]:
                 items = result["payload"]["items"][:10]
-                urls_raw = [(item.get("urls") or [None])[0] for item in items if item.get("urls")]
-                urls = _uniq_preserve(urls_raw)
-            else:
-                urls = []
+                for item in items:
+                    u = None
+                    if isinstance(item.get("urls"), list) and item["urls"]:
+                        u = item["urls"][0]
+                    elif isinstance(item.get("urls"), str):
+                        u = item["urls"]
+                    elif item.get("url"):
+                        u = item["url"]
+                    if u:
+                        urls.append(u)
+                        cards_local.append(_card_from_orkg_item(item))
+                urls = _uniq_preserve([u for u in urls if u])
 
-            follow = await process_serp_result(serp_query["query"], result, num_followups=breadth)
+            elif "payload" in result or "items" in result:
+                items = []
+                pl = result.get("payload")
+                if isinstance(pl, dict) and isinstance(pl.get("items"), list):
+                    items = pl["items"][:10]
+                elif isinstance(pl, list):
+                    items = pl[:10]
+                elif isinstance(result.get("items"), list):
+                    items = result["items"][:10]
+                for item in items:
+                    u = None
+                    if isinstance(item.get("urls"), list) and item["urls"]:
+                        u = item["urls"][0]
+                    elif isinstance(item.get("urls"), str):
+                        u = item["urls"]
+                    elif item.get("url"):
+                        u = item["url"]
+                    if u:
+                        urls.append(u)
+                        cards_local.append(_card_from_orkg_item(item))
+                urls = _uniq_preserve([u for u in urls if u])
+
+            follow = await process_serp_result(serp_query["query"], result, num_learnings=3, num_followups=breadth)
             new_learnings = follow["learnings"]
             new_followups = follow["followUpQuestions"]
 
             updated_learnings = _uniq_preserve(learnings + new_learnings)
             updated_urls = _uniq_preserve(visited_urls + urls)
+
+            # merge source cards per URL
+            by_url = {c.get("url"): c for c in source_cards if c.get("url")}
+            for c in cards_local:
+                u = c.get("url")
+                if u and u not in by_url:
+                    by_url[u] = c
+                    source_cards.append(c)
 
             if depth - 1 > 0:
                 report({"currentDepth": depth - 1, "completedQueries": progress["completedQueries"] + 1})
@@ -512,19 +853,29 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
                 )
             else:
                 report({"currentDepth": 0, "completedQueries": progress["completedQueries"] + 1})
-                return {"learnings": updated_learnings, "visitedUrls": updated_urls}
+                return {"learnings": updated_learnings, "visitedUrls": updated_urls, "sourceCards": source_cards}
         except Exception:
-            return {"learnings": [], "visitedUrls": []}
+            return {"learnings": [], "visitedUrls": [], "sourceCards": []}
 
     results = await asyncio.gather(*(run_query(q) for q in serp_queries)) if serp_queries else []
 
     all_learnings = []
     all_urls = []
+    all_cards: List[Dict] = []
     for res in results:
-        all_learnings.extend(res["learnings"])
-        all_urls.extend(res["visitedUrls"])
+        all_learnings.extend(res.get("learnings", []))
+        all_urls.extend(res.get("visitedUrls", []))
+        all_cards.extend(res.get("sourceCards", []))
 
     all_learnings = _uniq_preserve(all_learnings)
     all_urls = _uniq_preserve(all_urls)
 
-    return {"learnings": all_learnings, "visitedUrls": all_urls}
+    # dedup cards by URL preserving order consistent with all_urls
+    cards_by_url = {}
+    for c in all_cards:
+        u = c.get("url")
+        if u and u not in cards_by_url:
+            cards_by_url[u] = c
+    ordered_cards = [cards_by_url[u] for u in all_urls if u in cards_by_url]
+
+    return {"learnings": all_learnings, "visitedUrls": all_urls, "sourceCards": ordered_cards}
