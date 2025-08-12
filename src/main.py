@@ -7,17 +7,17 @@ from feedback import generate_feedback
 from ai.llms import ModelConfig
 
 async def main():
-    # Pick model (optional override)
+    # Prompt user for model choice
     model_input = input("Enter an OpenAI model to use (press Enter to use default 'o3-mini'): ").strip()
     if model_input:
         os.environ["CUSTOM_MODEL"] = model_input
 
-    # Initialize model (ensures OpenAI client setup)
+    # Initialize model
     config = ModelConfig()
     model_config = config.get_model_config()
-    print("Using model:", model_config["model"])
+    print("Using model:", model_config['model'])
 
-    # Research input
+    # Prompt for research input
     initial_query = input("What would you like to research? ").strip()
 
     # Breadth
@@ -40,57 +40,34 @@ async def main():
 
     if is_report:
         print("\nCreating research plan...")
-        follow_up_questions = generate_feedback(
-            query=initial_query,
-            client=model_config["client"],
-            model_name=model_config["model"]
-        ) or []
+        follow_up_questions = generate_feedback(query=initial_query, client=model_config['client'], model_name=model_config['model'])
 
-        if follow_up_questions:
-            print("\nTo better understand your research needs, please answer these follow-up questions:")
-            answers = []
-            for q in follow_up_questions:
-                a = input(f"\n{q}\nYour answer: ")
-                answers.append(a)
+        print("\nTo better understand your research needs, please answer these follow-up questions:")
+        answers = []
+        for q in follow_up_questions:
+            a = input(f"\n{q}\nYour answer: ")
+            answers.append(a)
 
-            qa_lines = [f"- Q: {q}\n  A: {a}" for q, a in zip(follow_up_questions, answers)]
-            combined_query = (
-                f"Initial Query: {initial_query}\n\n"
-                f"Follow-up Questions and Answers:\n" + "\n".join(qa_lines)
-            )
+        combined_query = f"""Initial Query: {initial_query}
+Follow-up Questions and Answers:
+{chr(10).join([f"Q: {q} - A: {a};" for q, a in zip(follow_up_questions, answers)])}"""
 
     print("\nStarting research...\n")
     result = await deep_research(query=combined_query, breadth=breadth, depth=depth)
+    learnings = result["learnings"]
+    visited_urls = result["visitedUrls"]
 
-    learnings = result.get("learnings", [])
-    visited_urls = result.get("visitedUrls", [])
-    source_cards = result.get("sourceCards", [])   # <-- NEW: pass this to write_final_report
-
-    if learnings:
-        print("\n\nLearnings:\n")
-        print("\n".join(learnings))
-    else:
-        print("\n\nLearnings: (none)")
-
-    print(f"\n\nVisited URLs ({len(visited_urls)}):\n")
-    if visited_urls:
-        print("\n".join(visited_urls))
-    else:
-        print("(none)")
+    print("\n\nLearnings:\n\n" + "\n".join(learnings))
+    print(f"\n\nVisited URLs ({len(visited_urls)}):\n\n" + "\n".join(visited_urls))
 
     if is_report:
-        print("\nWriting final report...")
-        report = await write_final_report(
-            prompt=combined_query,
-            learnings=learnings,
-            visited_urls=visited_urls,
-            source_cards=source_cards   # <-- IMPORTANT for formatted references via ORKG metadata
-        )
+        print("Writing final report...")
+        report = await write_final_report(prompt=combined_query, learnings=learnings, visited_urls=visited_urls)
         Path("report.md").write_text(report, encoding="utf-8")
         print("\n\nFinal Report:\n\n" + report)
         print("\nReport has been saved to report.md")
     else:
-        print("\nGenerating final answer...")
+        print("Generating final answer...")
         answer = await write_final_answer(prompt=combined_query, learnings=learnings)
         Path("answer.md").write_text(answer, encoding="utf-8")
         print("\n\nFinal Answer:\n\n" + answer)
