@@ -16,7 +16,7 @@ load_dotenv()
 sys.stdout.reconfigure(encoding='utf-8')
 
 # ---------------------------------------
-# Env toggles (only these two)
+# Env
 # ---------------------------------------
 
 def _env_true(val: Optional[str], default: bool = True) -> bool:
@@ -241,7 +241,7 @@ Sort by score DESC. Limit {k}.
         return []
 
 # ---------------------------------------
-# Search clients (unchanged)
+# Search clients
 # ---------------------------------------
 
 class FirecrawlApp:
@@ -299,7 +299,7 @@ search_client = get_search_client(os.getenv("RESEARCH_PROVIDER", "firecrawl"))
 print(f"Search provider in use: {type(search_client).__name__}")
 
 # ---------------------------------------
-# Final report (original core + stronger citation guidance)
+# Final report (+ citation)
 # ---------------------------------------
 
 async def write_final_report(prompt: str, learnings: list, visited_urls: list) -> str:
@@ -309,7 +309,6 @@ async def write_final_report(prompt: str, learnings: list, visited_urls: list) -
     """
     learnings_string = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
 
-    # Build catalog for the writer to reference in [n]
     sources_block, urls_list = _build_sources_block(visited_urls)
     n_sources = len(urls_list)
 
@@ -380,7 +379,6 @@ Task
     parsed = json.loads(completion.choices[0].message.content)
     report_md_raw = parsed["reportMarkdown"].rstrip()
 
-    # Normalize references from actual in-text [n] (fallback: full catalog)
     final_md = add_citations(
         report_md_raw,
         visited_urls,
@@ -389,7 +387,6 @@ Task
         sanitize_urls=False
     )
 
-    # Optional: show ranking AFTER references (informational only)
     if SHOW_RANKING_SECTION and USE_SOURCE_RANKING and visited_urls:
         ranked = await rank_papers(prompt, learnings, visited_urls)
         if ranked:
@@ -405,7 +402,7 @@ Task
     return final_md
 
 # ---------------------------------------
-# Short final answer (repo-style)
+# Short final answer
 # ---------------------------------------
 
 async def write_final_answer(prompt: str, learnings: list) -> str:
@@ -454,15 +451,13 @@ Here are all the learnings from research that you can use:
     return parsed["exactAnswer"]
 
 # ---------------------------------------
-# SERP query generator (repo-style) — ensure at least 1
+# SERP query generator
 # ---------------------------------------
 
 async def generate_serp_queries(query: str, num_queries: int = 3, learnings: Optional[List[str]] = None):
-    # Guarantee >= 1 to avoid empty cascades
     num_queries = max(1, int(num_queries) if isinstance(num_queries, int) else 1)
 
     learnings_text = "\n".join(learnings) if learnings else ""
-    # Build optional context line without nested f-strings
     context_line = f"Context from prior learnings:\n{learnings_text}" if learnings else ""
 
     prompt = (
@@ -510,21 +505,20 @@ async def generate_serp_queries(query: str, num_queries: int = 3, learnings: Opt
     )
 
     parsed = json.loads(result.choices[0].message.content)
-    # If model returns fewer, accept; but never slice to 0
     return parsed.get("queries", [])[:num_queries] or []
 
 # ---------------------------------------
-# SERP result processing (repo-style) — make learnings evidence-ready
+# SERP result processing
 # ---------------------------------------
 
 async def process_serp_result(query: str, result: Dict, num_learnings: int = 3, num_followups: int = 3):
-    if "data" in result:  # Firecrawl
+    if "data" in result:
         contents = [
             trim_prompt(doc.get("markdown", ""), 25000)
             for doc in result.get("data", [])
             if doc.get("markdown")
         ]
-    elif "payload" in result and "items" in result["payload"]:  # ORKG Ask
+    elif "payload" in result and "items" in result["payload"]:
         items = result["payload"]["items"][:10]
         contents = [
             trim_prompt(
@@ -610,7 +604,6 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
     if serp_queries:
         report({"totalQueries": len(serp_queries), "currentQuery": serp_queries[0]["query"]})
     else:
-        # Early return: keep accumulated state (avoid losing learnings/urls)
         return {
             "learnings": _uniq_preserve(learnings),
             "visitedUrls": _uniq_preserve(visited_urls)
@@ -620,7 +613,6 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
         try:
             result = await search_client.search(serp_query["query"])
 
-            # URLs in original order; light dedup
             if "data" in result:
                 urls_raw = [doc.get("url") for doc in result.get("data", []) if doc.get("url")]
                 urls = _uniq_preserve(urls_raw)
@@ -653,7 +645,7 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
             if depth - 1 > 0:
                 report({"currentDepth": depth - 1, "completedQueries": progress["completedQueries"] + 1})
                 next_query = f"Previous research goal: {serp_query['researchGoal']}\nFollow-up: {'; '.join(new_followups)}"
-                next_breadth = max(1, breadth // 2)  # <- never drop to 0
+                next_breadth = max(1, breadth // 2)
                 return await deep_research(
                     next_query,
                     breadth=next_breadth,
@@ -670,7 +662,6 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
 
     results = await asyncio.gather(*(run_query(q) for q in serp_queries)) if serp_queries else []
 
-    # Start with the incoming state so we never lose accumulated info
     all_learnings = list(learnings)
     all_urls = list(visited_urls)
 
