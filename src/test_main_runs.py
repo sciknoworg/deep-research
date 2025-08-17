@@ -7,8 +7,8 @@ from feedback import generate_feedback
 from deep_research import deep_research, write_final_report
 
 # ==== Konfiguration ==========================================================
-TOPIC = "trees in europe"         # Thema hier anpassen, falls gewünscht
-CONFIGS = [(1, 1),(2, 2),(4, 2),(4, 4),(6, 2),(10, 5)]  # (breadth, depth) Paare
+TOPIC = "tidal forces north german sea"         # Thema hier anpassen, falls gewünscht
+CONFIGS = [(1, 1),(2, 2),(3, 3),(4, 4),(10, 5)]  # (breadth, depth) Paare
 OUT_DIR = Path("test_data")
 # ============================================================================
 
