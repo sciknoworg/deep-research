@@ -1,4 +1,3 @@
-# tools/gen_test_data.py
 import asyncio
 from pathlib import Path
 
@@ -6,19 +5,14 @@ from ai.llms import ModelConfig
 from feedback import generate_feedback
 from deep_research import deep_research, write_final_report
 
-# ==== Konfiguration ==========================================================
-TOPIC = "tidal forces north german sea"         # Thema hier anpassen, falls gewünscht
-CONFIGS = [(1, 1),(2, 2),(3, 3),(4, 4),(10, 5)]  # (breadth, depth) Paare
+# ==== Configuration ==========================================================
+TOPIC = "tidal forces north german sea" 
+CONFIGS = [(1, 1),(2, 2),(3, 3),(4, 4),(10, 5)] 
 OUT_DIR = Path("test_data")
 # ============================================================================
 
 async def run_once(topic: str, breadth: int, depth: int, model_cfg: dict) -> Path:
-    """
-    Baut eine combined_query mit leeren Antworten, startet Research,
-    schreibt den Report nach test_data/report_b{breadth}_d{depth}.md
-    und gibt den Pfad zurück.
-    """
-    # Follow-up-Fragen holen (Antworten bleiben leer)
+
     try:
         questions = generate_feedback(
             query=topic,
@@ -28,7 +22,7 @@ async def run_once(topic: str, breadth: int, depth: int, model_cfg: dict) -> Pat
     except Exception:
         questions = []
 
-    qa_block_lines = [f"Q: {q} - A: " for q in questions]  # Antworten leer
+    qa_block_lines = [f"Q: {q} - A: " for q in questions]
     combined_query = (
         f"Initial Query: {topic}\n"
         f"Follow-up Questions and Answers:\n"
@@ -55,7 +49,6 @@ async def run_once(topic: str, breadth: int, depth: int, model_cfg: dict) -> Pat
     return out_path
 
 async def main():
-    # Model initialisieren (nimmt CUSTOM_MODEL/.env Einstellungen)
     cfg = ModelConfig().get_model_config()
     print("Using model:", cfg["model"])
 

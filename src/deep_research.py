@@ -27,6 +27,12 @@ def _env_true(val: Optional[str], default: bool = True) -> bool:
 USE_SOURCE_RANKING = _env_true(os.getenv("USE_SOURCE_RANKING"), default=False)
 SHOW_RANKING_SECTION = _env_true(os.getenv("SHOW_RANKING_SECTION"), default=False)
 
+# Allow more learnings per SERP without changing signatures elsewhere
+MAX_LEARNINGS_PER_QUERY = int(os.getenv("MAX_LEARNINGS_PER_QUERY", "6"))
+
+# Module-level store for optional per-learning URL hints (aligned to final learnings)
+_LAST_SUPPORTING_URLS: List[List[str]] = []
+
 # ---------------------------------------
 # Helpers
 # ---------------------------------------
@@ -82,6 +88,54 @@ def _renumber_citations_in_text(md_body: str, mapping: Dict[int, int]) -> str:
                 parts.append(raw)
         return "[" + ", ".join(p.strip() for p in parts) + "]"
     return re.sub(r"\[([0-9,\s]+)\]", repl, md_body)
+
+def _compact_learnings_for_context(learnings: List[str], k: int = 30, max_chars: int = 4000) -> str:
+    """
+    Build a compact, high-signal subset of learnings for query planning.
+    Heuristics only (no extra LLM calls): prefer entries with digits/proper nouns.
+    """
+    if not learnings:
+        return ""
+    uniq = []
+    seen = set()
+    for s in learnings:
+        s = (s or "").strip()
+        if not s or s in seen:
+            continue
+        seen.add(s); uniq.append(s)
+    scored = sorted(
+        uniq,
+        key=lambda x: (any(c.isdigit() for c in x), sum(t.istitle() for t in x.split())),
+        reverse=True
+    )
+    out_lines, total = [], 0
+    for s in (scored[:k] if len(scored) > k else scored):
+        if total + len(s) + 2 > max_chars:
+            break
+        out_lines.append(f"- {s}")
+        total += len(s) + 2
+    return "\n".join(out_lines)
+
+def _hinted_learnings(learnings: List[str], supporting_urls: Optional[List[List[str]]], urls_list: List[str]) -> str:
+    """
+    Render learnings with optional <hints>[n]</hints> based on supporting_urls,
+    where supporting_urls[i] contains 0..2 URLs for learnings[i].
+    """
+    lines = []
+    for i, L in enumerate(learnings):
+        hints = []
+        if supporting_urls and i < len(supporting_urls):
+            for u in (supporting_urls[i] or [])[:2]:
+                try:
+                    idx = urls_list.index(u) + 1
+                    hints.append(f"[{idx}]")
+                except ValueError:
+                    pass
+        if hints:
+            lines.append(f"<learning>\n{L}\n<hints>{' '.join(hints)}</hints>\n</learning>")
+        else:
+            lines.append(f"<learning>\n{L}\n</learning>")
+    return "\n".join(lines)
 
 # ---------------------------------------
 # Citations builder
@@ -295,8 +349,12 @@ def get_search_client(provider: str):
         base_url=os.getenv("FIRECRAWL_BASE_URL", "https://api.firecrawl.dev/v1")
     )
 
-search_client = get_search_client(os.getenv("RESEARCH_PROVIDER", "firecrawl"))
-print(f"Search provider in use: {type(search_client).__name__}")
+def _make_client():
+    """Resolve provider from ENV at call time (still ENV-controlled, more robust)."""
+    provider = os.getenv("RESEARCH_PROVIDER", "firecrawl")
+    client = get_search_client(provider)
+    print(f"Search provider in use: {type(client).__name__}")
+    return client
 
 # ---------------------------------------
 # Final report (+ citation)
@@ -304,17 +362,25 @@ print(f"Search provider in use: {type(search_client).__name__}")
 
 async def write_final_report(prompt: str, learnings: list, visited_urls: list) -> str:
     """
-    Original repo-style report (aim for 3+ pages, include ALL learnings)
-    + stronger guidance to produce bracket citations from a numbered catalog.
+    Report writer with (1) sources placed early, (2) optional [n] hints per learning,
+    (3) same return contract as before.
     """
-    learnings_string = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
-
     sources_block, urls_list = _build_sources_block(visited_urls)
     n_sources = len(urls_list)
 
+    # Render learnings; if we have stored hints, surface them
+    global _LAST_SUPPORTING_URLS
+    try:
+        learnings_string = _hinted_learnings(learnings, _LAST_SUPPORTING_URLS, urls_list)
+    except Exception:
+        learnings_string = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
+
     full_prompt = trim_prompt(
         f"""
-You are writing a scholarly report grounded in the numbered catalog BELOW.
+You are writing a scholarly report grounded in the numbered catalog BELOW (placed early to avoid context loss).
+
+=== SOURCES (numbered catalog — cite only from here) ===
+{sources_block}
 
 Length & Coverage
 - Write at least three full pages of substantive, fact-dense text (no filler).
@@ -322,17 +388,15 @@ Length & Coverage
 
 Citation Playbook (VERY IMPORTANT)
 - Cite ONLY from the numbered catalog (1..{n_sources}) using square brackets [n] or [n,m].
-- Aim for ≥1 citation in EVERY paragraph with nontrivial facts; if multiple sources plausibly support a claim, prefer [n,m].
-- Spread citations across distinct high-quality sources over the whole report; avoid repeating the same source in adjacent paragraphs unless necessary.
+- Aim for ≥1 citation in EVERY paragraph with nontrivial facts; target ≥ min(6, {n_sources}) distinct sources overall.
+- If a learning contains <hints>[n]</hints>, strongly prefer those [n] unless they are clearly suboptimal.
+- Spread citations across distinct high-quality sources; avoid repeating the same source in adjacent paragraphs unless necessary.
 - Place citations immediately after the supported sentence (not only at paragraph end).
-- Prefer authoritative domains (agency/government, standards bodies, journals) when available; balance with secondary sources for context.
-- No bare URLs in the text; if nothing in the catalog fits, write [citation needed] (rare).
-- After drafting each paragraph, quickly check: “Does it contain at least one [n]? If not, add the most relevant one.”
-- Use a lot of the learnings to Cite.
+- If nothing fits, write [citation needed] (rare).
 
 Sectioning
 1) Introduction (include at least one citation)
-2) Main body with multiple subsections (e.g., engineering/ops; science; governance/legal; commercialization; future pathways) — cite consistently per above
+2) Main body with multiple subsections (engineering/science/policy etc.) — keep citing
 3) Conclusion (succinct; include at least one citation)
 
 === RESEARCH QUESTION ===
@@ -340,9 +404,6 @@ Sectioning
 
 === LEARNINGS (use and weave in as many as relevant) ===
 {learnings_string}
-
-=== SOURCES (numbered catalog — cite only from here) ===
-{sources_block}
 
 Task
 - Produce the report in Markdown.
@@ -455,10 +516,18 @@ Here are all the learnings from research that you can use:
 # ---------------------------------------
 
 async def generate_serp_queries(query: str, num_queries: int = 3, learnings: Optional[List[str]] = None):
+    """
+    Generate diverse SERP queries. 'learnings' may be a list (legacy) or a compact string.
+    """
     num_queries = max(1, int(num_queries) if isinstance(num_queries, int) else 1)
 
-    learnings_text = "\n".join(learnings) if learnings else ""
-    context_line = f"Context from prior learnings:\n{learnings_text}" if learnings else ""
+    if isinstance(learnings, list):
+        learnings_text = "\n".join(learnings) if learnings else ""
+    elif isinstance(learnings, str):
+        learnings_text = learnings
+    else:
+        learnings_text = ""
+    context_line = f"Context (compact, high-signal):\n{learnings_text}" if learnings_text else ""
 
     prompt = (
         "Given the following prompt, generate up to "
@@ -469,7 +538,10 @@ async def generate_serp_queries(query: str, num_queries: int = 3, learnings: Opt
         "- Prefer authoritative domains (e.g., .gov, .edu, .int, standards bodies) and use operators when helpful "
         "(site:, filetype:pdf, \"report\", \"whitepaper\", \"standard\", \"guideline\").\n"
         "- Include synonyms/aliases and canonical program/instrument names to broaden recall.\n"
-        f"{context_line}"
+        "- At least one query MUST target primary literature (journals) and one MUST target policy/standards.\n"
+        "- Avoid near-duplicates; cover distinct facets.\n"
+        f"{context_line}\n"
+        "Return concise queries with a clear researchGoal for each."
     )
 
     schema = {
@@ -512,6 +584,10 @@ async def generate_serp_queries(query: str, num_queries: int = 3, learnings: Opt
 # ---------------------------------------
 
 async def process_serp_result(query: str, result: Dict, num_learnings: int = 3, num_followups: int = 3):
+    """
+    Distill SERP content into factual learnings + follow-up questions.
+    Additionally try to surface supporting URLs for each learning (if applicable).
+    """
     if "data" in result:
         contents = [
             trim_prompt(doc.get("markdown", ""), 25000)
@@ -533,6 +609,18 @@ async def process_serp_result(query: str, result: Dict, num_learnings: int = 3, 
 
     print(f"Ran {query}, found {len(contents)} contents")
 
+    # Collect candidate URLs for hinting later
+    candidate_urls = []
+    if "data" in result:
+        candidate_urls = [d.get("url") for d in result.get("data", []) if d.get("url")]
+    elif "payload" in result and "items" in result["payload"]:
+        for it in result["payload"]["items"][:10]:
+            if isinstance(it.get("urls"), list) and it["urls"]:
+                candidate_urls.append(it["urls"][0])
+            elif it.get("url"):
+                candidate_urls.append(it["url"])
+    candidate_urls = [u for u in candidate_urls if u]
+
     contents_text = "\n".join(f"<content>\n{c}\n</content>" for c in contents)
     prompt = trim_prompt(
         f"""You are distilling SERP content into **evidence-ready** learnings.
@@ -542,6 +630,10 @@ Return:
   * Include concrete entities, dates, metrics, instrument/mission names, report IDs, standard numbers, treaty/article names when present.
   * One claim per learning; avoid overlaps.
 - up to {num_followups} follow-up questions that would deepen coverage.
+- For each learning, list 1–2 supportingUrls **taken from the candidate URL list** (if applicable).
+
+Candidate URLs:
+{chr(10).join(candidate_urls)}
 
 Strictly use only details present in the content; no fabrication.
 
@@ -558,7 +650,8 @@ Strictly use only details present in the content; no fabrication.
                 "type": "object",
                 "properties": {
                     "learnings": {"type": "array", "items": {"type": "string"}},
-                    "followUpQuestions": {"type": "array", "items": {"type": "string"}}
+                    "followUpQuestions": {"type": "array", "items": {"type": "string"}},
+                    "supportingUrls": { "type": "array", "items": { "type": "array", "items": {"type":"string"} } }
                 },
                 "required": ["learnings", "followUpQuestions"]
             }
@@ -574,15 +667,34 @@ Strictly use only details present in the content; no fabrication.
     )
 
     parsed = json.loads(completion.choices[0].message.content)
+    # Ensure optional field presence
+    if "supportingUrls" not in parsed or not isinstance(parsed.get("supportingUrls"), list):
+        parsed["supportingUrls"] = []
     return parsed
 
 # ---------------------------------------
 # Main workflow
 # ---------------------------------------
 
-async def deep_research(query: str, breadth: int, depth: int, learnings=None, visited_urls=None, on_progress: Optional[Callable] = None):
+async def deep_research(query: str, breadth: int, depth: int, learnings=None, visited_urls=None, on_progress: Optional[Callable] = None,
+                        _support_collector: Optional[List[List[str]]] = None, _raw_learnings_collector: Optional[List[str]] = None):
+    """
+    Recursive exploration as before.
+    Improvements:
+      - Query planning uses a compact, high-signal subset of learnings (less drift).
+      - Optional per-learning URL hints collected across the whole run (module-level store).
+    """
+    # IMPORTANT: one global declaration at the top of the function
+    global _LAST_SUPPORTING_URLS
+    client = _make_client()
+
     learnings = learnings or []
     visited_urls = visited_urls or []
+    if _support_collector is None:
+        _support_collector = []
+    if _raw_learnings_collector is None:
+        _raw_learnings_collector = []
+
     progress = {
         "currentDepth": depth,
         "totalDepth": depth,
@@ -598,12 +710,14 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
         if on_progress:
             on_progress(progress)
 
-    # Ensure >=1 queries requested
-    serp_queries = await generate_serp_queries(query, max(1, breadth), learnings)
+    # Ensure >=1 queries requested; pass compact context (not the whole learnings list)
+    compact_context = _compact_learnings_for_context(learnings, k=30, max_chars=4000)
+    serp_queries = await generate_serp_queries(query, max(1, breadth), compact_context if compact_context else None)
 
     if serp_queries:
         report({"totalQueries": len(serp_queries), "currentQuery": serp_queries[0]["query"]})
     else:
+        _LAST_SUPPORTING_URLS = [[] for _ in learnings]
         return {
             "learnings": _uniq_preserve(learnings),
             "visitedUrls": _uniq_preserve(visited_urls)
@@ -611,7 +725,7 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
 
     async def run_query(serp_query):
         try:
-            result = await search_client.search(serp_query["query"])
+            result = await client.search(serp_query["query"])
 
             if "data" in result:
                 urls_raw = [doc.get("url") for doc in result.get("data", []) if doc.get("url")]
@@ -633,26 +747,42 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
             follow = await process_serp_result(
                 serp_query["query"],
                 result,
-                num_learnings=3,
+                num_learnings=MAX_LEARNINGS_PER_QUERY,
                 num_followups=breadth
             )
-            new_learnings = follow.get("learnings", [])
-            new_followups = follow.get("followUpQuestions", [])
+            new_learnings = follow.get("learnings", []) or []
+            new_followups = follow.get("followUpQuestions", []) or []
+            supp = follow.get("supportingUrls", []) or []
+
+            # Align supportingUrls to learnings length
+            new_support_lists: List[List[str]] = []
+            for i in range(len(new_learnings)):
+                new_support_lists.append(supp[i] if i < len(supp) and isinstance(supp[i], list) else [])
+
+            # Collect raw learnings + support for global hinting (before dedupe)
+            _raw_learnings_collector.extend(new_learnings)
+            _support_collector.extend(new_support_lists)
 
             updated_learnings = _uniq_preserve(learnings + new_learnings)
             updated_urls = _uniq_preserve(visited_urls + urls)
 
             if depth - 1 > 0:
                 report({"currentDepth": depth - 1, "completedQueries": progress["completedQueries"] + 1})
-                next_query = f"Previous research goal: {serp_query['researchGoal']}\nFollow-up: {'; '.join(new_followups)}"
-                next_breadth = max(1, breadth // 2)
+                next_query = (
+                    f"Root question (do not drift): {query}\n"
+                    f"Research goal for this branch: {serp_query.get('researchGoal','')}\n"
+                    f"Follow-ups to pursue: {'; '.join(new_followups[:max(1, breadth)])}"
+                )
+                next_breadth = max(1, breadth // 2)  # keep your original decay
                 return await deep_research(
                     next_query,
                     breadth=next_breadth,
                     depth=depth-1,
                     learnings=updated_learnings,
                     visited_urls=updated_urls,
-                    on_progress=on_progress
+                    on_progress=on_progress,
+                    _support_collector=_support_collector,
+                    _raw_learnings_collector=_raw_learnings_collector
                 )
             else:
                 report({"currentDepth": 0, "completedQueries": progress["completedQueries"] + 1})
@@ -662,14 +792,41 @@ async def deep_research(query: str, breadth: int, depth: int, learnings=None, vi
 
     results = await asyncio.gather(*(run_query(q) for q in serp_queries)) if serp_queries else []
 
-    all_learnings = list(learnings)
+    # Merge results (learned facts & URLs) from all branches
+    all_learnings = list(learnings)   # start with incoming ones
     all_urls = list(visited_urls)
 
     for res in results:
         all_learnings.extend(res.get("learnings", []))
         all_urls.extend(res.get("visitedUrls", []))
 
-    all_learnings = _uniq_preserve(all_learnings)
+    # Deduplicate final outputs
     all_urls = _uniq_preserve(all_urls)
 
-    return {"learnings": all_learnings, "visitedUrls": all_urls}
+    # Build final learning list (unique) but keep hint mapping consistent:
+    # Map first occurrence in raw collector to hints; initial incoming learnings get empty hints.
+    raw_list = list(_raw_learnings_collector)
+    raw_support = list(_support_collector)
+
+    unique_from_raw = _uniq_preserve(raw_list)
+    final_learnings = _uniq_preserve(list(learnings) + unique_from_raw)
+
+    # Build mapping from learning -> first support seen in raw_list
+    first_support_map: Dict[str, List[str]] = {}
+    for idx, L in enumerate(raw_list):
+        if L not in first_support_map:
+            first_support_map[L] = raw_support[idx] if idx < len(raw_support) else []
+
+    # Compose final hints aligned to final_learnings
+    final_support: List[List[str]] = []
+    incoming_set = set(learnings)
+    for L in final_learnings:
+        if L in incoming_set:
+            final_support.append([])
+        else:
+            final_support.append(first_support_map.get(L, []))
+
+    # Store hints module-wide for writer to consume later
+    _LAST_SUPPORTING_URLS = final_support
+
+    return {"learnings": final_learnings, "visitedUrls": all_urls}
