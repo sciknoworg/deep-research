@@ -71,6 +71,22 @@ The pipeline provides comprehensive quality assessment across different depth-br
 
 For detailed documentation on the evaluation pipeline, see [`scripts/README.md`](scripts/README.md).
 
+## 📖 Citation
+
+If you use this repository or its ideas in your research, please cite the following paper:
+
+```bibtex
+@misc{dsouza2025deepresearchtextecorecursiveagenticworkflow,
+  title={DeepResearch$^{\text{Eco}}$: A Recursive Agentic Workflow for Complex Scientific Question Answering in Ecology}, 
+  author={Jennifer D'Souza and Endres Keno Sander and Andrei Aioanei},
+  year={2025},
+  eprint={2507.10522},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2507.10522}
+}
+```
+
 ## 🙌 Acknowledgment
 
 This project is a Python reimplementation of the original [deep-research](https://github.com/dzhng/deep-research) repository by [David Zhang](https://github.com/dzhng), developed in TypeScript.
