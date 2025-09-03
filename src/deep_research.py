@@ -87,11 +87,6 @@ async def write_final_report(prompt: str, learnings: list, visited_urls: list) -
 
     learnings_string = "\n".join(f"<learning>\n{l}\n</learning>" for l in learnings)
 
-    #print("=====================")
-    #print("learnings_string")
-    #print(learnings_string)
-    #print("=====================")
-
     full_prompt = trim_prompt(
         f"""Given the following prompt from the user, write a final report on the topic using the learnings from research. 
 Make it as detailed as possible, aim for 3 or more pages, include ALL the learnings from research:
