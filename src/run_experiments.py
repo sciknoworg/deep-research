@@ -9,11 +9,11 @@ sys.path.append(".")
 from main_experiments import main as run_experiment
 from deep_research import TokenExpiredError
 
-df = pd.read_excel("data/55-questions-ecology-clean.xlsx")
-questions = df["Your research question."].tolist()
+df = pd.read_excel("data/49-questions-nlp-numbered.xlsx")
+questions = df["title"].tolist()
 
 def run_batch_experiment(model, engine, depth, breadth, start=1, end=None):
-    report_dir = Path("reports")
+    report_dir = Path("reports-nlp")
     report_dir.mkdir(exist_ok=True)
 
     model_name = "o3" if model == "o3" else "o3-mini"
@@ -23,7 +23,7 @@ def run_batch_experiment(model, engine, depth, breadth, start=1, end=None):
     for offset, question in enumerate(total_questions):
         i = start + offset
         report_path = report_dir / f"{i}_{model}_{engine}_d{depth}_b{breadth}.md"
-        print(f"🔁 Frage {i}/50: {model} | {engine} | d={depth} b={breadth}")
+        print(f"🔁 Frage {i}/49: {model} | {engine} | d={depth} b={breadth}")
 
         try:
             asyncio.run(run_experiment(
@@ -47,10 +47,10 @@ def run_batch_experiment(model, engine, depth, breadth, start=1, end=None):
 
 if __name__ == "__main__":
     run_batch_experiment(
-        model="o3",             # "o3" or "o3-mini"
-        engine="firecrawl",     # "firecrawl" or "orkg"
+        model="o3-mini",             # "o3" or "o3-mini"
+        engine="orkg",     # "firecrawl" or "orkg"
         depth=4,
-        breadth=1,
-        start=6,
-        end=50
+        breadth=4,
+        start=1,
+        end=49
     )
