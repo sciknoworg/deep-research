@@ -32,7 +32,7 @@ nltk.download('wordnet')
 
 # ── USER-EDITABLE SECTION ───────────────────────────────────────────────────────
 EXCLUDE_KEYWORDS    = ["firecrawl"]
-REPORT_DIR_DEFAULT  = "../data/reports"
+REPORT_DIR_DEFAULT  = "../data/reports-nlp"
 OUTPUT_DIR_DEFAULT  = "../data"
 EMBEDDING_PATH      = "../embeddings/GoogleNews-vectors-negative300.bin.gz"
 # ────────────────────────────────────────────────────────────────────────────────
