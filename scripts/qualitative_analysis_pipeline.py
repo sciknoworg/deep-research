@@ -6,10 +6,10 @@ from utils import depth_breadth_filename_patterns
 
 
 # INPUTS
-REPORT_DIR = '../data/ecology-reports/orkg-ask/o3'
+REPORT_DIR = '../data/ecology-reports/orkg-ask/o3-mini'
 
 # OUTPUTS
-OUTPUT_DIR = 'docs'
+OUTPUT_DIR = 'docs_thesis_eco_o3-mini'
 STATISTICS_FILE = OUTPUT_DIR + '/comprehensive_summary_statistics.csv'
 FIGURES_DIR = OUTPUT_DIR + '/figures'
 

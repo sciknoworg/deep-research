@@ -4,7 +4,7 @@ from functools import lru_cache
 
 
 depth_breadth_filename_patterns = ['d1_b1', 'd1_b4', 'd4_b1', 'd4_b4']
-model_and_search_pattern = "o3_orkg"
+model_and_search_pattern = "o3-mini_orkg"
 
 
 @lru_cache
