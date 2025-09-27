@@ -1,0 +1,42 @@
+{
+  "tasks": [
+    "classification", "sentiment", "ner", "pos", "parsing", "qa", "question answering",
+    "summarization", "translation", "mt", "retrieval", "reranking", "dialogue", "generation",
+    "coreference", "slot filling", "nli", "natural language inference", "sts", "entailment"
+  ],
+  "datasets": [
+    "glue", "superglue", "squad", "squad2", "mnli", "qqp", "qnli", "cola", "sst", "sst-2", "stsb",
+    "wmt", "cnn/daily mail", "xsum", "gigaword", "coqa", "hotpotqa", "msmarco", "triviaqa",
+    "belebele", "mmlu", "hellaswag", "truthfulqa"
+  ],
+  "languages": [
+    "english", "german", "deutsch", "french", "spanish", "italian", "chinese", "japanese", "korean",
+    "multilingual", "cross-lingual", "low-resource"
+  ],
+  "eval_metrics": [
+    "accuracy", "f1", "precision", "recall", "bleu", "chrf", "rouge", "meteor", "perplexity", "exact match", "em"
+  ],
+  "arch_terms": [
+    "transformer", "bert", "gpt", "t5", "lstm", "gru", "cnn", "encoder-decoder", "decoder-only"
+  ],
+  "training_terms": [
+    "pretraining", "fine-tuning", "instruction tuning", "rlhf", "dpo", "lora", "qlora",
+    "quantization", "distillation", "curriculum", "data augmentation"
+  ],
+  "ablation_terms": [
+    "ablation", "ablation study", "component analysis", "feature importance"
+  ],
+  "rigor_stats": [
+    "p-value", "p<", "significant", "confidence interval", "ci", "t-test", "anova"
+  ],
+  "repro_terms": [
+    "open source", "code available", "github", "gitlab", "weights", "checkpoint",
+    "seed", "random seed", "hyperparameter", "learning rate", "batch size"
+  ],
+  "safety_terms": [
+    "bias", "fairness", "toxicity", "harm", "safety", "privacy", "leakage", "data leakage", "license"
+  ],
+  "compute_terms": [
+    "gpu", "tpu", "flops", "parameters", "params", "billion parameters", "inference time"
+  ]
+}

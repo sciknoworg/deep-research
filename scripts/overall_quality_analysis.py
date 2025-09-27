@@ -1,104 +1,83 @@
+# overall_quality_analysis.py
+import os
+import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 
-from scripts.utils import depth_breadth_filename_patterns
+def _ensure_cols(df: pd.DataFrame) -> pd.DataFrame:
+    """Add any missing score columns with zeros so plotting never crashes."""
+    needed = [
+        'config','depth_score','breadth_score','rigor_score','innovation_score',
+        'info_density','overall_quality'
+    ]
+    for c in needed:
+        if c not in df.columns:
+            if c == 'config':
+                df[c] = 'd1_b1'
+            else:
+                df[c] = 0.0
+    return df
 
+def _bar(ax, xlabels, means, stds, title):
+    xs = np.arange(len(xlabels))
+    ax.bar(xs, means, yerr=stds, capsize=3)
+    ax.set_xticks(xs); ax.set_xticklabels(xlabels, rotation=0)
+    ax.set_ylim(0, 1.05)
+    ax.set_ylabel('Score (0..1)')
+    ax.set_title(title)
+    # annotate bars
+    for x, y in zip(xs, means):
+        ax.text(x, max(0.01, y)+0.01, f"{y:.2f}", ha='center', va='bottom', fontsize=8)
 
-def create_overall_quality_analysis(all_results, figures_dir):
+def create_overall_quality_analysis(all_results: dict, figures_dir: str):
     """
-    Create aggregate analysis across multiple questions
+    Robust, domain-agnostic quality overview figure.
+    - Works for Ecology *and* NLP.
+    - Never assumes presence of domain-specific counters like 'geographic_regions'.
+    - Plots 6 panels: depth, breadth, rigor, innovation, info-density, overall.
     """
-    # Combine all dataframes
-    combined_df = pd.concat(all_results.values(), ignore_index=True)
+    os.makedirs(figures_dir, exist_ok=True)
+    combined = pd.concat(all_results.values(), ignore_index=True)
+    combined = _ensure_cols(combined)
 
-    # Create aggregate visualizations
-    fig, axes = plt.subplots(3, 3, figsize=(18, 15))
-    fig.suptitle('Aggregate Analysis Across All Questions', fontsize=16)
+    cfgs = sorted(combined['config'].unique())
+    def agg(col): 
+        return (combined.groupby('config')[col].mean().reindex(cfgs).fillna(0.0),
+                combined.groupby('config')[col].std().reindex(cfgs).fillna(0.0))
 
-    # 1. Source count distribution by configuration
-    ax1 = axes[0, 0]
+    depth_m, depth_s = agg('depth_score')
+    breadth_m, breadth_s = agg('breadth_score')
+    rigor_m, rigor_s = agg('rigor_score')
+    innov_m, innov_s = agg('innovation_score')
+    info_m, info_s = agg('info_density')
+    overall_m, overall_s = agg('overall_quality')
 
-    # Create a configuration column for easier filtering
-    combined_df['config'] = combined_df.apply(lambda row: f"d{row['depth']}_b{row['breadth']}", axis=1)
+    fig = plt.figure(figsize=(14, 10))
+    axes = [
+        plt.subplot(2,3,1),
+        plt.subplot(2,3,2),
+        plt.subplot(2,3,3),
+        plt.subplot(2,3,4),
+        plt.subplot(2,3,5),
+        plt.subplot(2,3,6),
+    ]
+    _bar(axes[0], cfgs, depth_m.values, depth_s.values, 'Research Depth Score')
+    _bar(axes[1], cfgs, breadth_m.values, breadth_s.values, 'Research Breadth Score')
+    _bar(axes[2], cfgs, rigor_m.values, rigor_s.values, 'Scientific Rigor Score')
+    _bar(axes[3], cfgs, innov_m.values, innov_s.values, 'Innovation Score')
+    _bar(axes[4], cfgs, info_m.values, info_s.values, 'Information Density')
+    _bar(axes[5], cfgs, overall_m.values, overall_s.values, 'Overall Quality Score')
+    plt.suptitle('Research Quality Dimensions Analysis', fontsize=14, y=0.98)
+    plt.tight_layout(rect=[0,0,1,0.96])
+    out = os.path.join(figures_dir, 'quality_dimensions.png')
+    plt.savefig(out, dpi=300, bbox_inches='tight')
+    plt.close(fig)
 
-    source_means = [combined_df[combined_df['config'] == config]['source_count'].mean()
-                    for config in depth_breadth_filename_patterns]
-    source_stds = [combined_df[combined_df['config'] == config]['source_count'].std()
-                   for config in depth_breadth_filename_patterns]
-    ax1.bar(depth_breadth_filename_patterns, source_means, yerr=source_stds, capsize=5,
-            color=['lightblue', 'lightgreen', 'orange', 'red'])
-    ax1.set_title('Average Source Count by Configuration')
-    ax1.set_ylabel('Number of Sources')
-
-    # 2. Word count distribution
-    ax2 = axes[0, 1]
-    word_means = [combined_df[combined_df['config'] == config]['word_count'].mean()
-                  for config in depth_breadth_filename_patterns]
-    word_stds = [combined_df[combined_df['config'] == config]['word_count'].std()
-                 for config in depth_breadth_filename_patterns]
-    ax2.bar(depth_breadth_filename_patterns, word_means, yerr=word_stds, capsize=5,
-            color=['lightblue', 'lightgreen', 'orange', 'red'])
-    ax2.set_title('Average Word Count by Configuration')
-    ax2.set_ylabel('Word Count')
-
-    # 3. Geographic coverage
-    ax3 = axes[0, 2]
-    geo_means = [combined_df[combined_df['config'] == config]['geographic_regions'].mean()
-                 for config in depth_breadth_filename_patterns]
-    ax3.bar(depth_breadth_filename_patterns, geo_means, color=['lightblue', 'lightgreen', 'orange', 'red'])
-    ax3.set_title('Average Geographic Regions by Configuration')
-    ax3.set_ylabel('Number of Regions')
-
-    # 4. Mechanistic detail
-    ax4 = axes[1, 0]
-    mech_means = [combined_df[combined_df['config'] == config]['mechanistic_detail'].mean()
-                  for config in depth_breadth_filename_patterns]
-    ax4.bar(depth_breadth_filename_patterns, mech_means, color=['lightblue', 'lightgreen', 'orange', 'red'])
-    ax4.set_title('Average Mechanistic Detail by Configuration')
-    ax4.set_ylabel('Mechanistic Detail Score')
-
-    # 5. Quality indicators
-    ax5 = axes[1, 1]
-    quality_means = [(combined_df[combined_df['config'] == config]['research_gaps'] +
-                      combined_df[combined_df['config'] == config]['speculative_ideas'] +
-                      combined_df[combined_df['config'] == config]['tradeoff_mentions']).mean()
-                     for config in depth_breadth_filename_patterns]
-    ax5.bar(depth_breadth_filename_patterns, quality_means, color=['lightblue', 'lightgreen', 'orange', 'red'])
-    ax5.set_title('Average Research Quality Score by Configuration')
-    ax5.set_ylabel('Quality Score')
-
-    # 7. Depth vs Breadth effects
-    ax7 = axes[2, 0]
-    depth_effect = combined_df.groupby('depth')['source_count'].mean()
-    breadth_effect = combined_df.groupby('breadth')['source_count'].mean()
-    x = ['Depth 1', 'Depth 4', 'Breadth 1', 'Breadth 4']
-    y = [depth_effect[1], depth_effect[4], breadth_effect[1], breadth_effect[4]]
-    colors = ['blue', 'blue', 'green', 'green']
-    ax7.bar(x, y, color=colors, alpha=0.7)
-    ax7.set_title('Depth vs Breadth Effects on Source Count')
-    ax7.set_ylabel('Average Source Count')
-    ax7.tick_params(axis='x', rotation=45)
-
-    # 9. Scaling effects
-    ax9 = axes[2, 2]
-    # Calculate scaling factor (d4_b4 vs d1_b1)
-    scaling_factors = []
-    questions = []
-    for q_num, df in all_results.items():
-        if 'd1_b1' in df.index and 'd4_b4' in df.index:
-            d1b1_sources = df.loc['d1_b1', 'source_count']
-            d4b4_sources = df.loc['d4_b4', 'source_count']
-            if d1b1_sources > 0:
-                scaling_factors.append(d4b4_sources / d1b1_sources)
-                questions.append(f'Q{q_num}')
-
-    if scaling_factors:
-        ax9.bar(questions, scaling_factors, color='purple', alpha=0.7)
-        ax9.set_title('Source Scaling Factor (d4_b4 / d1_b1)')
-        ax9.set_ylabel('Scaling Factor')
-        ax9.tick_params(axis='x', rotation=45)
-
-    plt.tight_layout()
-    output_path = f'{figures_dir}/overall_quality_analysis.png'
-    plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    plt.close()
+    # sanity ping in console if depth/breadth are basically zero
+    tiny = []
+    for name, m in [('depth', depth_m), ('breadth', breadth_m)]:
+        if (m < 1e-3).all():
+            tiny.append(name)
+    if tiny:
+        print(f"[WARN] The following scores are ~0 across all configs: {', '.join(tiny)}.\n"
+              f"       Check vocabulary coverage or adjust coverage normalization.")

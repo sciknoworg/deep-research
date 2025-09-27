@@ -1,4 +1,4 @@
-# Enhanced Deep Research Quality Analysis
+# Research Quality Analysis (Simplified, Arithmetic)
 ============================================================
 
 **Domain:** nlp  •  **Model/Search tag:** o3_orkg
@@ -11,106 +11,126 @@
 ## Configuration Performance
 
 ### d1_b1
-- 📚 Sources: 8.8 ± 3.1
+- 📚 Sources: 10.1 ± 0.9
 - 📝 Words: 1478 ± 179
-- 🔤 Tasks coverage: 3.9
-- 🧪 Datasets coverage: 0.5
-- 🌐 Languages coverage: 1.5
-- 🧮 Eval metrics coverage: 2.4
-- 🧩 Architecture detail: 0.6
-- 🏗️ Training detail: 1.9
-- ✂️ Ablations (coverage): 0.3
-- ♻️ Reproducibility (signals): 0.8
-- 🛡️ Safety (signals): 1.8
-- ⭐ Overall quality: 0.255
-- 🎯 Research depth: 0.016
-- 🌐 Research breadth: 0.134
-- 🔬 Scientific rigor: 0.754
-- 💡 Innovation: 0.165
-- 📊 Information density: 0.150
-- ♻️🛡️ Repro & Safety: 0.197
-- 🧾 Reporting specificity: 0.078
+- 🔬 Mechanistic coverage: 0.16
+- 🔗 Causal coverage: 0.15
+- ⏱️ Temporal precision: 0.73
+- 📐 Stats rigor coverage: 0.04
+- ❓ Uncertainty coverage: 0.18
+- 💭 Speculative signals: 0.54
+- 💡 Innovation terms coverage: 0.16
+- 🧩 Research gaps (signals): 0.05
+- 🧭 Tasks coverage: 0.22
+- 🗃️ Datasets coverage: 0.03
+- 🗣️ Languages coverage: 0.13
+- 📊 Eval metrics coverage: 0.24
+- 🖥️ Compute terms coverage: 0.16
+- 🔁 Reproducibility coverage: 0.12
+- ⚠️ Safety coverage: 0.22
+- 🖥️ Compute (domain) coverage: 0.16
+- ⭐ Overall quality: 0.207
+- 🎯 Depth: 0.330
+- 🌐 Breadth: 0.146
+- 🔬 Rigor: 0.084
+- 💡 Innovation: 0.281
+- 🧭 Domain alignment: 0.163
+- 📊 Info density: 0.139
 
 ### d1_b4
-- 📚 Sources: 35.6 ± 7.8
+- 📚 Sources: 38.3 ± 3.2
 - 📝 Words: 1574 ± 159
-- 🔤 Tasks coverage: 3.4
-- 🧪 Datasets coverage: 0.4
-- 🌐 Languages coverage: 1.6
-- 🧮 Eval metrics coverage: 2.2
-- 🧩 Architecture detail: 0.5
-- 🏗️ Training detail: 1.5
-- ✂️ Ablations (coverage): 0.2
-- ♻️ Reproducibility (signals): 1.0
-- 🛡️ Safety (signals): 1.4
-- ⭐ Overall quality: 0.287
-- 🎯 Research depth: 0.005
-- 🌐 Research breadth: 0.125
-- 🔬 Scientific rigor: 0.777
-- 💡 Innovation: 0.205
-- 📊 Information density: 0.571
-- ♻️🛡️ Repro & Safety: 0.197
-- 🧾 Reporting specificity: 0.090
+- 🔬 Mechanistic coverage: 0.14
+- 🔗 Causal coverage: 0.16
+- ⏱️ Temporal precision: 0.88
+- 📐 Stats rigor coverage: 0.06
+- ❓ Uncertainty coverage: 0.12
+- 💭 Speculative signals: 0.57
+- 💡 Innovation terms coverage: 0.15
+- 🧩 Research gaps (signals): 0.02
+- 🧭 Tasks coverage: 0.19
+- 🗃️ Datasets coverage: 0.02
+- 🗣️ Languages coverage: 0.14
+- 📊 Eval metrics coverage: 0.22
+- 🖥️ Compute terms coverage: 0.16
+- 🔁 Reproducibility coverage: 0.14
+- ⚠️ Safety coverage: 0.20
+- 🖥️ Compute (domain) coverage: 0.16
+- ⭐ Overall quality: 0.235
+- 🎯 Depth: 0.368
+- 🌐 Breadth: 0.138
+- 🔬 Rigor: 0.080
+- 💡 Innovation: 0.279
+- 🧭 Domain alignment: 0.164
+- 📊 Info density: 0.492
 
 ### d4_b1
-- 📚 Sources: 29.9 ± 8.5
+- 📚 Sources: 33.4 ± 4.4
 - 📝 Words: 1541 ± 153
-- 🔤 Tasks coverage: 3.2
-- 🧪 Datasets coverage: 0.3
-- 🌐 Languages coverage: 1.8
-- 🧮 Eval metrics coverage: 2.7
-- 🧩 Architecture detail: 0.5
-- 🏗️ Training detail: 1.7
-- ✂️ Ablations (coverage): 0.5
-- ♻️ Reproducibility (signals): 0.8
-- 🛡️ Safety (signals): 1.5
-- ⭐ Overall quality: 0.290
-- 🎯 Research depth: 0.028
-- 🌐 Research breadth: 0.131
-- 🔬 Scientific rigor: 0.769
-- 💡 Innovation: 0.233
-- 📊 Information density: 0.488
-- ♻️🛡️ Repro & Safety: 0.186
-- 🧾 Reporting specificity: 0.108
+- 🔬 Mechanistic coverage: 0.16
+- 🔗 Causal coverage: 0.16
+- ⏱️ Temporal precision: 0.86
+- 📐 Stats rigor coverage: 0.08
+- ❓ Uncertainty coverage: 0.13
+- 💭 Speculative signals: 0.57
+- 💡 Innovation terms coverage: 0.15
+- 🧩 Research gaps (signals): 0.03
+- 🧭 Tasks coverage: 0.18
+- 🗃️ Datasets coverage: 0.02
+- 🗣️ Languages coverage: 0.15
+- 📊 Eval metrics coverage: 0.28
+- 🖥️ Compute terms coverage: 0.20
+- 🔁 Reproducibility coverage: 0.13
+- ⚠️ Safety coverage: 0.20
+- 🖥️ Compute (domain) coverage: 0.20
+- ⭐ Overall quality: 0.239
+- 🎯 Depth: 0.372
+- 🌐 Breadth: 0.149
+- 🔬 Rigor: 0.096
+- 💡 Innovation: 0.282
+- 🧭 Domain alignment: 0.169
+- 📊 Info density: 0.437
 
 ### d4_b4
-- 📚 Sources: 209.5 ± 35.8
+- 📚 Sources: 224.4 ± 21.0
 - 📝 Words: 2204 ± 280
-- 🔤 Tasks coverage: 3.8
-- 🧪 Datasets coverage: 0.5
-- 🌐 Languages coverage: 1.9
-- 🧮 Eval metrics coverage: 2.4
-- 🧩 Architecture detail: 1.0
-- 🏗️ Training detail: 1.6
-- ✂️ Ablations (coverage): 0.3
-- ♻️ Reproducibility (signals): 1.0
-- 🛡️ Safety (signals): 1.6
-- ⭐ Overall quality: 0.345
-- 🎯 Research depth: 0.033
-- 🌐 Research breadth: 0.139
-- 🔬 Scientific rigor: 0.821
-- 💡 Innovation: 0.296
-- 📊 Information density: 0.980
-- ♻️🛡️ Repro & Safety: 0.203
-- 🧾 Reporting specificity: 0.116
+- 🔬 Mechanistic coverage: 0.16
+- 🔗 Causal coverage: 0.16
+- ⏱️ Temporal precision: 0.96
+- 📐 Stats rigor coverage: 0.10
+- ❓ Uncertainty coverage: 0.19
+- 💭 Speculative signals: 0.46
+- 💡 Innovation terms coverage: 0.16
+- 🧩 Research gaps (signals): 0.05
+- 🧭 Tasks coverage: 0.24
+- 🗃️ Datasets coverage: 0.03
+- 🗣️ Languages coverage: 0.17
+- 📊 Eval metrics coverage: 0.29
+- 🖥️ Compute terms coverage: 0.20
+- 🔁 Reproducibility coverage: 0.15
+- ⚠️ Safety coverage: 0.20
+- 🖥️ Compute (domain) coverage: 0.20
+- ⭐ Overall quality: 0.287
+- 🎯 Depth: 0.401
+- 🌐 Breadth: 0.172
+- 🔬 Rigor: 0.133
+- 💡 Innovation: 0.245
+- 🧭 Domain alignment: 0.178
+- 📊 Info density: 1.000
 
 ## 🔍 Key Findings
-1. 📈 **Source Scaling**: d4_b4 uses 23.9× more sources than d1_b1
-2. 📝 **Content Scaling**: d4_b4 has 1.5× more words than d1_b1
-3. 🔄 **Depth Effect**: +439% in source utilization
-4. 🌐 **Breadth Effect**: +535% in source utilization
+1. 📈 **Source scaling**: d4_b4 uses 22.2× more sources than d1_b1.
+2. 📝 **Content scaling**: d4_b4 has 1.5× more words than d1_b1.
+3. 🔄 **Depth effect**: +432% sources.
+4. 🌐 **Breadth effect**: +504% sources.
 
-## 🤖 NLP-Specific Insights
-- **Nlp Tasks Cov** best in d1_b1 (3.9)
-- **Nlp Datasets Cov** best in d1_b1 (0.5)
-- **Nlp Langs Cov** best in d4_b4 (1.9)
-- **Nlp Eval Cov** best in d4_b1 (2.7)
-- **Nlp Arch Detail** best in d4_b4 (1.0)
-- **Nlp Train Detail** best in d1_b1 (1.9)
-- **Nlp Ablation** best in d4_b1 (0.5)
-- **Nlp Repro** best in d1_b4 (1.0)
-- **Nlp Safety** best in d1_b1 (1.8)
+## 🤖 NLP Notes
+- Identical aggregation, weights, and density cap as in Ecology for comparability.
+- Depth uses architecture/training/ablation as mechanistic proxies; Breadth swaps to tasks/datasets/languages/metrics/compute.
+- Domain alignment maps to reproducibility/safety/compute; stored under the same key used by the plotters.
 
 ## 🔬 Methodological Notes
-- Multi-dimensional scoring (Depth, Breadth, Rigor, Innovation, Domain-specific, Info density, Specificity)
-- Domain-specific = reproducibility & safety signals.
+- Arithmetic aggregation only; no harmonic means.
+- Dimensions: Depth, Breadth, Rigor, Innovation, Domain alignment, Info density.
+- Coverage = unique term hits / dictionary size (clipped to [0,1]).
+- CSV also includes the raw `sources_per_1k` used by your density panels.
