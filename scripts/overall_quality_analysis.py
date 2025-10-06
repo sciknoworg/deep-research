@@ -8,7 +8,7 @@ def _ensure_cols(df: pd.DataFrame) -> pd.DataFrame:
     """Add any missing score columns with zeros so plotting never crashes."""
     needed = [
         'config','depth_score','breadth_score','rigor_score','innovation_score',
-        'info_density','overall_quality'
+        'gap_score','overall_quality'
     ]
     for c in needed:
         if c not in df.columns:
@@ -49,7 +49,7 @@ def create_overall_quality_analysis(all_results: dict, figures_dir: str):
     breadth_m, breadth_s = agg('breadth_score')
     rigor_m, rigor_s = agg('rigor_score')
     innov_m, innov_s = agg('innovation_score')
-    info_m, info_s = agg('info_density')
+    gap_m, gap_s = agg('gap_score')
     overall_m, overall_s = agg('overall_quality')
 
     fig = plt.figure(figsize=(14, 10))
@@ -65,7 +65,7 @@ def create_overall_quality_analysis(all_results: dict, figures_dir: str):
     _bar(axes[1], cfgs, breadth_m.values, breadth_s.values, 'Research Breadth Score')
     _bar(axes[2], cfgs, rigor_m.values, rigor_s.values, 'Scientific Rigor Score')
     _bar(axes[3], cfgs, innov_m.values, innov_s.values, 'Innovation Score')
-    _bar(axes[4], cfgs, info_m.values, info_s.values, 'Information Density')
+    _bar(axes[4], cfgs, gap_m.values, gap_s.values, 'Research Gap Score')
     _bar(axes[5], cfgs, overall_m.values, overall_s.values, 'Overall Quality Score')
     plt.suptitle('Research Quality Dimensions Analysis', fontsize=14, y=0.98)
     plt.tight_layout(rect=[0,0,1,0.96])

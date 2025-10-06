@@ -1,51 +1,12 @@
-# research_analyzer.py
-#
-# Goal
-# ----
-# Provide a *simple and transparent* quality score for long-form research reports.
-# The score is deliberately arithmetic (no harmonic means) and uses *unique-hit*
-# coverage against domain dictionaries. Information Density is computed solely from
-# the terminal Sources/References section (not inline links) to reflect curated
-# evidence integration.
-#
-# Design in one page
-# ------------------
-# We compute six dimension scores in [0, 1], then combine them linearly:
-#
-#   Depth        = 0.4·mechanistic_cov + 0.3·causal_cov + 0.3·temporal_precision
-#   Breadth      = 0.25·regions_cov + 0.25·interventions_cov + 0.25·diversity_cov
-#                  + 0.15·services_cov + 0.10·scales_cov
-#   Rigor        = 2/3·stats_cov + 1/3·uncertainty_cov
-#   Innovation   = 0.4·speculative + 0.3·innovation_terms_cov + 0.3·gap_signal
-#   Ecological   = 0.4·conservation_cov + 0.3·climate_cov + 0.3·complexity_cov
-#   InfoDensity  = min( (sources_per_1k) / CAP , 1.0 )       (CAP = density_per_k_cap)
-#
-# Where each “_cov” is *ratio coverage* (unique hits divided by the length of the
-# corresponding dictionary list). Unique-hit means: a dictionary entry contributes
-# at most 1 to the hit count, regardless of frequency in the text.
-#
-# Key choices
-# -----------
-# - Arithmetic aggregation only (no harmonic or geometric means).
-# - Count *unique* matches per dictionary item to avoid repetition gaming.
-# - Separate the *raw* display metric `sources_per_1k` (can be > 1) from the
-#   *normalized* `info_density` score (always in [0,1]).
-# - Source counting is restricted to the terminal references section,
-#   including Markdown links, bare URLs, and DOIs (normalized to doi.org).
-#
-# Architecture (numbered workflow overview)
-# -----------------------------------------
-# [0]  Imports, utilities, configs (shared).
-# [1]  BaseResearchAnalyzer: batch orchestration (load → extract → score → visualize → summarize).
-#      [1.1]  load_document(...)          — attach file, parse d/b tag
-#      [1.2]  extract_metrics(...)        — common counts + sources_per_1k + call domain_extract_metrics
-#      [1.3]  domain_calculate_quality_scores(...) (implemented in subclass)
-#      [1.4]  _default_visualizations(...) per-question 3×3 dashboard
-#      [1.5]  _save_summary(...)          — CSV for external plots
-#      [1.6]  create_common_publication_plots(...) — call unchanged plot helpers
-# [2]  EcologyAnalyzer: domain vocab, domain_extract_metrics (unique hits), scoring functions.
-# [3]  NLPAnalyzer: mirrored implementation (comparable dimensions & weights).
-# [4]  get_analyzer(...) factory.
+
+# Architecture (workflow)
+# -----------------------
+# [0]  Imports, utilities, configs
+# [1]  BaseResearchAnalyzer (shared pipeline)
+# [2]  EcologyAnalyzer  (signals + scoring)
+# [3]  NLPAnalyzer      (signals + scoring, mirrored)
+# [4]  get_analyzer()   (factory)
+
 
 import os
 import re
@@ -59,13 +20,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from utils import (
-    depth_breadth_filename_patterns,  # e.g. ["d1_b1", "d1_b4", "d4_b1", "d4_b4"]
-    model_and_search_pattern,         # model/search tag embedded in filenames (e.g. "o3_orkg")
-    load_domain_vocab,                # loads ecology_dictionaries.json
-    topic                             # "ecology" | "nlp"
+    depth_breadth_filename_patterns,   # e.g. ["d1_b1", "d1_b4", "d4_b1", "d4_b4"]
+    model_and_search_pattern,          # e.g. "o3" | "o3-mini"
+    load_domain_vocab,                 # loads vocab/<domain>_dictionaries.json
+    topic                              # "ecology" | "nlp"
 )
 
-# External plotting helpers (left exactly as you had them)
+# External plotting helpers (unchanged)
 from main_scaling_plot import create_main_scaling_plot
 from optimization_analysis_plot import create_optimization_analysis_plot
 from overall_quality_analysis import create_overall_quality_analysis
@@ -76,20 +37,16 @@ plt.style.use('seaborn-v0_8-whitegrid')
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# [0.1] Utility functions (matching, normalization, safe math)
+# [0.1] Utility functions
 # ──────────────────────────────────────────────────────────────────────────────
 
 def _normalize_separators(s: str) -> str:
-    """Normalize -, _, /, long dashes to spaces; collapse whitespace; lowercase."""
     s = re.sub(r'[-–—_/]+', ' ', s)
     return re.sub(r'\s+', ' ', s.strip().lower())
 
 
 def unique_phrase_hits(text: str, vocab_terms: List[str]) -> int:
-    """
-    Unique-hit matching for phrases (0/1 per vocab entry).
-    Rules: case-insensitive; separator-tolerant; flexible spaces; optional plural on last token.
-    """
+    """Unique-hit matching for phrases (0/1 je Vokabeleintrag), sep-tolerant & case-insensitive."""
     if not vocab_terms:
         return 0
     t_norm = _normalize_separators(text)
@@ -119,18 +76,16 @@ def unique_token_presence(text_lower: str, terms: List[str]) -> int:
 
 
 def safe_div(num: float, den: float, default: float = 0.0) -> float:
-    """Safe division; returns `default` when denominator ≤ 0."""
     return (num / den) if den > 0 else default
 
 
 def ratio_coverage(hits: int, vocab_len: int) -> float:
-    """Coverage = unique hits / dictionary size, clamped to [0,1]."""
     denom = max(1, int(vocab_len))
     return min(max(0.0, float(hits)) / denom, 1.0)
 
 
 def _default_vocab_path(domain_name: str) -> str:
-    """Fallback locator for '<domain>_dictionaries.json' (used by NLPAnalyzer only)."""
+    """Fallback locator for '<domain>_dictionaries.json' (only used if utils.load_domain_vocab is overridden)."""
     here = os.path.dirname(os.path.abspath(__file__))
     repo_root = os.path.abspath(os.path.join(here, '..'))
     cwd = os.getcwd()
@@ -150,39 +105,35 @@ def _default_vocab_path(domain_name: str) -> str:
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# [0.2] Config objects (weights & scoring settings)
+# [0.2] Config objects (composite weights live in vocab; config only for density cap)
 # ──────────────────────────────────────────────────────────────────────────────
 
 @dataclass
 class QualityWeights:
     """
-    Weights for the six dimensions (sum ~ 1.0).
+    Composite weights for the five dimensions in the overall score.
+    (We load final values from vocab["weights"]["alpha"].)
     """
-    depth: float = 0.26
-    breadth: float = 0.24
-    rigor: float = 0.16
-    innovation: float = 0.16
-    domain_specific: float = 0.12
-    info_density: float = 0.06
-    taxonomic_or_specificity: float = 0.00  # kept for API stability
+    depth: float = 0.29
+    breadth: float = 0.27
+    rigor: float = 0.19
+    innovation: float = 0.19
+    gap: float = 0.06
+
+    def normalize(self):
+        s = self.depth + self.breadth + self.rigor + self.innovation + self.gap
+        if s <= 0:
+            return
+        self.depth /= s; self.breadth /= s; self.rigor /= s; self.innovation /= s; self.gap /= s
 
 
 @dataclass
 class ScoringConfig:
     """
-    Minimal knobs for the arithmetic-only scorer.
     density_per_k_cap: cap for InfoDensity score (sources per 1k → [0,1]).
     """
     density_per_k_cap: float = 50.0
-    weights: QualityWeights = QualityWeights()
-
-    # Back-compat (unused here)
-    depth_agg: str = "arithmetic"
-    breadth_agg: str = "arithmetic"
-    density_tau: float = 14.0
-    citations_tau: float = 12.0
-    stats_rigor_tau: float = 4.0
-    uncertainty_tau: float = 3.0
+    weights: Optional[QualityWeights] = None  # final α come from vocab unless overridden
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -191,31 +142,21 @@ class ScoringConfig:
 
 class BaseResearchAnalyzer:
     """
-    Shared I/O & pipeline for any domain.
-
-    Lifecycle:
-      analyze_multiple_questions(...)
-        ├─ [1.1] load_document(...) per file
-        ├─ [1.2] extract_metrics() → common counts & sources_per_1k → [2] domain_extract_metrics(...)
-        ├─ [1.3] domain_calculate_quality_scores(...) per doc
-        ├─ [1.4] _default_visualizations(...) (per-question 3×3)
-        ├─ [1.5] _save_summary(...) CSV for external plotting
-        └─ [1.6] create_common_publication_plots(...)
+    Shared I/O & pipeline. Subclasses implement domain-specific extraction + scoring.
     """
 
     def __init__(self, config: Optional[ScoringConfig] = None):
         self.config = config if config is not None else ScoringConfig()
-        self.vocab = self.build_vocab()
-        self.weights = self.config.weights or self.domain_weights()
+        self.vocab = self.build_vocab()  # MUST load from vocab/<domain>_dictionaries.json
+        # Load composite α from vocab (fallback to config or defaults)
+        self.weights = self._load_composite_weights_from_vocab(self.vocab.get("weights", {}), self.config.weights)
+        self.part_w = self._load_part_weights_from_vocab(self.vocab.get("weights", {}))
         self.documents: Dict[str, dict] = {}
         self.metrics: Dict[str, dict] = {}
 
     # ----- subclass API -----
     def build_vocab(self) -> dict:
         raise NotImplementedError
-
-    def domain_weights(self) -> QualityWeights:
-        return QualityWeights()
 
     def domain_extract_metrics(self, content: str, metrics: dict):
         raise NotImplementedError
@@ -224,12 +165,47 @@ class BaseResearchAnalyzer:
         raise NotImplementedError
 
     def domain_publication_plots(self, statistics_file, all_results, figures_dir):
-        """Default: call common bundle; subclasses may override."""
         self.create_common_publication_plots(statistics_file, all_results, figures_dir)
+
+    # ----- weights from vocab -----
+    def _load_composite_weights_from_vocab(self, wblock: dict, override: Optional[QualityWeights]) -> QualityWeights:
+        if override is not None:
+            override.normalize()
+            return override
+        alpha = (wblock or {}).get("alpha", {}) or {}
+        qw = QualityWeights(
+            depth=float(alpha.get("depth", 0.29)),
+            breadth=float(alpha.get("breadth", 0.27)),
+            rigor=float(alpha.get("rigor", 0.19)),
+            innovation=float(alpha.get("innov", 0.19)),
+            gap=float(alpha.get("gap", 0.06)),
+        )
+        qw.normalize()
+        return qw
+
+    def _load_part_weights_from_vocab(self, wblock: dict) -> dict:
+        # Provide sane fallbacks if any block is missing; otherwise use vocab-provided values.
+        def _norm(d: dict, defaults: dict) -> dict:
+            base = dict(defaults)
+            base.update(d or {})
+            s = sum(base.values()) or 1.0
+            return {k: v / s for k, v in base.items()}
+
+        return {
+            "depth": _norm((wblock or {}).get("depth", {}),
+                           {"mech": 0.40, "causal": 0.30, "temp": 0.30}),
+            "breadth_ecology": _norm((wblock or {}).get("breadth", {}),
+                                     {"regions": 0.25, "interventions": 0.25, "biodiversity": 0.25, "services": 0.15, "scale": 0.10}),
+            "breadth_nlp": _norm((wblock or {}).get("breadth", {}),
+                                 {"tasks": 0.25, "datasets": 0.25, "metrics": 0.25, "languages": 0.15, "setting": 0.10}),
+            "rigor": _norm((wblock or {}).get("rigor", {}),
+                           {"stats": 2/3, "uncert": 1/3}),
+            "innovation": _norm((wblock or {}).get("innovation", {}),
+                                {"spec": 0.50, "novel": 0.50})
+        }
 
     # ----- shared helpers -----
     def load_document(self, filename: str, content: str) -> None:
-        # [1.1] Attach file; parse d/b tags from filename "..._d<depth>_b<breadth>.md"
         m = re.search(r'd(\d+)_b(\d+)', filename)
         if not m:
             return
@@ -237,10 +213,8 @@ class BaseResearchAnalyzer:
         key = f"d{depth}_b{breadth}"
         self.documents[key] = dict(filename=filename, depth=depth, breadth=breadth, content=content)
 
-    # ----- sources counting restricted to terminal references section -----
-
+    # Limit source counting to terminal references section
     def _find_sources_section(self, content: str) -> str:
-        """Locate the LAST '## Sources/References/Bibliography/Works cited' section."""
         header_re = re.compile(r'(?im)^\s*#{1,6}\s*(sources|references|bibliography|works\s+cited)\s*$')
         matches = list(header_re.finditer(content))
         if not matches:
@@ -252,7 +226,6 @@ class BaseResearchAnalyzer:
         return content[start:end]
 
     def _normalize_url(self, u: str) -> str:
-        """Normalize and lightly sanitize URLs/DOIs for deduplication."""
         u = u.strip().rstrip(').,;:]')
         if re.match(r'(?i)^doi:\s*10\.\d{4,9}/\S+$', u):
             u = re.sub(r'(?i)^doi:\s*', 'https://doi.org/', u)
@@ -264,10 +237,6 @@ class BaseResearchAnalyzer:
         return u
 
     def _extract_source_count(self, content: str) -> int:
-        """
-        Count unique sources **only** from the terminal references section.
-        Supports: Markdown link targets, bare URLs, and DOIs.
-        """
         section = self._find_sources_section(content)
         if not section:
             return 0
@@ -281,7 +250,6 @@ class BaseResearchAnalyzer:
         return len(urls)
 
     def _temporal_precision(self, content: str) -> float:
-        """Temporal precision = specific / (specific + vague)."""
         specific_patterns = [
             r'\d+(?:\.\d+)?(?:\s*[-–]\s*\d+(?:\.\d+)?)?\s*(?:yr|year|month|week|day|hour|decade|century)',
             r'(?:within|after|before)\s+\d+\s+(?:yr|year|month|week|day)',
@@ -303,10 +271,6 @@ class BaseResearchAnalyzer:
 
     # ----- pipeline -----
     def extract_metrics(self) -> None:
-        """
-        [1.2] For each loaded doc, compute common counts and sources_per_1k,
-              then delegate to [2] domain_extract_metrics for dictionary hits.
-        """
         for key, doc in self.documents.items():
             content = doc['content']
             word_count = len(content.split())
@@ -318,13 +282,10 @@ class BaseResearchAnalyzer:
                 section_count=len(content.split('\n## ')),
                 sources_per_1k=safe_div(source_count, (word_count / 1000.0), default=0.0),
             )
-            self.domain_extract_metrics(content, metrics)  # [2]
+            self.domain_extract_metrics(content, metrics)  # populate hits, etc.
             self.metrics[key] = metrics
 
     def analyze_multiple_questions(self, report_dir: str, question_numbers: List[str], output_dir: str) -> dict:
-        """
-        [1] Main entrypoint: discover files, extract metrics, score, visualize, summarize.
-        """
         os.makedirs(output_dir, exist_ok=True)
         all_results: Dict[str, pd.DataFrame] = {}
 
@@ -335,19 +296,19 @@ class BaseResearchAnalyzer:
                 fname = f"{q}_{model_and_search_pattern}_{cfg}.md"
                 try:
                     with open(os.path.join(report_dir, fname), 'r', encoding='utf-8') as f:
-                        self.load_document(fname, f.read())  # [1.1]
+                        self.load_document(fname, f.read())
                     loaded += 1
                 except FileNotFoundError:
                     print(f"[WARN] File not found: {fname}")
             if not loaded:
                 continue
 
-            self.extract_metrics()  # [1.2]
+            self.extract_metrics()
             for k in list(self.metrics.keys()):
-                self.domain_calculate_quality_scores(self.metrics[k])  # [1.3]
+                self.domain_calculate_quality_scores(self.metrics[k])
 
             os.makedirs(os.path.join(output_dir, "plot_per_question"), exist_ok=True)
-            fig, df = self._default_visualizations(pd.DataFrame(self.metrics).T)  # [1.4]
+            fig, df = self._default_visualizations(pd.DataFrame(self.metrics).T)
             fig.savefig(os.path.join(output_dir, f"plot_per_question/question_{q}_analysis.png"),
                         dpi=300, bbox_inches='tight')
             plt.close(fig)
@@ -358,27 +319,24 @@ class BaseResearchAnalyzer:
             print(f"[OK] Analyzed question {q} with {loaded} documents")
 
         if all_results:
-            self._save_summary(all_results, output_dir)  # [1.5]
+            self._save_summary(all_results, output_dir)
         return all_results
 
     @staticmethod
     def _save_summary(all_results: Dict[str, pd.DataFrame], output_dir: str) -> None:
-        """
-        [1.5] Build compact CSV with per-config stats; clamp all score-like cols to [0,1].
-        """
         combined = pd.concat(all_results.values(), ignore_index=True)
 
+        # Clamp score-like columns. Domain-alignment removed; include gap_score.
         score_cols = [
-            'depth_score','breadth_score','rigor_score','innovation_score',
-            'ecological_relevance','info_density','overall_quality',
+            'depth_score','breadth_score','rigor_score','innovation_score','gap_score',
+            'info_density','overall_quality',
             'breadth_regions_cov','breadth_interventions_cov','breadth_diversity_cov',
             'breadth_services_cov','breadth_scales_cov',
             'depth_mechanistic_cov','depth_causal_cov','depth_temp_precision',
             'rigor_stats_cov','rigor_uncertainty_cov',
-            # NLP breadth/domain (will be absent in ecology; we guard below)
+            # NLP breadth (if present)
             'breadth_tasks_cov','breadth_datasets_cov','breadth_languages_cov',
-            'breadth_metrics_cov','breadth_compute_cov',
-            'nlp_repro_cov','nlp_safety_cov','nlp_compute_cov'
+            'breadth_metrics_cov','breadth_compute_cov'
         ]
         for c in score_cols:
             if c in combined.columns:
@@ -397,16 +355,12 @@ class BaseResearchAnalyzer:
         summary.to_csv(os.path.join(output_dir, "comprehensive_summary_statistics.csv"))
 
     def _default_visualizations(self, df: pd.DataFrame) -> Tuple[plt.Figure, pd.DataFrame]:
-        """
-        [1.4] Per-question 3×3 dashboard: heatmaps (counts), bars (scores).
-        Robust fallbacks ensure no empty panels.
-        """
         defaults = {
             'word_count': 0, 'source_count': 0, 'sources_per_1k': 0.0,
             'overall_quality': np.nan,
             'depth_score': np.nan, 'breadth_score': np.nan,
-            'rigor_score': np.nan, 'innovation_score': np.nan,
-            'ecological_relevance': np.nan, 'info_density': np.nan
+            'rigor_score': np.nan, 'innovation_score': np.nan, 'gap_score': np.nan,
+            'info_density': np.nan
         }
         for k, v in defaults.items():
             if k not in df.columns:
@@ -418,25 +372,13 @@ class BaseResearchAnalyzer:
         fig, axes = plt.subplots(3, 3, figsize=(18, 14))
         axes = axes.flatten()
 
-        def _heatmap_or_bar(ax, col, title, cmap, fmt_heat='.0f', fmt_bar='.0f'):
+        def _heat(ax, col, title, cmap, fmt='.0f'):
             try:
                 pv = df.pivot_table(index='depth', columns='breadth', values=col, aggfunc='mean')
-                if pv.size and not pv.isna().all().all() and pv.shape[0] > 0 and pv.shape[1] > 0:
-                    sns.heatmap(pv, annot=True, fmt=fmt_heat, cmap=cmap, ax=ax)
-                    ax.set_title(title)
-                    return
+                sns.heatmap(pv, annot=True, fmt=fmt, cmap=cmap, ax=ax)
+                ax.set_title(title)
             except Exception:
-                pass
-            series = df[col]
-            if series.isna().all():
-                series = series.fillna(0.0)
-            ax.bar(df.index, series); ax.set_title(f"{title} (by config)")
-            ax.tick_params(axis='x', rotation=45)
-            for i, v in enumerate(series):
-                try:
-                    ax.text(i, v, format(v, fmt_bar), ha='center', va='bottom', fontsize=8)
-                except Exception:
-                    continue
+                ax.set_axis_off()
 
         def _bar(ax, series, title, ylim=(0, 1), fmt='.2f', draw_max_line=None):
             y = series.fillna(0)
@@ -446,12 +388,10 @@ class BaseResearchAnalyzer:
                 ax.text(i, v, format(float(v), fmt), ha='center', va='bottom', fontsize=8)
             if draw_max_line is not None:
                 ax.axhline(draw_max_line, linestyle='--', linewidth=1.2, alpha=0.7, color='k')
-                ax.text(0.02, draw_max_line + (ylim[1]-ylim[0])*0.02, "max",
-                        transform=ax.get_yaxis_transform(), fontsize=9, color='k')
 
-        _heatmap_or_bar(axes[0], 'word_count', 'Word Count by Depth & Breadth', 'YlOrRd', '.0f', '.0f')
-        _heatmap_or_bar(axes[1], 'source_count', 'Sources by Depth & Breadth', 'Blues', '.0f', '.0f')
-        _heatmap_or_bar(axes[2], 'sources_per_1k', 'Sources per 1k by Depth & Breadth', 'Greens', '.2f', '.2f')
+        _heat(axes[0], 'word_count', 'Word Count by Depth & Breadth', 'YlOrRd', '.0f')
+        _heat(axes[1], 'source_count', 'Sources by Depth & Breadth', 'Blues', '.0f')
+        _heat(axes[2], 'sources_per_1k', 'Sources per 1k by Depth & Breadth', 'Greens', '.2f')
 
         idx_order = list(df.index)
         overall_scaled = (df.loc[idx_order, 'overall_quality'] * 4.0).fillna(0.0)
@@ -460,27 +400,17 @@ class BaseResearchAnalyzer:
         _bar(axes[5], df.loc[idx_order, 'breadth_score'], 'Breadth Score (0–1)', (0, 1.0), '.2f')
         _bar(axes[6], df.loc[idx_order, 'rigor_score'], 'Rigor Score (0–1)', (0, 1.0), '.2f')
         _bar(axes[7], df.loc[idx_order, 'innovation_score'], 'Innovation Score (0–1)', (0, 1.0), '.2f')
-
-        last_series = df.loc[idx_order, 'ecological_relevance']
-        last_title = 'Domain Alignment (0–1)'  # works for ecology & NLP; same key used
-        if last_series.isna().all():
-            last_series = df.loc[idx_order, 'info_density']
-            last_title = 'Information Density (0–1)'
-        _bar(axes[8], last_series, last_title, (0, 1.0), '.2f')
+        _bar(axes[8], df.loc[idx_order, 'gap_score'], 'Gap Score (0–1)', (0, 1.0), '.2f')
 
         plt.tight_layout()
         return fig, df
 
     def create_common_publication_plots(self, statistics_file, all_results, figures_dir):
-        """
-        [1.6] Domain-agnostic bundle of standardized figures + heatmaps.
-        """
         os.makedirs(figures_dir, exist_ok=True)
         df = pd.concat(all_results.values(), ignore_index=True)
-
         for col in ['word_count', 'source_count', 'sources_per_1k',
                     'depth_score', 'breadth_score', 'rigor_score',
-                    'innovation_score', 'overall_quality']:
+                    'innovation_score', 'gap_score', 'overall_quality']:
             if col not in df.columns:
                 df[col] = 0.0
         if 'config' not in df.columns:
@@ -515,28 +445,20 @@ class BaseResearchAnalyzer:
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# [2] Ecology analyzer (domain vocab, signals, scoring)
+# [2] Ecology analyzer
 # ──────────────────────────────────────────────────────────────────────────────
 
 class EcologyAnalyzer(BaseResearchAnalyzer):
-    """
-    Ecology domain: ratio-coverage scores with arithmetic-only aggregation.
-    - Coverage = unique-hit ratios against dictionary sizes.
-    - Temporal precision from base class.
-    """
+    """Ecology: ratio-coverage per dict + temporal precision, arithmetic aggregation."""
 
     def build_vocab(self) -> dict:
-        # [2.0] Load ecology dictionaries (via utils).
         return load_domain_vocab()
 
     def domain_extract_metrics(self, content: str, metrics: dict):
-        """
-        [2.1] Extract raw domain signals (unique-hit counts + temporal precision).
-        """
         V = self.vocab
         cl = content.lower()
 
-        # Coverage (unique presence per dictionary entry)
+        # Coverage hits
         metrics['mechanistic_hits']   = unique_phrase_hits(content, V.get('mechanistic_terms', []))
         metrics['causal_hits']        = unique_phrase_hits(content, V.get('causal_terms', []))
         metrics['region_hits']        = unique_phrase_hits(content, V.get('regions', []))
@@ -548,44 +470,32 @@ class EcologyAnalyzer(BaseResearchAnalyzer):
         # Temporal precision
         metrics['temporal_precision'] = self._temporal_precision(content)
 
-        # Rigor: stats lexicon + uncertainty language
+        # Rigor
         metrics['stats_hits'] = unique_phrase_hits(content, V.get('stats_terms', []))
-        metrics['uncertainty_hits'] = unique_token_presence(
-            cl, V.get('uncertainty_terms', ['uncertain','unclear','unknown'])
-        )
+        metrics['uncertainty_hits'] = unique_token_presence(cl, V.get('uncertainty_terms', []))
 
-        # Innovation: speculative markers, innovation lexicon, explicit gaps
-        metrics['gap_hits'] = unique_token_presence(
-            cl, V.get('gap_terms', ['research gap','knowledge gap','data gap'])
-        )
-        metrics['speculative_hits'] = unique_token_presence(
-            cl, V.get('speculative_terms', ['speculative','hypothetical','flagged'])
-        )
-        metrics['innovation_term_hits'] = unique_phrase_hits(content, V.get('innovation_terms', []))
-
-        # Domain alignment
-        metrics['conservation_hits'] = unique_phrase_hits(content, V.get('conservation_terms', []))
-        metrics['climate_hits']      = unique_phrase_hits(content, V.get('climate_terms', []))
-        metrics['complexity_hits']   = unique_phrase_hits(content, V.get('complexity_terms', []))
+        # Innovation + Gap
+        metrics['speculative_hits']      = unique_token_presence(cl, V.get('speculation_terms', []))
+        metrics['innovation_term_hits']  = unique_phrase_hits(content, V.get('innovation_terms', []))
+        metrics['gap_hits']              = unique_token_presence(cl, V.get('gap_terms', []))
 
     # ----- scoring helpers -----
     def _cov(self, hits: int, vocab_key: str) -> float:
-        """[2.2] Convert unique-hit count to coverage ratio using actual dict size."""
         vocab_len = len(self.vocab.get(vocab_key, []))
         return ratio_coverage(hits, vocab_len or 1)
 
     def _score_depth(self, m: dict) -> float:
-        """[2.3] Depth = 0.4·mechanistic + 0.3·causal + 0.3·temporal_precision."""
+        pw = self.part_w["depth"]
         mech = self._cov(m.get('mechanistic_hits', 0), 'mechanistic_terms')
         caus = self._cov(m.get('causal_hits', 0), 'causal_terms')
         temp = float(m.get('temporal_precision', 0.0))
         m['depth_mechanistic_cov'] = mech
         m['depth_causal_cov'] = caus
         m['depth_temp_precision'] = temp
-        return float(np.average([mech, caus, temp], weights=[0.4, 0.3, 0.3]))
+        return float(mech*pw['mech'] + caus*pw['causal'] + temp*pw['temp'])
 
     def _score_breadth(self, m: dict) -> float:
-        """[2.4] Breadth mix: regions, interventions, diversity, services, scales."""
+        pw = self.part_w["breadth_ecology"]
         region = self._cov(m.get('region_hits', 0), 'regions')
         interv = self._cov(m.get('intervention_hits', 0), 'interventions')
         divers = self._cov(m.get('diversity_hits', 0), 'diversity_dimensions')
@@ -596,115 +506,73 @@ class EcologyAnalyzer(BaseResearchAnalyzer):
         m['breadth_diversity_cov'] = divers
         m['breadth_services_cov'] = serv
         m['breadth_scales_cov'] = scale
-        return float(np.average([region, interv, divers, serv, scale],
-                                weights=[0.25, 0.25, 0.25, 0.15, 0.10]))
+        return float(region*pw['regions'] + interv*pw['interventions'] +
+                     divers*pw['biodiversity'] + serv*pw['services'] + scale*pw['scale'])
 
     def _score_rigor(self, m: dict) -> float:
-        """[2.5] Rigor = (2/3)·stats_cov + (1/3)·uncertainty_cov."""
+        pw = self.part_w["rigor"]
         stats = self._cov(m.get('stats_hits', 0), 'stats_terms')
-        unc   = ratio_coverage(
-            m.get('uncertainty_hits', 0),
-            len(self.vocab.get('uncertainty_terms', ['uncertain','unclear','unknown'])) or 1
-        )
+        unc   = ratio_coverage(m.get('uncertainty_hits', 0), len(self.vocab.get('uncertainty_terms', [])) or 1)
         m['rigor_stats_cov'] = stats
         m['rigor_uncertainty_cov'] = unc
-        return float(np.average([stats, unc], weights=[2/3, 1/3]))
+        return float(stats*pw['stats'] + unc*pw['uncert'])
 
     def _score_innovation(self, m: dict) -> float:
-        """[2.6] Innovation mix with simple 3-count caps for speculative and gaps."""
-        spec  = min(m.get('speculative_hits', 0) / 3.0, 1.0)
+        pw = self.part_w["innovation"]
+        spec  = min(m.get('speculative_hits', 0) / 3.0, 1.0)  # conservative cap
         iterm = self._cov(m.get('innovation_term_hits', 0), 'innovation_terms')
-        gaps  = min(m.get('gap_hits', 0) / 3.0, 1.0)
         m['innovation_speculative'] = spec
         m['innovation_terms_cov']   = iterm
-        m['innovation_gaps']        = gaps
-        return float(np.average([spec, iterm, gaps], weights=[0.4, 0.3, 0.3]))
+        return float(spec*pw['spec'] + iterm*pw['novel'])
+
+    def _score_gap(self, m: dict) -> float:
+        gap = ratio_coverage(m.get('gap_hits', 0), len(self.vocab.get('gap_terms', [])) or 1)
+        m['gap_score'] = gap
+        return float(gap)
 
     def _score_info_density(self, m: dict) -> float:
-        """[2.7] InfoDensity score = min(sources_per_1k / cap, 1)."""
         cap = max(1e-9, self.config.density_per_k_cap)
         return min(float(m.get('sources_per_1k', 0.0)) / cap, 1.0)
 
-    def _score_ecological(self, m: dict) -> float:
-        """[2.8] Ecological relevance = 0.4·conservation + 0.3·climate + 0.3·complexity."""
-        cons = self._cov(m.get('conservation_hits', 0), 'conservation_terms')
-        clim = self._cov(m.get('climate_hits', 0),      'climate_terms')
-        comp = self._cov(m.get('complexity_hits', 0),   'complexity_terms')
-        m['ecology_conservation_cov'] = cons
-        m['ecology_climate_cov'] = clim
-        m['ecology_complexity_cov'] = comp
-        return float(np.average([cons, clim, comp], weights=[0.4, 0.3, 0.3]))
-
     def domain_calculate_quality_scores(self, m: dict):
-        """
-        [2.9] Compute six dimension scores and the overall linear aggregate.
-        Clamp everything to [0,1] for downstream consumers.
-        """
-        w = self.weights
-        depth = self._score_depth(m)
-        breadth = self._score_breadth(m)
-        rigor = self._score_rigor(m)
-        innovation = self._score_innovation(m)
-        info_density = self._score_info_density(m)
-        ecological = self._score_ecological(m)
+        a = self.weights
+        depth      = self._score_depth(m)
+        breadth    = self._score_breadth(m)
+        rigor      = self._score_rigor(m)
+        innov      = self._score_innovation(m)
+        gap        = self._score_gap(m)
+        info_dens  = self._score_info_density(m)  # stored only
 
-        overall = (
-            depth*w.depth + breadth*w.breadth + rigor*w.rigor + innovation*w.innovation +
-            ecological*w.domain_specific + info_density*w.info_density
-        )
+        def _c(x): return float(np.clip(x, 0.0, 1.0))
+        overall = (depth*a.depth + breadth*a.breadth + rigor*a.rigor + innov*a.innovation + gap*a.gap)
 
-        def _clip01(x): return float(np.clip(x, 0.0, 1.0))
         m.update({
-            'depth_score': _clip01(depth),
-            'breadth_score': _clip01(breadth),
-            'rigor_score': _clip01(rigor),
-            'innovation_score': _clip01(innovation),
-            'ecological_relevance': _clip01(ecological),
-            'info_density': _clip01(info_density),
-            'overall_quality': _clip01(overall)
+            'depth_score': _c(depth),
+            'breadth_score': _c(breadth),
+            'rigor_score': _c(rigor),
+            'innovation_score': _c(innov),
+            'gap_score': _c(gap),
+            'info_density': _c(info_dens),
+            'overall_quality': _c(overall)
         })
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# [3] NLP analyzer (domain vocab, signals, scoring — mirrored to ecology)
+# [3] NLP analyzer (mirrored)
 # ──────────────────────────────────────────────────────────────────────────────
 
-# Conservative, explicit defaults
-_DEFAULT_CAUSAL = [
-    "because","due to","caused by","results in","leads to","triggers","induces",
-    "therefore","consequently","as a result","hence","thus","accordingly","owing to","through","via","by means of"
-]
-_DEFAULT_UNCERT = ["uncertain","unclear","unknown"]
-_DEFAULT_SPECULATIVE = ["speculative","hypothetical","flagged"]
-_DEFAULT_GAPS = ["research gap","knowledge gap","data gap"]
-_DEFAULT_INNOV = ["novel","innovative","breakthrough","pioneering","cutting-edge",
-                  "emerging","frontier","state-of-the-art","advanced","experimental",
-                  "proof-of-concept","first","unprecedented"]
-
-
 class NLPAnalyzer(BaseResearchAnalyzer):
-    """
-    NLP domain: same scoring schema and weights as Ecology for comparability.
-
-    Depth = Mechanistic (arch+training+ablation) + Causal + Temporal precision
-    Breadth = Tasks + Datasets + Languages + Eval metrics + Compute
-    Rigor = Stats + Uncertainty
-    Innovation = Speculative + Innovation lexicon + Gaps (with small caps)
-    Domain Alignment (mapped to 'ecological_relevance' key) = Reproducibility + Safety + Compute
-    InfoDensity = sources/1k with cap L=50
-    """
+    """NLP: mirrored scoring; Breadth facets/tasks; Depth via arch+training+ablation proxies."""
 
     def build_vocab(self) -> dict:
-        path = _default_vocab_path('nlp')
-        with open(path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-
-    def domain_weights(self) -> QualityWeights:
-        # identical to Ecology so that Q is directly comparable
-        return QualityWeights(
-            depth=0.26, breadth=0.24, rigor=0.16, innovation=0.16,
-            domain_specific=0.12, info_density=0.06, taxonomic_or_specificity=0.00
-        )
+        # If your utils.load_domain_vocab switches by topic, you can reuse it;
+        # else, fall back to reading vocab/nlp_dictionaries.json via helper above.
+        try:
+            return load_domain_vocab()
+        except Exception:
+            path = _default_vocab_path('nlp')
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
 
     def domain_extract_metrics(self, content: str, metrics: dict):
         V = self.vocab
@@ -713,50 +581,43 @@ class NLPAnalyzer(BaseResearchAnalyzer):
         # Depth: mechanistic_nlp = arch ∪ training ∪ ablation
         mech_terms = (V.get('arch_terms', []) or []) + (V.get('training_terms', []) or []) + (V.get('ablation_terms', []) or [])
         metrics['mechanistic_hits'] = unique_phrase_hits(content, mech_terms)
-
-        causal_terms = V.get('causal_terms', _DEFAULT_CAUSAL)
-        metrics['causal_hits'] = unique_phrase_hits(content, causal_terms)
-
+        metrics['causal_hits']      = unique_phrase_hits(content, V.get('causal_terms', []))
         metrics['temporal_precision'] = self._temporal_precision(content)
 
-        # Breadth: tasks, datasets, languages, eval_metrics, compute
+        # Breadth facets
         metrics['task_hits']      = unique_phrase_hits(content, V.get('tasks', []))
         metrics['dataset_hits']   = unique_phrase_hits(content, V.get('datasets', []))
         metrics['language_hits']  = unique_phrase_hits(content, V.get('languages', []))
         metrics['metric_hits']    = unique_phrase_hits(content, V.get('eval_metrics', []))
         metrics['compute_hits']   = unique_phrase_hits(content, V.get('compute_terms', []))
 
-        # Rigor: Stats + Uncertainty (duplizierte, kleine, präzise Liste)
+        # Rigor
         stats_list = V.get('rigor_stats', V.get('stats_terms', []))
         metrics['stats_hits'] = unique_phrase_hits(content, stats_list)
-        metrics['uncertainty_hits'] = unique_token_presence(cl, V.get('uncertainty_terms', _DEFAULT_UNCERT))
+        metrics['uncertainty_hits'] = unique_token_presence(cl, V.get('uncertainty_terms', []))
 
-        # Innovation
-        metrics['speculative_hits']      = unique_token_presence(cl, V.get('speculative_terms', _DEFAULT_SPECULATIVE))
-        metrics['innovation_term_hits']  = unique_phrase_hits(content, V.get('innovation_terms', _DEFAULT_INNOV))
-        metrics['gap_hits']              = unique_token_presence(cl, V.get('gap_terms', _DEFAULT_GAPS))
+        # Innovation + Gap
+        metrics['speculative_hits']      = unique_token_presence(cl, V.get('speculation_terms', []))
+        metrics['innovation_term_hits']  = unique_phrase_hits(content, V.get('innovation_terms', []))
+        metrics['gap_hits']              = unique_token_presence(cl, V.get('gap_terms', []))
 
-        # Domain-Alignment (NLP): Repro + Safety + Compute
-        metrics['repro_hits']   = unique_phrase_hits(content, V.get('repro_terms', []))
-        metrics['safety_hits']  = unique_phrase_hits(content, V.get('safety_terms', []))
-        metrics['comp_hits_da'] = unique_phrase_hits(content, V.get('compute_terms', []))
-
-    # ---- Scoring helpers (mirrored) ----
     def _cov_list(self, hits: int, vocab_list: list) -> float:
         return ratio_coverage(hits, len(vocab_list) or 1)
 
     def _score_depth(self, m: dict) -> float:
+        pw = self.part_w["depth"]
         V = self.vocab
         mech_terms = (V.get('arch_terms', []) or []) + (V.get('training_terms', []) or []) + (V.get('ablation_terms', []) or [])
         mech = self._cov_list(m.get('mechanistic_hits', 0), mech_terms)
-        caus = self._cov_list(m.get('causal_hits', 0), V.get('causal_terms', _DEFAULT_CAUSAL))
+        caus = self._cov_list(m.get('causal_hits', 0), V.get('causal_terms', []))
         temp = float(m.get('temporal_precision', 0.0))
         m['depth_mechanistic_cov'] = mech
         m['depth_causal_cov'] = caus
         m['depth_temp_precision'] = temp
-        return float(np.average([mech, caus, temp], weights=[0.4, 0.3, 0.3]))
+        return float(mech*pw['mech'] + caus*pw['causal'] + temp*pw['temp'])
 
     def _score_breadth(self, m: dict) -> float:
+        pw = self.part_w["breadth_nlp"]
         V = self.vocab
         task   = self._cov_list(m.get('task_hits', 0),     V.get('tasks', []))
         dset   = self._cov_list(m.get('dataset_hits', 0),  V.get('datasets', []))
@@ -768,64 +629,56 @@ class NLPAnalyzer(BaseResearchAnalyzer):
         m['breadth_languages_cov'] = lang
         m['breadth_metrics_cov']   = metr
         m['breadth_compute_cov']   = comp
-        return float(np.average([task, dset, lang, metr, comp],
-                                weights=[0.25, 0.25, 0.25, 0.15, 0.10]))
+        return float(task*pw['tasks'] + dset*pw['datasets'] + lang*pw['languages'] +
+                     metr*pw['metrics'] + comp*pw['setting'])  # "setting" maps to compute proxy
 
     def _score_rigor(self, m: dict) -> float:
+        pw = self.part_w["rigor"]
         V = self.vocab
         stats_list = V.get('rigor_stats', V.get('stats_terms', []))
         stats = self._cov_list(m.get('stats_hits', 0), stats_list)
-        unc   = ratio_coverage(m.get('uncertainty_hits', 0), len(V.get('uncertainty_terms', _DEFAULT_UNCERT)) or 1)
+        unc   = ratio_coverage(m.get('uncertainty_hits', 0), len(V.get('uncertainty_terms', [])) or 1)
         m['rigor_stats_cov'] = stats
         m['rigor_uncertainty_cov'] = unc
-        return float(np.average([stats, unc], weights=[2/3, 1/3]))
+        return float(stats*pw['stats'] + unc*pw['uncert'])
 
     def _score_innovation(self, m: dict) -> float:
+        pw = self.part_w["innovation"]
+        iterm = self._cov_list(m.get('innovation_term_hits', 0), self.vocab.get('innovation_terms', []))
         spec  = min(m.get('speculative_hits', 0) / 3.0, 1.0)
-        iterm = self._cov_list(m.get('innovation_term_hits', 0), self.vocab.get('innovation_terms', _DEFAULT_INNOV))
-        gaps  = min(m.get('gap_hits', 0) / 3.0, 1.0)
-        m['innovation_speculative'] = spec
         m['innovation_terms_cov']   = iterm
-        m['innovation_gaps']        = gaps
-        return float(np.average([spec, iterm, gaps], weights=[0.4, 0.3, 0.3]))
+        m['innovation_speculative'] = spec
+        return float(spec*pw['spec'] + iterm*pw['novel'])
+
+    def _score_gap(self, m: dict) -> float:
+        gap = ratio_coverage(m.get('gap_hits', 0), len(self.vocab.get('gap_terms', [])) or 1)
+        m['gap_score'] = gap
+        return float(gap)
 
     def _score_info_density(self, m: dict) -> float:
-        cap = max(1e-9, self.config.density_per_k_cap)   # L=50 as in Ecology
+        cap = max(1e-9, self.config.density_per_k_cap)
         return min(float(m.get('sources_per_1k', 0.0)) / cap, 1.0)
 
-    def _score_domain(self, m: dict) -> float:
-        V = self.vocab
-        repro = self._cov_list(m.get('repro_hits', 0),   V.get('repro_terms', []))
-        safety= self._cov_list(m.get('safety_hits', 0),  V.get('safety_terms', []))
-        comp  = self._cov_list(m.get('comp_hits_da', 0), V.get('compute_terms', []))
-        m['nlp_repro_cov']  = repro
-        m['nlp_safety_cov'] = safety
-        m['nlp_compute_cov']= comp
-        return float(np.average([repro, safety, comp], weights=[0.4, 0.3, 0.3]))
-
     def domain_calculate_quality_scores(self, m: dict):
-        w = self.weights
-        depth        = self._score_depth(m)
-        breadth      = self._score_breadth(m)
-        rigor        = self._score_rigor(m)
-        innovation   = self._score_innovation(m)
-        density      = self._score_info_density(m)
-        domain_align = self._score_domain(m)
+        a = self.weights
+        depth   = self._score_depth(m)
+        breadth = self._score_breadth(m)
+        rigor   = self._score_rigor(m)
+        innov   = self._score_innovation(m)
+        gap     = self._score_gap(m)
+        info_d  = self._score_info_density(m)
 
-        overall = (depth*w.depth + breadth*w.breadth + rigor*w.rigor +
-                   innovation*w.innovation + domain_align*w.domain_specific +
-                   density*w.info_density)
+        def _c(x): return float(np.clip(x, 0.0, 1.0))
+        overall = (depth*a.depth + breadth*a.breadth + rigor*a.rigor + innov*a.innovation + gap*a.gap)
 
-        def _clip01(x): return float(np.clip(x, 0.0, 1.0))
         m.update({
-            'depth_score': _clip01(depth),
-            'breadth_score': _clip01(breadth),
-            'rigor_score': _clip01(rigor),
-            'innovation_score': _clip01(innovation),
-            # keep the same downstream key for domain alignment (works in plots)
-            'ecological_relevance': _clip01(domain_align),
-            'info_density': _clip01(density),
-            'overall_quality': _clip01(overall)
+            'depth_score': _c(depth),
+            'breadth_score': _c(breadth),
+            'rigor_score': _c(rigor),
+            'innovation_score': _c(innov),
+            'gap_score': _c(gap),
+            'info_density': _c(info_d),
+            'overall_quality': _c(overall)
         })
 
 
@@ -834,10 +687,7 @@ class NLPAnalyzer(BaseResearchAnalyzer):
 # ──────────────────────────────────────────────────────────────────────────────
 
 def get_analyzer(custom_config: Optional[ScoringConfig] = None):
-    """Return analyzer for current utils.topic (keeps runners simple)."""
+    """Select analyzer by utils.topic (keeps runners simple)."""
     if str(topic).lower().strip() == 'nlp':
         return NLPAnalyzer(config=custom_config)
     return EcologyAnalyzer(config=custom_config)
-
-# Backwards-compatible alias
-DeepResearchAnalyzer = NLPAnalyzer if str(topic).lower().strip() == 'nlp' else EcologyAnalyzer

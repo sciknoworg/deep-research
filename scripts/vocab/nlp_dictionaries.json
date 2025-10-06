@@ -1,42 +1,114 @@
 {
   "tasks": [
-    "classification", "sentiment", "ner", "pos", "parsing", "qa", "question answering",
-    "summarization", "translation", "mt", "retrieval", "reranking", "dialogue", "generation",
-    "coreference", "slot filling", "nli", "natural language inference", "sts", "entailment"
+    "classification", "sentiment", "ner", "named entity recognition", "pos", "part of speech",
+    "parsing", "constituency parsing", "dependency parsing",
+    "qa", "question answering", "open-domain qa", "closed-book qa",
+    "summarization", "abstractive summarization", "extractive summarization",
+    "translation", "machine translation", "mt",
+    "retrieval", "dense retrieval", "bm25", "reranking", "re-ranking",
+    "dialogue", "dialog", "conversation", "chat",
+    "generation", "text generation", "story generation", "code generation",
+    "coreference", "coreference resolution", "slot filling",
+    "nli", "natural language inference", "sts", "semantic textual similarity",
+    "entailment"
   ],
   "datasets": [
     "glue", "superglue", "squad", "squad2", "mnli", "qqp", "qnli", "cola", "sst", "sst-2", "stsb",
-    "wmt", "cnn/daily mail", "xsum", "gigaword", "coqa", "hotpotqa", "msmarco", "triviaqa",
-    "belebele", "mmlu", "hellaswag", "truthfulqa"
+    "wmt", "cnn/daily mail", "cnn dm", "xsum", "gigaword",
+    "coqa", "hotpotqa", "msmarco", "triviaqa",
+    "belebele", "mmlu", "hellaswag", "truthfulqa",
+    "gsm8k", "humaneval", "arc", "piqa", "boolq", "openbookqa"
   ],
   "languages": [
-    "english", "german", "deutsch", "french", "spanish", "italian", "chinese", "japanese", "korean",
+    "english", "german", "deutsch", "french", "spanish", "italian",
+    "chinese", "japanese", "korean", "arabic", "hindi",
     "multilingual", "cross-lingual", "low-resource"
   ],
   "eval_metrics": [
-    "accuracy", "f1", "precision", "recall", "bleu", "chrf", "rouge", "meteor", "perplexity", "exact match", "em"
+    "accuracy", "f1", "precision", "recall",
+    "bleu", "chrf", "rouge", "meteor", "bertscore",
+    "perplexity", "exact match", "em"
   ],
   "arch_terms": [
-    "transformer", "bert", "gpt", "t5", "lstm", "gru", "cnn", "encoder-decoder", "decoder-only"
+    "transformer", "encoder-decoder", "decoder-only",
+    "bert", "albert", "roberta", "t5", "gpt", "llama", "mistral",
+    "lstm", "gru", "cnn"
   ],
   "training_terms": [
-    "pretraining", "fine-tuning", "instruction tuning", "rlhf", "dpo", "lora", "qlora",
-    "quantization", "distillation", "curriculum", "data augmentation"
+    "pretraining", "fine-tuning", "instruction tuning", "rlhf", "dpo",
+    "lora", "qlora", "quantization", "distillation", "curriculum",
+    "data augmentation", "continual learning"
   ],
   "ablation_terms": [
-    "ablation", "ablation study", "component analysis", "feature importance"
-  ],
-  "rigor_stats": [
-    "p-value", "p<", "significant", "confidence interval", "ci", "t-test", "anova"
-  ],
-  "repro_terms": [
-    "open source", "code available", "github", "gitlab", "weights", "checkpoint",
-    "seed", "random seed", "hyperparameter", "learning rate", "batch size"
-  ],
-  "safety_terms": [
-    "bias", "fairness", "toxicity", "harm", "safety", "privacy", "leakage", "data leakage", "license"
+    "ablation", "ablation study", "component analysis", "feature ablation", "module ablation"
   ],
   "compute_terms": [
-    "gpu", "tpu", "flops", "parameters", "params", "billion parameters", "inference time"
-  ]
+    "gpu", "tpu", "flops", "parameters", "params", "billion parameters",
+    "inference time", "throughput", "latency", "memory footprint"
+  ],
+  "causal_terms": [
+    "because", "due to", "caused by", "results in", "leads to", "triggers", "induces",
+    "therefore", "consequently", "as a result", "hence", "thus",
+    "via", "through", "mediates", "modulates", "drives", "regulates"
+  ],
+  "rigor_stats": [
+    "p-value", "p<", "p >", "significant", "confidence interval", "ci",
+    "t-test", "anova", "regression", "bootstrap", "cross-validation",
+    "held-out", "standard deviation", "std", "mean", "median"
+  ],
+  "stats_terms": [
+    "p-value", "confidence interval", "t-test", "anova", "regression",
+    "effect size", "variance", "standard deviation", "standard error", "r-squared"
+  ],
+  "uncertainty_terms": [
+    "uncertain", "unclear", "unknown"
+  ],
+  "innovation_terms": [
+    "novel", "innovative", "breakthrough", "pioneering", "cutting-edge",
+    "emerging", "frontier", "state-of-the-art", "advanced", "experimental",
+    "proof-of-concept", "first", "unprecedented"
+  ],
+  "speculative_terms": [
+    "speculative", "hypothetical", "flagged"
+  ],
+  "gap_terms": [
+    "research gap", "knowledge gap", "data gap"
+  ],
+  "repro_terms": [
+    "open source", "code available", "github", "weights", "checkpoint",
+    "seed", "license", "hyperparameter", "learning rate", "batch size"
+  ],
+  "safety_terms": [
+    "bias", "fairness", "toxicity", "privacy", "safety", "data leakage", "red teaming", "harmful content"
+  ],
+
+  "weights": {
+    "alpha": {
+      "depth": 0.31,
+      "breadth": 0.27,
+      "rigor": 0.17,
+      "innov": 0.17,
+      "gap": 0.08
+    },
+    "depth": {
+      "mech": 0.40,
+      "causal": 0.30,
+      "temp": 0.30
+    },
+    "breadth": {
+      "tasks": 0.25,
+      "datasets": 0.25,
+      "metrics": 0.25,
+      "languages": 0.15,
+      "compute": 0.10
+    },
+    "rigor": {
+      "stats": 0.67,
+      "uncert": 0.33
+    },
+    "innovation": {
+      "spec": 0.52,
+      "novel": 0.48
+    }
+  }
 }

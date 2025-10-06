@@ -1,63 +1,42 @@
 # Research Evaluation Pipeline
 
-## 🎯 Overview
-The qualitative analysis pipeline evaluates research documents generated
-by the deep research system using multiple quality dimensions, including:
-
-- **Research Depth**: Mechanistic detail, causal explanations, temporal precision
-- **Research Breadth**: Source diversity, coverage scope, interdisciplinary connections  
-- **Ecological Relevance**: Ecosystem services, conservation focus, climate relevance
-- **Scientific Rigor**: Statistical analysis, quantitative data, formal citations
-- **Content Quality**: Structure, coherence, policy implications
-
-## Pipeline Components
-
-### Core Scripts
-- **`qualitative_analysis_pipeline.py`** - Main pipeline orchestrator
-- **`research_analyzer.py`** - Core analysis engine with quality metrics
-- **`utils.py`** - Shared utilities and configuration
-
-### Visualization Scripts
-- **`main_scaling_plot.py`** - Primary scaling effects visualization
-- **`parameter_effects_plot.py`** - Individual parameter impact analysis
-- **`quality_dimensions_plot.py`** - Multi-dimensional quality assessment
-- **`optimization_analysis_plot.py`** - Cost-benefit optimization analysis
-- **`overall_quality_analysis.py`** - Comprehensive quality evaluation
-
-### Configuration Files
-- **`vocab/ecology_dictionaries.json`** - Domain-specific vocabulary and keywords
-
-## Quick Start
-
-### Prerequisites
-
-Ensure you have the required dependencies installed:
+1) Install:
 ```bash
-pip install pandas matplotlib numpy seaborn wordcloud scikit-learn
+pip install pandas numpy matplotlib tqdm
 ```
 
-### Basic Usage
+2) In `scripts/qual_analysis_thesis.py`, set ONLY these lines at the top:
+```python
+depth_breadth_filename_patterns = ['d1_b1', 'd1_b4', 'd4_b1', 'd4_b4']
+model_and_search_pattern = "o3-mini_orkg"   # e.g., "o3_orkg" or "o3-mini_orkg"
+topic = "ecology"                           # "ecology" or "nlp"
+REPORT_DIR = f'../data/{topic}-reports/orkg-ask/{_model_root}'
 
-1. **Navigate to the scripts directory:**
-```bash
-cd scripts
+# Optional run label
+OUTPUT_SUFFIX = "_main"
 ```
 
-2. **Run the complete analysis pipeline:**
-```bash
-python qualitative_analysis_pipeline.py
-```
+3) Data and Dict
+Dictionary check (must exist):
+- `scripts/vocab/ecology_dictionaries.json` (for ecology), or
+- `scripts/vocab/nlp_dictionaries.json` (for nlp)
 
-3. **Run individual visualization scripts:**
-```bash
-python main_scaling_plot.py
-python parameter_effects_plot.py
-python quality_dimensions_plot.py
-```
+If needed adjust Terms inside of groups or weights in there:
 
-## Input Requirements
+...
+  "complexity_terms": [
+    "nonlinear", "emergent", "synergistic", "interconnected", "complex", "multifaceted"
+  ],
 
-### Data Structure
+  "weights": {
+    "alpha": {
+      "depth": 0.31,
+      "breadth": 0.27,
+      "rigor": 0.17,
+      "innov": 0.17,
+      "gap": 0.08
+
+...
 
 The pipeline expects research documents in the following structure:
 ```
@@ -70,54 +49,15 @@ data/ecology-reports/orkg-ask/o3/
 └── ...
 ```
 
-### Configuration Patterns
-The pipeline analyzes four depth-breadth configurations:
-- **d1_b1**: Low depth, low breadth (efficient)
-- **d1_b4**: Low depth, high breadth (broad survey)
-- **d4_b1**: High depth, low breadth (deep dive)
-- **d4_b4**: High depth, high breadth (comprehensive)
-
-### File Naming Convention
-Files must follow the pattern: `{question_num}_o3_orkg_{config}.md`
-- `question_num`: Numeric identifier (1, 2, 3, ...)
-- `config`: One of d1_b1, d1_b4, d4_b1, d4_b4
-
-
-## Outputs
-
-### Generated Files
-
-The pipeline creates the following outputs in the `docs/` directory:
-
-#### Analysis Reports
-- **`enhanced_analysis_report.md`** - Comprehensive quality analysis
-- **`paper_summary.md`** - Academic paper summary
-- **`comprehensive_summary_statistics.csv`** - Raw metrics data
-
-#### Visualizations (`docs/figures/`)
-- **`main_scaling_effects.png`** - Primary scaling analysis
-- **`parameter_effects.png`** - Individual parameter impacts
-- **`quality_dimensions.png`** - Quality dimension analysis
-- **`optimization_analysis.png`** - Cost-benefit optimization
-- **`plot_per_question/`** - Individual question visualizations
-
-
-## Configuration
-
-### Customizing Analysis
-Edit the configuration variables in `qualitative_analysis_pipeline.py`:
-
-```python
-# Input directory (relative to scripts/)
-REPORT_DIR = '../data/ecology-reports/orkg-ask/o3'
-
-# Output directory
-OUTPUT_DIR = 'docs'
-
-# Sample size (None for all questions)
-sample_size = 50
+4) Run from `scripts/`:
+```bash
+python qual_analysis_thesis.py
 ```
 
-### Domain Vocabulary
-Customize ecology-specific analysis by editing `vocab/ecology_dictionaries.json`:
+5) Outputs will appear in:
+```
+docs_thesis_{topic}_{model_and_search_pattern}{OUTPUT_SUFFIX}/
+├─ figures/
+└─ comprehensive_summary_statistics.csv
+```
 

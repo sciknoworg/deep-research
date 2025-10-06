@@ -23,7 +23,7 @@ def create_quality_dimensions_plot(all_results, figures_dir):
         ('breadth_score', 'Research Breadth Score'),
         ('rigor_score', 'Scientific Rigor Score'),
         ('innovation_score', 'Innovation Score'),
-        ('info_density', 'Information Density'),
+        ('gap_score', 'Research Gap Score'),
         ('overall_quality', 'Overall Quality Score')
     ]
 
