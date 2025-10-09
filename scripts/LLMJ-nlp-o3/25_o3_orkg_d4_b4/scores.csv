@@ -1,0 +1,2 @@
+report_stem,config,depth,breadth,rigor,innovation,gap,overall,depth_raw,breadth_raw,rigor_raw,innovation_raw,gap_raw,overall_raw,report_path
+25_o3_orkg_d4_b4,d4_b4,0.3,0.45,0.95,0.95,0.45,0.62,30,45,95,95,45,62,/nfs/home/sandere/deep-research/data/nlp-reports/orkg-ask/o3/25_o3_orkg_d4_b4.md
