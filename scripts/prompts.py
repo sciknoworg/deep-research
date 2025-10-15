@@ -151,9 +151,9 @@ Task Instructions
   - If borderline between two integers, choose the more precise (e.g., 53 rather than 55).
 
 - Strictness policy:
-  - Really think if your are not sure; be conservative and precise.
+  - Really think if you are not sure; be conservative and precise.
   - You are a Judge, don't be too soft.
-  - Don't be overly optimistic.
+  - Don't be overly optimistic.  
 
 
 Input format
