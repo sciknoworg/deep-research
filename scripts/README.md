@@ -104,6 +104,7 @@ Each metric call returns a strict JSON integer in [0,100] (no sampling, no free 
 4) Run from scripts/ or adjust in File as reffered in 2):
 
 # Examples:
+
 # Ecology, generator=o3, judge=GPT-5 (main results)
 python llmj_batch.py --folder "../data/ecology-reports/orkg-ask/o3" --topic ecology \
   --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-eco-o3"
