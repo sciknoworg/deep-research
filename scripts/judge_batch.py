@@ -20,9 +20,9 @@ except ImportError:
 # ================= User-adjustable defaults (overridable via CLI) =================
 SETTINGS = {
     "FOLDER": "../data/ecology-reports/orkg-ask/o3-mini",
-    "OUT_DIR": "LLMJ-ecology-o3-mini",
+    "OUT_DIR": "LLMJ-5-mini-ecology-o3-mini",
     "TOPIC": None,            # "ecology" | "nlp" | None (infer from path)
-    "MODEL": "o4-mini",
+    "MODEL": "gpt-5-mini-2025-08-07",
     "FILE_GLOB": "*.md",      # only top-level; adjust to "**/*.md" if you need recursion
     "MAX_FILES": 0,           # 0 = no cap
     "SAVE_PROMPTS": False,    # store system+user prompt JSON per metric under each question folder

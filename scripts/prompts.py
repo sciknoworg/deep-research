@@ -2,12 +2,24 @@ from typing import Dict, List
 
 
 RUBRIC_LABELS = {
-    "depth":      "Research Depth — mechanistic/causal chains; multi-step reasoning; temporal specificity of claims.",
-    "breadth":    "Research Breadth — diversity across contexts (regions/biomes/tasks), methods/interventions, and scales.",
-    "rigor":      "Scientific Rigor — clarity of methods/statistics; treatment of uncertainty/limitations.",
-    "innovation": "Innovation — novelty, clearly flagged speculation, and testable, actionable ideas.",
-    "gap":        "Research Gap — clarity, concreteness, and actionability of identified gaps or next steps.",
+    "depth": (
+        "The Research Depth rubric evaluates how well the report traces mechanistic/causal chains, employs multi-step reasoning, and specifies the temporal scope of claims."
+    ),
+    "breadth": (
+        "The Research Breadth rubric evaluates the diversity of evidence across contexts (regions/biomes/tasks), methods or interventions, and scales."
+    ),
+    "rigor": (
+        "The Scientific Rigor rubric evaluates the clarity of methods and statistics and the handling of uncertainty and limitations."
+    ),
+    "innovation": (
+        "The Innovation rubric evaluates the novelty of contributions, whether speculation is explicitly flagged, and the presence of testable, actionable ideas."
+    ),
+    "gap": (
+        "The Research Gap rubric evaluates how clearly, concretely, and actionably the report identifies gaps or next steps."
+    ),
 }
+
+
 
 HIGH_SIGNALS = {
     "depth": [
@@ -126,14 +138,23 @@ Task Instructions
 - Strictness: 50 is "partially addressed". Adjust precisely up/down; do not round to multiples of 5/10.
 - High-signal indicators include:
 {high_blk}
+- Indicators for high-signals (non-exhaustive; presence not required):
+{examples_block}
+- Also think about more keywords that could fit the high-signal indicators.
+
 - Low-signal indicators include:
 {low_blk}
-- Example cues (non-exhaustive; presence not required):
-{examples_block}
+
 - Granularity policy:
   - 90–100 only if evidence is comprehensive across the high-signal bullets.
   - 0–10 if evidence is absent or directly contradicted.
   - If borderline between two integers, choose the more precise (e.g., 53 rather than 55).
+
+- Strictness policy:
+  - Really think if your are not sure; be conservative and precise.
+  - You are a Judge, don't be too soft.
+  - Don't be overly optimistic.
+
 
 Input format
 [REPORT_START]
