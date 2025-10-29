@@ -1,0 +1,2 @@
+report_stem,config,depth,breadth,rigor,innovation,gap,overall,depth_raw,breadth_raw,rigor_raw,innovation_raw,gap_raw,overall_raw,report_path
+25_o3-mini_orkg_d1_b1,d1_b1,0.61,0.43,0.38,0.53,0.59,0.508,61,43,38,53,59,51,/nfs/home/sandere/deep-research/data/nlp-reports/orkg-ask/o3-mini/25_o3-mini_orkg_d1_b1.md
