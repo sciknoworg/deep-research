@@ -70,7 +70,7 @@ docs_thesis_{topic}_{model_and_search_pattern}{OUTPUT_SUFFIX}/
 pip install numpy matplotlib
 ```
 
-2) In scripts/llmj_batch.py, set ONLY these lines at the top:
+2) In scripts/judge_batch.py, set ONLY these lines at the top:
 
 ```python
 SETTINGS = {
