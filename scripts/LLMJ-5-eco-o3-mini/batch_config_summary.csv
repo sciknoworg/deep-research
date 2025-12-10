@@ -1,0 +1,5 @@
+config,n_docs,depth_mean,depth_std,breadth_mean,breadth_std,rigor_mean,rigor_std,innovation_mean,innovation_std,gap_mean,gap_std,overall_mean,overall_std
+d1_b1,1,0.47,0.0,0.8,0.0,0.55,0.0,0.55,0.0,0.85,0.0,0.644,0.0
+d1_b4,1,0.4,0.0,0.72,0.0,0.45,0.0,0.72,0.0,0.92,0.0,0.642,0.0
+d4_b1,1,0.55,0.0,0.92,0.0,0.3,0.0,0.62,0.0,0.92,0.0,0.662,0.0
+d4_b4,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

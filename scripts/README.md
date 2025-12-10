@@ -1,131 +1,204 @@
-# Research Evaluation Pipeline
+# ⚖️ LLM-as-a-Judge
 
-# Dict based eval:
+LLM as a Judge is a Python-based evaluation framework for analyzing LLM-generated reports. It supports **single-report** and **batchwise** processing, configurable metrics, environment-based settings, and visualizations for comparing evaluation results across configurations.
 
-1) Install:
+---
+
+## 📦 Prerequisites
+
+Before running the code, ensure you have:
+
+- **Python 3.9+**
+- **Pip**
+- **Git**
+- **An OpenAI API key** (`OPENAI_API_KEY`)  
+- **A Firecrawl API key** (`FIRECRAWL_API_KEY`) — required if your workflow includes Firecrawl scraping or retrieval
+- **A synthesized research report**
+
+## 🛠️ Installation
+
+### 1. Clone the Repository
+
 ```bash
-pip install pandas numpy matplotlib tqdm
+git clone https://github.com/sciknoworg/deep-research.git
+cd deep-research
 ```
+### 2. Create a virtual environment
 
-2) In `scripts/qual_analysis_thesis.py`, set ONLY these lines at the top:
-```python
-depth_breadth_filename_patterns = ['d1_b1', 'd1_b4', 'd4_b1', 'd4_b4']
-model_and_search_pattern = "o3-mini_orkg"   # e.g., "o3_orkg" or "o3-mini_orkg"
-topic = "ecology"                           # "ecology" or "nlp"
-REPORT_DIR = f'../data/{topic}-reports/orkg-ask/{_model_root}'
-
-# Optional run label
-OUTPUT_SUFFIX = "_main"
-```
-
-3) Data and Dict
-Dictionary check (must exist):
-- `scripts/vocab/ecology_dictionaries.json` (for ecology), or
-- `scripts/vocab/nlp_dictionaries.json` (for nlp)
-
-If needed adjust Terms inside of groups or weights in there:
-
-...
-  "complexity_terms": [
-    "nonlinear", "emergent", "synergistic", "interconnected", "complex", "multifaceted"
-  ],
-
-  "weights": {
-    "alpha": {
-      "depth": 0.31,
-      "breadth": 0.27,
-      "rigor": 0.17,
-      "innov": 0.17,
-      "gap": 0.08
-
-...
-
-The pipeline expects research documents in the following structure:
-```
-data/ecology-reports/orkg-ask/o3/
-├── 1_o3_orkg_d1_b1.md
-├── 1_o3_orkg_d1_b4.md
-├── 1_o3_orkg_d4_b1.md
-├── 1_o3_orkg_d4_b4.md
-├── 2_o3_orkg_d1_b1.md
-└── ...
-```
-
-4) Run from `scripts/`:
 ```bash
-python qual_analysis_thesis.py
+python -m venv venv
 ```
+Activate it:
 
-5) Outputs will appear in:
-```
-docs_thesis_{topic}_{model_and_search_pattern}{OUTPUT_SUFFIX}/
-├─ figures/
-└─ comprehensive_summary_statistics.csv
-```
-
-# LLM Judge based eval:
-
-1) Install:
+### macOS/Linux
 ```bash
-pip install numpy matplotlib
+source venv/bin/activate
 ```
 
-2) In scripts/judge_batch.py, set ONLY these lines at the top:
-
-```python
-SETTINGS = {
-  "FOLDER": "../data/ecology-reports/orkg-ask/o3",  # input with *.md reports (generator = o3 or o3-mini)
-  "OUT_DIR": "LLMJ-5-eco-o3",                       # output folder name
-  "TOPIC": "ecology",                               # "ecology" or "nlp" (or None to auto-detect)
-  "MODEL": "gpt-5-2025-08-07",                      # judge: GPT-5 (use *-mini for the comparison runs)
-  "FILE_GLOB": "*.md",                              # use "**/*.md" for recursive folders if needed
-  "MAX_FILES": 0,                                   # 0 = all files
-  "SAVE_PROMPTS": False,                            # True = store system+user prompts per metric
-  "FIGSIZE": (16, 12),
-}
-# Fixed in the script:
-# METRICS = ["depth", "breadth", "rigor", "innovation", "gap"]
-# CONFIG_ORDER = ["d1_b1", "d1_b4", "d4_b1", "d4_b4"]
+### Windows
+```bash
+venv\Scripts\activate
 ```
 
-3) Data and filenames:
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-Use the same report folders as for the dict eval; filenames must contain a config tag:
+## 📁 Project Structure
+```bash
+deep-research/
+├── src/              # Main source code
+├── scripts/          # Research evaluation pipeline
+├── data/             # Research data and reports
+├── requirements.txt  # Python dependencies
+└── README.md         # Setup instructions
+```
+
+
+### ⚙️ Configuration
+This project supports configuration through a .env file that overrides default settings in the script.
+
+Create a .env file in the project root:
+
+```bash
+OPENAI_API_KEY=your-openai-api-key
+FIRECRAWL_API_KEY=your-firecrawl-api-key
+FIRECRAWL_BASE_URL=https://api.firecrawl.dev/v1
+METRICS=depth,breadth,rigor,innovation,gap
+CONFIG_ORDER=d1_b1,d1_b4,d4_b1,d4_b4
+RESEARCH_PROVIDER=orkg_OR_firecrawl
+BAR_FIGSIZE=9,4.5
+BATCH_FIGSIZE=16,12
+FILE_GLOB=*.md
+MAX_FILES=0
+SAVE_PROMPTS=false
+```
+> ⚠️ Do not commit .env to version control.
+
+### 🚀 Usage
+
+### 🔍 Running DeepResearch (Required Before Using LLM-as-a-Judge)
+
+To use `llm_judge.py`, you must first generate a synthesized research report using the DeepResearch framework.
+
+### . Navigate to the DeepResearch folder:
+
+```bash
+cd deepresearch
+```
+
+### . Run the research generation script:
+```bash
+python src/main.py
+```
+
+### . You will be prompted for inputs, for example:
+```bash
+Search provider in use: ORKGAskApp
+Enter an OpenAI model to use (press Enter to use default 'o3-mini'):
+Using model: o3-mini
+What would you like to research? What is the best way to restore a degraded peat land?
+Enter research breadth (recommended 2–10, default 4):
+Enter research depth (recommended 1–5, default 2): 2
+Do you want to generate a long report or a specific answer? (report/answer, default report):
+```
+
+> 📘 Optional: Get a Research Question from `../data/ecology/49-questions-ecology.csv`
+
+After completion, DeepResearch will generate a `report.md` file.
+
+This file is the input you provide to `llm_judge.py` for scoring and analysis.
+
+The `llm_judge.py` pipeline expects research documents in the following structure:
+```
 ../data/{topic}-reports/orkg-ask/{engine}/
 ├── 1_o3_orkg_d1_b1.md
 ├── 1_o3_orkg_d1_b4.md
 ├── 1_o3_orkg_d4_b1.md
 ├── 1_o3_orkg_d4_b4.md
 └── ...
+```
+> Here `{engine}` is the generator (o3 or o3-mini). The judge is chosen via MODEL (e.g., gpt-5-2025-08-07 for main results, gpt-5-mini-2025-08-07 for the comparison).
 
-Here {engine} is the generator (o3 or o3-mini). The judge is chosen via MODEL (e.g., gpt-5-2025-08-07 for main results, gpt-5-mini-2025-08-07 for the comparison).
-Each metric call returns a strict JSON integer in [0,100] (no sampling, no free text); the script rescales to [0,1] and computes a local overall as the mean of the five dimensions.
+LLM Judge includes two operation modes:
 
-4) Run from scripts/ or adjust in File as reffered in 2):
+### 1.Single Report Mode
 
-# Examples:
+Use this when you want to evaluate a single markdown (.md) report:
 
-# Ecology, generator=o3, judge=GPT-5 (main results)
-python llmj_batch.py --folder "../data/ecology-reports/orkg-ask/o3" --topic ecology \
-  --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-eco-o3"
+```bash
+python llm_judge.py --report "../data/ecology/reports/orkg-ask/o3-mini-test/1_o3-mini_orkg_d1_b1.md" --topic "ecology" --model "gpt-5-2025-08-07" --out_dir "./results_single"
+```
 
-# Ecology, generator=o3-mini, judge=GPT-5
-python llmj_batch.py --folder "../data/ecology-reports/orkg-ask/o3-mini" --topic ecology \
-  --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-eco-o3-mini"
+| Argument   | Description                                             |
+|------------|---------------------------------------------------------|
+| `--report` | Path to the markdown report to be evaluated             |
+| `--topic`  | Topic/category of the report (e.g: nlp/ecology)         |
+| `--model`  | LLM model to use for scoring                            |
+| `--out_dir`| Directory where output files (JSON, CSV, plots) will be saved |
 
-# NLP, generator=o3, judge=GPT-5
-python llmj_batch.py --folder "../data/nlp-reports/orkg-ask/o3" --topic nlp \
-  --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-nlp-o3"
 
-# (Optional judge comparison) NLP, generator=o3, judge=GPT-5-mini
-python llmj_batch.py --folder "../data/nlp-reports/orkg-ask/o3" --topic nlp \
-  --model "gpt-5-mini-2025-08-07" --out_dir "LLMJ-5-mini-nlp-o3"
+### . Outputs will appear in:
+```bash
+"OUT_DIR": "{OUTPUT_DIR}"
+├─ scores_only.json            # contains the JSON-formatted metric scores for the report
+├─ repo_compatible_row.csv                 # report scores (0..1) 
+├─ figures/quality_dimensions.png        # a plot showing metric distributions or quality dimensions
+```
 
-5) Outputs will appear in:
+### 2. Batch Mode
 
-"OUT_DIR": "LLMJ-5-eco-o3/"
+Runs evaluation on all matching files in a folder:
+```bash
+python llm_judge.py --run-batch --folder "../data/ecology/reports/orkg-ask/o3-mini-test" --topic "ecology" --model "gpt-5" --out_dir "./results_batch""
+```
+
+| Argument      | Description                                                                   |
+| ------------- | ----------------------------------------------------------------------------- |
+| `--run-batch` | Flag indicating batch processing mode (process all files in the folder)       |
+| `--folder`    | Path to the folder containing multiple report markdown files                  |
+| `--topic`     | Topic/category of the report (e.g: nlp/ecology)                               |
+| `--model`     | LLM model to use for scoring                                                  |
+| `--out_dir`   | Directory where output files (CSV, plots) for all reports will be saved       |
+
+
+### . Outputs will appear in:
+```bash
+"OUT_DIR": "{OUTPUT_DIR}"
 ├─ quality_dimensions.png            # 6 panels (Depth, Breadth, Rigor, Innovation, Gap, Overall)
 ├─ batch_reports.csv                 # per-report scores (0..1) + config + path
 ├─ batch_config_summary.csv          # means/std per config in fixed order
-└─ <one folder per report>/scores.csv  # +/prompts/*.json if SAVE_PROMPTS=True
+```
+### Additional (Optional) Flags
 
+| Flag          | Description                               |
+|---------------|-------------------------------------------|
+| `--no-plot`   | Disable plotting and figure generation     |
+| `--file_glob` | Override `FILE_GLOB` pattern               |
+| `--max_files` | Limit number of reports processed          |
+| `--save_prompts` | Store prompts used during evaluation   |
+
+## 📝 Example Runs
+
+The outputs from the folder `data/ecology/reports/orkg-ask/o3-mini-test` are already generated for both **single** and **batchwise** pipeline and available in `scripts/LLMJ-5-eco-o3-mini`.
+
+### 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch:
+```bash
+git checkout -b feature/new-feature
+```
+3. Commit your changes with clear messages:
+```bash
+git commit -m "Add new feature"
+```
+4. Push to GitHub:
+```bash
+git push origin feature/new-feature
+```
+5. Open a Pull Request
+
+### License
+This project is licensed under the [MIT License](../LICENSE).

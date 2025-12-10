@@ -43,21 +43,12 @@ def get_bool(var_name):
     return value in ("1", "true", "yes", "y", "on")
 
 METRICS = get_list("METRICS")
-print(f"Using METRICS: {METRICS}")
 CONFIG_ORDER = get_list("CONFIG_ORDER")
-print(f"Using CONFIG_ORDER: {CONFIG_ORDER}")
-
 BAR_FIGSIZE = get_tuple("BAR_FIGSIZE")
-print(f"Using BAR_FIGSIZE: {BAR_FIGSIZE}")
 BATCH_FIGSIZE = get_tuple("BATCH_FIGSIZE")
-print(f"Using BATCH_FIGSIZE: {BATCH_FIGSIZE}")
-
 FILE_GLOB = os.getenv("FILE_GLOB", "*.md")
-print(f"Using FILE_GLOB: {FILE_GLOB}")
 MAX_FILES = get_int("MAX_FILES")
-print(f"Using MAX_FILES: {MAX_FILES}")
 SAVE_PROMPTS = get_bool("SAVE_PROMPTS")
-print(f"Using SAVE_PROMPTS: {SAVE_PROMPTS}")
 
 # =================== Core Helpers (Shared) ===================
 
