@@ -128,7 +128,7 @@ LLM Judge includes two operation modes:
 Use this when you want to evaluate a single markdown (.md) report:
 
 ```bash
-python llm_judge.py --report "../data/ecology/reports/orkg-ask/o3-mini-test/1_o3-mini_orkg_d1_b1.md" --topic "ecology" --model "gpt-5-2025-08-07" --out_dir "./results_single"
+python llm_judge.py --report "../scripts/data/ecology/reports/orkg-ask/o3-mini-test/1_o3-mini_orkg_d1_b1.md" --topic "ecology" --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-eco-o3-mini"
 ```
 
 | Argument   | Description                                             |
@@ -151,7 +151,7 @@ python llm_judge.py --report "../data/ecology/reports/orkg-ask/o3-mini-test/1_o3
 
 Runs evaluation on all matching files in a folder:
 ```bash
-python llm_judge.py --run-batch --folder "../data/ecology/reports/orkg-ask/o3-mini-test" --topic "ecology" --model "gpt-5" --out_dir "./results_batch""
+python llm_judge.py --run-batch --folder "../scripts/data/ecology/reports/orkg-ask/o3-mini-test/" --topic "ecology" --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-eco-o3-mini"
 ```
 
 | Argument      | Description                                                                   |
@@ -181,7 +181,7 @@ python llm_judge.py --run-batch --folder "../data/ecology/reports/orkg-ask/o3-mi
 
 ## 📝 Example Runs
 
-The outputs from the folder `data/ecology/reports/orkg-ask/o3-mini-test` are already generated for both **single** and **batchwise** pipeline and available in `scripts/LLMJ-5-eco-o3-mini`.
+The outputs from the folder `scripts/data/ecology/reports/orkg-ask/o3-mini-test` are already generated for both **single** and **batchwise** pipeline and available in `scripts/LLMJ-5-eco-o3-mini`.
 
 ### 🤝 Contributing
 

@@ -26,29 +26,13 @@ except ImportError:
 
 # =================== Load Constants ===================
 
-def get_list(var_name):
-    value = os.getenv(var_name, "")
-    return [v.strip() for v in value.split(",") if v.strip()]
-
-def get_tuple(var_name):
-    value = os.getenv(var_name, "")
-    return tuple(float(v.strip()) for v in value.split(",") if v.strip())
-
-def get_int(var_name):
-    value = os.getenv(var_name, None)
-    return int(value) if value is not None else None
-
-def get_bool(var_name):
-    value = os.getenv(var_name, "").lower()
-    return value in ("1", "true", "yes", "y", "on")
-
-METRICS = get_list("METRICS")
-CONFIG_ORDER = get_list("CONFIG_ORDER")
-BAR_FIGSIZE = get_tuple("BAR_FIGSIZE")
-BATCH_FIGSIZE = get_tuple("BATCH_FIGSIZE")
-FILE_GLOB = os.getenv("FILE_GLOB", "*.md")
-MAX_FILES = get_int("MAX_FILES")
-SAVE_PROMPTS = get_bool("SAVE_PROMPTS")
+METRICS = ["depth", "breadth", "rigor", "innovation", "gap"]
+CONFIG_ORDER =["d1_b1", "d1_b4", "d4_b1", "d4_b4"]
+BAR_FIGSIZE = (9, 4.5)
+BATCH_FIGSIZE = (16, 12)
+FILE_GLOB = "*.md"
+MAX_FILES =  0
+SAVE_PROMPTS = False
 
 # =================== Core Helpers (Shared) ===================
 
@@ -411,80 +395,64 @@ def run_batch_report_mode(args: argparse.Namespace):
 # =================== Main Execution Control ===================
 
 def main():
-    # --- Single Report Default File ---
-    DEFAULT_REPORT = "../data/ecology/reports/orkg-ask/o3-mini-test/1_o3-mini_orkg_d1_b1.md"
-    
-    # --- Batch Report Mode Defaults (pulled from judge_batch.py) ---
-    BATCH_SETTINGS = {
-        "FOLDER": "../data/ecology/reports/orkg-ask/o3-mini-test",
-        "FILE_GLOB": FILE_GLOB,
-        "MAX_FILES": MAX_FILES,
-        "SAVE_PROMPTS": SAVE_PROMPTS,
-    }
-
     ap = argparse.ArgumentParser(
         description="Unified script for scoring single or batch research reports.",
         formatter_class=argparse.RawTextHelpFormatter
     )
 
-    # --- Mode Selection Argument ---
+    # --- Mode Selection ---
     ap.add_argument(
         "--run-batch",
         action="store_true",
-        help="Run in batch mode (requires --folder, ignores --report)."
+        help="Run in batch mode (requires --folder)."
     )
 
     # --- Common Arguments ---
-    ap.add_argument("--topic", default="ecology", choices=["ecology","nlp"], help="Domain (ecology|nlp)")
-    ap.add_argument("--out_dir", default="Test_out", help="Output directory for JSON/CSV/plots")
-    ap.add_argument("--model", default="o4-mini", help="OpenAI model (e.g., o4-mini).")
-    ap.add_argument("--no-plot", dest="plot", action="store_false", help="Skip plotting")
-    ap.set_defaults(plot=True) # Default is to plot
+    ap.add_argument("--topic", default="ecology", choices=["ecology", "nlp"],
+                    help="Domain (ecology|nlp)")
+    ap.add_argument("--out_dir", default="Test_out",
+                    help="Output directory for JSON/CSV/plots")
+    ap.add_argument("--model", default="o4-mini",
+                    help="OpenAI model (e.g., o3-mini).")
+    ap.add_argument("--no-plot", dest="plot", action="store_false",
+                    help="Skip plotting")
+    ap.set_defaults(plot=True)
 
-    # --- Single Report Arguments ---
-    ap.add_argument("--report", default=None, help=f"Path to a single DeepResearch .md report (Default: {DEFAULT_REPORT})")
+    # --- Single Mode Argument ---
+    ap.add_argument("--report", default=None,
+                    help="Path to a single DeepResearch .md report (REQUIRED for single mode)")
 
-    # --- Batch Report Arguments ---
-    ap.add_argument("--folder", default=None, help=f"Folder with reports (*.md) for batch mode (Default: {BATCH_SETTINGS['FOLDER']})")
-    ap.add_argument("--file_glob", default=BATCH_SETTINGS["FILE_GLOB"], help="File glob (default: *.md), only used in batch mode.")
-    ap.add_argument("--max_files", type=int, default=BATCH_SETTINGS["MAX_FILES"], help="Max files to process (0 = all), only used in batch mode.")
-    ap.add_argument("--save_prompts", action="store_true", default=BATCH_SETTINGS["SAVE_PROMPTS"], help="Store prompts per question, only used in batch mode.")
-    
+    # --- Batch Mode Arguments ---
+    ap.add_argument("--folder", default=None,
+                    help="Folder containing reports (*.md) for batch mode (REQUIRED for batch mode)")
+    ap.add_argument("--file_glob", default="*.md",
+                    help="File glob (default: *.md), only used in batch mode.")
+    ap.add_argument("--max_files", type=int, default=0,
+                    help="Max files to process (0 = all), only used in batch mode.")
+    ap.add_argument("--save_prompts", action="store_true",
+                    help="Store prompts per question, only used in batch mode.")
+
     args = ap.parse_args()
 
-    # =================== ARGUMENT VALIDATION ===================
-    
-    is_batch_mode_flag = args.run_batch
-    is_batch_mode_arg = args.folder is not None
-    is_single_mode_arg = args.report is not None
+    # ================= ARGUMENT VALIDATION =====================
 
-    if is_batch_mode_flag or is_batch_mode_arg:
-        # Batch mode is requested/inferred
-        if not is_batch_mode_arg:
-            # If --run-batch is used but no --folder is given, use the default folder
-            args.folder = BATCH_SETTINGS["FOLDER"]
+    if args.run_batch:
+        # --- Batch Mode ---
+        if args.folder is None:
+            ap.error("Batch mode requires --folder. Example: --run-batch --folder path/to/reports")
 
-        if is_single_mode_arg:
-             print("Warning: Both --report and --folder arguments detected. Running in **Batch Mode** as requested/inferred by --folder/--run-batch.")
-        
-        # Run Batch Mode
+        if args.report is not None:
+            print("Warning: --report ignored because --run-batch is enabled.")
+
         run_batch_report_mode(args)
+        return
 
-    elif is_single_mode_arg:
-        # Single mode is requested
-        if args.report is None:
-            # If --report is specified but is None (via default), use the default report path
-            args.report = DEFAULT_REPORT
-            
-        # Run Single Report Mode
-        run_single_report_mode(args)
-        
-    else:
-        # Default to single report mode if no mode flags are set AND the default report path is used.
-        # This handles the case where the user runs with no arguments.
-        print(f"No --report or --folder argument specified. Defaulting to Single Report Mode with: {DEFAULT_REPORT}")
-        args.report = DEFAULT_REPORT
-        run_single_report_mode(args)
+    # --- Single File Mode ---
+    if args.report is None:
+        ap.error("Single-report mode requires --report. Example: --report path/to/file.md")
+
+    run_single_report_mode(args)
+
 
 if __name__ == "__main__":
     main()
