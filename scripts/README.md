@@ -1,131 +1,74 @@
-# Research Evaluation Pipeline
+<div align="center">
+     <img src="../scripts/images/logo.png" alt="LLM Judge Logo" width="500"/>
+</div>
 
-# Dict based eval:
+<div align="center">
+ <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+</div>
 
-1) Install:
+<h2 align="center">LLM-as-a-Judge (LLMJ) Framework</h2>
+
+The **LLM-as-a-Judge** is a robust, Python-based evaluation toolkit designed for objective and configurable analysis of Large Language Model (LLM)-generated research reports. It enables researchers to quantify report quality across key dimensions like `breadth`, `depth`, `rigor`, `gap` and `innovation`.
+
+---
+
+## Usage
+
+LLM-as-a-Judge includes two operation modes:
+
+## Single Report Mode
+
+Use this when you want to evaluate a single markdown (.md) report:
+
 ```bash
-pip install pandas numpy matplotlib tqdm
+python llm_judge.py --report "../scripts/test-reports/ecology/1_o3-mini_orkg_d1_b1.md" --topic "ecology" --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-eco-o3-mini"
 ```
 
-2) In `scripts/qual_analysis_thesis.py`, set ONLY these lines at the top:
-```python
-depth_breadth_filename_patterns = ['d1_b1', 'd1_b4', 'd4_b1', 'd4_b4']
-model_and_search_pattern = "o3-mini_orkg"   # e.g., "o3_orkg" or "o3-mini_orkg"
-topic = "ecology"                           # "ecology" or "nlp"
-REPORT_DIR = f'../data/{topic}-reports/orkg-ask/{_model_root}'
+| Argument   | Description                                             |
+|------------|---------------------------------------------------------|
+| `--report` | Path to the markdown report to be evaluated             |
+| `--topic`  | Topic/category of the report (e.g: nlp/ecology)         |
+| `--model`  | LLM to be used for scoring                            |
+| `--out_dir`| Directory where output files (JSON, CSV, plots) will be saved |
 
-# Optional run label
-OUTPUT_SUFFIX = "_main"
-```
 
-3) Data and Dict
-Dictionary check (must exist):
-- `scripts/vocab/ecology_dictionaries.json` (for ecology), or
-- `scripts/vocab/nlp_dictionaries.json` (for nlp)
+## Batch Mode
 
-If needed adjust Terms inside of groups or weights in there:
-
-...
-  "complexity_terms": [
-    "nonlinear", "emergent", "synergistic", "interconnected", "complex", "multifaceted"
-  ],
-
-  "weights": {
-    "alpha": {
-      "depth": 0.31,
-      "breadth": 0.27,
-      "rigor": 0.17,
-      "innov": 0.17,
-      "gap": 0.08
-
-...
-
-The pipeline expects research documents in the following structure:
-```
-data/ecology-reports/orkg-ask/o3/
-├── 1_o3_orkg_d1_b1.md
-├── 1_o3_orkg_d1_b4.md
-├── 1_o3_orkg_d4_b1.md
-├── 1_o3_orkg_d4_b4.md
-├── 2_o3_orkg_d1_b1.md
-└── ...
-```
-
-4) Run from `scripts/`:
+Run batch evaluation on all markdown (.md) reports within the specified folder:
 ```bash
-python qual_analysis_thesis.py
+python llm_judge.py --run-batch --folder "../scripts/test-reports/ecology" --topic "ecology" --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-eco-o3-mini"
 ```
 
-5) Outputs will appear in:
-```
-docs_thesis_{topic}_{model_and_search_pattern}{OUTPUT_SUFFIX}/
-├─ figures/
-└─ comprehensive_summary_statistics.csv
-```
+| Argument      | Description                                                                   |
+| ------------- | ----------------------------------------------------------------------------- |
+| `--run-batch` | Flag indicating batch processing mode (process all files in the folder)       |
+| `--folder`    | Path to the folder containing multiple markdown report files                  |
+| `--topic`     | Topic/category of the report (e.g: nlp/ecology)                               |
+| `--model`     | LLM to be used for scoring                                                  |
+| `--out_dir`   | Directory where output files (CSV, plots) for all reports will be saved       |
 
-# LLM Judge based eval:
 
-1) Install:
+## Optional Arguments
+
+| Flag          | Description                               |
+|---------------|-------------------------------------------|
+| `--no-plot`   | Disable plotting and figure generation     |
+| `--file_glob` | Override `FILE_GLOB` pattern               |
+| `--max_files` | Limit number of reports processed          |
+| `--save_prompts` | Store prompts used during evaluation   |
+
+## Example Outputs
+
+Example results for both `single` and `batch` modes are available under: 
 ```bash
-pip install numpy matplotlib
+../scripts/LLMJ-5-eco-o3-mini
 ```
+This includes:
 
-2) In scripts/llmj_batch.py, set ONLY these lines at the top:
+- JSON score summaries
 
-```python
-SETTINGS = {
-  "FOLDER": "../data/ecology-reports/orkg-ask/o3",  # input with *.md reports (generator = o3 or o3-mini)
-  "OUT_DIR": "LLMJ-5-eco-o3",                       # output folder name
-  "TOPIC": "ecology",                               # "ecology" or "nlp" (or None to auto-detect)
-  "MODEL": "gpt-5-2025-08-07",                      # judge: GPT-5 (use *-mini for the comparison runs)
-  "FILE_GLOB": "*.md",                              # use "**/*.md" for recursive folders if needed
-  "MAX_FILES": 0,                                   # 0 = all files
-  "SAVE_PROMPTS": False,                            # True = store system+user prompts per metric
-  "FIGSIZE": (16, 12),
-}
-# Fixed in the script:
-# METRICS = ["depth", "breadth", "rigor", "innovation", "gap"]
-# CONFIG_ORDER = ["d1_b1", "d1_b4", "d4_b1", "d4_b4"]
-```
+- CSV score breakdowns
 
-3) Data and filenames:
+- Quality dimensions plots
 
-Use the same report folders as for the dict eval; filenames must contain a config tag:
-../data/{topic}-reports/orkg-ask/{engine}/
-├── 1_o3_orkg_d1_b1.md
-├── 1_o3_orkg_d1_b4.md
-├── 1_o3_orkg_d4_b1.md
-├── 1_o3_orkg_d4_b4.md
-└── ...
-
-Here {engine} is the generator (o3 or o3-mini). The judge is chosen via MODEL (e.g., gpt-5-2025-08-07 for main results, gpt-5-mini-2025-08-07 for the comparison).
-Each metric call returns a strict JSON integer in [0,100] (no sampling, no free text); the script rescales to [0,1] and computes a local overall as the mean of the five dimensions.
-
-4) Run from scripts/ or adjust in File as reffered in 2):
-
-# Examples:
-
-# Ecology, generator=o3, judge=GPT-5 (main results)
-python llmj_batch.py --folder "../data/ecology-reports/orkg-ask/o3" --topic ecology \
-  --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-eco-o3"
-
-# Ecology, generator=o3-mini, judge=GPT-5
-python llmj_batch.py --folder "../data/ecology-reports/orkg-ask/o3-mini" --topic ecology \
-  --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-eco-o3-mini"
-
-# NLP, generator=o3, judge=GPT-5
-python llmj_batch.py --folder "../data/nlp-reports/orkg-ask/o3" --topic nlp \
-  --model "gpt-5-2025-08-07" --out_dir "LLMJ-5-nlp-o3"
-
-# (Optional judge comparison) NLP, generator=o3, judge=GPT-5-mini
-python llmj_batch.py --folder "../data/nlp-reports/orkg-ask/o3" --topic nlp \
-  --model "gpt-5-mini-2025-08-07" --out_dir "LLMJ-5-mini-nlp-o3"
-
-5) Outputs will appear in:
-
-"OUT_DIR": "LLMJ-5-eco-o3/"
-├─ quality_dimensions.png            # 6 panels (Depth, Breadth, Rigor, Innovation, Gap, Overall)
-├─ batch_reports.csv                 # per-report scores (0..1) + config + path
-├─ batch_config_summary.csv          # means/std per config in fixed order
-└─ <one folder per report>/scores.csv  # +/prompts/*.json if SAVE_PROMPTS=True
-
+This work is licensed under a [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT).
