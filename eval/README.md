@@ -78,14 +78,6 @@ Use the batch evaluation notebook to evaluate all markdown (`.md`) reports withi
 3. Run all cells sequentially.
 
 ---
-## Optional Arguments
-
-| Flag          | Description                                |
-|---------------|--------------------------------------------|
-| `--no-plot`   | Disable plotting and figure generation     |
-| `--file_glob` | Override `FILE_GLOB` pattern               |
-| `--max_files` | Limit number of reports processed          |
-| `--save_prompts` | Store prompts used during evaluation    |
 
 
 This work is licensed under a [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT).
