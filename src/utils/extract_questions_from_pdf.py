@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
 """
-Extract the 100 testable conservation questions from:
+Extract conservation questions from:
 Sutherland et al. (2022) "Creating testable questions in practical conservation:
 a process and 100 questions", Conservation Evidence Journal 19, 1-7.
 
@@ -10,7 +9,7 @@ Output: a CSV with one row per question:
     index, question, theme
 
 Usage:
-    python extract_questions.py [--pdf path/to/local.pdf] [--out questions.csv]
+    python extract_questions_from_pdf.py [--pdf path/to/local.pdf] [--out output_path/100-questions-sutherland.csv]
 
 If --pdf is omitted, the script downloads the PDF from the journal URL.
 """
