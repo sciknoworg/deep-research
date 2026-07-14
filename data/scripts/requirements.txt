@@ -1,0 +1,2 @@
+pdfplumber==0.11.10
+requests==2.32.3
